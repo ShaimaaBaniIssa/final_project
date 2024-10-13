@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  constructor() { }
+  constructor(public http:HttpClient) {
+    // api code
+   }
 }

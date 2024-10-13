@@ -25,12 +25,6 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/Home/lib/animate/animate.min.css",
-              "src/assets/Home/lib/owlcarousel/assets/owl.carousel.min.css",
-              "src/assets/Home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css",
-              "src/assets/Home/css/bootstrap.min.css",
-              "src/assets/Home/css/style.css",
               "src/assets/Auth/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/Auth/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
               "src/assets/Auth/fonts/Linearicons-Free-v1.0.0/icon-font.min.css",
@@ -40,16 +34,16 @@
               "src/assets/Auth/vendor/select2/select2.min.css",
               "src/assets/Auth/vendor/daterangepicker/daterangepicker.css",
               "src/assets/Auth/css/util.css",
-              "src/assets/Auth/css/main.css"
+              "src/assets/Auth/css/main.css",
+              "src/assets/Home/css/bootstrap.css",
+              "src/assets/Home/css/bootstrap-icons.css",
+              "src/assets/Home/css/plugins.css",
+              "src/assets/Home/css/ff-1.css",
+              "src/assets/Home/css/ff-2.css",
+              "src/assets/Home/css/style.css"
+
             ],
             "scripts": [
-              "src/assets/Home/lib/wow/wow.min.js",
-              "src/assets/Home/lib/easing/easing.min.js",
-              "src/assets/Home/lib/waypoints/waypoints.min.js",
-              "src/assets/Home/lib/owlcarousel/owl.carousel.min.js",
-              "src/assets/Home/lib/tempusdominus/js/moment.min.js",
-              "src/assets/Home/lib/tempusdominus/js/moment-timezone.min.js",
-              "src/assets/Home/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js",
               "src/assets/Auth/vendor/jquery/jquery-3.2.1.min.js",
               "src/assets/Auth/vendor/animsition/js/animsition.min.js",
               "src/assets/Auth/vendor/bootstrap/js/popper.js",
@@ -58,7 +52,11 @@
               "src/assets/Auth/vendor/daterangepicker/moment.min.js",
               "src/assets/Auth/vendor/daterangepicker/daterangepicker.js",
               "src/assets/Auth/vendor/countdowntime/countdowntime.js",
-              "src/assets/Auth/js/main.js"
+              "src/assets/Auth/js/main.js",
+
+              "src/assets/Home/js/bootstrap.bundle.js",
+              "src/assets/Home/js/plugins.js",
+              "src/assets/Home/js/app.js"
             ]
           },
           "configurations": {
