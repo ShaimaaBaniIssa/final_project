@@ -1,69 +1,59 @@
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login100-form validate-form">
-                <span class="login100-form-title p-b-43">
-                    Login to continue
-                </span>
-
-
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="email" formControlName="email"
-                        list="savedEmails" (change)="onEmailSelected($event)">
-                    <span class="focus-input100"></span>
-
+<app-navbar></app-navbar>
+<div class="banner section-space-y">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="section-space-md-y text-center">
+                    <h1 class="h2 text-light">Sign In</h1>
+                    <ul class="list list-row list-dot list-dot-md justify-content-center">
+                        <li><a routerLink="/home" class="link text-light hover:text-primary">Home</a></li>
+                        <li><a href="#" class="link text-primary hover:text-primary">Sign In</a></li>
+                    </ul>
                 </div>
-
-
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="password"
-                        formControlName="password">
-                    <span class="focus-input100"></span>
-
-                </div>
-
-                <div class="flex-sb-m w-full p-t-3 p-b-32">
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"
-                            formControlName="rememberMe">
-                        <label class="label-checkbox100" for="ckb1">
-                            Remember me
-                        </label>
-                    </div>
-
-                    <div>
-                        <a href="#" class="txt1">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" type="submit">
-                        Login
-                    </button>
-                </div>
-
-                <div class="text-center p-t-46 p-b-20">
-                    <span class="txt2">
-                        or sign up using
-                    </span>
-                </div>
-
-                <div class="login100-form-social flex-c-m">
-                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                        <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                    </a>
-
-                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </form>
-
-            <div class="login100-more" style="background-image: url('../../../assets/Auth/images/bg-01.jpg');">
             </div>
         </div>
     </div>
 </div>
+
+<div class="section-space-y">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6"><img src="../../../assets/Home/img/sign-up-img.png" alt="image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <h4>Login</h4>
+                    <p class="mb-8 text-dark text-opacity-60">Please Sign In here</p>
+                    <div class="row g-4">
+                        <!-- <div class="col-12">
+                            <input type="text" class="form-control border-secondary bg-secondary"
+                                placeholder="Name">
+                            </div> -->
+                        <div class="col-12">
+                            <input type="email" class="form-control border-secondary bg-secondary" placeholder="Email"
+                                formControlName="email" list="savedEmails" (change)="onEmailSelected($event)">
+
+                            <datalist id="savedEmails">
+                                <option *ngFor="let email of savedEmails" [value]="email"></option>
+                            </datalist>
+
+                        </div>
+                        <div class="col-12"><input type="password" class="form-control border-secondary bg-secondary"
+                                placeholder="Password" formControlName="password">
+                        </div>
+                        <div class="col-12">
+                            <input id="remember" type="checkbox" name="remember-me" formControlName="rememberMe">
+                            <label for="remember">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="col-12"><button type="submit"
+                                class="btn btn-primary text-light justify-content-center w-100">
+                                Login </button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

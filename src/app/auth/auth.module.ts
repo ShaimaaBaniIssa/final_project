@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; // Import this
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 @NgModule({
@@ -13,9 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import this
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthRoutingModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

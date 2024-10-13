@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
       }
 
       // move to home page
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }
   }
 

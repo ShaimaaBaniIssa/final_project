@@ -1,45 +1,61 @@
 <nav class="navbar navbar-expand-lg navbar-overlay z-3">
-    <div class="container"><a href="index.html" class="logo d-block"><img src="../../assets/Home/img/logo-dark.png" alt="logo" class="logo__img"> </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryMenu" aria-controls="primaryMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a href="index.html" class="logo d-block"><img src="../../assets/Home/img/logo-dark.png"
+                alt="logo" class="logo__img"> </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#primaryMenu" aria-controls="primaryMenu" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="primaryMenu">
             <ul class="navbar-nav justify-content-end align-items-lg-center w-100">
-                <li class="nav-item has-sub active ms-lg-auto"><a class="nav-link fs-14" routerLink="/" >Home</a>
+                <li class="nav-item has-sub active ms-lg-auto"><a class="nav-link fs-14" routerLink="/">Home</a>
                     <ul class="list sub-menu">
-                        <li class="sub-menu__list"><a href="index.html" class="link sub-menu__link fs-14">Home 1</a></li>
-                        <li class="sub-menu__list"><a href="index-2.html" class="link sub-menu__link fs-14">Home 2</a></li>
-                        <li class="sub-menu__list"><a href="index-3.html" class="link sub-menu__link fs-14">Home 3</a></li>
+                        <li class="sub-menu__list"><a href="index.html" class="link sub-menu__link fs-14">Home 1</a>
+                        </li>
+                        <li class="sub-menu__list"><a href="index-2.html" class="link sub-menu__link fs-14">Home 2</a>
+                        </li>
+                        <li class="sub-menu__list"><a href="index-3.html" class="link sub-menu__link fs-14">Home 3</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-sub"><a class="nav-link fs-14" href="#">Blog</a>
                     <ul class="list sub-menu">
                         <li class="sub-menu__list"><a href="blog.html" class="link sub-menu__link fs-14">Blog</a></li>
-                        <li class="sub-menu__list"><a href="blog-details.html" class="link sub-menu__link fs-14">Blog Details</a></li>
+                        <li class="sub-menu__list"><a href="blog-details.html" class="link sub-menu__link fs-14">Blog
+                                Details</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-sub"><a class="nav-link fs-14" href="#">Destination</a>
                     <ul class="list sub-menu">
-                        <li class="sub-menu__list"><a href="destination.html" class="link sub-menu__link fs-14">Destination</a></li>
-                        <li class="sub-menu__list"><a href="destination-details.html" class="link sub-menu__link fs-14">Destination Details</a></li>
+                        <li class="sub-menu__list"><a href="destination.html"
+                                class="link sub-menu__link fs-14">Destination</a></li>
+                        <li class="sub-menu__list"><a href="destination-details.html"
+                                class="link sub-menu__link fs-14">Destination Details</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-sub"><a class="nav-link fs-14" href="#">Pages</a>
                     <ul class="list sub-menu">
                         <li class="sub-menu__list"><a href="about.html" class="link sub-menu__link fs-14">About</a></li>
-                        <li class="sub-menu__list"><a href="pricing.html" class="link sub-menu__link fs-14">Pricing</a></li>
+                        <li class="sub-menu__list"><a href="pricing.html" class="link sub-menu__link fs-14">Pricing</a>
+                        </li>
                         <li class="sub-menu__list"><a href="faq.html" class="link sub-menu__link fs-14">FAQ</a></li>
-                        <li class="sub-menu__list"><a href="checkout.html" class="link sub-menu__link fs-14">Checkout</a></li>
-                        <li class="sub-menu__list"><a href="checkout-confirm.html" class="link sub-menu__link fs-14">Checkout Confirm</a></li>
-                        <li class="sub-menu__list"><a href="sign-up.html" class="link sub-menu__link fs-14">Sign Up</a></li>
-                        <li class="sub-menu__list"><a href="forget-password.html" class="link sub-menu__link fs-14">Forget Password</a></li>
-                        <li class="sub-menu__list"><a href="terms.html" class="link sub-menu__link fs-14">Terms & Condition</a></li>
+                        <li class="sub-menu__list"><a href="checkout.html"
+                                class="link sub-menu__link fs-14">Checkout</a></li>
+                        <li class="sub-menu__list"><a href="checkout-confirm.html"
+                                class="link sub-menu__link fs-14">Checkout Confirm</a></li>
+                        <li class="sub-menu__list"><a href="sign-up.html" class="link sub-menu__link fs-14">Sign Up</a>
+                        </li>
+                        <li class="sub-menu__list"><a href="forget-password.html"
+                                class="link sub-menu__link fs-14">Forget Password</a></li>
+                        <li class="sub-menu__list"><a href="terms.html" class="link sub-menu__link fs-14">Terms &
+                                Condition</a></li>
                         <li class="sub-menu__list"><a href="error.html" class="link sub-menu__link fs-14">404</a></li>
                     </ul>
                 </li>
-                
-                  
-                <li class="nav-item"><a class="nav-link fs-14" routerLink="/contactus" >Contact</a></li>
+
+
+                <li class="nav-item"><a class="nav-link fs-14" routerLink="/contactus">Contact</a></li>
                 <li class="nav-item ms-lg-auto">
                     <ul class="list list-row gap-2">
-                        <li><a href="login.html" class="btn btn-success text-white fs-14">Book Trip</a></li>
+                        <!-- check if user is loged or not -->
+                        <li><a routerLink="/auth/login" class="btn btn-success text-white fs-14">Login</a></li>
                     </ul>
                 </li>
             </ul>
