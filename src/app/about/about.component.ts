@@ -10,6 +10,8 @@ export class AboutComponent {
   aboutUsTitle = "See Destinations You’ll Love To Visit";
   aboutUsDescription = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.";
   mainImage = "../../assets/Home/img/about-img-7.png";
+  Icon="../../assets/Home/img/about-img-1.png";
+
   projectname="Train Tracker";
   name="Team member";
  image ="../../assets/Home/img/Team.png";

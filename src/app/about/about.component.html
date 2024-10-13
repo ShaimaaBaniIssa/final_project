@@ -1,13 +1,32 @@
 <body>
     <app-navbar></app-navbar>
-    
+    <!-- Banner -->
+  <div class="banner section-space-y mt-16">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="section-space-md-y text-center">
+            <h1 class="h2 text-light">About</h1>
+            <ul class="list list-row list-dot list-dot-md justify-content-center">
+              <li>
+                <a href="index.html" class="link text-light hover:text-primary">Home</a>
+              </li>
+              <li>
+                <a routerLink="/about" class="link text-primary hover:text-primary">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- About Us -->
 <div class="section-space-y">
     <div class="container">
         <div class="row g-4 align-items-center">
             <!-- Main Image -->
             <div class="col-lg-6">
-                <img src="{{mainImage}}" alt="About Us Image" class="img-fluid"> <!-- Data binding for main image -->
+                <img src="{{Icon}}" alt="About Us Image" class="img-fluid"> <!-- Data binding for main image -->
             </div>
             
             <!-- About Us Content -->
@@ -40,45 +59,49 @@
     </div>
 </div>
 
-<!-- Testimonials Section -->
+<!-- Feedback -->
 <div class="section-space-y">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <span class="text-primary d-block">TESTIMONIALS</span>
-                <h2 class="mb-0">What Our Clients Say About Us</h2>
-            </div>
-        </div>
-
-        <div class="row mt-8">
-            <div class="col-12">
-                <div class="swiper feedback-slider">
-                    <div class="swiper-wrapper">
-                        <div *ngFor="let testimonial of testimonials" class="swiper-slide">
-                            <div class="card feedback-card">
-                                <div class="card-body feedback-card__body">
-                                    <div class="d-flex align-items-center gap-3 mb-2">
-                                        <img [src]="testimonial.image" alt="User Image" class="img-fluid rounded-circle">
-                                        <div>
-                                            <h6 class="mb-0 fs-18">{{testimonial.name}}</h6>
-                                            <span class="d-block fs-14">{{testimonial.role}}</span>
-                                        </div>
-                                    </div>
-                                    <ul class="list list-row gap-1 align-items-center mb-2">
-                                        <li *ngFor="let star of [].constructor(testimonial.rating)">
-                                            <span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span>
-                                        </li>
-                                    </ul>
-                                    <p class="fs-14 mb-0">{{testimonial.text}}</p>
-                                </div>
-                            </div>
-                        </div>
+    <div class="section-space-md-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="text-center">
+                        <span class="d-block mb-1 fs-14 text-primary fw-medium">Testimonial</span>
+                        <h2 class="mb-0">What Our Travellers Said About Us</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="feedback-slider-1-container position-relative">
+                    <div class="swiper feedback-slider-1">
+                        <div class="swiper-wrapper">
+                            <!-- Loop through testimonials -->
+                            <div *ngFor="let testimonial of testimonials" class="swiper-slide">
+                                <div class="feedback-1 text-center border border-success rounded px-4 py-6 px-sm-15 py-sm-15 px-md-20">
+                                    <div class="feedback-1__img d-grid place-content-center w-20 h-20 mx-auto rounded-circle overflow-hidden position-relative mb-6">
+                                        <img [src]="testimonial.image" alt="Image of {{testimonial.name}}" class="img-fluid w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="feedback-1__body">
+                                        <p class="mb-6 max-text-20 mx-auto">{{ testimonial.text }}</p>
+                                        <h6 class="mb-2">{{ testimonial.name }}</h6>
+                                        <span class="d-block fs-14">{{ testimonial.role }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of testimonial loop -->
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev feedback-1__prev"><i class="bi bi-arrow-left"></i></div>
+                    <div class="swiper-button-next feedback-1__next"><i class="bi bi-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /Feedback -->
 <!-- Team  -->
 <div class="section-space-top section-space-md-bottom">
     <div class="section-space-md-bottom">
