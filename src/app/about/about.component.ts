@@ -11,8 +11,8 @@ export class AboutComponent {
   aboutUsDescription = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.";
   mainImage = "../../assets/Home/img/about-img-7.png";
   projectname="Train Tracker";
-  name="Foryraa";
- image ="../../assets/Home/img/Foryra1.JPG";
+  name="Team member";
+ image ="../../assets/Home/img/Team.png";
  postion = "Full Stack Developer";
  personalText ="I’ll will help you to build strategy from scratch till deliver";
   features = [
