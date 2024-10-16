@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<div class="banner section-space-y">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="section-space-md-y text-center">
+                    <h1 class="h2 text-light">Sign In</h1>
+                    <ul class="list list-row list-dot list-dot-md justify-content-center">
+                        <li><a routerLink="/home" class="link text-light hover:text-primary">Home</a></li>
+                        <li><a href="#" class="link text-primary hover:text-primary">Sign In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-space-y">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6"><img src="../../../assets/Home/img/sign-up-img.png" alt="image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <h4>Register</h4>
+                    <p class="mb-8 text-dark text-opacity-60">Please Sign In here</p>
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <input type="text" class="form-control border-secondary bg-secondary"
+                                placeholder="First Name" formControlName="fname">
+                            <span *ngIf="registerForm.controls['fname'].hasError('required') &&
+                                registerForm.controls['fname'].touched  " style="color:red; font-size: small;">
+                                First Name is <strong>Required</strong></span>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control border-secondary bg-secondary"
+                                placeholder="Last Name" formControlName="lname">
+                            <span *ngIf="registerForm.controls['lname'].hasError('required') &&
+                                registerForm.controls['lname'].touched  " style="color:red; font-size: small;">
+                                Last Name is <strong>Required</strong></span>
+                        </div>
+                        <div class="col-12">
+                            <input type="tel" class="form-control border-secondary bg-secondary"
+                                placeholder="phonenumber" formControlName="phonenumber">
+                            <span *ngIf="registerForm.controls['phonenumber'].hasError('required') &&
+                                registerForm.controls['phonenumber'].touched  " style="color:red; font-size: small;">
+                                Phonenumber is <strong>Required</strong></span>
+                        </div>
+                        <div class="col-12">
+
+
+                            <label for="city">Select a City:</label>
+                            <select formControlName="address" class="form-control border-secondary bg-secondary">
+                                <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control border-secondary bg-secondary" placeholder="username"
+                                formControlName="username">
+                            <span *ngIf="registerForm.controls['username'].hasError('required') &&
+                                registerForm.controls['username'].touched  " style="color:red; font-size: small;">
+                                Username is <strong>Required</strong></span>
+
+                            <span *ngIf="registerForm.controls['username'].hasError('minlength') &&
+                                registerForm.controls['username'].touched  " style="color:red; font-size: small;">
+                                Username should be more than 5 charachters</span>
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control border-secondary bg-secondary" placeholder="Email"
+                                formControlName="email">
+                            <span *ngIf="registerForm.controls['email'].hasError('required') &&
+                                registerForm.controls['email'].touched  " style="color:red; font-size: small;">
+                                email is <strong>Required</strong></span>
+
+                            <span *ngIf="registerForm.controls['email'].hasError('minlength') &&
+                                registerForm.controls['email'].touched  " style="color:red; font-size: small;">
+                                Enter a valid email</span>
+                        </div>
+                        <div class="col-12"><input type="password" class="form-control border-secondary bg-secondary"
+                                placeholder="Password" formControlName="password">
+                            <span *ngIf="registerForm.controls['password'].hasError('required') &&
+                                registerForm.controls['password'].touched  " style="color:red; font-size: small;">
+                                password is <strong>Required</strong></span>
+                        </div>
+
+                        <div class="col-12"><button type="submit"
+                                class="btn btn-primary text-light justify-content-center w-100"
+                                [disabled]="!registerForm.valid">
+                                Register </button></div>
+                    </div>
+                </form>
+                <p style="cursor: pointer;" class="col-12 pt-3" (click)="goToLogin()">
+                    Already have an account</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

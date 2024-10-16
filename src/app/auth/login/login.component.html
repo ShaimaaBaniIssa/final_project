@@ -30,11 +30,12 @@
                                 placeholder="Name">
                             </div> -->
                         <div class="col-12">
-                            <input type="email" class="form-control border-secondary bg-secondary" placeholder="Email"
-                                formControlName="email" list="savedEmails" (change)="onEmailSelected($event)">
+                            <input type="text" class="form-control border-secondary bg-secondary"
+                                placeholder="user name" formControlName="username" list="savedUsers"
+                                (click)="onUsernameSelected($event)">
 
-                            <datalist id="savedEmails">
-                                <option *ngFor="let email of savedEmails" [value]="email"></option>
+                            <datalist id="savedUsers">
+                                <option *ngFor="let user of savedUsers" [value]="user"></option>
                             </datalist>
 
                         </div>
