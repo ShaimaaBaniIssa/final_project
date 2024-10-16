@@ -25,10 +25,7 @@
                     <h4>Login</h4>
                     <p class="mb-8 text-dark text-opacity-60">Please Sign In here</p>
                     <div class="row g-4">
-                        <!-- <div class="col-12">
-                            <input type="text" class="form-control border-secondary bg-secondary"
-                                placeholder="Name">
-                            </div> -->
+
                         <div class="col-12">
                             <input type="text" class="form-control border-secondary bg-secondary"
                                 placeholder="user name" formControlName="username" list="savedUsers"
@@ -38,9 +35,17 @@
                                 <option *ngFor="let user of savedUsers" [value]="user"></option>
                             </datalist>
 
+                            <span *ngIf="loginForm.controls['username'].hasError('required') &&
+                            loginForm.controls['username'].touched  " style="color:red; font-size: small;">
+                                User name is <strong>Required</strong></span>
+
                         </div>
-                        <div class="col-12"><input type="password" class="form-control border-secondary bg-secondary"
+                        <div class="col-12">
+                            <input type="password" class="form-control border-secondary bg-secondary"
                                 placeholder="Password" formControlName="password">
+                            <span *ngIf="loginForm.controls['password'].hasError('required') &&
+                                loginForm.controls['password'].touched  " style="color:red; font-size: small;">
+                                password is <strong>Required</strong></span>
                         </div>
                         <div class="col-12">
                             <input id="remember" type="checkbox" name="remember-me" formControlName="rememberMe">
