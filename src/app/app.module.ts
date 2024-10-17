@@ -9,6 +9,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SharedModule } from './shared/shared.module';
 import { AboutComponent } from './about/about.component';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     ContactUsComponent,
     AboutComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ToastNoAnimationModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

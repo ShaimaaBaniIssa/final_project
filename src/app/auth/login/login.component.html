@@ -29,7 +29,7 @@
                         <div class="col-12">
                             <input type="text" class="form-control border-secondary bg-secondary"
                                 placeholder="user name" formControlName="username" list="savedUsers"
-                                (click)="onUsernameSelected($event)">
+                                (change)="onUsernameSelected($event)">
 
                             <datalist id="savedUsers">
                                 <option *ngFor="let user of savedUsers" [value]="user"></option>

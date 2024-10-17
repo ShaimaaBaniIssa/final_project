@@ -31,7 +31,8 @@
               "src/assets/Home/css/plugins.css",
               "src/assets/Home/css/ff-1.css",
               "src/assets/Home/css/ff-2.css",
-              "src/assets/Home/css/style.css"
+              "src/assets/Home/css/style.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/Home/js/bootstrap.bundle.js",

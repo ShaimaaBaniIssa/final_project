@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
 
     //find the saved password for the selected username
     const storedCredentials = this.localStorageService.getUsersSavedData();
-    console.log(storedCredentials);
-    const matchingCredentials = storedCredentials.find((cred: any) => cred.username === selectedUsername);
+    const matchingCredentials = storedCredentials.find((cred: any) => cred.username == selectedUsername);
 
     // if the username is already saved
     if (matchingCredentials) {
@@ -54,14 +53,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(this.loginForm.value);
 
-      // if the login is successfull
-      // save username and password
-      if (this.loginForm.value.rememberMe) {
-        this.localStorageService.saveCredentials(this.loginForm.value.username, this.loginForm.value.password);
-      }
 
-      // move to home page
-      this.router.navigate(['/']);
     }
   }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,20 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
+    private localStorageService: LocalStorageService
   ) { }
 
   login(body: any) {
 
-    this.httpClient.post('https://localhost:7019/api/Login/login', body)
-      .subscribe((resp) => {
-        console.log('login Sucessfully');
+    debugger;
+    this.httpClient.post('https://localhost:7019/api/Login/login', body, { responseType: 'text' })
+      .subscribe((resp: any) => {
+        this.router.navigate(['']);
       }, err => {
-        console.log('Something wont wrong');
+        this.toastr.error("invalid username or password");
       })
-    return false;
 
   }
   register(body: any) {
@@ -28,10 +31,16 @@ export class AuthService {
 
     this.httpClient.post('https://localhost:7019/api/Login/Registration', body)
       .subscribe((resp) => {
+        if (body.rememberMe) {
+
+          // if the login is successfull
+          // save username and password
+          this.localStorageService.saveCredentials(body.username, body.password);
+        }
         this.router.navigate(['auth/login']);
       }, err => {
         // toastr
-        console.log('Something wont wrong');
+        this.toastr.error("Invalid register");
       })
 
 
