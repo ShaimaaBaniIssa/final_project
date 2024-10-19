@@ -10,13 +10,19 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SharedModule } from './shared/shared.module';
 import { AboutComponent } from './about/about.component';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { StationComponent } from './station/station.component';
+import { AllStationComponent } from './all-station/all-station.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    AboutComponent
+    AboutComponent,
+    TestimonialComponent,
+    StationComponent,
+    AllStationComponent
 
   ],
   imports: [

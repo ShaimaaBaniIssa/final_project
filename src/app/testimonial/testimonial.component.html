@@ -1,0 +1,46 @@
+<div class="section-space-y">
+    <div class="section-space-md-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="text-center">
+                        <span class="d-block mb-1 fs-14 text-primary fw-medium">Testimonial</span>
+                        <h2 class="mb-0">What Our Travellers Said About Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="feedback-slider-1-container position-relative">
+                    <div class="swiper feedback-slider-1">
+                        <div class="swiper-wrapper">
+                            <!-- Loop through testimonials -->
+                            <div *ngFor="let testimonial of testimonialService.testimonials" class="swiper-slide">
+                                <div
+                                    class="feedback-1 text-center border border-success rounded px-4 py-6 px-sm-15 py-sm-15 px-md-20">
+                                    <div
+                                        class="feedback-1__img d-grid place-content-center w-20 h-20 mx-auto rounded-circle overflow-hidden position-relative mb-6">
+                                        <img src="../../assets/Images/user.png" alt="Image of {{testimonial.name}}"
+                                            class="img-fluid w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="feedback-1__body">
+                                        <h6 class="mb-2">{{ testimonial.stationname }}</h6>
+                                        <p class="mb-6 max-text-20 mx-auto">{{ testimonial.commenttext }}</p>
+
+                                        <span class="d-block fs-14">{{ testimonial.fname }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of testimonial loop -->
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev feedback-1__prev"><i class="bi bi-arrow-left"></i></div>
+                    <div class="swiper-button-next feedback-1__next"><i class="bi bi-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
