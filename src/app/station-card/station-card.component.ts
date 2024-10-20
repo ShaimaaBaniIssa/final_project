@@ -6,6 +6,6 @@ import { StationService } from '../Services/station.service';
   templateUrl: './station-card.component.html',
   styleUrls: ['./station-card.component.css']
 })
-export class StationCardComponent{
-  @Input() station :any
+export class StationCardComponent {
+  @Input() station: any = {};
 }
