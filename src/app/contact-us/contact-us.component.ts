@@ -1,42 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../Services/contact.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent {
-  BannerImage:string=""
-  HeadingImage:string="../../assets/Home/img/about-img-1.png"
-  Heading:string="Stay on Track with Train Tracker";
-  Subheading:string="Our team is dedicated to providing accurate train tracking information and ensuring your journey runs smoothly. Reach out for any questions or assistance regarding our services.";
-  QuoteBox:string="The journey is just as important as the destination. We're here to help you every step of the way.";
-  Icon="../../assets/Home/img/icon-plane.png";
-  IconText1:string="Track real-time train locations";
-  IconText2:string="We assist with schedule and route inquiries";
-  MiddelImage:string="../../assets/Home/img/map-img.png";
-  ContactFormImage:string="../../assets/Home/img/contact-img.png";
+export class ContactUsComponent implements OnInit {
+
+  constructor(public contact:ContactService){}
+  ngOnInit(): void {
+    this.contact.getContactPage();
+  }
+
   namePlaceholder:string="Enter Your Name";
   emailPlaceholder:string="Enter Your Email";
   messagePlaceholder:string="Enter Your Message"
-
-  contactForm = {
-    name: '',
-    email: '',
-    message: ''
-  };
-  message: string = '';
-  isSuccess: boolean = false;
+   createFeedBack:FormGroup=new FormGroup({
+    name: new FormControl('', Validators.required),
+    email:new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('',Validators.required),
+   })
+  
+ 
   sendMessage(){
-    this.contactForm = {
-      name: '',
-      email: '',
-      message: ''
-    };
+    this.contact.sendFeedBack(this.createFeedBack.value)
+    this.createFeedBack.reset();
+   
 
 
-
-    this.message = 'Your message has been sent successfully!';
-    this.isSuccess = true;
+    
   }
 }
