@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
+import { HomeService } from '../Services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +10,13 @@ import { StationService } from '../Services/station.service';
 export class HomeComponent  implements OnInit {
  
 
-  constructor(public stationService: StationService) {}
+  constructor(public stationService: StationService , public homeService :HomeService) {}
 
   ngOnInit(): void {
-    
-    this.stationService.getAllStation();
-    console.log(this.stationService.stations)
+       this.homeService.GetAllHomePages(); 
+       this.stationService.getAllStation();
   }
+  
   projectname = "Train Tracker";
   name = "Team Member";
   image = "../../assets/Home/img/Team.png";

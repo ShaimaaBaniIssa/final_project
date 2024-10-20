@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-station-card',
@@ -7,5 +8,13 @@ import { StationService } from '../Services/station.service';
   styleUrls: ['./station-card.component.css']
 })
 export class StationCardComponent {
-  @Input() station: any = {};
+  constructor(public stationService: StationService, private router: Router){} 
+  
+  @Input() station: any = [];
+  showStationDetails(station: any) {
+    this.stationService.selectedStation = { ...station };
+    console.log(this.stationService.selectedStation);
+    this.router.navigate(['/station']);
+  }
 }
+
