@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StationService } from '../Services/station.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit {
+ 
+
+  constructor(public stationService: StationService) {}
+
+  ngOnInit(): void {
+    
+    this.stationService.getAllStation();
+    console.log(this.stationService.stations)
+  }
   projectname = "Train Tracker";
   name = "Team Member";
   image = "../../assets/Home/img/Team.png";

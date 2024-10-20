@@ -13,6 +13,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { StationComponent } from './station/station.component';
 import { AllStationComponent } from './all-station/all-station.component';
+import { StationCardComponent } from './station-card/station-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AllStationComponent } from './all-station/all-station.component';
     AboutComponent,
     TestimonialComponent,
     StationComponent,
-    AllStationComponent
+    AllStationComponent,
+    StationCardComponent
 
   ],
   imports: [

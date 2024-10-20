@@ -1,5 +1,6 @@
 <body>
     <app-navbar></app-navbar>
+    
     <div class="hero-1 section-space-md-bottom">
         <div class="container">
             <div class="row">
@@ -90,199 +91,8 @@
             </div>
         </div>
     </div><!-- /About -->
-    <!-- Top Destination  -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-space-md-y px-4 px-sm-6 px-xxl-12 bg-secondary rounded-3">
-                    <div class="section-space-md-bottom">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-8">
-                                <div class="text-center">
-                                    <span class="d-block mb-1 fs-14 text-primary fw-medium">TOP DESTINATION</span>
-                                    <h2>{{desttitle}}</h2>
-                                    <p class="mb-0 max-text-18 mx-auto">{{desttext}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-4">
-                        <div *ngFor="let destination of topdestinations" class="col-sm-6 col-lg-4 col-xl-3">
-                            <div class="border rounded p-6 p-md-8 transition hover:bg-white">
-                                <a href="destination-details.html"
-                                    class="link d-grid place-content-center w-18 h-18 rounded overflow-hidden">
-                                    <img [src]="destination.stationImg" alt="image"
-                                        class="img-fluid w-100 h-100 object-fit-cover">
-                                </a>
-                                <h6 class="mt-4 mb-0">
-                                    <a href="destination-details.html"
-                                        class="link text-dark hover:text-primary">{{destination.station}}</a>
-                                </h6>
-                                <span class="d-block fs-14">{{destination.numOfDes}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- /Top Destination  -->
-
-    <!-- Team  -->
-    <div class="section-space-top section-space-md-bottom">
-        <div class="section-space-md-bottom">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">OUR TEAM</span>
-                            <h2 class="mb-0">Meet the Creative Minds Behind {{projectname}}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
-                            style="border: 5px solid #000;">
-                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="team-card__content mt-8 text-center transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span
-                                class="d-block text-light fs-14">{{postion}}</span>
-                        </div>
-                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}
-                            </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                            <ul class="list list-row justify-content-center flex-wrap gap-3">
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-facebook"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-twitter"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-pinterest"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
-                            style="border: 5px solid #000;">
-                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="team-card__content mt-8 text-center transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span
-                                class="d-block text-light fs-14">{{postion}}</span>
-                        </div>
-                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}
-                            </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                            <ul class="list list-row justify-content-center flex-wrap gap-3">
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-facebook"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-twitter"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-pinterest"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
-                            style="border: 5px solid #000;">
-                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="team-card__content mt-8 text-center transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span
-                                class="d-block text-light fs-14">{{postion}}</span>
-                        </div>
-                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                            <h4 class="text-light mb-2">{{name}}</h4><span
-                                class="d-block text-light fs-14">{{postion}}</span><span
-                                class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                            <ul class="list list-row justify-content-center flex-wrap gap-3">
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-facebook"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-twitter"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-pinterest"></i></a></li>
-                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
-                                            class="bi bi-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- /Team  -->
-    <!-- About  -->
-    <div class="section-space-md-y">
-        <div class="section-space-md-bottom">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">GET TO KNOW
-                                US</span>
-                            <h2>Experience the World With {{projectname}}</h2>
-                            <p class="mb-0 max-text-18 mx-auto">{{KnowText}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 order-md-2 order-lg-1">
-                    <div class="row g-4 h-100">
-                        <div class="col-12">
-                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-1.png" alt="image"
-                                    class="img-fluid"></div>
-                            <h5 class="mb-2">Luxury Trip</h5>
-                            <p class="mb-0">Our algorithm connects you with like-minded partners using your interests.
-                            </p>
-                        </div>
-                        <div class="col-12">
-                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-2.png" alt="image"
-                                    class="img-fluid"></div>
-                            <h5 class="mb-2">Affordable Budget</h5>
-                            <p class="mb-0">Your safety is a priority. We ensure strict security for your information.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-md-1 order-lg-2"><img src="../../assets/Home/img/about-img-3.png" alt="image"
-                        class="img-fluid"></div>
-                <div class="col-md-6 col-lg-3 order-md-3">
-                    <div class="row g-4 h-100">
-                        <div class="col-12">
-                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-3.png" alt="image"
-                                    class="img-fluid"></div>
-                            <h5 class="mb-2">Personalized approach</h5>
-                            <p class="mb-0">Effortlessly navigate and find your perfect match with our user-friendly
-                                interface.</p>
-                        </div>
-                        <div class="col-12">
-                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-4.png" alt="image"
-                                    class="img-fluid"></div>
-                            <h5 class="mb-2">Experienced Guide</h5>
-                            <p class="mb-0">Our team is available 24/7 to assist you with any queries or concern.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- /About  -->
-    <!-- Popular Destination  -->
-    <div class="section-space-md-y">
+     <!-- Popular Destination  -->
+     <div class="section-space-md-y">
         <div class="section-space-md-bottom">
             <div class="container">
                 <div class="row justify-content-center">
@@ -312,6 +122,14 @@
                 <div class="col-12">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="dayLongTabs">
+                            <div class="row g-4">
+                                <app-station-card *ngFor="let obj of stationService.stations"[station]="obj">
+                                    
+                                </app-station-card>
+                            
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="adventureTabs">
                             <div class="row g-4">
                                 <div class="col-md-6 col-lg-4">
                                     <div class="card popular-card h-100"><img
@@ -517,6 +335,618 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="groupTabs">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-1.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Experience
+                                                    Ottoman Empire and Vibrant Culture</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-2.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Cappadocia</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Unforgettable
+                                                    Hot Air Balloon Rides</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-3.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Bodrum</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Witnessing
+                                                    Sunrise Amongst the Ancient Statues</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-4.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Istanbul</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Exploring
+                                                    Fairy Chimneys and Underground Cities</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-5.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Tracing
+                                                    Ancient Ruins and Roman Relics</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-6.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Luxurious
+                                                    Beachfront Retreats and Ancient Wonders</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="soloTabs">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-1.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Experience
+                                                    Ottoman Empire and Vibrant Culture</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-2.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Cappadocia</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Unforgettable
+                                                    Hot Air Balloon Rides</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-3.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Bodrum</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Witnessing
+                                                    Sunrise Amongst the Ancient Statues</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-4.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">Istanbul</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Exploring
+                                                    Fairy Chimneys and Underground Cities</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-5.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Tracing
+                                                    Ancient Ruins and Roman Relics</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card popular-card h-100"><img
+                                            src="../../assets/Home/img/destination-img-6.png" alt="image"
+                                            class="card-img-top"> <button type="button"
+                                            class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
+                                                class="bi bi-suit-heart"></i></button>
+                                        <div class="card-body popular-card__body"><span
+                                                class="d-flex align-items-center gap-1 fs-14 mb-2"><span
+                                                    class="flex-shrink-0 d-block text-primary"><i
+                                                        class="bi bi-geo-alt-fill"></i> </span><span
+                                                    class="d-block flex-grow-1">California</span></span>
+                                            <h6 class="card-title"><a href="#"
+                                                    class="link d-inline-block text-dark hover:text-primary">Luxurious
+                                                    Beachfront Retreats and Ancient Wonders</a></h6>
+                                            <ul class="list list-row gap-1 align-items-center">
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-warning fs-14 d-block"><i
+                                                            class="bi bi-star-fill"></i></span></li>
+                                                <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+                                            </ul>
+                                            <div
+                                                class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
+                                                <h5 class="mb-0">$150<span class="fs-14 fw-normal">/Person</span></h5><a
+                                                    href="destination-details.html"
+                                                    class="link btn btn-primary fs-14 text-light">Book Trip</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /Popular Destination  -->
+
+    <!-- Team  -->
+    <div class="section-space-top section-space-md-bottom">
+        <div class="section-space-md-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">OUR TEAM</span>
+                            <h2 class="mb-0">Meet the Creative Minds Behind {{projectname}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
+                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
+                            style="border: 5px solid #000;">
+                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="team-card__content mt-8 text-center transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span
+                                class="d-block text-light fs-14">{{postion}}</span>
+                        </div>
+                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}
+                            </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
+                            <ul class="list list-row justify-content-center flex-wrap gap-3">
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-facebook"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-twitter"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-pinterest"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
+                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
+                            style="border: 5px solid #000;">
+                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="team-card__content mt-8 text-center transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span
+                                class="d-block text-light fs-14">{{postion}}</span>
+                        </div>
+                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}
+                            </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
+                            <ul class="list list-row justify-content-center flex-wrap gap-3">
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-facebook"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-twitter"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-pinterest"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
+                        <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden"
+                            style="border: 5px solid #000;">
+                            <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="team-card__content mt-8 text-center transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span
+                                class="d-block text-light fs-14">{{postion}}</span>
+                        </div>
+                        <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
+                            <h4 class="text-light mb-2">{{name}}</h4><span
+                                class="d-block text-light fs-14">{{postion}}</span><span
+                                class="d-block text-light fs-14 my-6">{{personalText}}</span>
+                            <ul class="list list-row justify-content-center flex-wrap gap-3">
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-facebook"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-twitter"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-pinterest"></i></a></li>
+                                <li><a href="#" class="link d-block text-light hover:text-primary"><i
+                                            class="bi bi-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /Team  -->
+    <!-- About  -->
+    <div class="section-space-md-y">
+        <div class="section-space-md-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">GET TO KNOW
+                                US</span>
+                            <h2>Experience the World With {{projectname}}</h2>
+                            <p class="mb-0 max-text-18 mx-auto">{{KnowText}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 order-md-2 order-lg-1">
+                    <div class="row g-4 h-100">
+                        <div class="col-12">
+                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-1.png" alt="image"
+                                    class="img-fluid"></div>
+                            <h5 class="mb-2">Luxury Trip</h5>
+                            <p class="mb-0">Our algorithm connects you with like-minded partners using your interests.
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-2.png" alt="image"
+                                    class="img-fluid"></div>
+                            <h5 class="mb-2">Affordable Budget</h5>
+                            <p class="mb-0">Your safety is a priority. We ensure strict security for your information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-md-1 order-lg-2"><img src="../../assets/Home/img/about-img-3.png" alt="image"
+                        class="img-fluid"></div>
+                <div class="col-md-6 col-lg-3 order-md-3">
+                    <div class="row g-4 h-100">
+                        <div class="col-12">
+                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-3.png" alt="image"
+                                    class="img-fluid"></div>
+                            <h5 class="mb-2">Personalized approach</h5>
+                            <p class="mb-0">Effortlessly navigate and find your perfect match with our user-friendly
+                                interface.</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-4"><img src="../../assets/Home/img/icon-about-4.png" alt="image"
+                                    class="img-fluid"></div>
+                            <h5 class="mb-2">Experienced Guide</h5>
+                            <p class="mb-0">Our team is available 24/7 to assist you with any queries or concern.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /About  -->
+    <!-- Popular Destination  -->
+    <div class="section-space-md-y">
+        <div class="section-space-md-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">Popular
+                                Tour</span>
+                            <h2 class="mb-0">See Destinations You’ll Love To Visit</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12">
+                    <ul class="nav nav-pills column-gap-4 row-gap-2 justify-content-center popular-nav mb-4">
+                        <li class="nav-item"><button class="nav-link rounded-pill active" data-bs-toggle="pill"
+                                data-bs-target="#dayLongTabs" type="button">Day Long Tour</button></li>
+                        <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill"
+                                data-bs-target="#adventureTabs" type="button">Adventure Trip</button></li>
+                        <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill"
+                                data-bs-target="#groupTabs" type="button">Group Tour</button></li>
+                        <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill"
+                                data-bs-target="#soloTabs" type="button">Solo tour</button></li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="dayLongTabs">
+                            <div class="row g-4">
+                                <app-station-card></app-station-card>
+                            
                             </div>
                         </div>
                         <div class="tab-pane fade" id="adventureTabs">
