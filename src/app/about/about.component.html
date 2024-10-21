@@ -1,180 +1,83 @@
 <body>
     <app-navbar></app-navbar>
     <!-- Banner -->
-  <div class="banner section-space-y mt-16">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="section-space-md-y text-center">
-            <h1 class="h2 text-light">About</h1>
-            <ul class="list list-row list-dot list-dot-md justify-content-center">
-              <li>
-                <a href="index.html" class="link text-light hover:text-primary">Home</a>
-              </li>
-              <li>
-                <a routerLink="/about" class="link text-primary hover:text-primary">About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- About Us -->
-<div class="section-space-y">
-    <div class="container">
-        <div class="row g-4 align-items-center">
-            <!-- Main Image -->
-            <div class="col-lg-6">
-                <img src="{{Icon}}" alt="About Us Image" class="img-fluid"> <!-- Data binding for main image -->
-            </div>
-            
-            <!-- About Us Content -->
-            <div class="col-lg-6">
-                <div class="ps-xl-12">
-                    <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
-                    <h2>{{aboutUsTitle}}</h2> <!-- Data binding for title -->
-                    <p class="mb-8">{{aboutUsDescription}}</p> <!-- Data binding for description -->
-                    
-                    <!-- Features List -->
-                    <ul class="list gap-8">
-                        <li *ngFor="let feature of features"> <!-- Loop through features array -->
-                            <div class="d-flex align-items-start gap-4">
-                                <div class="flex-shrink-0">
-                                    <img [src]="feature.image" alt="Feature Image" class="img-fluid"> <!-- Data binding for feature image -->
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-2 fs-18">{{feature.title}}</h6> <!-- Data binding for feature title -->
-                                    <p class="mb-0">{{feature.description}}</p> <!-- Data binding for feature description -->
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <!-- Book Now Button -->
-                    <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
+    <div class="banner section-space-y mt-16">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="section-space-md-y text-center">
+                        <h1 class="h2 text-light">About</h1>
+                        <ul class="list list-row list-dot list-dot-md justify-content-center">
+                            <li>
+                                <a href="index.html" class="link text-light hover:text-primary">Home</a>
+                            </li>
+                            <li>
+                                <a routerLink="/about" class="link text-primary hover:text-primary">About</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- About Us -->
+    <div class="section-space-y">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <img [src]='About.Aboutuspage.about_Image' alt="image" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-xl-12">
+                        <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
+                        <h2>{{About.Aboutuspage.about_Title}}</h2>
+                        <p class="mb-8">{{About.Aboutuspage.about_Text}}</p>
+                        <ul class="list gap-8">
+                            <li>
+                                <div class="d-flex align-items-start gap-4">
+                                    <div class="flex-shrink-0">
+                                        <img [src]='About.Aboutuspage.img_1' alt="image" class="img-fluid">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_1}}</h6>
+                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-start gap-4">
+                                    <div class="flex-shrink-0">
+                                        <img [src]='About.Aboutuspage.img_2' alt="image" class="img-fluid">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_2}}</h6>
+                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-start gap-4">
+                                    <div class="flex-shrink-0">
+                                        <img [src]='About.Aboutuspage.img_3' alt="image" class="img-fluid">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_3}}</h6>
+                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /About Us -->
 
-<!-- Feedback -->
-<div class="section-space-y">
-    <div class="section-space-md-bottom">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                    <div class="text-center">
-                        <span class="d-block mb-1 fs-14 text-primary fw-medium">Testimonial</span>
-                        <h2 class="mb-0">What Our Travellers Said About Us</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-10">
-                <div class="feedback-slider-1-container position-relative">
-                    <div class="swiper feedback-slider-1">
-                        <div class="swiper-wrapper">
-                            <!-- Loop through testimonials -->
-                            <div *ngFor="let testimonial of testimonials" class="swiper-slide">
-                                <div class="feedback-1 text-center border border-success rounded px-4 py-6 px-sm-15 py-sm-15 px-md-20">
-                                    <div class="feedback-1__img d-grid place-content-center w-20 h-20 mx-auto rounded-circle overflow-hidden position-relative mb-6">
-                                        <img [src]="testimonial.image" alt="Image of {{testimonial.name}}" class="img-fluid w-100 h-100 object-fit-cover">
-                                    </div>
-                                    <div class="feedback-1__body">
-                                        <p class="mb-6 max-text-20 mx-auto">{{ testimonial.text }}</p>
-                                        <h6 class="mb-2">{{ testimonial.name }}</h6>
-                                        <span class="d-block fs-14">{{ testimonial.role }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of testimonial loop -->
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev feedback-1__prev"><i class="bi bi-arrow-left"></i></div>
-                    <div class="swiper-button-next feedback-1__next"><i class="bi bi-arrow-right"></i></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- /Feedback -->
-<!-- Team  -->
-<div class="section-space-top section-space-md-bottom">
-    <div class="section-space-md-bottom">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">OUR TEAM</span>
-                        <h2 class="mb-0">Meet the Creative Minds Behind {{projectname}}</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                    <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden" style="border: 5px solid #000;">
-                        <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                                        <div class="team-card__content mt-8 text-center transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}</span>
-                    </div>
-                    <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}} </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                        <ul class="list list-row justify-content-center flex-wrap gap-3">
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-facebook"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-twitter"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-pinterest"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                    <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden" style="border: 5px solid #000;">
-                        <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>                    <div class="team-card__content mt-8 text-center transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}</span>
-                    </div>
-                    <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}} </span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                        <ul class="list list-row justify-content-center flex-wrap gap-3">
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-facebook"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-twitter"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-pinterest"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card px-6 px-md-9 py-8 py-md-10 position-relative z-1 rounded">
-                    <div class="team-card__img rounded-circle mx-auto position-relative z-1 overflow-hidden" style="border: 5px solid #000;">
-                        <img src="{{image}}" alt="image" class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>                    <div class="team-card__content mt-8 text-center transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}</span>
-                    </div>
-                    <div class="team-card__overlay text-center px-6 px-md-10 px-xxl-15 py-8 py-md-10 transition">
-                        <h4 class="text-light mb-2">{{name}}</h4><span class="d-block text-light fs-14">{{postion}}</span><span class="d-block text-light fs-14 my-6">{{personalText}}</span>
-                        <ul class="list list-row justify-content-center flex-wrap gap-3">
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-facebook"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-twitter"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-pinterest"></i></a></li>
-                            <li><a href="#" class="link d-block text-light hover:text-primary"><i class="bi bi-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /About Us -->
-<app-footer></app-footer>
+    <!-- Feedback -->
+    <testimonial></testimonial>
+    <!-- /Feedback -->
+
+    <app-footer></app-footer>
 </body>
