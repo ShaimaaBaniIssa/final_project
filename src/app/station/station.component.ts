@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
+import { TripService } from '../Services/trip.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-station',
@@ -7,7 +9,7 @@ import { StationService } from '../Services/station.service';
   styleUrls: ['./station.component.css']
 })
 export class StationComponent implements OnInit {
-  constructor(public stationService: StationService) { }
+  constructor(public stationService: StationService, private tripService: TripService, private router: Router) { }
   ngOnInit(): void {
     this.stationService.getStationTrips();
   }
@@ -39,6 +41,10 @@ export class StationComponent implements OnInit {
     }
 
 
+  }
+  bookTrip(trip: any) {
+    this.tripService.selectedTrip = { ...trip };
+    this.router.navigate(['reservation']);
   }
 
 }

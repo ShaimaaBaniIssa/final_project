@@ -14,6 +14,8 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { StationComponent } from './station/station.component';
 import { AllStationComponent } from './all-station/all-station.component';
 import { StationCardComponent } from './station-card/station-card.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { StationCardComponent } from './station-card/station-card.component';
     TestimonialComponent,
     StationComponent,
     AllStationComponent,
-    StationCardComponent
+    StationCardComponent,
+    ReservationComponent,
+    PaymentComponent
 
   ],
   imports: [

@@ -1,0 +1,155 @@
+<app-navbar></app-navbar>
+<div class="banner section-space-y">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="section-space-md-y text-center">
+                    <h1 class="h2 text-light">CHECKOUT</h1>
+                    <ul class="list list-row list-dot list-dot-md justify-content-center">
+                        <li><a href="index.html" class="link text-light hover:text-primary">Home</a></li>
+                        <li><a href="#" class="link text-primary hover:text-primary">Reservation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /Banner -->
+<div class="section-space-y">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-8">
+
+                <h2>Confirm and Pay</h2>
+                <hr>
+                <form [formGroup]="reservationForm">
+                    <div formArrayName="tickets">
+                        <div *ngFor="let ticket of tickets.controls; let i = index" [formGroupName]="i">
+                            <div class="d-flex align-items-center gap-3 my-6"><span
+                                    class="d-grid place-content-center w-6 h-6 rounded-circle bg-primary text-light fs-14 flex-shrink-0">{{i+1}}</span>
+                                <h6 class="mb-0 flex-grow-1">Customers Information</h6>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-md-6"><input type="text"
+                                        class="form-control border-secondary bg-secondary" placeholder="Full Name"
+                                        formControlName="fullname">
+                                </div>
+                                <div class="col-md-6"><input type="text"
+                                        class="form-control border-secondary bg-secondary" placeholder="National Id"
+                                        formControlName="nationalid">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">date of birth</label>
+
+                                    <input type="date" class="form-control border-secondary bg-secondary"
+                                        placeholder="National Id" formControlName="dateofbirth">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Seat Number</label>
+                                    <select formControlName="seatid"
+                                        class="form-select bg-secondary rounded border border-secondary">
+                                        <option [value]="seat" *ngFor="let seat of seats">{{seat}}</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">gender</label>
+                                    <select formControlName="gender"
+                                        class="form-select bg-secondary rounded border border-secondary">
+                                        <option [value]="gender" *ngFor="let gender of genders">{{gender}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr class="my-6">
+                <!-- <payment></payment> -->
+            </div>
+            <div class="col-lg-4">
+                <ul class="list gap-6 p-md-4 p-xl-6">
+                    <li>
+                        <div class="d-flex align-items-center justify-content-between gap-2">
+                            <h4 class="mb-0">{{tripService.selectedTrip.destaddress}} <span
+                                    class="d-inline-block fs-16 fw-normal">JOD</span>
+                            </h4>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center justify-content-between gap-2">
+                            <h4 class="mb-0">{{tripService.selectedTrip.price}}
+                            </h4>
+                        </div>
+                    </li>
+                    <li>
+                        <form [formGroup]="reservationForm">
+                            <div class="row g-4 align-items-center">
+
+                                <div class="col-md-6"><label class="form-label fw-medium">Reservation Date</label>
+                                    <input type="date" class="form-control bg-secondary rounded border border-secondary"
+                                        formControlName="date">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Hour</label>
+                                    <select formControlName="hour"
+                                        class="form-select bg-secondary rounded border border-secondary">
+                                        <option *ngFor="let item of hours" [value]="item">{{item}}</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-medium">Guest</label>
+                                    <select formControlName="numberOfTickets"
+                                        class="form-select bg-secondary rounded border border-secondary"
+                                        (change)="changeNumOfTickets()">
+                                        <option *ngFor="let item of numOfTickets" [value]="item">
+                                            {{item}}</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+                    <div *ngIf="completeData">
+                        <li><span class="d-block fw-medium mb-3">Price</span>
+                            <div class="rounded-3 bg-secondary p-4">
+                                <ul class="list gap-3">
+                                    <li><span
+                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
+                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">1 Nights
+                                            </span><span class="d-inline-block flex-shrink-0">$500</span></span></li>
+                                    <li><span
+                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
+                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Discount
+                                                20% </span><span class="d-inline-block flex-shrink-0">$200</span></span>
+                                    </li>
+                                    <li><span
+                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
+                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Breakfast
+                                                per person </span><span
+                                                class="d-inline-block flex-shrink-0">$10</span></span></li>
+                                    <li><span
+                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
+                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Service fee
+                                            </span><span class="d-inline-block flex-shrink-0">$5</span></span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><span class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
+                                    class="d-inline-block flex-grow-1">Total payment </span><span
+                                    class="d-inline-block flex-shrink-0">$300</span></span></li>
+
+
+                    </div>
+                    <li><button (click)="submit()" class="btn btn-success text-light w-100 justify-content-center">Book
+                            Now</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

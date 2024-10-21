@@ -25,6 +25,7 @@
                 <h2>map</h2>
 
             </div>
+            <h1 class="h2 mt-4 mb-6">{{stationService.selectedStation.stationname}}</h1>
             <!-- <div class="col-lg-12">
                 <ul class="list list-row flex-wrap row-gap-1 column-gap-4 align-items-center">
                     <li><span class="badge bg-success-subtle text-success-emphasis ff-1">5.0</span></li>
@@ -42,7 +43,7 @@
                         </ul>
                     </li>
                 </ul>
-                <h1 class="h2 mt-4 mb-6">Station Name</h1>
+            
                 <ul class="nav flex-nowrap tab-underline border-bottom">
                     <li><button class="btn btn-sm active" data-bs-toggle="tab" data-bs-target="#hoteDescription"
                             type="button">Description</button></li>
@@ -344,7 +345,7 @@
 
                         </ul>
                         <h6 class="mb-4">{{trip.price}}<span class="fs-14 fw-normal"> JOD</span></h6>
-                        <a href="destination-details.html" class="link btn btn-sm btn-success text-light">Book
+                        <a (click)="bookTrip(trip)" class="link btn btn-sm btn-success text-light">Book
                             Now</a>
                     </div>
                 </div>

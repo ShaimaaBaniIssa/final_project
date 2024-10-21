@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,39 @@ export class AuthService {
   login(body: any) {
 
     debugger;
-    this.httpClient.post('https://localhost:7019/api/Login/login', body, { responseType: 'text' })
+    const headerDirc = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+
+    const requestOptions = { headers: new HttpHeaders(headerDirc) }
+
+    this.httpClient.post('https://localhost:7019/api/Login/login', body, requestOptions)
       .subscribe((resp: any) => {
-        this.router.navigate(['']);
+        const response = {
+          token: resp.toString()
+        }
+        //save on localstorge
+        localStorage.setItem('token', response.token);
+        let data: any = jwtDecode(response.token);
+
+        localStorage.setItem('user', JSON.stringify(data))
+
+        if (data.role == "21") {
+
+          this.toastr.success('Welcome On Admin Dashbaord');
+
+          // this.router.navigate(['admin/dashboard']);
+
+        }
+
+        else if (data.role == "1") {
+
+          this.toastr.success('Welcome On Home Page');
+          this.router.navigate(['']);
+
+        }
+
       }, err => {
         this.toastr.error("invalid username or password");
       })
@@ -43,6 +74,11 @@ export class AuthService {
         this.toastr.error("Invalid register");
       })
 
+
+  }
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
 
   }
 }

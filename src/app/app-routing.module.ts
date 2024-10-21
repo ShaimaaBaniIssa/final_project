@@ -6,6 +6,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutComponent } from './about/about.component';
 import { StationComponent } from './station/station.component';
 import { AllStationComponent } from './all-station/all-station.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'allstation', component: AllStationComponent },
 
   { path: 'station', component: StationComponent },
+  { path: 'reservation', component: ReservationComponent },
+
 
   { path: 'about', component: AboutComponent },
 
