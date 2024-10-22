@@ -18,7 +18,7 @@ export class AuthService {
 
   login(body: any) {
 
-    debugger;
+
     const headerDirc = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'

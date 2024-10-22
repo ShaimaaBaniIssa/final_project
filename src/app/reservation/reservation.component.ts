@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TripService } from '../Services/trip.service';
+import { ReservationService } from '../Services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -8,16 +9,17 @@ import { TripService } from '../Services/trip.service';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-  constructor(private fb: FormBuilder, public tripService: TripService) { }
+  constructor(private fb: FormBuilder, public tripService: TripService,
+    private reservationService: ReservationService
+  ) { }
   ngOnInit(): void {
 
     this.setTicketForms(1);
+
   }
 
   numOfTickets: number[] = [1, 2, 3];
   completeData = false;
-  hours: any = ["10", "11"];
-  seats: any = ["10", "11"];
   genders: any = ["male", "female"];
 
 
@@ -28,13 +30,51 @@ export class ReservationComponent implements OnInit {
     tickets: this.fb.array([])
   });
 
-  // create forms = number of tickets
+  tripSchedules: any = [];
 
-  times() {
-    const n = Number(this.reservationForm.controls['numberOfTickets'].value);
-    return Array(n).fill(0);
+  selectDate() {
+    this.tripService.checkTripScheduleAvailability(this.tripService.selectedTrip.tripid,
+      this.reservationForm.controls['date'].value
+    );
 
   }
+  selectedSchedule: any;
+  onHourChange(event: any) {
+    const selectedDepartureTime = event.target.value;
+
+    this.selectedSchedule = this.tripService.tripSchedules.find(
+      (item: any) => item.departuretime === selectedDepartureTime
+    );
+
+
+    // console.log(event.target.value);
+    // const selectedIndex = this.tripService.tripSchedules.indexOf(event.target.value);
+    // console.log(selectedIndex);
+
+    // const selectedSchedule = this.tripService.tripSchedules[selectedIndex];
+    // console.log(selectedSchedule);
+
+    this.tripService.getAvailableSeats(this.selectedSchedule.tripscheduleid)
+  }
+
+  // selectSeat(event: any) {
+  //   console.log(event.target.value);
+
+  // const selectedIndex = event.target.value;
+
+  // const selectedSeat = this.tripService.availableSeats[selectedIndex];
+
+  // const unAvailableSeat = selectedSeat;
+  // unAvailableSeat.availability = 0;
+  // this.tripService.availableSeats[selectedIndex] = {
+  //   ...this.tripService.availableSeats[selectedIndex],
+  //   ...unAvailableSeat
+  // };
+
+  // console.log(this.tripService.availableSeats);
+
+
+  // }
   changeNumOfTickets() {
     const num = this.reservationForm.controls['numberOfTickets'].value;
     this.setTicketForms(num);
@@ -62,7 +102,18 @@ export class ReservationComponent implements OnInit {
     }
   }
   submit() {
-    console.log(this.reservationForm.value);
+    let user: any = localStorage.getItem('user');
+    user = JSON.parse(user);
+
+    const body: any = {
+      tripId: this.tripService.selectedTrip.tripid,
+      tripScheduleId: this.selectedSchedule.tripscheduleid,
+      customerId: user.customerid,
+      reservationDate: this.reservationForm.controls['date'].value,
+      tickets: this.reservationForm.controls['tickets'].value
+    };
+    console.log(body);
+    this.reservationService.createReservation(body);
   }
 
 }
