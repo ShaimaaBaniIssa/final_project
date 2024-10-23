@@ -16,7 +16,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-1__content">
+                    <!-- <div class="hero-1__content">
                         <div class="hero-1__filter mt-auto">
                             <div
                                 class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 g-xl-4 align-items-end justify-content-center">
@@ -53,43 +53,30 @@
                                         Availability</button></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div><!-- /Hero -->
-    <!-- About -->
-    <div class="section-space-md-top section-space-bottom">
-        <div class="container">
-            <div class="row g-4 justify-content-xxl-between">
-                <div class="col-lg-6"><span class="d-block fs-14 text-primary fw-medium mb-1">GET TO KNOW US</span>
-                    <h2>{{homeService.homepage.titileabouttext}}</h2>
-                    <p class="mb-8">{{homeService.homepage.abouttext1}}</p>
-                    <div class="px-8 py-6 bg-success-subtle"><span class="d-block mb-0 h5 max-text-10">{{homeService.homepage.abouttext2}}</span></div>
-                    <div class="my-8">
-                        <ul class="list gap-4">
-                            <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
-                                </div>
-                                <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext1}}</div>
-                            </li>
-                            <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
-                                </div>
-                                <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext2}}</div>
-                            </li>
-                        </ul>
-                    </div><a href="about.html" class="btn btn-primary text-light">Discover More</a>
-                </div>
-                <div class="col-lg-6 col-xxl-5">
-                    <div class="position-relative z-1"><img src="../../assets/Home/img/about-img-1.png" alt="image"
-                            class="img-fluid"> <img src="../../assets/Home/img/about-img-2.png" alt="image"
-                            class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x">
-                    </div>
-                </div>
+    <div class="section-space-md-y">
+        <div class="section-space-md-bottom">
+            <div class="container">
+                <google-map
+                 width="100%"
+                height="500px"
+                [center]="center"
+                 [zoom]="zoom">
+  
+  
+             <map-marker
+              *ngFor="let location of stationService.arr"
+              [position]="location"
+                   (mapClick)="onMarkerClick(location)"> 
+             </map-marker>
+           </google-map>
             </div>
         </div>
-    </div><!-- /About -->
+    </div>
      <!-- Popular Destination  -->
      <div class="section-space-md-y">
         <div class="section-space-md-bottom">
@@ -137,7 +124,38 @@
 
    
     
-    
+      <!-- About -->
+      <div class="section-space-md-top section-space-bottom">
+        <div class="container">
+            <div class="row g-4 justify-content-xxl-between">
+                <div class="col-lg-6"><span class="d-block fs-14 text-primary fw-medium mb-1">GET TO KNOW US</span>
+                    <h2>{{homeService.homepage.titileabouttext}}</h2>
+                    <p class="mb-8">{{homeService.homepage.abouttext1}}</p>
+                    <div class="px-8 py-6 bg-success-subtle"><span class="d-block mb-0 h5 max-text-10">{{homeService.homepage.abouttext2}}</span></div>
+                    <div class="my-8">
+                        <ul class="list gap-4">
+                            <li class="d-flex gap-2 align-items-center">
+                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
+                                </div>
+                                <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext1}}</div>
+                            </li>
+                            <li class="d-flex gap-2 align-items-center">
+                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
+                                </div>
+                                <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext2}}</div>
+                            </li>
+                        </ul>
+                    </div><a href="about.html" class="btn btn-primary text-light">Discover More</a>
+                </div>
+                <div class="col-lg-6 col-xxl-5">
+                    <div class="position-relative z-1"><img src="../../assets/Home/img/about-img-1.png" alt="image"
+                            class="img-fluid"> <img src="../../assets/Home/img/about-img-2.png" alt="image"
+                            class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /About -->
   
     
     <!-- Feedback -->

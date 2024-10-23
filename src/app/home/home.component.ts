@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
 import { HomeService } from '../Services/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,54 @@ import { HomeService } from '../Services/home.service';
 export class HomeComponent  implements OnInit {
  
 
-  constructor(public stationService: StationService , public homeService :HomeService) {}
-
+  constructor(public stationService: StationService , public homeService :HomeService, private router:Router) {
+   
+  }
   ngOnInit(): void {
        this.homeService.GetAllHomePages(); 
        this.stationService.getAllStation();
+       
   }
-  
+  center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
+zoom = 8; // مستوى التكبير
+// locations: google.maps.LatLngLiteral[] = this.newList
+onMarkerClick(location: google.maps.LatLngLiteral) {
+  const foundStation = this.stationService.stations.find((station:any) => 
+    station.latitude === location.lat && 
+    station.longitude === location.lng
+  );
+console.log(foundStation)
+  if (foundStation) {
+    this.stationService.selectedStation=foundStation;
+    this.router.navigate(['station']);
+    
+  } else {
+    console.log('No station found for this location.');
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   projectname = "Train Tracker";
   name = "Team Member";
   image = "../../assets/Home/img/Team.png";

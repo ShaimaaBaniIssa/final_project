@@ -17,6 +17,7 @@ import { StationCardComponent } from './station-card/station-card.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { PaymentComponent } from './payment/payment.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { PaymentComponent } from './payment/payment.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ToastNoAnimationModule.forRoot(),
+    ToastNoAnimationModule.forRoot()
+    
 
   ],
   providers: [],
