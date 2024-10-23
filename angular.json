@@ -33,11 +33,16 @@
               "src/assets/Home/css/ff-2.css",
               "src/assets/Home/css/style.css",
               "node_modules/ngx-toastr/toastr.css"
+             
+             
+             
             ],
             "scripts": [
               "src/assets/Home/js/bootstrap.bundle.js",
               "src/assets/Home/js/plugins.js",
               "src/assets/Home/js/app.js"
+              
+            
             ]
           },
           "configurations": {

@@ -8,6 +8,7 @@ import { StationComponent } from './station/station.component';
 import { AllStationComponent } from './all-station/all-station.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminModule } from './admin/admin.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   { path: 'auth', loadChildren: () => AuthModule },
+  { path: 'admin', loadChildren: () => AdminModule },
 ];
 
 @NgModule({
