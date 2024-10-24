@@ -33,38 +33,41 @@
               "src/assets/Home/css/ff-2.css",
               "src/assets/Home/css/style.css",
               "node_modules/ngx-toastr/toastr.css"
-
              
             ],
-            "scripts": [
-              "src/assets/Home/js/bootstrap.bundle.js",
-              "src/assets/Home/js/plugins.js",
-              "src/assets/Home/js/app.js",
-              "src/assets/Admin/js/plugin/webfont/webfont.min.js",
-              "src/assets/Admin/js/core/jquery-3.7.1.min.js",
-              "src/assets/Admin/js/core/popper.min.js",
-              "src/assets/Admin/js/core/bootstrap.min.js",
+          "scripts": [
+   
+    "src/assets/Admin/js/plugin/webfont/webfont.min.js",
+    "src/assets/Admin/js/core/jquery-3.7.1.min.js",
+    "src/assets/Admin/js/core/popper.min.js",
+    "src/assets/Admin/js/core/bootstrap.min.js",
+  
+    "src/assets/Home/js/bootstrap.bundle.js",
+    
+ 
+    "src/assets/Home/js/plugins.js",
+    "src/assets/Home/js/app.js",
 
-              "src/assets/Admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",
-              "src/assets/Admin/js/plugin/chart.js/chart.min.js",
-              "src/assets/Admin/js/plugin/jquery.sparkline/jquery.sparkline.min.js",
+    "src/assets/Admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",
+    "src/assets/Admin/js/plugin/chart.js/chart.min.js",
+    "src/assets/Admin/js/plugin/jquery.sparkline/jquery.sparkline.min.js",
 
-              "src/assets/Admin/js/plugin/chart-circle/circles.min.js",
-              "src/assets/Admin/js/plugin/datatables/datatables.min.js",
+    "src/assets/Admin/js/plugin/chart-circle/circles.min.js",
+    
+  
+    "src/assets/Admin/js/plugin/datatables/datatables.min.js",
 
+   
+    "src/assets/Admin/js/plugin/bootstrap-notify/bootstrap-notify.min.js",
+    "src/assets/Admin/js/plugin/jsvectormap/jsvectormap.min.js",
+    "src/assets/Admin/js/plugin/jsvectormap/world.js",
+    "src/assets/Admin/js/plugin/sweetalert/sweetalert.min.js",
 
-              "src/assets/Admin/js/plugin/bootstrap-notify/bootstrap-notify.min.js",
-              "src/assets/Admin/js/plugin/jsvectormap/jsvectormap.min.js",
-              "src/assets/Admin/js/plugin/jsvectormap/world.js",
-              "src/assets/Admin/js/plugin/sweetalert/sweetalert.min.js",
+   
+    "src/assets/Admin/js/kaiadmin.js",
+    "src/assets/Admin/js/kaiadmin.min.js"
+]
 
-              "src/assets/Admin/js/kaiadmin.min.js"
-              
-
-
-              
-            
-            ]
           },
           "configurations": {
             "production": {
