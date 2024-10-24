@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TripService } from '../Services/trip.service';
 import { ReservationService } from '../Services/reservation.service';
+import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
   selector: 'app-reservation',
@@ -21,6 +22,7 @@ export class ReservationComponent implements OnInit {
   numOfTickets: number[] = [1, 2, 3];
   completeData = false;
   genders: any = ["male", "female"];
+  @ViewChild(PaymentComponent) paymentComponent!: PaymentComponent;
 
 
   reservationForm: FormGroup = new FormGroup({
@@ -56,7 +58,6 @@ export class ReservationComponent implements OnInit {
 
     this.tripService.getAvailableSeats(this.selectedSchedule.tripscheduleid)
   }
-
   // selectSeat(event: any) {
   //   console.log(event.target.value);
 
@@ -104,13 +105,14 @@ export class ReservationComponent implements OnInit {
   submit() {
     let user: any = localStorage.getItem('user');
     user = JSON.parse(user);
-
+    const paymentFormValues = this.paymentComponent.paymentForm.value;
     const body: any = {
       tripId: this.tripService.selectedTrip.tripid,
       tripScheduleId: this.selectedSchedule.tripscheduleid,
       customerId: user.customerid,
       reservationDate: this.reservationForm.controls['date'].value,
-      tickets: this.reservationForm.controls['tickets'].value
+      tickets: this.reservationForm.controls['tickets'].value,
+      bankcard: paymentFormValues
     };
     console.log(body);
     this.reservationService.createReservation(body);

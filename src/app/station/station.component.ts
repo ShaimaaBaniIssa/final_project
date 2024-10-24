@@ -12,7 +12,10 @@ export class StationComponent implements OnInit {
   constructor(public stationService: StationService, private tripService: TripService, private router: Router) { }
   ngOnInit(): void {
     this.stationService.getStationTrips();
+
   }
+  center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
+  zoom = 8; // مستوى التكبير
   showDays(trip: any) {
     const isWeekday = trip.monday && trip.tuesday && trip.wednesday && trip.thursday && trip.sunday;
     const isWeekend = trip.saturday && trip.friday;

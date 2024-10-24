@@ -17,72 +17,19 @@
 <div class="section-space-y">
     <div class="container">
         <div class="row g-4">
-            <div class="col-md-8">
-
-                <h2>Confirm and Pay</h2>
-                <hr>
-                <form [formGroup]="reservationForm">
-                    <div formArrayName="tickets">
-                        <div *ngFor="let ticket of tickets.controls; let i = index" [formGroupName]="i">
-                            <div class="d-flex align-items-center gap-3 my-6"><span
-                                    class="d-grid place-content-center w-6 h-6 rounded-circle bg-primary text-light fs-14 flex-shrink-0">{{i+1}}</span>
-                                <h6 class="mb-0 flex-grow-1">Customers Information</h6>
-                            </div>
-
-                            <div class="row g-4">
-                                <div class="col-md-6"><input type="text"
-                                        class="form-control border-secondary bg-secondary" placeholder="Full Name"
-                                        formControlName="fullname">
-                                </div>
-                                <div class="col-md-6"><input type="text"
-                                        class="form-control border-secondary bg-secondary" placeholder="National Id"
-                                        formControlName="nationalid">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">date of birth</label>
-
-                                    <input type="date" class="form-control border-secondary bg-secondary"
-                                        placeholder="National Id" formControlName="dateofbirth">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">Seat Number</label>
-                                    <select formControlName="seatid"
-                                        class="form-select bg-secondary rounded border border-secondary">
-                                        <option [value]="seat.seatid"
-                                            *ngFor="let seat of tripService.availableSeats let i=index"
-                                            [disabled]="seat.availability === 0">
-                                            {{seat.seatnumber}}</option>
-
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">gender</label>
-                                    <select formControlName="gender"
-                                        class="form-select bg-secondary rounded border border-secondary">
-                                        <option [value]="gender" *ngFor="let gender of genders">{{gender}}</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <hr class="my-6">
-                <!-- <payment></payment> -->
-            </div>
             <div class="col-lg-4">
                 <ul class="list gap-6 p-md-4 p-xl-6">
                     <li>
                         <div class="d-flex align-items-center justify-content-between gap-2">
-                            <h4 class="mb-0">{{tripService.selectedTrip.destaddress}} <span
-                                    class="d-inline-block fs-16 fw-normal">JOD</span>
+                            <h4 class="mb-0">{{tripService.selectedTrip.destaddress}}
+
                             </h4>
                         </div>
                     </li>
                     <li>
                         <div class="d-flex align-items-center justify-content-between gap-2">
                             <h4 class="mb-0">{{tripService.selectedTrip.price}}
+                                <span class="d-inline-block fs-16 fw-normal">JOD</span>
                             </h4>
                         </div>
                     </li>
@@ -157,11 +104,73 @@
 
                     </div>
                     <li><button (click)="submit()" class="btn btn-success text-light w-100 justify-content-center"
-                            [disabled]="reservationForm.invalid">Book
-                            Now</button>
+                            [disabled]="
+                            reservationForm.invalid
+                          
+                            
+                            
+                            ">Book Now</button>
                     </li>
                 </ul>
             </div>
+            <div class="col-md-8" *ngIf=" reservationForm.controls['date'].valid &&
+            reservationForm.controls['hour'].valid &&
+            reservationForm.controls['numberOfTickets'].valid ">
+
+                <h2>Confirm and Pay</h2>
+                <hr>
+                <form [formGroup]="reservationForm">
+                    <div formArrayName="tickets">
+                        <div *ngFor="let ticket of tickets.controls; let i = index" [formGroupName]="i">
+                            <div class="d-flex align-items-center gap-3 my-6"><span
+                                    class="d-grid place-content-center w-6 h-6 rounded-circle bg-primary text-light fs-14 flex-shrink-0">{{i+1}}</span>
+                                <h6 class="mb-0 flex-grow-1">Customers Information</h6>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-md-6"><input type="text"
+                                        class="form-control border-secondary bg-secondary" placeholder="Full Name"
+                                        formControlName="fullname">
+                                </div>
+                                <div class="col-md-6"><input type="text"
+                                        class="form-control border-secondary bg-secondary" placeholder="National Id"
+                                        formControlName="nationalid">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">date of birth</label>
+
+                                    <input type="date" class="form-control border-secondary bg-secondary"
+                                        placeholder="National Id" formControlName="dateofbirth">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Seat Number</label>
+                                    <select formControlName="seatid"
+                                        class="form-select bg-secondary rounded border border-secondary">
+                                        <option [value]="seat.seatid"
+                                            *ngFor="let seat of tripService.availableSeats let i=index"
+                                            [disabled]="seat.availability === 0">
+                                            {{seat.seatnumber}}</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">gender</label>
+                                    <select formControlName="gender"
+                                        class="form-select bg-secondary rounded border border-secondary">
+                                        <option [value]="gender" *ngFor="let gender of genders">{{gender}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr class="my-6">
+
+                <payment *ngIf="reservationForm.valid"></payment>
+            </div>
+
         </div>
     </div>
 </div>

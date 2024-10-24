@@ -16,6 +16,10 @@ export class AllStationComponent implements OnInit {
   }
   showStationDetails(station: any) {
     this.stationService.selectedStation = { ...station };
+    this.stationService.selectedStationLocation = {
+      lat: station.latitude,
+      lng: station.longitude
+    }
     console.log(this.stationService.selectedStation);
     this.router.navigate(['/station']);
   }
