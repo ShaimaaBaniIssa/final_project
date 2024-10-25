@@ -13,6 +13,7 @@ export class StationService {
   arr: any = [];
   selectedStation: any;
   selectedStationLocation: any;
+  totalStations: number = 0; 
   getStationTrips() {
 
     this.httpClient.get('https://localhost:7019/api/Trip/GetTripsByStationId/' + this.selectedStation.stationid)
@@ -41,4 +42,17 @@ export class StationService {
         }
       );
   }
+  getTotalStations() {
+    this.httpClient.get('https://localhost:7019/api/Station/StationCount')
+      .subscribe(
+        (result: any) => {
+          this.totalStations = result; 
+        },
+        error => {
+          this.toastr.error("error");
+        }
+      );
+  }
+  
+ 
 }

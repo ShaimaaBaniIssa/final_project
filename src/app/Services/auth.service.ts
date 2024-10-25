@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
   providedIn: 'root'
 })
 export class AuthService {
+  totalUsers: number = 0; 
 
   constructor(private httpClient: HttpClient,
     private router: Router,
@@ -83,4 +84,16 @@ export class AuthService {
     localStorage.removeItem('token');
 
   }
+  getTotalUsers() {
+    this.httpClient.get('https://localhost:7019/api/Login/CountUser')
+      .subscribe(
+        (result: any) => {
+          console.log("Total Users from API:", result); // تحقق من النتيجة
+          this.totalUsers = result.TotalUsers; // تحديث الخاصية
+        },
+        error => {
+          this.toastr.error("error");
+        }
+      );
+}
 }
