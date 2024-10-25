@@ -36,12 +36,14 @@ export class AuthService {
         let data: any = jwtDecode(response.token);
 
         localStorage.setItem('user', JSON.stringify(data))
+        
+     
 
-        if (data.role == "21") {
+        if (data.role== "21") {
 
           this.toastr.success('Welcome On Admin Dashbaord');
 
-          // this.router.navigate(['admin/dashboard']);
+          this.router.navigate(['admin/dashbord']);
 
         }
 
