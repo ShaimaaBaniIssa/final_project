@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
 import { HomeService } from '../Services/home.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 export class HomeComponent  implements OnInit {
  
 
-  constructor(public stationService: StationService , public homeService :HomeService, private router:Router) {
+  constructor(public stationService: StationService , public homeService :HomeService, private router:Router ,private toster:ToastrService) {
    
   }
   ngOnInit(): void {
        this.homeService.GetAllHomePages(); 
        this.stationService.getAllStation();
-       
+       this.getUserLocation();
   }
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
 zoom = 8; // مستوى التكبير
@@ -36,7 +37,35 @@ console.log(foundStation)
     console.log('No station found for this location.');
   }
 }
+userLocation: google.maps.LatLngLiteral | null = null; // The user's current location
 
+getUserLocation() {
+  
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        this.center = this.userLocation; // Update the map center to the user's location
+        console.log('User Location:', this.userLocation);
+      },
+      (error) => {
+        console.error('Error getting location', error);
+        this.toster.warning('Unable to retrieve your location. Please check your location settings.');
+
+      },
+      {
+        enableHighAccuracy: true, //Option for higher resolution
+        timeout: 10000, //Waiting time to get the location (in milliseconds)
+        maximumAge: 0, // Always get the new location
+      }
+    );
+  } else {
+    console.error('Geolocation is not supported by this browser.');
+  }
+}
 
 
 

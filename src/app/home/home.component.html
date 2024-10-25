@@ -73,6 +73,14 @@
               [position]="location"
                    (mapClick)="onMarkerClick(location)"> 
              </map-marker>
+             <map-marker
+  *ngIf="userLocation"
+  [position]="userLocation"
+  [label]="{ text: 'Your Location', color: 'd-block' }"
+  [icon]="{
+    url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+  }">
+</map-marker>
            </google-map>
             </div>
         </div>
