@@ -9,7 +9,7 @@ import { jwtDecode } from "jwt-decode";
   providedIn: 'root'
 })
 export class AuthService {
-  totalUsers: number = 0; 
+  totalUsers: number = 0;
 
   constructor(private httpClient: HttpClient,
     private router: Router,
@@ -37,10 +37,10 @@ export class AuthService {
         let data: any = jwtDecode(response.token);
 
         localStorage.setItem('user', JSON.stringify(data))
-        
-     
 
-        if (data.role== "21") {
+
+
+        if (data.role == "21") {
 
           this.toastr.success('Welcome On Admin Dashbaord');
 
@@ -89,11 +89,11 @@ export class AuthService {
       .subscribe(
         (result: any) => {
           console.log("Total Users from API:", result); // تحقق من النتيجة
-          this.totalUsers = result.TotalUsers; // تحديث الخاصية
+          this.totalUsers = result; // تحديث الخاصية
         },
         error => {
           this.toastr.error("error");
         }
       );
-}
+  }
 }
