@@ -1,21 +1,19 @@
 <div class="card popular-card h-100"><img src="../../assets/Home/img/destination-img-1.png" alt="image"
-        class="card-img-top"> <button type="button"
-        class="btn btn-light btn-icon btn-sm rounded-circle position-absolute top-4 end-4"><i
-            class="bi bi-suit-heart"></i></button>
+        class="card-img-top">
     <div class="card-body popular-card__body"><span class="d-flex align-items-center gap-1 fs-14 mb-2"><span
                 class="flex-shrink-0 d-block text-primary"><i class="bi bi-geo-alt-fill"></i> </span><span
                 class="d-block flex-grow-1">{{station.address}}</span></span>
-        <h6 class="card-title"><a href="#" class="link d-inline-block text-dark hover:text-primary">{{station.stationname}}</a></h6>
+        <h6 class="card-title"><a href="#"
+                class="link d-inline-block text-dark hover:text-primary">{{station.stationname}}</a></h6>
         <ul class="list list-row gap-1 align-items-center">
-            <li><span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span></li>
-            <li><span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span></li>
-            <li><span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span></li>
-            <li><span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span></li>
-            <li><span class="text-dark fs-12 d-block">5.0(35)</span></li>
+            <li *ngFor="let item of [].constructor(station.averageRating);"><span class="text-warning fs-14 d-block"><i
+                        class="bi bi-star-fill"></i></span></li>
+            <li *ngFor="let item of [].constructor(5-(station.averageRating));"><span
+                    class="text-warning fs-14 d-block"><i class="bi bi-star"></i></span></li>
+            <li><span class="text-dark fs-12 d-block">{{station.averageRating}}</span></li>
         </ul>
         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mt-6">
-            <a (click)="showStationDetails(station)" 
-                class="link btn btn-primary fs-14 text-light">Book Trip</a>
+            <a (click)="showStationDetails(station)" class="link btn btn-primary fs-14 text-light">Book Trip</a>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { TripService } from '../Services/trip.service';
 import { ReservationService } from '../Services/reservation.service';
 import { PaymentComponent } from '../payment/payment.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-reservation',
@@ -11,14 +12,15 @@ import { PaymentComponent } from '../payment/payment.component';
 })
 export class ReservationComponent implements OnInit {
   constructor(private fb: FormBuilder, public tripService: TripService,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private toastr: ToastrService
   ) { }
   ngOnInit(): void {
 
     this.setTicketForms(1);
-
+    this.tripdata = this.tripService.selectedTrip;
   }
-
+  tripdata: any = {};
   numOfTickets: number[] = [1, 2, 3];
   completeData = false;
   genders: any = ["male", "female"];
@@ -28,7 +30,7 @@ export class ReservationComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({
     date: new FormControl('', Validators.required),
     numberOfTickets: new FormControl(1, Validators.required),
-    hour: new FormControl('', Validators.required),
+    hour: new FormControl({ value: '', disabled: true }, Validators.required),
     tickets: this.fb.array([])
   });
 
@@ -38,6 +40,7 @@ export class ReservationComponent implements OnInit {
     this.tripService.checkTripScheduleAvailability(this.tripService.selectedTrip.tripid,
       this.reservationForm.controls['date'].value
     );
+    this.reservationForm.get('hour')?.enable();
 
   }
   selectedSchedule: any;
@@ -103,6 +106,17 @@ export class ReservationComponent implements OnInit {
     }
   }
   submit() {
+    const selectedSeats = this.reservationForm.controls['tickets'].value.map(
+      (ticket: any) => ticket.seatid
+    );
+
+    // Check for duplicates by creating a Set and comparing its size with the original array length
+    const uniqueSeats = new Set(selectedSeats);
+    if (uniqueSeats.size !== selectedSeats.length) {
+      this.toastr.warning('You have selected the same seat more than once. Please choose different seats.');
+      return;
+    }
+
     let user: any = localStorage.getItem('user');
     user = JSON.parse(user);
     const paymentFormValues = this.paymentComponent.paymentForm.value;
@@ -116,6 +130,8 @@ export class ReservationComponent implements OnInit {
     };
     console.log(body);
     this.reservationService.createReservation(body);
+    this.reservationForm.reset();
+    this.paymentComponent.paymentForm.reset();
   }
 
 }

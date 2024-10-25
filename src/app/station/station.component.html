@@ -31,13 +31,18 @@
 
             </div>
             <h1 class="h2 mt-4 mb-6">{{stationService.selectedStation.stationname}}</h1>
-            <!-- <div class="col-lg-12">
+
+            <div class="col-lg-12">
                 <ul class="list list-row flex-wrap row-gap-1 column-gap-4 align-items-center">
-                    <li><span class="badge bg-success-subtle text-success-emphasis ff-1">5.0</span></li>
-                    <li><span class="badge bg-primary-subtle text-primary-emphasis ff-1">Perfect</span></li>
-                    <li><span class="badge bg-info-subtle text-info-emphasis ff-1">Hotels</span></li>
-                    <li><span class="badge bg-danger-subtle text-danger-emphasis ff-1">Building</span></li>
-                    <li><span class="badge bg-success-subtle text-success-emphasis ff-1">Top Value</span></li>
+                    <li><span
+                            class="badge bg-info-subtle text-info-emphasis ff-1">{{stationService.selectedStation.address}}</span>
+                    </li>
+
+                    <li><span
+                            class="badge bg-success-subtle text-success-emphasis ff-1">{{stationService.selectedStation.averageRating}}</span>
+                    </li>
+
+
                     <li>
                         <ul class="list list-row gap-1">
                             <li class="text-warning"><i class="bi bi-star-fill"></i></li>
@@ -48,180 +53,10 @@
                         </ul>
                     </li>
                 </ul>
-            
-                <ul class="nav flex-nowrap tab-underline border-bottom">
-                    <li><button class="btn btn-sm active" data-bs-toggle="tab" data-bs-target="#hoteDescription"
-                            type="button">Description</button></li>
-                    <li><button class="btn btn-sm" data-bs-toggle="tab" data-bs-target="#hotelFeatures"
-                            type="button">Features</button></li>
-                    <li><button class="btn btn-sm" data-bs-toggle="tab" data-bs-target="#hotelVirtual"
-                            type="button">Virtual</button></li>
-                    <li><button class="btn btn-sm" data-bs-toggle="tab" data-bs-target="#hotelPrice" type="button">Price
-                            history</button></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="hoteDescription">
-                        <div class="card border-0">
-                            <div class="card-body px-0">
-                                <p class="mb-0">Arabian Park Hotel is a great choice for travellers looking for a 3
-                                    star hotel in Dubai. It is located in Bur Dubai. This Hotel stands out as one of
-                                    the highly recom.2 kms, Al Wasl Indoor Stadium (1.2 kms), Dubai Mall (5.4 kms),
-                                    Jumeirah Beach Park (9.6 kms) and Jumeirah Public Beach (15.8 kms).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pt-8">
-                    <h5>Hotel features</h5>
-                    <ul class="list list-row flex-wrap row-gap-1 column-gap-6 align-items-center">
-                        <li>
-                            <div class="d-flex align-items-center gap-2"><span class="d-inline-block flex-shrink-0"><i
-                                        class="bi bi-wifi"></i> </span><span class="d-inline-block">Wifi</span></div>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center gap-2"><span class="d-inline-block flex-shrink-0"><i
-                                        class="bi bi-tsunami"></i> </span><span class="d-inline-block">Swimming</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center gap-2"><span class="d-inline-block flex-shrink-0"><i
-                                        class="bi bi-cup-hot-fill"></i>
-                                </span><span class="d-inline-block">Breakfast</span></div>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center gap-2"><span class="d-inline-block flex-shrink-0"><i
-                                        class="bi bi-people"></i> </span><span class="d-inline-block">Kids bed</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center gap-2"><span class="d-inline-block flex-shrink-0"><i
-                                        class="bi bi-arrows-collapse-vertical"></i> </span><span
-                                    class="d-inline-block">4m x 6m</span></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-8">
-                    <h5>Amenities</h5>
-                    <div class="row g-4">
-                        <div class="col-md-6 col-xl-4">
-                            <ul class="list gap-3">
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-wifi"></i>
-                                        </span><span class="d-inline-block">Wifi</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-tsunami"></i>
-                                        </span><span class="d-inline-block">Swimming</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-cup-hot-fill"></i>
-                                        </span><span class="d-inline-block">Breakfast</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-people"></i>
-                                        </span><span class="d-inline-block">Kids bed</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i
-                                                class="bi bi-arrows-collapse-vertical"></i> </span><span
-                                            class="d-inline-block">4m x 6m</span></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-xl-4">
-                            <ul class="list gap-3">
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-wifi"></i>
-                                        </span><span class="d-inline-block">Wifi</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-tsunami"></i>
-                                        </span><span class="d-inline-block">Swimming</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-cup-hot-fill"></i>
-                                        </span><span class="d-inline-block">Breakfast</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i class="bi bi-people"></i>
-                                        </span><span class="d-inline-block">Kids bed</span></div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-center gap-2"><span
-                                            class="d-inline-block flex-shrink-0"><i
-                                                class="bi bi-arrows-collapse-vertical"></i> </span><span
-                                            class="d-inline-block">4m x 6m</span></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="pt-8">
-                    <div class="accordion accordion-separate accordion-rounded-0 accordion-faq-2 gap-6"
-                        id="accordion-separate">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button fs-20 fw-semibold rounded px-0"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion-r1"
-                                    aria-expanded="true">What destinations do you offer tours to</button></h2>
-                            <div id="accordion-r1" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordion-separate">
-                                <div class="accordion-body px-0">Quisque rutrum. Aenean imperdi. Etiam ultricies
-                                    nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                                    rhoncus. Maecenas tempus, tellus eget.</div>
-                            </div>
-                        </div>
-                        <hr class="m-0">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header"><button
-                                    class="accordion-button fs-20 fw-semibold rounded px-0 collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#accordion-r2" aria-expanded="false">What
-                                    types of service do you provide?</button></h2>
-                            <div id="accordion-r2" class="accordion-collapse collapse"
-                                data-bs-parent="#accordion-separate">
-                                <div class="accordion-body px-0">Quisque rutrum. Aenean imperdi. Etiam ultricies
-                                    nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                                    rhoncus. Maecenas tempus, tellus eget.</div>
-                            </div>
-                        </div>
-                        <hr class="m-0">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header"><button
-                                    class="accordion-button fs-20 fw-semibold rounded px-0 collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#accordion-r3" aria-expanded="false">What
-                                    is included in the tour package?</button></h2>
-                            <div id="accordion-r3" class="accordion-collapse collapse"
-                                data-bs-parent="#accordion-separate">
-                                <div class="accordion-body px-0">Quisque rutrum. Aenean imperdi. Etiam ultricies
-                                    nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                                    rhoncus. Maecenas tempus, tellus eget.</div>
-                            </div>
-                        </div>
-                        <hr class="m-0">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header"><button
-                                    class="accordion-button fs-20 fw-semibold rounded px-0 collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#accordion-r4" aria-expanded="false">What
-                                    should I pack for my trip?</button></h2>
-                            <div id="accordion-r4" class="accordion-collapse collapse"
-                                data-bs-parent="#accordion-separate">
-                                <div class="accordion-body px-0">Quisque rutrum. Aenean imperdi. Etiam ultricies
-                                    nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                                    rhoncus. Maecenas tempus, tellus eget.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+
+
+            </div>
             <!-- <div class="col-lg-4">
                 <ul class="list gap-6 p-md-4 p-xl-6">
                     <li>
