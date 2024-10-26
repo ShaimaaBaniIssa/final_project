@@ -16,6 +16,8 @@ import { AllStationComponent } from './all-station/all-station.component';
 import { StationCardComponent } from './station-card/station-card.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { PaymentComponent } from './payment/payment.component';
+import { StationPipe } from './Pipes/station.pipe';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { PaymentComponent } from './payment/payment.component';
     AllStationComponent,
     StationCardComponent,
     ReservationComponent,
-    PaymentComponent
+    PaymentComponent,
+    StationPipe
 
   ],
   imports: [
@@ -37,7 +40,7 @@ import { PaymentComponent } from './payment/payment.component';
     AppRoutingModule,
     SharedModule,
     ToastNoAnimationModule.forRoot()
-    
+
 
   ],
   providers: [],

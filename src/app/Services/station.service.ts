@@ -10,7 +10,7 @@ export class StationService {
   constructor(private toastr: ToastrService, private httpClient: HttpClient) { }
   trips: any = [];
   stations: any = [];
-  arr: any = [];
+  // positions: any = [];
   selectedStation: any;
   selectedStationLocation: any;
   totalStations: number = 0;
@@ -31,11 +31,10 @@ export class StationService {
       .subscribe(
         (result: any) => {
           this.stations = result;
-          this.arr = result.map((item: any) => ({
-            lat: item.latitude,
-            lng: item.longitude
-          }));
-          console.log(this.arr)
+          // this.positions = result.map((item: any) => ({
+          //   lat: item.latitude,
+          //   lng: item.longitude
+          // }));
         },
         error => {
           this.toastr.error("error");
@@ -57,12 +56,12 @@ export class StationService {
     this.httpClient.get('https://localhost:7019/api/Station/SearchStation/' + stationname)
       .subscribe(
         (result: any) => {
-          // this.stations = result;
-          this.arr = result.map((item: any) => ({
-            lat: item.latitude,
-            lng: item.longitude
-          }));
-          console.log(this.arr)
+          this.stations = result;
+          // this.positions = result.map((item: any) => ({
+          //   lat: item.latitude,
+          //   lng: item.longitude
+          // }));
+
         },
         error => {
           this.toastr.error("error");

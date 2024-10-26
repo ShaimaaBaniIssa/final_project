@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
 import { HomeService } from '../Services/home.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
+import { getDistanceFromLatLonInKm } from '../utility/location-utils';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { FormControl } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
 
-  constructor(public stationService: StationService, public homeService: HomeService, private router: Router, private toster: ToastrService) {
+  constructor(private cdr: ChangeDetectorRef, public stationService: StationService, public homeService: HomeService, private router: Router, private toster: ToastrService) {
 
   }
   stationName: FormControl = new FormControl('');
@@ -24,37 +25,48 @@ export class HomeComponent implements OnInit {
     this.getUserLocation();
   }
   searchStation() {
-    if (this.stationName.value == '') {
-      if (this.stationName.touched) {
-        this.stationService.arr = this.stationService.stations.map((item: any) => ({
-          lat: item.latitude,
-          lng: item.longitude
-        }));
-      }
-      return;
-
-    }
     this.stationService.searchStations(this.stationName.value);
 
+  }
+
+  activeTab: string = 'All Stations';
+  filterStation: any = null;
+  setActiveTab(tabName: string) {
+    this.activeTab = tabName;
+    if (tabName == "All Stations")
+      this.filterStation = null;
+    if (tabName == "Nearest Station") {
+      this.findNearestStation();
+    }
+
+  }
+
+
+
+  findNearestStation(): any {
+    let nearestStation: any = {};
+    let minDistance = Infinity;
+
+
+    this.stationService.stations.forEach((station: any) => {
+
+      const distance = getDistanceFromLatLonInKm(this.userLocation!.lat, this.userLocation!.lng, station.latitude, station.longitude);
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestStation = station;
+      }
+    });
+    console.log(nearestStation);
+    this.filterStation = nearestStation;
   }
 
 
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 12; // مستوى التكبير
-  // locations: google.maps.LatLngLiteral[] = this.newList
-  onMarkerClick(location: google.maps.LatLngLiteral) {
-    const foundStation = this.stationService.stations.find((station: any) =>
-      station.latitude === location.lat &&
-      station.longitude === location.lng
-    );
-    console.log(foundStation)
-    if (foundStation) {
-      this.stationService.selectedStation = foundStation;
-      this.router.navigate(['station']);
 
-    } else {
-      console.log('No station found for this location.');
-    }
+  onMarkerClick(station: any) {
+    this.stationService.selectedStation = station;
+    this.router.navigate(['station']);
   }
   userLocation: google.maps.LatLngLiteral | null = null; // The user's current location
 
