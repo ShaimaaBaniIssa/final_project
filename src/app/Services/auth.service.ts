@@ -88,8 +88,7 @@ export class AuthService {
     this.httpClient.get('https://localhost:7019/api/Login/CountUser')
       .subscribe(
         (result: any) => {
-          console.log("Total Users from API:", result); // تحقق من النتيجة
-          this.totalUsers = result; // تحديث الخاصية
+          console.log("Total Users from API:", result); 
         },
         error => {
           this.toastr.error("error");
