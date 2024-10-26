@@ -121,22 +121,25 @@
         
             <!-- قسم بيانات المستخدمين -->
             <div class="card-body">
-              <div class="row">
-                <div *ngFor="let obj of user.users" class="col-md-6 mb-3">
-                  <div class="card border shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ obj.fname }} {{ obj.lname }}</h5>
-                      <p class="mb-1"><strong>Customer ID:</strong> {{ obj.customerid }}</p>
-                      <p class="mb-1"><strong>Email:</strong> {{ obj.email }}</p>
-                      <p class="mb-1"><strong>Phone Number:</strong> {{ obj.phonenumber }}</p>
-                      <p class="mb-1"><strong>Address:</strong> {{ obj.address }}</p>
-                      <p class="mb-1"><strong>Latitude:</strong> {{ obj.latitude }}</p>
-                      <p class="mb-1"><strong>Longitude:</strong> {{ obj.longitude }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <div *ngIf="user.users && user.users.length > 0" class="row">
+                <ng-container *ngFor="let obj of user.users; let i = index">
+                  <div *ngIf="i < 4" class="col-md-6 mb-3">
+                    <div class="card border shadow-sm">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ obj.fname }} {{ obj.lname }}</h5>
+                        <p class="mb-1"><strong>Customer ID:</strong> {{ obj.customerid }}</p>
+                        <p class="mb-1"><strong>Email:</strong> {{ obj.email }}</p>
+                        <p class="mb-1"><strong>Phone Number:</strong> {{ obj.phonenumber }}</p>
+                        <p class="mb-1"><strong>Address:</strong> {{ obj.address }}</p>
+                        <p class="mb-1"><strong>Latitude:</strong> {{ obj.latitude }}</p>
+                        <p class="mb-1"><strong>Longitude:</strong> {{ obj.longitude }}</p>
+                      </div> <!-- End of card-body for each user card -->
+                    </div> <!-- End of card for each user card -->
+                  </div> <!-- End of col-md-6 for each user card -->
+                </ng-container> <!-- End of ng-container for user iteration -->
+              </div> <!-- End of row if there are users -->
+            </div> <!-- End of main card-body -->
+            
           </div>
         </div>
         
