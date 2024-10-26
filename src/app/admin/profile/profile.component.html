@@ -1,0 +1,121 @@
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="main-header">
+
+        <div class="main-header-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="../index.html" class="logo">
+              <img
+                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+           
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <!-- Navbar Header -->
+         <app-navbar></app-navbar>
+        <!-- End Navbar -->
+      </div>
+
+      <div class="container">
+
+
+      
+        <div class="container">
+            <div class="account-container">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <img src="../../../assets/Images/user.png" alt="Profile Picture">
+                    <p> {{this.profile.userData.fname}} {{this.profile.userData.lname}}</p>
+                    
+                </div>
+        
+                <!-- Details Section -->
+                <div class="details-section">
+                    <h3>Account Details</h3>
+                    <div class="detail-item">
+                        <span>First Name:</span> {{this.profile.userData.fname}}
+                    </div>
+                    <div class="detail-item">
+                        <span>Last Name:</span> {{this.profile.userData.lname}}
+                    </div>
+                    <div class="detail-item">
+                        <span>Email:</span> {{this.profile.userData.email}}
+                    </div>
+                    <div class="detail-item">
+                        <span>Phone Number: </span>{{this.profile.userData.phonenumber}}
+                    </div>
+                    <div class="detail-item">
+                        <span>Address:</span>{{this.profile.userData.address}}
+                    </div>
+                    
+                    <button class="btn-update" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Update Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Update Account Details</h5>
+                        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="updateUser">
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" formControlName="fname" [(ngModel)]="this.profile.userData.fname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" formControlName="lname" [(ngModel)]="this.profile.userData.lname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" formControlName="email" [(ngModel)]="this.profile.userData.email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Phone Number</label>
+                                <input type="email" class="form-control" formControlName="phonenumber" [(ngModel)]="this.profile.userData.phonenumber">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Address</label>
+                                <input type="email" class="form-control" formControlName="address" [(ngModel)]="this.profile.userData.address">
+                            </div>
+                           
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                       
+                        <button type="button" class="btn-save" (click)="Save()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+      </div>
+
+    </div>
+
+   
+  </div>
+ 

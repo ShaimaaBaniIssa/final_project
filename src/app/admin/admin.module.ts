@@ -6,6 +6,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +15,15 @@ import { NavbarComponent } from './navbar/navbar.component';
     DashbordComponent,
     SidebarComponent,
     FormComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
+   
+   
   ]
 })
 export class AdminModule { }

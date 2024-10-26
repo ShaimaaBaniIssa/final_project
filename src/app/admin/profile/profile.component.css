@@ -1,0 +1,124 @@
+body {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+    color: #f0f4f8;
+    font-family: Arial, sans-serif;
+}
+
+.account-container {
+    max-width: 750px;
+    margin: 80px auto;
+    background: #1b263b;
+    border-radius: 15px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.3s;
+    border: 2px solid #415a77;
+}
+.account-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.profile-section {
+    flex: 1;
+    text-align: center;
+    padding: 40px 20px;
+    background: #0d1b2a;
+    color: #f0f4f8;
+    border-right: 1px solid #415a77;
+}
+.profile-section img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #415a77;
+}
+.profile-section p {
+    font-weight: bold;
+    font-size: 20px;
+    color: #f0f4f8;
+    margin-top: 10px;
+}
+.profile-section .nav-link {
+    color: #8aa0bc;
+    font-weight: 500;
+    margin: 15px 0;
+    transition: color 0.3s;
+}
+.profile-section .nav-link.active,
+.profile-section .nav-link:hover {
+    color: #f0f4f8;
+    text-decoration: underline;
+}
+
+.details-section {
+    flex: 2;
+    padding: 40px;
+    background: #415a77;
+    color: #f0f4f8;
+}
+.details-section h3 {
+    font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #f0f4f8;
+    border-bottom: 3px solid #8aa0bc;
+}
+.detail-item {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #f0f4f8;
+}
+.detail-item span {
+    display: inline-block;
+    min-width: 120px;
+    font-weight: 600;
+    color: #cdd7e0;
+}
+.btn-update {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #8aa0bc;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-update:hover {
+    background-color: #7289a5;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #1b263b;
+    color: #f0f4f8;
+    border-radius: 10px;
+    border: none;
+}
+.modal-header, .modal-footer {
+    border: none;
+    color: #cdd7e0;
+}
+.modal-header h5 {
+    color: #8aa0bc;
+}
+.modal-footer .btn-close, .modal-footer .btn-save {
+    background-color: #8aa0bc;
+    color: #fdfdfd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+.modal-footer .btn-close:hover, .modal-footer .btn-save:hover {
+    background-color: #7289a5;
+}
+.btn-close {
+    filter: brightness(0) invert(1); /* Makes the close icon white */
+}
