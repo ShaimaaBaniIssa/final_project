@@ -214,9 +214,9 @@
                   </div>
                 </div>
               </div>
-              <h6>شهد هون وقفتي</h6>
+             
               <div class="card-list py-4">
-                <div class="item-list" *ngFor="let station of station.stations">
+                <div class="item-list" *ngFor="let obj of station.stations">
                   <div class="avatar">
                     <img
                       *ngIf="station.stations.imagePath; else defaultAvatar"
@@ -226,13 +226,13 @@
                     />
                     <ng-template #defaultAvatar>
                       <span class="avatar-title rounded-circle border border-white bg-secondary">
-                        {{station.stationname}}
+                        {{obj.stationname}}
                       </span>
                     </ng-template>
                   </div>
                   <div class="info-user ms-3">
-                    <div class="username">{{station.stationname}}</div>
-                    <div class="status">{{station.address}}</div>
+                    <div class="username">{{obj.stationname}}</div>
+                    <div class="status">{{obj.address}}</div>
                   </div>
                   <button class="btn btn-icon btn-link op-8 me-1">
                     <i class="far fa-envelope"></i>
@@ -278,19 +278,23 @@
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Testimonial ID</th>
-                      <th scope="col" class="text-end">Customer ID</th>
-                      <th scope="col" class="text-end">Station ID</th>
+                      <th scope="col" class="text-end">Fname</th>
+                      <th scope="col" class="text-end">StationName</th>
                       <th scope="col" class="text-end">Rating</th>
                       <th scope="col" class="text-end">Comment</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let testimonial of Testimonil.testimonials">
-                      <th scope="row">{{ testimonial.testimonialId }}</th>
-                      <td class="text-end">{{ testimonial.customerId }}</td>
-                      <td class="text-end">{{ testimonial.stationId }}</td>
-                      <td class="text-end">{{ testimonial.rating }}</td>
-                      <td class="text-end">{{ testimonial.commentText }}</td>
+                    <tr *ngFor="let obj of Testimonil.testimonials">
+                      <th scope="row">{{ obj.testimonialid }}</th>
+                      <td class="text-end">{{ obj.fname }}</td>
+                      <td class="text-end">{{ obj.stationname }}</td>
+                      <td class="text-end">
+                        <div class="stars">
+                          <span *ngFor="let _ of [].constructor(obj.rating)" class="filled">&#9733;</span>
+                        </div>
+                      </td>
+                      <td class="text-end">{{ obj.commenttext }}</td>
                     </tr>
                   </tbody>
                 </table>
