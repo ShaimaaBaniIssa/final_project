@@ -101,12 +101,9 @@
           <div class="card card-round">
             <div class="card-header">
               <div class="card-head-row">
-                <div class="card-title">User Statistics</div>
+                <div class="card-title">Users</div>
                 <div class="card-tools">
-                  <a
-                    href="#"
-                    class="btn btn-label-success btn-round btn-sm me-2"
-                  >
+                  <a href="#" class="btn btn-label-success btn-round btn-sm me-2">
                     <span class="btn-label">
                       <i class="fa fa-pencil"></i>
                     </span>
@@ -121,14 +118,29 @@
                 </div>
               </div>
             </div>
+        
+            <!-- قسم بيانات المستخدمين -->
             <div class="card-body">
-              <div class="chart-container" style="min-height: 375px">
-                <canvas id="statisticsChart"></canvas>
+              <div class="row">
+                <div *ngFor="let obj of user.users" class="col-md-6 mb-3">
+                  <div class="card border shadow-sm">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ obj.fname }} {{ obj.lname }}</h5>
+                      <p class="mb-1"><strong>Customer ID:</strong> {{ obj.customerid }}</p>
+                      <p class="mb-1"><strong>Email:</strong> {{ obj.email }}</p>
+                      <p class="mb-1"><strong>Phone Number:</strong> {{ obj.phonenumber }}</p>
+                      <p class="mb-1"><strong>Address:</strong> {{ obj.address }}</p>
+                      <p class="mb-1"><strong>Latitude:</strong> {{ obj.latitude }}</p>
+                      <p class="mb-1"><strong>Longitude:</strong> {{ obj.longitude }}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div id="myChartLegend"></div>
             </div>
           </div>
         </div>
+        
+        
         <div class="col-md-4">
           <div class="card card-primary card-round">
             <div class="card-header">
