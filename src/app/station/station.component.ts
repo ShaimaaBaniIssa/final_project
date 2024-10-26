@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
 import { TripService } from '../Services/trip.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TestimonialService } from '../Services/testimonial.service';
 
 @Component({
   selector: 'app-station',
@@ -9,11 +11,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./station.component.css']
 })
 export class StationComponent implements OnInit {
-  constructor(public stationService: StationService, private tripService: TripService, private router: Router) { }
+  constructor(public stationService: StationService, private tripService: TripService, private router: Router
+    , private testimonialService: TestimonialService
+  ) { }
+  customerid: any = '';
+  testimonialForm?: FormGroup;
+
   ngOnInit(): void {
     this.stationService.getStationTrips();
 
+    this.customerid = JSON.parse(localStorage.getItem('user') ?? '{}').customerid;
+
+    this.testimonialForm = new FormGroup(
+      {
+        customerid: new FormControl(this.customerid),
+        stationid: new FormControl(this.stationService.selectedStation.stationid),
+        rating: new FormControl('', Validators.required),
+        commenttext: new FormControl('', Validators.required)
+
+      }
+    )
   }
+
+
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 8; // مستوى التكبير
   showDays(trip: any) {
@@ -49,5 +69,8 @@ export class StationComponent implements OnInit {
     this.tripService.selectedTrip = { ...trip };
     this.router.navigate(['reservation']);
   }
-
+  addTestimonial() {
+    this.testimonialService.addTestimonial(this.testimonialForm!.value)
+    this.testimonialForm?.reset();
+  }
 }

@@ -9,7 +9,7 @@ export class ReservationService {
 
   constructor(private httpClient: HttpClient,
     private toastr: ToastrService,) { }
-  paymentSuccessId: any;
+
   createReservation(body: any) {
     this.httpClient.post('https://localhost:7019/api/Reservation/CreateReservation', body).subscribe((result) => {
       console.log("done")

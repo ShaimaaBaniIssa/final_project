@@ -22,4 +22,14 @@ export class TestimonialService {
         }
       );
   }
+  addTestimonial(body: any) {
+    this.httpClient.post('https://localhost:7019/api/Testimonial/CreateTestimonial', body).subscribe((result) => {
+      this.toastr.success("testimonial added Succefully")
+    }, err => {
+
+
+      this.toastr.error("falied")
+
+    })
+  }
 }

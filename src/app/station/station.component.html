@@ -174,7 +174,8 @@
             <div *ngFor="let trip of stationService.trips" class="col-md-6 col-xl-4">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center gap-6 p-6 rounded-3 bg-white"><a
                         href="destination-details.html" class="d-inline-block flex-shrink-0 link"><img
-                            src="../../assets/Home/img/train_logo.png" width="150px" height="150px" alt="image" class="img-fluid rounded-3"></a>
+                            src="../../assets/Home/img/train_logo.png" width="150px" height="150px" alt="image"
+                            class="img-fluid rounded-3"></a>
                     <div class="flex-grow-1">
                         <h6>{{trip.destaddress}}</h6>
                         <ul class="list list-row gap-1 align-items-center mb-1">
@@ -191,6 +192,49 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="mb-3">
+    <!-- <div class="section-space-md-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="text-center">
+                        <h2 class="mb-0">Testimonial</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="section-space-md-top">
+            <h3>Leave A Comment</h3>
+            <form class="row g-4" [formGroup]="testimonialForm!" (ngSubmit)="addTestimonial()">
+
+                <div class="col-8"><textarea class="form-control form-control-lg fs-14 bg-body-tertiary"
+                        placeholder="Type your comment" formControlName="commenttext"></textarea>
+
+
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" formControlName="rating" value="5" />
+                        <label for="star5">5 stars</label>
+                        <input type="radio" id="star4" formControlName="rating" value="4" />
+                        <label for="star4">4 stars</label>
+                        <input type="radio" id="star3" formControlName="rating" value="3" />
+                        <label for="star3">3 stars</label>
+                        <input type="radio" id="star2" formControlName="rating" value="2" />
+                        <label for="star2">2 stars</label>
+                        <input type="radio" id="star1" formControlName="rating" value="1" />
+                        <label for="star1">1 star</label>
+                    </fieldset>
+
+                </div>
+                <div class="col-8"><button type="submit" class="btn btn-lg btn-primary fs-16"
+                        [disabled]="testimonialForm!.invalid">Add Testimonial</button>
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
 <app-footer></app-footer>
