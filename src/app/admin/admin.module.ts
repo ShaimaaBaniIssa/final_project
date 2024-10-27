@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripSearchComponent } from './trip-search/trip-search.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TripSearchComponent } from './trip-search/trip-search.component';
     FormComponent,
     NavbarComponent,
     ProfileComponent,
-    TripSearchComponent
+    TripSearchComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
