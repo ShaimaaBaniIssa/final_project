@@ -10,6 +10,7 @@ export class ProfileService {
 
   constructor(private http:HttpClient,private toastr: ToastrService) { }
   userData:any=[]
+  users:any=[]
   getUser(userId:any){
 
     this.http.get('https://localhost:7019/api/Customer/GetCustomerById/'+userId).subscribe((result)=>{
@@ -31,5 +32,14 @@ export class ProfileService {
       console.log(error.message);
       this.toastr.error("error");
     })
+  }
+  getCustomers(){
+    this.http.get('https://localhost:7019/api/Customer').subscribe(result=>{
+      this.users=result
+      console.log('get Customer page susseccfuly');
+    },err=>{
+      console.log(err.message);
+    }
+  )
   }
 }

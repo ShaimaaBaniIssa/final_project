@@ -8,6 +8,8 @@ import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TripSearchComponent } from './trip-search/trip-search.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     FormComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    TripSearchComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,

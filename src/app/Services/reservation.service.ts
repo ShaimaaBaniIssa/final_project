@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,6 +18,22 @@ export class ReservationService {
 
 
       this.toastr.error("falied resrevation")
+
+    })
+  }
+
+  reportData:any=[]
+  MonthlyAnnualReports(month:any,year:any){
+    let params = new HttpParams();
+    if (month) {
+      params = params.set('month', month.toString());
+    }
+    params = params.set('year', year.toString());
+    console.log(month)
+    console.log(year)
+    this.httpClient.get('https://localhost:7019/api/Reservation/MonthlyAnnualReports',{params}).subscribe((resp)=>{
+this.reportData=resp
+console.log(this.reportData)
 
     })
   }

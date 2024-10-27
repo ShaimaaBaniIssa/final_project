@@ -1,4 +1,5 @@
 import { Component,ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -9,5 +10,12 @@ import { Component,ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class SidebarComponent {
+  constructor(private rout:Router){
 
+  }
+  logout(){
+    localStorage.clear();
+    console.log('Local storage cleared'); 
+
+  }
 }

@@ -1,0 +1,30 @@
+@import url('../../../assets/Admin/css/bootstrap.min.css');
+@import url('../../../assets/Admin/css/plugins.min.css');
+@import url('../../../assets/Admin/css/kaiadmin.min.css');
+
+ /* your-component.css */
+
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+/* your-component.css */
+
+
