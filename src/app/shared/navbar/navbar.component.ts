@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  userData = JSON.parse(localStorage.getItem('user') ?? '{}');
+  userName: string = this.userData.name ;
+  logout(){
+    localStorage.clear();
+    console.log('Local storage cleared'); 
 
+  }
 }

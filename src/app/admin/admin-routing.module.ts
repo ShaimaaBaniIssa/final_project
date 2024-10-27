@@ -4,6 +4,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { FormComponent } from './form/form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportComponent } from './report/report.component';
+import { TripComponent } from './trip/trip.component';
+import { CreateTripComponent } from './create-trip/create-trip.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,15 @@ const routes: Routes = [
   {
     path:'report',
     component:ReportComponent
+  },
+  {
+    path:'trip',
+    component:TripComponent
+  }
+  ,
+  {
+    path:'createtrip',
+    component:CreateTripComponent
   }
 ];
 

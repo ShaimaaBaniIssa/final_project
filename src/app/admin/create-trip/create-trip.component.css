@@ -1,0 +1,78 @@
+@import url('../../../assets/Admin/css/bootstrap.min.css');
+@import url('../../../assets/Admin/css/plugins.min.css');
+@import url('../../../assets/Admin/css/kaiadmin.min.css');
+
+.custom-form-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+}
+
+.custom-select,
+.custom-input {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.custom-select:focus,
+.custom-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.selectgroup-pills .selectgroup-item {
+    margin: 5px;
+}
+
+.selectgroup-button {
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.selectgroup-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.selectgroup-input:checked + .selectgroup-button {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+    .custom-label {
+        font-size: 0.9rem;
+    }
+
+    .custom-input, .custom-select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .selectgroup-button {
+        padding: 4px 10px;
+    }
+}
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+   
+  
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}

@@ -43,7 +43,8 @@
                 <li class="nav-item ms-lg-auto">
                     <ul class="list list-row gap-2">
                         <!-- check if user is loged or not -->
-                        <li><a routerLink="/auth/login" class="btn btn-success text-white fs-14">Login</a></li>
+                        <li *ngIf="!userName"><a routerLink="/auth/login" class="btn btn-success text-white fs-14">Login</a></li>
+                        <li *ngIf="userName"><a routerLink="/auth/login" class="btn btn-success text-white fs-14" (click)="logout()">Logout</a></li>
                     </ul>
                 </li>
             </ul>

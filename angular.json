@@ -62,7 +62,7 @@
     "src/assets/Admin/js/plugin/jsvectormap/jsvectormap.min.js",
     "src/assets/Admin/js/plugin/jsvectormap/world.js",
     "src/assets/Admin/js/plugin/sweetalert/sweetalert.min.js",
-
+    "src/assets/Admin/js/plugin/webfont/webfont.min.js",
    
     "src/assets/Admin/js/kaiadmin.js",
     "src/assets/Admin/js/kaiadmin.min.js"

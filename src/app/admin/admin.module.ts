@@ -10,6 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripSearchComponent } from './trip-search/trip-search.component';
 import { ReportComponent } from './report/report.component';
+import { TripComponent } from './trip/trip.component';
+import { CreateTripComponent } from './create-trip/create-trip.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ReportComponent } from './report/report.component';
     NavbarComponent,
     ProfileComponent,
     TripSearchComponent,
-    ReportComponent
+    ReportComponent,
+    TripComponent,
+    CreateTripComponent
   ],
   imports: [
     CommonModule,
