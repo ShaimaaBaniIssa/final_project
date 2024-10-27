@@ -12,6 +12,9 @@ import { TripSearchComponent } from './trip-search/trip-search.component';
 import { ReportComponent } from './report/report.component';
 import { TripComponent } from './trip/trip.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
+import { SharedModule } from '../shared/shared.module';
+import { ManagestationsComponent } from './Stations/managestations/managestations.component';
+import { CreatestationComponent } from './Stations/createstation/createstation.component';
 
 
 @NgModule({
@@ -24,12 +27,14 @@ import { CreateTripComponent } from './create-trip/create-trip.component';
     TripSearchComponent,
     ReportComponent,
     TripComponent,
-    CreateTripComponent
+    CreateTripComponent,
+    ManagestationsComponent,
+    CreatestationComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    SharedModule
    
    
   ]
