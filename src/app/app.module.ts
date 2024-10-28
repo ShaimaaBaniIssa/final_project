@@ -18,6 +18,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { PaymentComponent } from './payment/payment.component';
 import { StationPipe } from './Pipes/station.pipe';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -32,7 +33,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AllStationComponent,
     StationCardComponent,
     ReservationComponent,
-    PaymentComponent
+    PaymentComponent,
+    UserProfileComponent
     
 
   ],

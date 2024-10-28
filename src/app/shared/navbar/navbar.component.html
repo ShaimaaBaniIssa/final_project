@@ -41,12 +41,20 @@
 
                 <li class="nav-item"><a class="nav-link fs-14" routerLink="/contactus">Contact</a></li>
                 <li class="nav-item ms-lg-auto">
-                    <ul class="list list-row gap-2">
-                        <!-- check if user is loged or not -->
-                        <li *ngIf="!userName"><a routerLink="/auth/login" class="btn btn-success text-white fs-14">Login</a></li>
-                        <li *ngIf="userName"><a routerLink="/auth/login" class="btn btn-success text-white fs-14" (click)="logout()">Logout</a></li>
+                    <ul class="list list-row gap-2 align-items-center">
+                        <!-- Check if user is logged in or not -->
+                        <li *ngIf="!userName">
+                            <a routerLink="/auth/login" class="btn btn-success text-white fs-14">Login</a>
+                        </li>
+                        <li *ngIf="userName" class="d-flex align-items-center">
+                            <!-- Profile Image next to Logout -->
+                             <a routerLink="userprofile"><img *ngIf="userProfileImage" [src]="userProfileImage" alt="Profile" class="profile-image me-2">
+                             </a>
+                            <a routerLink="/auth/login" class="btn btn-success text-white fs-14" (click)="logout()">Logout</a>
+                        </li>
                     </ul>
                 </li>
+                
             </ul>
         </div>
     </div>

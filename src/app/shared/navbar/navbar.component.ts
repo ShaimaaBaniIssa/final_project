@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   userData = JSON.parse(localStorage.getItem('user') ?? '{}');
   userName: string = this.userData.name ;
+  userProfileImage:string='../../assets/Images/user.png'
   logout(){
     localStorage.clear();
     console.log('Local storage cleared'); 

@@ -1,0 +1,67 @@
+<home-navbar></home-navbar>
+<div class="container">
+    <div class="account-container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="../../../assets/Images/user.png" alt="Profile Picture" class="profile-image">
+            <p class="profile-name">{{ this.profile.userData.fname }} {{ this.profile.userData.lname }}</p>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details-section">
+            <h3>Account Details</h3>
+            <div class="detail-item">
+                <span>First Name:</span> {{ this.profile.userData.fname }}
+            </div>
+            <div class="detail-item">
+                <span>Last Name:</span> {{ this.profile.userData.lname }}
+            </div>
+            <div class="detail-item">
+                <span>Email:</span> {{ this.profile.userData.email }}
+            </div>
+            <div class="detail-item">
+                <span>Phone Number:</span> {{ this.profile.userData.phonenumber }}
+            </div>
+            <div class="detail-item">
+                <span>Address:</span> {{ this.profile.userData.address }}
+            </div>
+            <button class="btn-update  btn btn-success" (click)="openUpdateDailog(this.profile.userData)">Update</button>
+        </div>
+    </div>
+
+ <!-- Update Modal -->
+<ng-template #callUpdateDialog>
+    <h5 mat-dialog-title class="dialog-title">Update Account Details</h5>
+    <mat-dialog-content class="dialog-content">
+      <form [formGroup]="updateUser">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="fname" [(ngModel)]="pData.fname" name="firstName" required>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lname" [(ngModel)]="pData.lname" name="lastName" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" [(ngModel)]="pData.email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" formControlName="phonenumber" [(ngModel)]="pData.phonenumber" name="phoneNumber" required>
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="address" [(ngModel)]="pData.address" name="address" required>
+        </div>
+      </form>
+    </mat-dialog-content>
+    <div class="modal-footer mb-5">
+      <button type="button" class="btn btn-success m-1" mat-dialog-close (click)="Save()">Update</button>
+      <button type="button" class="btn btn-secondary m-1" mat-dialog-close>Cancel</button>
+    </div>
+  </ng-template>
+  
+  
+
+</div>
