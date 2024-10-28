@@ -11,25 +11,27 @@ import { ManagestationService } from '../../services/managestation.service';
 export class UpdatestationComponent implements OnInit {
   @Input() pData: any = {};
 
-  // updatestations = new FormGroup({
-  //   stationid: new FormControl(Validators.required),
-  //   stationname: new FormControl( Validators.required),
-  //   address: new FormControl(),
-  //   latitude: new FormControl(),
-  //   longitude: new FormControl(),
-  //   imagepath: new FormControl()
-  // });
+  updateStation = new FormGroup({
+    stationid: new FormControl(this.data.stationid, Validators.required),
+    stationname: new FormControl(this.data.stationname, Validators.required),
+    address: new FormControl(this.data.address),
+    latitude: new FormControl(this.data.latitude),
+    longitude: new FormControl(this.data.longitude),
+    imagepath: new FormControl(this.data.imagepath)
+  });
 
   constructor(
-    public managestationsservice: ManagestationService, public dialog: MatDialog) {}
+    public manageStationService: ManagestationService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+  }
 
   ngOnInit(): void {
   }
 
   save() {
-  
-      this.managestationsservice.updatestation(this.managestationsservice.updatestations.value);
-     
+    console.log(this.updateStation.value);
+    this.manageStationService.updateStation(this.updateStation.value);
+
   }
 
   uploadimage(file: any) {
@@ -37,6 +39,10 @@ export class UpdatestationComponent implements OnInit {
     let fileToUpload: File = <File>file[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-    this.managestationsservice.uploadAtachment(formData);
+    this.manageStationService.uploadAtachment(formData);
+  }
+  deleteStation() {
+    console.log("deeee");
+    this.manageStationService.deleteStation(this.data.stationid);
   }
 }

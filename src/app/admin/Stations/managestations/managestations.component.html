@@ -1,13 +1,14 @@
 <div>
-    <google-map width="100%" height="500px" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)">
+  <google-map width="100%" height="500px" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)">
 
 
-      <map-marker *ngFor="let station of managestation.stations | station:stationName.value"
-          [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onStationClick(station)">
-      </map-marker>
-      <map-marker
+    <map-marker *ngFor="let station of managestation.stations | station:stationName.value" [options]="{draggable: true}"
+      (mapDragend)="onMarkerDragEnd(station, $event)" [position]="{lat:station.latitude,lng:station.longitude}"
+      (mapClick)="onStationClick(station)">
+    </map-marker>
+    <!-- <map-marker
       [position]="markerPosition"
       [options]="markerOptions">
-    </map-marker>
+    </map-marker> -->
   </google-map>
 </div>
