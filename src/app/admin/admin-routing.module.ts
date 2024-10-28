@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReportComponent } from './report/report.component';
 import { TripComponent } from './trip/trip.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
+import { TripSearchComponent } from './trip-search/trip-search.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,12 @@ const routes: Routes = [
   {
     path:'createtrip',
     component:CreateTripComponent
+  },
+  {
+    path:'tripsearch',
+    component:TripSearchComponent
   }
+
 ];
 
 @NgModule({

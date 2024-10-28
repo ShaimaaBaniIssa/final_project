@@ -13,6 +13,7 @@ export class TripService {
   selectedTrip: any = {};
   tripSchedules: any = [];
   availableSeats: any = [];
+  tripsearch: any = [];
 
   checkTripScheduleAvailability(tripId: any, reservationDate: Date) {
 
@@ -41,5 +42,17 @@ export class TripService {
         }
       );
   }
-  
+  SearchTrip(startDate: string, endDate: string) {
+    this.httpClient.get(`https://localhost:7019/api/TripSchedule/SearchTrip?startDate=${startDate}&endDate=${endDate}`)
+      .subscribe(
+        result => {
+          this.tripsearch = result;
+        },
+        error => {
+          console.log(error.message);
+          this.toastr.error("error");
+        }
+      );
+  }
+
 }
