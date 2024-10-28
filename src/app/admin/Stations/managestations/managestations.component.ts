@@ -5,7 +5,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { CreatestationComponent } from '../createstation/createstation.component';
 import { UpdatestationComponent } from '../updatestation/updatestation.component';
-import { DeletestationComponent } from '../deletestation/deletestation.component';
+
 
 @Component({
   selector: 'managestations',
@@ -24,21 +24,19 @@ export class ManagestationsComponent implements OnInit {
   ngOnInit(): void {
     this.managestation.getAllStation();
   }
-
+stationName: FormControl = new FormControl('');
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 10;
+  
+markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
 
-  stationName: FormControl = new FormControl('');
+  
   searchStation() {
     this.managestation.searchStations(this.stationName.value);
 
   }
 
-  markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
-  markerOptions: google.maps.MarkerOptions = {
-    draggable: true,
-    title: 'My Marker'
-  };
+  // create 
   onMapClick(event: google.maps.MapMouseEvent) {
     if (event.latLng) {
       this.markerPosition = {
@@ -57,14 +55,14 @@ export class ManagestationsComponent implements OnInit {
     });
 
   }
-
+ // for update
   onStationClick(station: any) {
     console.log(station);
     this.openUpdateDialog(station);
     // this.openDeleteDailog(station.stationid)
   }
 
-  // for update
+ 
   openUpdateDialog(station: any) {
 
     console.log(station);
@@ -81,11 +79,6 @@ export class ManagestationsComponent implements OnInit {
     }
   }
 
-  //for delete
-  openDeleteDailog(id: any) {
-    const dialogRef = this.dialog.open(DeletestationComponent, {
-      data: id
-    });
-  }
+  
 
 }

@@ -11,7 +11,12 @@ import { ManagestationService } from '../../services/managestation.service';
 export class UpdatestationComponent implements OnInit {
   @Input() pData: any = {};
 
-  updateStation = new FormGroup({
+  
+  constructor(
+    public manageStationService: ManagestationService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+  }
+updateStation = new FormGroup({
     stationid: new FormControl(this.data.stationid, Validators.required),
     stationname: new FormControl(this.data.stationname, Validators.required),
     address: new FormControl(this.data.address),
@@ -19,11 +24,6 @@ export class UpdatestationComponent implements OnInit {
     longitude: new FormControl(this.data.longitude),
     imagepath: new FormControl(this.data.imagepath)
   });
-
-  constructor(
-    public manageStationService: ManagestationService, @Inject(MAT_DIALOG_DATA) public data: any) {
-    console.log(data);
-  }
 
   ngOnInit(): void {
   }

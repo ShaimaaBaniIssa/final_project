@@ -16,7 +16,6 @@ import { SharedModule } from '../shared/shared.module';
 import { ManagestationsComponent } from './Stations/managestations/managestations.component';
 import { CreatestationComponent } from './Stations/createstation/createstation.component';
 import { UpdatestationComponent } from './Stations/updatestation/updatestation.component';
-import { DeletestationComponent } from './Stations/deletestation/deletestation.component';
 
 
 @NgModule({
@@ -32,8 +31,8 @@ import { DeletestationComponent } from './Stations/deletestation/deletestation.c
     CreateTripComponent,
     ManagestationsComponent,
     CreatestationComponent,
-    UpdatestationComponent,
-    DeletestationComponent
+    UpdatestationComponent
+   
   ],
   imports: [
     CommonModule,
