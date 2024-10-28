@@ -19,7 +19,7 @@
         <div class="row g-4">
             <div *ngFor="let station of stationService.stations" class="col-md-6 col-lg-4">
                 <div class="position-relative rounded overflow-hidden"><img
-                        src="../../assets/Images/station-img.jpeg" alt="image"
+                        src="../../assets/Images/{{station.imagepath}}" alt="image"
                         class="img-fluid w-100 h-100 object-fit-cover">
                     <a (click)="showStationDetails(station)" style="cursor: pointer;"
                         class="link position-absolute top-0 start-0 w-100 h-100 p-4 p-md-6 bg-dark bg-opacity-40 d-flex flex-column align-items-start justify-content-start">
