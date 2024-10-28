@@ -13,88 +13,78 @@ import { DeletestationComponent } from '../deletestation/deletestation.component
   styleUrls: ['./managestations.component.css']
 })
 export class ManagestationsComponent implements OnInit {
-  
-  constructor( public managestation:ManagestationService,public dialog :MatDialog){
-  
-  }
-  pData : any={};
- Data:any={};
 
-  
+  constructor(public managestation: ManagestationService, public dialog: MatDialog) {
+
+  }
+  pData: any = {};
+  Data: any = {};
+
+
   ngOnInit(): void {
     this.managestation.getAllStation();
   }
 
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
-  zoom = 10; 
-  onMarkerClick(station: any) {
-    this.managestation.selectedStation = station;
-   
-  }
-  stationName: FormControl = new FormControl('');
+  zoom = 10;
 
- 
+  stationName: FormControl = new FormControl('');
   searchStation() {
     this.managestation.searchStations(this.stationName.value);
 
   }
+
   markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   markerOptions: google.maps.MarkerOptions = {
-    draggable: true, 
-    title: 'My Marker' 
+    draggable: true,
+    title: 'My Marker'
   };
   onMapClick(event: google.maps.MapMouseEvent) {
     if (event.latLng) {
       this.markerPosition = {
         lat: event.latLng.lat(),
         lng: event.latLng.lng()
-        
+
       };
-      
+
       this.openCreateDialog();
     }
   }
-  
-  
-
   openCreateDialog() {
 
     const dialogRef = this.dialog.open(CreatestationComponent, {
-      data:this.markerPosition
+      data: this.markerPosition
     });
 
   }
- 
+
+  onStationClick(station: any) {
+    console.log(station);
+    this.openUpdateDialog(station);
+    // this.openDeleteDailog(station.stationid)
+  }
 
   // for update
-  onStationClick(station: any) {
-    this.pData=station;
-    console.log(this.pData.stationid)
-    
-    // this.openUpdateDialog(this.pData);
-    this.openDeleteDailog(this.pData.stationid)
-  }
-  
   openUpdateDialog(station: any) {
-    this.Data=station;
-    this.managestation.dis_image = this.Data.imagepath; 
 
-    this.managestation.updatestations.controls['stationid'].setValue(this.Data.stationid); 
-  
+    console.log(station);
     const dialogRef = this.dialog.open(UpdatestationComponent, {
-      data: this.Data
+      data: station
     });
- 
-   
   }
+  onMarkerDragEnd(station: any, event: any) {
 
-
+    if (event.latLng) {
+      station.latitude = event.latLng.lat();
+      station.longitude = event.latLng.lng();
+      this.managestation.updateStation(station);
+    }
+  }
 
   //for delete
-  openDeleteDailog(id:any){
-    this.Data.stationid=id;
-    const  dialogRef = this.dialog.open(DeletestationComponent, {
-      data: this.Data.stationid
+  openDeleteDailog(id: any) {
+    const dialogRef = this.dialog.open(DeletestationComponent, {
+      data: id
     });
   }
 

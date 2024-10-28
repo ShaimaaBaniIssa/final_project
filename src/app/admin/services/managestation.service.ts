@@ -12,24 +12,15 @@ export class ManagestationService {
   stations: any = [];
   totalStations: number = 0;
   selectedStation: any;
-  dis_image :any ;
-  updatestations = new FormGroup({
-    stationid: new FormControl(Validators.required),
-    stationname: new FormControl( Validators.required),
-    address: new FormControl(),
-    latitude: new FormControl(),
-    longitude: new FormControl(),
-    imagepath: new FormControl()
-  });
+  dis_image: any;
+
   getAllStation() {
     this.httpClient.get('https://localhost:7019/api/Station')
       .subscribe(
         (result: any) => {
           this.stations = result;
-          // this.positions = result.map((item: any) => ({
-          //   lat: item.latitude,
-          //   lng: item.longitude
-          // }));
+          console.log(result);
+
         },
         error => {
           this.toastr.error("error");
@@ -52,7 +43,7 @@ export class ManagestationService {
       .subscribe(
         (result: any) => {
           this.stations = result;
-         
+
 
         },
         error => {
@@ -60,41 +51,47 @@ export class ManagestationService {
         }
       );
   }
- 
-uploadAtachment(file:FormData){
-this.httpClient.post('https://localhost:7019/api/Station/UploadImage',file).subscribe((resp:any)=>{
-  // object from course 
-this.dis_image=resp.imagename;
-},err=>{
-console.log("error");
-})
-}
-createstation(body: any) {
-  body.imagename=this.dis_image;
-    this.httpClient.post('https://localhost:7019/api/Station/CreateStation', body).subscribe(resp => {
-        console.log("The Stition Created");
+
+  uploadAtachment(file: FormData) {
+    this.httpClient.post('https://localhost:7019/api/Station/UploadImage', file).subscribe((resp: any) => {
+      // object from course 
+      this.dis_image = resp.imagepath;
     }, err => {
-        console.log("Error");
+      console.log("error");
+    })
+  }
+  createStation(body: any) {
+    body.imagepath = this.dis_image;
+    this.httpClient.post('https://localhost:7019/api/Station/CreateStation', body).subscribe(resp => {
+      this.toastr.success('Station created successfuly')
+      window.location.reload();
+
+    }, err => {
+      this.toastr.error("Error");
     });
-    window.location.reload();
-}
+  }
 
-updatestation(body :any){
-  body.imagename=this.dis_image;
-  this.httpClient.put('https://localhost:7033/api/Course/UpdateStation',body).subscribe((resp)=>{
-    console.log('updeted')
-    
-  },err=>{
-   console.log("erorr")
-  })
-}
-
-deleteCourse(id:number){
-  this.httpClient.delete("https://localhost:7019/api/Station/DeleteStation/"+id).subscribe(resp=>{
-    console.log("The Course Deleted")
-  },err=>{
-  console.log("Error")
-  window.location.reload();
-  })
+  updateStation(body: any) {
+    if (this.dis_image != null) {
+      body.imagepath = this.dis_image;
     }
+    this.httpClient.put('https://localhost:7019/api/Station/UpdateStation', body).subscribe((resp) => {
+      this.toastr.success('Station updated successfuly')
+      // window.location.reload();
+
+
+    }, err => {
+      this.toastr.error("erorr")
+    })
+  }
+
+  deleteStation(id: number) {
+    this.httpClient.delete("https://localhost:7019/api/Station/DeleteStation/" + id).subscribe(resp => {
+      this.toastr.success("The Station Deleted")
+      window.location.reload();
+    }, err => {
+      this.toastr.error("can't delete this station")
+
+    })
+  }
 }
