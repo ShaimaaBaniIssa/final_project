@@ -67,7 +67,7 @@ export class ManagestationService {
       window.location.reload();
 
     }, err => {
-      console.log("Error");
+      this.toastr.error("Error");
     });
   }
 
@@ -77,11 +77,11 @@ export class ManagestationService {
     }
     this.httpClient.put('https://localhost:7019/api/Station/UpdateStation', body).subscribe((resp) => {
       this.toastr.success('Station updated successfuly')
-      window.location.reload();
+      // window.location.reload();
 
 
     }, err => {
-      console.log("erorr")
+      this.toastr.error("erorr")
     })
   }
 
@@ -90,7 +90,7 @@ export class ManagestationService {
       this.toastr.success("The Station Deleted")
       window.location.reload();
     }, err => {
-      console.log("Error")
+      this.toastr.error("can't delete this station")
 
     })
   }
