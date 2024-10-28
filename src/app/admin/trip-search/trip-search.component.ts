@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TripService  } from 'src/app/Services/trip.service'; 
+import { TripService } from 'src/app/Services/trip.service';
+import { ReportService } from '../services/report.service';
 
 @Component({
   selector: 'app-trip-search',
@@ -12,9 +13,9 @@ export class TripSearchComponent implements OnInit {
   tripSchedules: any[] = [];
 
   constructor(
-    public  tripScheduleService: TripService ,
+    public reportService: ReportService,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.tripScheduleForm = this.fb.group({
@@ -26,8 +27,8 @@ export class TripSearchComponent implements OnInit {
   onSearch(): void {
     if (this.tripScheduleForm.valid) {
       const { startDate, endDate } = this.tripScheduleForm.value;
-      this.tripScheduleService.SearchTrip(startDate, endDate)
-      ;
+      this.reportService.SearchTrip(startDate, endDate)
+        ;
     }
   }
 }
