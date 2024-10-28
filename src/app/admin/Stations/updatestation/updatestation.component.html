@@ -1,0 +1,26 @@
+
+ <ng-template >
+    <h2 mat-dialog-title>Update Station</h2>
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="managestationsservice.updatestations">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Station Name</mat-label>
+            <input type="text" matInput [(ngModel)]="pData.stationname" formControlName="stationname">
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>Station Address</mat-label>
+            <input type="text" matInput [(ngModel)]="pData.address" formControlName="address">
+          </mat-form-field>
+        </div>
+        
+        <input type="file" #file formControlName="imagepath" (change)="uploadimage(file.files)">
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="save()">Save</button>
+    </mat-dialog-actions>
+  </ng-template>

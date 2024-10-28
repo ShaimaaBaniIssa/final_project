@@ -25,12 +25,12 @@ export class CreatestationComponent {
   }
   
   uploadimage(file :any){
-  if(file.length==0)
-    return;
-  let filetoupload=<File> file[0];
-  const formdata = new FormData;
-  formdata.append('file',filetoupload,filetoupload.name);
-  this.managestationsservice.uploadAtachment(formdata)
-  
-  }
+    if(file.length==0)
+      return;
+    let filetoupload=<File> file[0];
+    const formdata = new FormData;
+    formdata.append('file',filetoupload,filetoupload.name);
+    this.managestationsservice.uploadAtachment(formdata)
+    
+    }
 }

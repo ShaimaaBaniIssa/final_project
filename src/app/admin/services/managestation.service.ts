@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -11,6 +12,15 @@ export class ManagestationService {
   stations: any = [];
   totalStations: number = 0;
   selectedStation: any;
+  dis_image :any ;
+  updatestations = new FormGroup({
+    stationid: new FormControl(Validators.required),
+    stationname: new FormControl( Validators.required),
+    address: new FormControl(),
+    latitude: new FormControl(),
+    longitude: new FormControl(),
+    imagepath: new FormControl()
+  });
   getAllStation() {
     this.httpClient.get('https://localhost:7019/api/Station')
       .subscribe(
@@ -50,7 +60,7 @@ export class ManagestationService {
         }
       );
   }
-  dis_image :any ;
+ 
 uploadAtachment(file:FormData){
 this.httpClient.post('https://localhost:7019/api/Station/UploadImage',file).subscribe((resp:any)=>{
   // object from course 
@@ -68,4 +78,23 @@ createstation(body: any) {
     });
     window.location.reload();
 }
+
+updatestation(body :any){
+  body.imagename=this.dis_image;
+  this.httpClient.put('https://localhost:7033/api/Course/UpdateStation',body).subscribe((resp)=>{
+    console.log('updeted')
+    
+  },err=>{
+   console.log("erorr")
+  })
+}
+
+deleteCourse(id:number){
+  this.httpClient.delete("https://localhost:7019/api/Station/DeleteStation/"+id).subscribe(resp=>{
+    console.log("The Course Deleted")
+  },err=>{
+  console.log("Error")
+  window.location.reload();
+  })
+    }
 }

@@ -3,7 +3,7 @@
 
 
       <map-marker *ngFor="let station of managestation.stations | station:stationName.value"
-          [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onMarkerClick(station)">
+          [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onStationClick(station)">
       </map-marker>
       <map-marker
       [position]="markerPosition"
