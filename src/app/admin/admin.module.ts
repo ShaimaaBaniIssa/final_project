@@ -10,12 +10,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripSearchComponent } from './trip-search/trip-search.component';
 import { ReportComponent } from './report/report.component';
-import { TripComponent } from './trip/trip.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
 import { SharedModule } from '../shared/shared.module';
 import { ManagestationsComponent } from './Stations/managestations/managestations.component';
 import { CreatestationComponent } from './Stations/createstation/createstation.component';
 import { UpdatestationComponent } from './Stations/updatestation/updatestation.component';
+import { ManagetripComponent } from './tripCRUD/managetrip/managetrip.component';
+import { TripComponent } from './trip/trip.component';
+import { CreatetripComponent } from './tripCRUD/createtrip/createtrip.component';
+import { TripDetailsComponent } from './tripCRUD/trip-details/trip-details.component';
+import { UpdatetripComponent } from './tripCRUD/updatetrip/updatetrip.component';
 
 
 @NgModule({
@@ -27,12 +31,15 @@ import { UpdatestationComponent } from './Stations/updatestation/updatestation.c
     ProfileComponent,
     TripSearchComponent,
     ReportComponent,
-    TripComponent,
     CreateTripComponent,
     ManagestationsComponent,
     CreatestationComponent,
-    UpdatestationComponent
-   
+    UpdatestationComponent,
+ManagetripComponent,
+TripComponent,
+CreatetripComponent,
+TripDetailsComponent,
+UpdatetripComponent   
   ],
   imports: [
     CommonModule,

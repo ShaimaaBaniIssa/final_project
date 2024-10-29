@@ -30,113 +30,11 @@
           <!-- End Logo Header -->
         </div>
         <!-- Navbar Header -->
-         <app-navbar></app-navbar>
+        <app-navbar></app-navbar>
         <!-- End Navbar -->
       </div>
-
-      <div class="container">
-        <h2 class="form-title m-3">Trip Details</h2>
-        <div class="container mt-4 p-4 custom-form-container">
-          <div class="row mb-4">
-              <!-- Destination Station -->
-              <div class="col-12 col-md-6 form-group">
-                  <label for="destinationStation" class="custom-label">Destination Station</label>
-                  <select class="form-select custom-select" id="destinationStation">
-                      <option value="" disabled selected>Select Destination</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                  </select>
-              </div>
-      
-              <!-- Departure Station -->
-              <div class="col-12 col-md-6 form-group">
-                  <label for="departureStation" class="custom-label">Departure Station</label>
-                  <select class="form-select custom-select" id="departureStation">
-                      <option value="" disabled selected>Select Departure</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                  </select>
-              </div>
-          </div>
-      
-          <!-- Trip Train and Price -->
-          <div class="row mb-4">
-              <div class="col-12 col-md-6 form-group">
-                  <label for="tripTrain" class="custom-label">Trip Train</label>
-                  <select class="form-select custom-select" id="tripTrain">
-                      <option value="" disabled selected>Select Train</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                  </select>
-              </div>
-      
-              <div class="col-12 col-md-6 form-group">
-                  <label for="tripPrice" class="custom-label">Trip Price</label>
-                  <input type="text" class="form-control custom-input" id="tripPrice" placeholder="Enter Trip Price" />
-              </div>
-          </div>
-      
-          <!-- Departure and Arrival Times -->
-          <div class="row mb-4">
-              <div class="col-12 col-md-6 form-group">
-                  <label for="departureTime" class="custom-label">Departure Time</label>
-                  <input type="text" class="form-control custom-input" id="departureTime" placeholder="Enter Departure Time" />
-              </div>
-      
-              <div class="col-12 col-md-6 form-group">
-                  <label for="arrivalTime" class="custom-label">Arrival Time</label>
-                  <input type="text" class="form-control custom-input" id="arrivalTime" placeholder="Enter Arrival Time" />
-              </div>
-          </div>
-      
-          <!-- Trip Days Selection -->
-          <div class="form-group mb-4">
-              <label class="custom-label">Trip Days</label>
-              <div class="selectgroup selectgroup-pills flex-wrap">
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Monday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Mon</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Tuesday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Tue</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Wednesday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Wed</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Thursday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Thu</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Friday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Fri</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Saturday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Sat</span>
-                  </label>
-                  <label class="selectgroup-item">
-                      <input type="checkbox" name="tripDays" value="Sunday" class="selectgroup-input" />
-                      <span class="selectgroup-button">Sun</span>
-                  </label>
-              </div>
-          </div>
-      </div>
-      
-      
-      
-      </div>
+     <app-managetrip></app-managetrip>
+     
 
 
     </div>

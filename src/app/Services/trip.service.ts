@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -7,13 +8,41 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TripService {
 
-  constructor(private toastr: ToastrService, private httpClient: HttpClient) { }
+  constructor(private toastr: ToastrService, private httpClient: HttpClient,private rout:Router) { }
 
 
   selectedTrip: any = {};
+
   tripSchedules: any = [];
   availableSeats: any = [];
 
+
+  createTrip(body:any){
+    console.log(body)
+this.httpClient.post('https://localhost:7019/api/Trip/CreateTrip',body).subscribe((res)=>{
+  this.toastr.success("Trip Created successfully.");
+  this.rout.navigate(['/admin/trip'])
+
+},err=>{
+  console.log(err)
+ 
+})
+  }
+
+
+  updateTrip(body:any){
+    console.log(body)
+    this.httpClient.put('https://localhost:7019/api/Trip/UpdateTrip',body).subscribe((res)=>{
+      this.toastr.success("Trip updated successfully.");
+      this.rout.navigate(['/admin/trip'])
+    
+    },err=>{
+      console.log(err)
+     
+    })
+  }
+
+  
   checkTripScheduleAvailability(tripId: any, reservationDate: Date) {
 
     this.httpClient.get('https://localhost:7019/api/TripSchedule/CheckTripScheduleAvailability/' + tripId + '/' + reservationDate)

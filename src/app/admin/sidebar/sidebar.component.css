@@ -2,4 +2,11 @@
 @import url('../../../assets/Admin/css/plugins.min.css');
 @import url('../../../assets/Admin/css/kaiadmin.min.css');
 
- 
+.gray-text {
+    color: rgb(255, 255, 255);
+  }
+  .nav-item ul {
+     /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }

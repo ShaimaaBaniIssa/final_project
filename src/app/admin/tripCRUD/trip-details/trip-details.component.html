@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="main-header">
+            <div class="main-header-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
+                    <a href="../index.html" class="logo">
+                        <img
+                            src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+                            alt="navbar brand"
+                            class="navbar-brand"
+                        />
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- End Logo Header -->
+            </div>
+            <!-- Navbar Header -->
+            <app-navbar></app-navbar>
+            <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+            <div class="section-space-md-bottom">
+                <div class=" mb-4">
+                    <h1 class="mb-1 fw-bold text-dark "  > Trips</h1>
+                    <a class="btn btn-sm btn-info text-light me-2" (click)="crete()">Create Trip</a>
+
+                </div>
+            </div>
+            
+
+          <div class="row g-4">
+            <div *ngFor="let trip of stationService.trips" class="col-md-7 col-xl-5">
+                <div class="trip-card d-flex flex-wrap flex-md-nowrap align-items-start gap-4 p-4 rounded-3 bg-white shadow-sm">
+                    <a href="destination-details.html" class="d-inline-block flex-shrink-0">
+                        <img src="../../assets/Home/img/train_logo.png" width="150" height="150" alt="Trip image" class="img-fluid rounded-3">
+                    </a>
+                    <div class="flex-grow-1">
+                        <h5 class="trip-title fs-5" style=" font-weight: bold;">{{trip.destaddress}}</h5> 
+                        <ul class="trip-days list list-row gap-1 align-items-center mb-1">
+                            <li><span class="text-dark fs-5 d-block">Days:</span></li> 
+                            <li><span class="text-dark fs-5 d-block" style=" color:gray;">{{showDays(trip)}}</span></li> 
+                        </ul>
+                        <h5 class="mb-4 trip-price fs-5">{{trip.price}}<span class="fs-6 fw-normal"> JOD</span></h5> 
+                        
+                        <!-- Buttons for schedule, update, and delete -->
+                        <div class="d-flex">
+                            <a class="btn btn-sm btn-info text-light me-2" data-bs-toggle="modal" data-bs-target="#tripScheduleModal">Show Schedule</a>
+                            <a class="btn btn-sm btn-warning text-light me-2" (click)="updateTrip(trip)">Update</a>
+                            <a class="btn btn-sm btn-danger text-light" (click)="deleteTrip(trip.id)">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+</div>
+
+        </div>
+    </div>
+</div>

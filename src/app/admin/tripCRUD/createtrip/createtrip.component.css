@@ -1,9 +1,6 @@
-@import url('../../../assets/Admin/css/bootstrap.min.css');
-@import url('../../../assets/Admin/css/plugins.min.css');
-@import url('../../../assets/Admin/css/kaiadmin.min.css');
+
 
 .custom-form-container {
-    background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

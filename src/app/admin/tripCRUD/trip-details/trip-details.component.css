@@ -1,0 +1,85 @@
+.container {
+    margin-top: 20px; 
+}
+
+.text-center {
+    margin-bottom: 30px; 
+}
+
+.trip-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.trip-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+}
+
+.trip-title {
+    font-size: 1.25rem; 
+    color: #040404; 
+    margin-bottom: 5px; 
+   
+}
+
+.trip-price {
+    font-size: 1.5rem; 
+    color: #28a745; 
+    margin: 10px 0; 
+}
+
+.btn-success {
+    background-color: #28a745; 
+    border: none; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn-success:hover {
+    background-color: #218838; 
+}
+
+@media (max-width: 576px) {
+    .trip-card {
+        padding: 15px;
+    }
+}
+
+.section-space-md-bottom {
+    background-color: #f0f4ff; 
+    padding: 40px 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.text-primary {
+    color: #007bff; 
+}
+
+h2 {
+    font-size: 2rem; 
+    line-height: 1.2; 
+}
+
+h2:hover {
+    color: #0056b3; 
+    transition: color 0.3s ease; 
+}
+
+.btn-primary {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+}
+
+.trip-days span {
+    font-size: 1.1rem; 
+    color: gray;
+}

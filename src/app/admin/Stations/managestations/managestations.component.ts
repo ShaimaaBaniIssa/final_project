@@ -70,6 +70,8 @@ markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
       data: station
     });
   }
+
+  
   onMarkerDragEnd(station: any, event: any) {
 
     if (event.latLng) {
