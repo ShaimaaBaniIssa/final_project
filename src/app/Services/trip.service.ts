@@ -41,7 +41,14 @@ this.httpClient.post('https://localhost:7019/api/Trip/CreateTrip',body).subscrib
      
     })
   }
+  DeleteTrip(id: number) {
+    this.httpClient.delete("https://localhost:7019/api/Trip/DeleteTrip/" + id).subscribe(resp => {
+      this.toastr.success("The Trip Deleted")
+    }, err => {
+      this.toastr.error("can't Trip this station")
 
+    })
+  }
   
   checkTripScheduleAvailability(tripId: any, reservationDate: Date) {
 

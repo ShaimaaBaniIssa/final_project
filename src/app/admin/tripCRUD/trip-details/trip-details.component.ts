@@ -56,8 +56,9 @@ this.rout.navigate(['/admin/updatetrip'])
 }
 
 
-deleteTrip(tripId:any){
-
+deleteTrip(){
+  console.log("deeee");
+  this.tripService.DeleteTrip(this.tripService.selectedTrip.tripid);
 }
 
 crete(){
