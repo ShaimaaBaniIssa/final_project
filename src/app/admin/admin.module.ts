@@ -20,6 +20,8 @@ import { TripComponent } from './trip/trip.component';
 import { CreatetripComponent } from './tripCRUD/createtrip/createtrip.component';
 import { TripDetailsComponent } from './tripCRUD/trip-details/trip-details.component';
 import { UpdatetripComponent } from './tripCRUD/updatetrip/updatetrip.component';
+import { TripScheduleComponent } from './trip-schedule/trip-schedule.component';
+import { CreateSchdualComponent } from './create-schdual/create-schdual.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ ManagetripComponent,
 TripComponent,
 CreatetripComponent,
 TripDetailsComponent,
-UpdatetripComponent   
+UpdatetripComponent,
+TripScheduleComponent,
+CreateSchdualComponent   
   ],
   imports: [
     CommonModule,

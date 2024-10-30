@@ -11,6 +11,8 @@ import { ManagetripComponent } from './tripCRUD/managetrip/managetrip.component'
 import { CreatetripComponent } from './tripCRUD/createtrip/createtrip.component';
 import { TripDetailsComponent } from './tripCRUD/trip-details/trip-details.component';
 import { UpdatetripComponent } from './tripCRUD/updatetrip/updatetrip.component';
+import { TripScheduleComponent } from './trip-schedule/trip-schedule.component';
+import { CreateSchdualComponent } from './create-schdual/create-schdual.component';
 
 const routes: Routes = [
   {
@@ -52,7 +54,17 @@ const routes: Routes = [
   {
     path:'tripsearch',
     component:TripSearchComponent
+  },
+  {
+    path:'tripschedule',
+    component:TripScheduleComponent
+  },
+  {
+    path:'CreateSchdual',
+    component:CreateSchdualComponent
   }
+
+
 
 ];
 
