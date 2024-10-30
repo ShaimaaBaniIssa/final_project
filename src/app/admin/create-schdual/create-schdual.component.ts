@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReportService } from '../services/report.service';
 import { TripService } from 'src/app/Services/trip.service';
+import { ManageTripService } from '../services/manage-trip.service';
+import { ManageSchdualService } from '../services/manage-schdual.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-create-schdual',
   templateUrl: './create-schdual.component.html',
@@ -9,29 +13,53 @@ import { TripService } from 'src/app/Services/trip.service';
 })
 export class CreateSchdualComponent  implements OnInit {
   scheduleForm: FormGroup;
+tripId:any;
 
-
-  constructor(public reportService: ReportService, private fb: FormBuilder ,public tripService: TripService) {
+  constructor(public tripSc: ManageSchdualService, private fb: FormBuilder ,
+    private trip:ManageTripService,public shedual:ManageSchdualService ,private rout:Router,
+    private toastr: ToastrService ) {
     this.scheduleForm = this.fb.group({
       departureTime: ['', Validators.required],
       arrivalTime: ['', Validators.required],
-      tripId: ['', Validators.required],
-      trainId: ['', Validators.required],
-      date: ['', Validators.required]
+      tripId: [this.tripId],
+      trainid: [null, Validators.required],
+      tdate: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.shedual.getAllTrains()
+    this.tripId = localStorage.getItem('tripId');
+    
+  }
 
 
   save() {
-    this.reportService.CreateTripSchedule(this.scheduleForm.value)
+    this.scheduleForm.controls['tripId'].setValue(this.tripId)
+    this.tripSc.CreateTripSchedule(this.scheduleForm.value)
+    this.rout.navigate(['/admin/tripschedule'])
   }
   selectDate() {
-    this.tripService.checkTripScheduleAvailability(this.tripService.selectedTrip.tripid,
-      this.scheduleForm.controls['date'].value
-    );
-    this.scheduleForm.get('hour')?.enable();
+    const selectedDate = this.scheduleForm.controls['tdate'].value; 
+    console.log("Checking availability for trip ID:", this.tripId, "on date:", selectedDate);
 
+    this.trip.checkTripScheduleAvailability(this.tripId, selectedDate).subscribe(
+      (isAvailable:any) => {
+        if (isAvailable) {
+          console.log('Trip is available for the selected date.');
+          this.toastr.error('Trip is not available on the selected date.', 'Unavailable');
+       
+        this.scheduleForm.controls['tdate'].setErrors({ unavailable: true });
+        } else {
+          console.error('Trip is not available for the selected date.');
+         
+        }
+      },
+      (error:any) => {
+        console.error(error);
+       
+      }
+    );
   }
 }

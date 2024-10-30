@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ManagestationService } from '../../services/managestation.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TripService } from 'src/app/Services/trip.service';
+import { ManageTripService } from '../../services/manage-trip.service';
 
 @Component({
   selector: 'app-createtrip',
@@ -11,7 +12,7 @@ import { TripService } from 'src/app/Services/trip.service';
 })
 
 export class CreatetripComponent implements OnInit {
-  constructor(public managestation: ManagestationService,private trip:TripService){
+  constructor(public managestation: ManagestationService,private ManageTripService:ManageTripService){
   
   }
   ngOnInit(): void {
@@ -54,7 +55,7 @@ export class CreatetripComponent implements OnInit {
 createTrip: FormGroup = new FormGroup({
   destlatitude: new FormControl(this.markerPosition?.lat, Validators.required),
   destlongitude: new FormControl(this.markerPosition?.lng, Validators.required),
-  price: new FormControl(null, Validators.required), // Default value added
+  price: new FormControl(0, Validators.required), // Default value added
   sunday: new FormControl(false),  // Use booleans (false instead of 0)
   monday: new FormControl(false),
   tuesday: new FormControl(false),
@@ -68,7 +69,7 @@ createTrip: FormGroup = new FormGroup({
 
   
 save() {
-  this.trip.createTrip(this.createTrip.value)
+  this.ManageTripService.createTrip(this.createTrip.value)
 }
  
   

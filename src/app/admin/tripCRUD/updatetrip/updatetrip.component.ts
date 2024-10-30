@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TripService } from 'src/app/Services/trip.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StationService } from 'src/app/Services/station.service';
+import { ManageTripService } from '../../services/manage-trip.service';
 
 @Component({
   selector: 'app-updatetrip',
@@ -15,7 +16,7 @@ export class UpdatetripComponent implements OnInit {
   latitude:any;
   longitude:any;
   stationid:any;
-  constructor(public managestation: ManagestationService,public tripService:TripService,public stationService: StationService){
+  constructor(public managestation: ManagestationService,public ManageTripService:ManageTripService,public stationService: StationService){
   
  
   }
@@ -23,7 +24,7 @@ export class UpdatetripComponent implements OnInit {
   ngOnInit(): void {
     this.station=this.stationService.selectedStation
    
-   console.log(this.tripService.selectedTrip)
+   console.log(this.ManageTripService.selectedTrip)
    this.stationid= this.stationService.selectedStation.stationid
   }
  
@@ -41,26 +42,26 @@ export class UpdatetripComponent implements OnInit {
 
 
 updateTrip: FormGroup = new FormGroup({
-  tripid:new FormControl (this.tripService.selectedTrip.tripid),
+  tripid:new FormControl (this.ManageTripService.selectedTrip.tripid),
   destlatitude: new FormControl(this.stationService.selectedStationLocation.lat),
   destlongitude: new FormControl(this.stationService.selectedStationLocation.lng),
-  price: new FormControl(this.tripService.selectedTrip.price),
-  sunday: new FormControl(this.tripService.selectedTrip.sunday),  
-  monday: new FormControl(this.tripService.selectedTrip.monday),
-  tuesday: new FormControl(this.tripService.selectedTrip.tuesday),
-  wednesday: new FormControl(this.tripService.selectedTrip.wednesday),
-  thursday: new FormControl(this.tripService.selectedTrip.thursday),
-  friday: new FormControl(this.tripService.selectedTrip.friday),
-  saturday: new FormControl(this.tripService.selectedTrip.saturday),
+  price: new FormControl(this.ManageTripService.selectedTrip.price),
+  sunday: new FormControl(this.ManageTripService.selectedTrip.sunday),  
+  monday: new FormControl(this.ManageTripService.selectedTrip.monday),
+  tuesday: new FormControl(this.ManageTripService.selectedTrip.tuesday),
+  wednesday: new FormControl(this.ManageTripService.selectedTrip.wednesday),
+  thursday: new FormControl(this.ManageTripService.selectedTrip.thursday),
+  friday: new FormControl(this.ManageTripService.selectedTrip.friday),
+  saturday: new FormControl(this.ManageTripService.selectedTrip.saturday),
   
   stationid: new FormControl(this.stationService.selectedStation.stationid), 
-  destaddress: new FormControl(this.tripService.selectedTrip.destaddress)
+  destaddress: new FormControl(this.ManageTripService.selectedTrip.destaddress)
 });
 
   
 save() {
 
-  this.tripService.updateTrip(this.updateTrip.value)
+  this.ManageTripService.updateTrip(this.updateTrip.value)
 }
 
 onMarkerDragEnd( event: any) {

@@ -30,8 +30,8 @@
       <div class="container">
         <div class="section-space-md-bottom">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0 fw-bold "> Trip Schedule</h1>
-            <a class="btn btn-lg btn-info text-light" (click)="createSchedule()">Create Schedule</a>
+            <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
+            <a class="btn btn-lg btn-info text-light m-3" (click)="createSchedule()">Create Schedule</a>
           </div>
         </div>
   
@@ -51,7 +51,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let obj of reportService.tripschedule">
+                  <tr *ngFor="let obj of tripSc.tripschedule">
                     <th scope="row">{{ obj.tripscheduleid }}</th>
                     <td class="text-end">{{ obj.departuretime }}</td>
                     <td class="text-end">{{ obj.arrivaltime }}</td>
@@ -59,7 +59,7 @@
                     <td class="text-end">{{ obj.trainid }}</td>
                     <td class="text-end">{{ obj.tdate }}</td>
                     <td class="text-end">
-                      <button class="btn btn-sm btn-primary me-2" (click)="updateTripSchedule(obj)">Update</button>
+                      <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
                       <button class="btn btn-sm btn-danger" (click)="deleteTripSchedule(obj.tripscheduleid)">Delete</button>
                     </td>
                   </tr>
@@ -69,6 +69,42 @@
           </div>
         </div>
       </div>
+
+
+
+      <ng-template #callUpdateDialog>
+        <h5 mat-dialog-title class="dialog-title">Update Trip Schedule Details</h5>
+        <mat-dialog-content class="dialog-content">
+          <form [formGroup]="updateSchedule">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">Departure Time</label>
+              <input type="text" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime" name="departuretime" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Arrival Time</label>
+              <input type="text" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime" name="arrivaltime" required>
+            </div>
+            <div class="col-12 col-md-6 form-group">
+              <label for="destinationStation" class="custom-label">Train</label>
+              <select class="form-select custom-select" id="destinationStation" formControlName="trainid" [(ngModel)]="pData.trainid">
+                  <option value=""  selected>Select Train</option>
+                  <option *ngFor="let obj of this.shedual.allTrains" [value]="obj.trainid"  [selected]="obj.trainid === pData.trainid"  >{{ obj.trainname }}</option>
+              </select>
+   
+             </div>
+            
+             <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="tdate" formControlName="tdate" [(ngModel)]="pData.tdate" (change)="selectDate()">
+            </div>
+          </form>
+        </mat-dialog-content>
+        <div class="modal-footer mb-5">
+          <button type="button" class="btn btn-primary m-1" mat-dialog-close (click)="updateTripSchedule()">Update</button>
+          <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
+        </div>
+      </ng-template>
+      
     </div>
   </div>
   

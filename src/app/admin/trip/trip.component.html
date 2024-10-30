@@ -34,21 +34,24 @@
         <!-- End Navbar -->
       </div>
       
- <div>
-  <google-map width="100%" height="500px" [center]="center" [zoom]="zoom" >
-
-
-    <map-marker *ngFor="let station of managestation.stations | station:stationName.value" [options]="{draggable: false}"
-      [position]="{lat:station.latitude,lng:station.longitude}"
-      (mapClick)="onStationClick(station)"
-    >
-    </map-marker>
-    <!-- <map-marker
-      [position]="markerPosition"
-      [options]="markerOptions">
-    </map-marker> -->
-  </google-map>
-</div>
+   <div class="container">
+    <div class="col mb-4">
+      <h1  class="fw-bold  m-3">Trips Station</h1>
+      <google-map width="100%" height="500px" [center]="center" [zoom]="zoom" >
+    
+        
+        <map-marker *ngFor="let station of managestation.stations | station:stationName.value" [options]="{draggable: false}"
+          [position]="{lat:station.latitude,lng:station.longitude}"
+          (mapClick)="onStationClick(station)"
+        >
+        </map-marker>
+        <!-- <map-marker
+          [position]="markerPosition"
+          [options]="markerOptions">
+        </map-marker> -->
+      </google-map>
+    </div>
+   </div>
 
 
     </div>
