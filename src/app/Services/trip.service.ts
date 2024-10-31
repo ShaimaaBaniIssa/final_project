@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TripService {
 
-  constructor(private toastr: ToastrService, private httpClient: HttpClient,private rout:Router) { }
+  constructor(private toastr: ToastrService, private httpClient: HttpClient, private rout: Router) { }
 
 
   selectedTrip: any = {};
@@ -17,21 +17,7 @@ export class TripService {
   availableSeats: any = [];
 
 
-  
-  checkTripScheduleAvailability(tripId: any, reservationDate: Date) {
 
-    this.httpClient.get('https://localhost:7019/api/TripSchedule/CheckTripScheduleAvailability/' + tripId + '/' + reservationDate)
-      .subscribe(
-        result => {
-          this.tripSchedules = result;
-          if (this.tripSchedules.length == 0)
-            this.toastr.warning("no trip in this date");
-        },
-        error => {
-          this.toastr.error("error");
-        }
-      );
-  }
   getAvailableSeats(tripScheduleId: any) {
 
     this.httpClient.get("https://localhost:7019/api/TripSchedule/GetAvailableSeats/" + tripScheduleId)
@@ -44,6 +30,17 @@ export class TripService {
           this.toastr.error("error");
         }
       );
+  }
+  getTripScheduleById(tripId: number) {
+    this.httpClient.get("https://localhost:7019/api/TripSchedule/GetTripScheduleByTripId/" + tripId).subscribe(
+      result => {
+        this.tripSchedules = result;
+        console.log(result);
+      },
+      error => {
+        this.toastr.error("error");
+      }
+    )
   }
 
 

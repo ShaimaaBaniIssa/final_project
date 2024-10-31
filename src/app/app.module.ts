@@ -19,6 +19,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { StationPipe } from './Pipes/station.pipe';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -36,7 +37,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ReservationComponent,
     PaymentComponent,
     UserProfileComponent
-    
+
 
   ],
   imports: [
@@ -48,7 +49,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

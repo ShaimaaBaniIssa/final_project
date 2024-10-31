@@ -76,7 +76,14 @@
 
 
                     <map-marker *ngFor="let station of stationService.stations | station:stationName.value"
-                        [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onMarkerClick(station)">
+                        [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onMarkerClick(station)"
+                        [label]="{ 
+                            text: station.stationname, 
+                            color: 'blue', 
+                            fontFamily: 'Arial', 
+                            fontSize: '10px', 
+                            fontWeight: 'bold' 
+                        }">
                     </map-marker>
                     <map-marker *ngIf="userLocation" [position]="userLocation"
                         [label]="{ text: 'Your Location', color: 'd-block' }"

@@ -13,7 +13,7 @@ export class StationService {
   // positions: any = [];
   selectedStation: any;
   selectedStationLocation: any;
- 
+
   getStationTrips() {
 
     this.httpClient.get('https://localhost:7019/api/Trip/GetTripsByStationId/' + this.selectedStation.stationid)
@@ -41,7 +41,7 @@ export class StationService {
         }
       );
   }
- 
+
   searchStations(stationname: string) {
     this.httpClient.get('https://localhost:7019/api/Station/SearchStation/' + stationname)
       .subscribe(

@@ -13,58 +13,58 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class TripScheduleComponent implements OnInit {
   tripSchedules: any[] = [];
-  @ViewChild('callUpdateDialog') updateDailog !:TemplateRef<any>;
+  @ViewChild('callUpdateDialog') updateDailog !: TemplateRef<any>;
   constructor(public tripSc: ManageSchdualService, private fb: FormBuilder,
-    private rout:Router,private trip:ManageTripService,public dialog:MatDialog ,public shedual:ManageSchdualService ) { }
-tripId:any
+    private rout: Router, private trip: ManageTripService, public dialog: MatDialog, public manageSchdualService: ManageSchdualService) { }
+  tripId: any
   ngOnInit(): void {
-    this.tripId=this.trip.selectedTrip.tripid
+    this.tripId = this.trip.selectedTrip.tripid
     if (this.tripId) {
       localStorage.setItem('tripId', this.tripId);
     } else {
-    
+
       this.tripId = localStorage.getItem('tripId');
     }
     this.tripSc.getTripScheduleById(this.tripId)
-    this.shedual.getAllTrains()
+    this.manageSchdualService.getAllTrains()
     console.log(this.tripId)
   }
 
 
 
-  updateSchedule :FormGroup=new FormGroup({
-    tripscheduleid:new FormControl(),
-    departureTime:new FormControl(),
-    arrivalTime:new FormControl(),
-    tripId:new FormControl(),
-    trainid:new FormControl(),
-    tdate:new FormControl()
+  updateSchedule: FormGroup = new FormGroup({
+    tripscheduleid: new FormControl(),
+    departureTime: new FormControl(),
+    arrivalTime: new FormControl(),
+    tripId: new FormControl(),
+    trainid: new FormControl(),
+    tdate: new FormControl()
   });
 
-  pData:any={}
-  openUpdateDailog(obj:any){
-    this.pData=obj
+  pData: any = {}
+  openUpdateDailog(obj: any) {
+    this.pData = obj
     console.log(this.pData);
     this.updateSchedule.controls['tripscheduleid'].setValue(this.pData.tripscheduleid)
     this.updateSchedule.controls['tripId'].setValue(this.pData.tripId)
     this.dialog.open(this.updateDailog, {
-      width: '600px' 
-  })
+      width: '600px'
+    })
   }
   updateTripSchedule() {
-    console.log("Updating trip schedule:");
-   
+    this.manageSchdualService.updateTripSchedule(this.pData)
+
   }
 
-  
+
   deleteTripSchedule(tripScheduleId: number) {
     this.tripSc.deleteTripSchedule(tripScheduleId)
     console.log("Deleting trip schedule with ID:", tripScheduleId);
-   
-}
-createSchedule(){
-  
-  this.rout.navigate(['/admin/CreateSchdual'])
+
+  }
+  createSchedule() {
+
+    this.rout.navigate(['/admin/CreateSchdual'])
   }
 
 

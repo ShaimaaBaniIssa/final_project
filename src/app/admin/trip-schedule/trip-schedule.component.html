@@ -1,110 +1,116 @@
 <div class="wrapper">
-    <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
-    <!-- End Sidebar -->
-  
-    <div class="main-panel">
-      <div class="main-header">
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="../index.html" class="logo">
-              <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End Sidebar -->
+
+  <div class="main-panel">
+    <div class="main-header">
+      <div class="main-header-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+          <a href="../index.html" class="logo">
+            <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
+          </a>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="gg-menu-right"></i>
+            </button>
+            <button class="btn btn-toggle sidenav-toggler">
+              <i class="gg-menu-left"></i>
+            </button>
           </div>
-          <!-- End Logo Header -->
         </div>
-        <!-- Navbar Header -->
-        <app-navbar></app-navbar>
-        <!-- End Navbar -->
+        <!-- End Logo Header -->
       </div>
-  
-      <div class="container">
-        <div class="section-space-md-bottom">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
-            <a class="btn btn-lg btn-info text-light m-3" (click)="createSchedule()">Create Schedule</a>
-          </div>
-        </div>
-  
-        <div class="card shadow mb-4">
-          <div class="card-body p-0">
-            <div class="table-responsive">
-              <table class="table table-bordered align-items-center mb-0">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Trip Schedule ID</th>
-                    <th scope="col" class="text-end">Departure Time</th>
-                    <th scope="col" class="text-end">Arrival Time</th>
-                    <th scope="col" class="text-end">Trip ID</th>
-                    <th scope="col" class="text-end">Train ID</th>
-                    <th scope="col" class="text-end">Date</th>
-                    <th scope="col" class="text-end">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let obj of tripSc.tripschedule">
-                    <th scope="row">{{ obj.tripscheduleid }}</th>
-                    <td class="text-end">{{ obj.departuretime }}</td>
-                    <td class="text-end">{{ obj.arrivaltime }}</td>
-                    <td class="text-end">{{ obj.tripid }}</td>
-                    <td class="text-end">{{ obj.trainid }}</td>
-                    <td class="text-end">{{ obj.tdate }}</td>
-                    <td class="text-end">
-                      <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
-                      <button class="btn btn-sm btn-danger" (click)="deleteTripSchedule(obj.tripscheduleid)">Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <ng-template #callUpdateDialog>
-        <h5 mat-dialog-title class="dialog-title">Update Trip Schedule Details</h5>
-        <mat-dialog-content class="dialog-content">
-          <form [formGroup]="updateSchedule">
-            <div class="mb-3">
-              <label for="firstName" class="form-label">Departure Time</label>
-              <input type="text" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime" name="departuretime" required>
-            </div>
-            <div class="mb-3">
-              <label for="lastName" class="form-label">Arrival Time</label>
-              <input type="text" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime" name="arrivaltime" required>
-            </div>
-            <div class="col-12 col-md-6 form-group">
-              <label for="destinationStation" class="custom-label">Train</label>
-              <select class="form-select custom-select" id="destinationStation" formControlName="trainid" [(ngModel)]="pData.trainid">
-                  <option value=""  selected>Select Train</option>
-                  <option *ngFor="let obj of this.shedual.allTrains" [value]="obj.trainid"  [selected]="obj.trainid === pData.trainid"  >{{ obj.trainname }}</option>
-              </select>
-   
-             </div>
-            
-             <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="tdate" formControlName="tdate" [(ngModel)]="pData.tdate" (change)="selectDate()">
-            </div>
-          </form>
-        </mat-dialog-content>
-        <div class="modal-footer mb-5">
-          <button type="button" class="btn btn-primary m-1" mat-dialog-close (click)="updateTripSchedule()">Update</button>
-          <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
-        </div>
-      </ng-template>
-      
+      <!-- Navbar Header -->
+      <app-navbar></app-navbar>
+      <!-- End Navbar -->
     </div>
+
+    <div class="container">
+      <div class="section-space-md-bottom">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
+          <a class="btn btn-lg btn-info text-light m-3" (click)="createSchedule()">Create Schedule</a>
+        </div>
+      </div>
+
+      <div class="card shadow mb-4">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-bordered align-items-center mb-0">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Trip Schedule ID</th>
+                  <th scope="col" class="text-end">Departure Time</th>
+                  <th scope="col" class="text-end">Arrival Time</th>
+                  <th scope="col" class="text-end">Trip ID</th>
+                  <th scope="col" class="text-end">Train ID</th>
+                  <th scope="col" class="text-end">Date</th>
+                  <th scope="col" class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of tripSc.tripschedule">
+                  <th scope="row">{{ obj.tripscheduleid }}</th>
+                  <td class="text-end">{{ obj.departuretime }}</td>
+                  <td class="text-end">{{ obj.arrivaltime }}</td>
+                  <td class="text-end">{{ obj.tripid }}</td>
+                  <td class="text-end">{{ obj.trainid }}</td>
+                  <td class="text-end">{{ obj.tdate }}</td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
+                    <button class="btn btn-sm btn-danger"
+                      (click)="deleteTripSchedule(obj.tripscheduleid)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <ng-template #callUpdateDialog>
+      <h5 mat-dialog-title class="dialog-title">Update Trip Schedule Details</h5>
+      <mat-dialog-content class="dialog-content">
+        <form [formGroup]="updateSchedule">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">Departure Time</label>
+            <input type="text" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime"
+              name="departuretime" required>
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Arrival Time</label>
+            <input type="text" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime"
+              name="arrivaltime" required>
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <label for="destinationStation" class="custom-label">Train</label>
+            <select class="form-select custom-select" id="destinationStation" formControlName="trainid"
+              [(ngModel)]="pData.trainid">
+              <option value="" selected>Select Train</option>
+              <option *ngFor="let obj of this.manageSchdualService.allTrains" [value]="obj.trainid"
+                [selected]="obj.trainid === pData.trainid">{{ obj.trainname }}</option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="tdate" formControlName="tdate" [(ngModel)]="pData.tdate"
+              (change)="selectDate()">
+          </div>
+        </form>
+      </mat-dialog-content>
+      <div class="modal-footer mb-5">
+        <button type="button" class="btn btn-primary m-1" mat-dialog-close
+          (click)="updateTripSchedule()">Update</button>
+        <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
+      </div>
+    </ng-template>
+
   </div>
-  
+</div>

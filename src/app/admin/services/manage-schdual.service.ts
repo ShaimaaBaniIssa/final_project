@@ -8,14 +8,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManageSchdualService {
 
-  constructor(private toastr: ToastrService,private httpClient:HttpClient,private rout:Router ) { }
+  constructor(private toastr: ToastrService, private httpClient: HttpClient, private rout: Router) { }
   tripschedule: any = [];
-  allTrains:any=[]
-  getAllTrains(){
-    this.httpClient.get('https://localhost:7019/api/Train').subscribe((result)=>{
-this.allTrains=result
-console.log(this.allTrains)
-    },err=>{
+  allTrains: any = []
+  getAllTrains() {
+    this.httpClient.get('https://localhost:7019/api/Train').subscribe((result) => {
+      this.allTrains = result
+      console.log(this.allTrains)
+    }, err => {
       console.log(err)
     })
   }
@@ -26,7 +26,7 @@ console.log(this.allTrains)
     this.httpClient.get('https://localhost:7019/api/TripSchedule')
       .subscribe(
         result => {
-          this.tripschedule= result;
+          this.tripschedule = result;
         },
         error => {
           console.log(error.message);
@@ -36,9 +36,9 @@ console.log(this.allTrains)
   }
 
   getTripScheduleById(tripId: number) {
-    console.log("tripId"+tripId)
+    console.log("tripId" + tripId)
     this.httpClient.get("https://localhost:7019/api/TripSchedule/GetTripScheduleByTripId/" + tripId).subscribe(resp => {
-      this.tripschedule= resp;
+      this.tripschedule = resp;
 
     }, err => {
       this.toastr.error("err")
@@ -46,13 +46,13 @@ console.log(this.allTrains)
     })
   }
   CreateTripSchedule(body: any) {
-  console.log(body)
+    console.log(body)
     this.httpClient.post('https://localhost:7019/api/TripSchedule/CreateTripSchedule', body).subscribe(resp => {
       this.toastr.success('TripSchedule created successfuly')
       this.rout.navigate(['/admin/tripschedule']);
     }, err => {
       if (err.error) {
-        this.toastr.error(err.error); 
+        this.toastr.error(err.error);
         this.rout.navigate(['/admin/CreateSchdual']);
       } else {
         this.toastr.error("An unexpected error occurred. Please try again.");
@@ -69,5 +69,20 @@ console.log(this.allTrains)
 
     })
 
-}
+  }
+
+  updateTripSchedule(body: any) {
+    console.log(body)
+    this.httpClient.put('https://localhost:7019/api/TripSchedule/UpdateTripSchedule', body).subscribe(resp => {
+      this.toastr.success('TripSchedule updateed successfuly')
+
+    }, err => {
+      if (err.error) {
+        this.toastr.error(err.error);
+
+      } else {
+        this.toastr.error("An unexpected error occurred. Please try again.");
+      }
+    });
+  }
 }

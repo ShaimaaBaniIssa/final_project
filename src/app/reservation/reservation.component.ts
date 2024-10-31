@@ -4,6 +4,7 @@ import { TripService } from '../Services/trip.service';
 import { ReservationService } from '../Services/reservation.service';
 import { PaymentComponent } from '../payment/payment.component';
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reservation',
@@ -13,16 +14,16 @@ import { ToastrService } from 'ngx-toastr';
 export class ReservationComponent implements OnInit {
   constructor(private fb: FormBuilder, public tripService: TripService,
     private reservationService: ReservationService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private datePipe: DatePipe
   ) { }
   ngOnInit(): void {
-
     this.setTicketForms(1);
     this.tripdata = this.tripService.selectedTrip;
+    this.tripService.getTripScheduleById(this.tripService.selectedTrip.tripid)
   }
   tripdata: any = {};
   numOfTickets: number[] = [1, 2, 3];
-  completeData = false;
   genders: any = ["male", "female"];
   @ViewChild(PaymentComponent) paymentComponent!: PaymentComponent;
 
@@ -34,51 +35,29 @@ export class ReservationComponent implements OnInit {
     tickets: this.fb.array([])
   });
 
-  tripSchedules: any = [];
 
+  tripSchedulesForThisDate: any = [];
   selectDate() {
-    this.tripService.checkTripScheduleAvailability(this.tripService.selectedTrip.tripid,
-      this.reservationForm.controls['date'].value
-    );
+    this.tripSchedulesForThisDate = this.tripService.tripSchedules.filter(
+      (item: any) => this.datePipe.transform(item.tdate, 'yyyy-MM-dd') === this.reservationForm.controls['date'].value
+    ) || [];
+    console.log(this.tripSchedulesForThisDate);
+    if (this.tripSchedulesForThisDate == null) {
+      this.toastr.warning("no trip in this date");
+      return;
+    }
     this.reservationForm.get('hour')?.enable();
 
   }
   selectedSchedule: any;
   onHourChange(event: any) {
     const selectedDepartureTime = event.target.value;
-
     this.selectedSchedule = this.tripService.tripSchedules.find(
       (item: any) => item.departuretime === selectedDepartureTime
     );
-
-
-    // console.log(event.target.value);
-    // const selectedIndex = this.tripService.tripSchedules.indexOf(event.target.value);
-    // console.log(selectedIndex);
-
-    // const selectedSchedule = this.tripService.tripSchedules[selectedIndex];
-    // console.log(selectedSchedule);
-
     this.tripService.getAvailableSeats(this.selectedSchedule.tripscheduleid)
   }
-  // selectSeat(event: any) {
-  //   console.log(event.target.value);
 
-  // const selectedIndex = event.target.value;
-
-  // const selectedSeat = this.tripService.availableSeats[selectedIndex];
-
-  // const unAvailableSeat = selectedSeat;
-  // unAvailableSeat.availability = 0;
-  // this.tripService.availableSeats[selectedIndex] = {
-  //   ...this.tripService.availableSeats[selectedIndex],
-  //   ...unAvailableSeat
-  // };
-
-  // console.log(this.tripService.availableSeats);
-
-
-  // }
   changeNumOfTickets() {
     const num = this.reservationForm.controls['numberOfTickets'].value;
     this.setTicketForms(num);
@@ -110,7 +89,7 @@ export class ReservationComponent implements OnInit {
       (ticket: any) => ticket.seatid
     );
 
-    // Check for duplicates by creating a Set and comparing its size with the original array length
+    // Check for seat duplicates 
     const uniqueSeats = new Set(selectedSeats);
     if (uniqueSeats.size !== selectedSeats.length) {
       this.toastr.warning('You have selected the same seat more than once. Please choose different seats.');
@@ -128,7 +107,7 @@ export class ReservationComponent implements OnInit {
       tickets: this.reservationForm.controls['tickets'].value,
       bankcard: paymentFormValues
     };
-    console.log(body);
+
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();

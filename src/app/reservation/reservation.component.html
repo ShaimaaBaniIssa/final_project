@@ -48,7 +48,7 @@
                                     <select formControlName="hour"
                                         class="form-select bg-secondary rounded border border-secondary"
                                         (change)="onHourChange($event)">
-                                        <option *ngFor="let item of tripService.tripSchedules "
+                                        <option *ngFor="let item of tripSchedulesForThisDate "
                                             [value]="item.departuretime">
                                             {{item.departuretime}}
                                         </option>
@@ -74,44 +74,30 @@
                             </div>
                         </form>
                     </li>
-                    <div *ngIf="completeData">
-                        <li><span class="d-block fw-medium mb-3">Price</span>
+                    <div *ngIf="reservationForm.valid">
+                        <li>
+
                             <div class="rounded-3 bg-secondary p-4">
                                 <ul class="list gap-3">
                                     <li><span
                                             class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
-                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">1 Nights
-                                            </span><span class="d-inline-block flex-shrink-0">$500</span></span></li>
-                                    <li><span
-                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
-                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Discount
-                                                20% </span><span class="d-inline-block flex-shrink-0">$200</span></span>
+                                                class="d-inline-block flex-grow-1 text-dark fw-medium">TotalPrice
+                                            </span>
+                                            <span
+                                                class="d-inline-block flex-shrink-0 text-dark fw-medium">{{(reservationForm.controls['numberOfTickets'].value||1)*(tripService.selectedTrip.price||1)}}
+                                                JOD</span>
+                                        </span>
                                     </li>
-                                    <li><span
-                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
-                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Breakfast
-                                                per person </span><span
-                                                class="d-inline-block flex-shrink-0">$10</span></span></li>
-                                    <li><span
-                                            class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
-                                                class="d-inline-block flex-grow-1 text-dark text-opacity-50">Service fee
-                                            </span><span class="d-inline-block flex-shrink-0">$5</span></span></li>
+
                                 </ul>
                             </div>
                         </li>
-                        <li><span class="d-flex align-items-center justify-content-between gap-2 flex-wrap"><span
-                                    class="d-inline-block flex-grow-1">Total payment </span><span
-                                    class="d-inline-block flex-shrink-0">$300</span></span></li>
 
 
                     </div>
                     <li><button (click)="submit()" class="btn btn-success text-light w-100 justify-content-center"
-                            [disabled]="
-                            reservationForm.invalid
-                          
-                            
-                            
-                            ">Book Now</button>
+                            [disabled]="reservationForm.invalid || (paymentComponent?.paymentForm?.invalid ?? true)">Book
+                            Now</button>
                     </li>
                 </ul>
             </div>
