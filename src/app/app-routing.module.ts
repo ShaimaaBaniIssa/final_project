@@ -10,6 +10,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminModule } from './admin/admin.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
 
   { path: 'station', component: StationComponent },
   { path: 'reservation', component: ReservationComponent },
+  { path: 'reservationDetails', component: ReservationDetailsComponent },
 
 
   { path: 'about', component: AboutComponent },

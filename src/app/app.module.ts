@@ -20,6 +20,7 @@ import { StationPipe } from './Pipes/station.pipe';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DatePipe } from '@angular/common';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 
 
@@ -36,7 +37,8 @@ import { DatePipe } from '@angular/common';
     StationCardComponent,
     ReservationComponent,
     PaymentComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ReservationDetailsComponent
 
 
   ],

@@ -5,6 +5,7 @@ import { ReservationService } from '../Services/reservation.service';
 import { PaymentComponent } from '../payment/payment.component';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -15,7 +16,8 @@ export class ReservationComponent implements OnInit {
   constructor(private fb: FormBuilder, public tripService: TripService,
     private reservationService: ReservationService,
     private toastr: ToastrService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
   ) { }
   ngOnInit(): void {
     this.setTicketForms(1);
@@ -42,7 +44,7 @@ export class ReservationComponent implements OnInit {
       (item: any) => this.datePipe.transform(item.tdate, 'yyyy-MM-dd') === this.reservationForm.controls['date'].value
     ) || [];
     console.log(this.tripSchedulesForThisDate);
-    if (this.tripSchedulesForThisDate == null) {
+    if (this.tripSchedulesForThisDate == null || this.tripSchedulesForThisDate.length == 0) {
       this.toastr.warning("no trip in this date");
       return;
     }
@@ -111,6 +113,7 @@ export class ReservationComponent implements OnInit {
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();
+    this.router.navigate(['reservationDetails'])
   }
 
 }
