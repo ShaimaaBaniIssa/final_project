@@ -22,6 +22,11 @@ import { TripDetailsComponent } from './tripCRUD/trip-details/trip-details.compo
 import { UpdatetripComponent } from './tripCRUD/updatetrip/updatetrip.component';
 import { TripScheduleComponent } from './trip-schedule/trip-schedule.component';
 import { CreateSchdualComponent } from './create-schdual/create-schdual.component';
+import { CreateTrainComponent } from './trainCRUD/create-train/create-train.component';
+import { ManagetrainComponent } from './trainCRUD/managetrain/managetrain.component';
+import { UpdatetrainComponent } from './trainCRUD/updatetrain/updatetrain.component';
+import { CreateseatComponent } from './seatsCRUD/createseat/createseat.component';
+import { UpdateseatComponent } from './seatsCRUD/updateseat/updateseat.component';
 
 
 @NgModule({
@@ -43,7 +48,12 @@ CreatetripComponent,
 TripDetailsComponent,
 UpdatetripComponent,
 TripScheduleComponent,
-CreateSchdualComponent   
+CreateSchdualComponent,
+CreateTrainComponent,
+ManagetrainComponent,
+UpdatetrainComponent,
+CreateseatComponent,
+UpdateseatComponent   
   ],
   imports: [
     CommonModule,

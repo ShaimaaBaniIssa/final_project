@@ -13,6 +13,8 @@ import { TripDetailsComponent } from './tripCRUD/trip-details/trip-details.compo
 import { UpdatetripComponent } from './tripCRUD/updatetrip/updatetrip.component';
 import { TripScheduleComponent } from './trip-schedule/trip-schedule.component';
 import { CreateSchdualComponent } from './create-schdual/create-schdual.component';
+import { CreateTrainComponent } from './trainCRUD/create-train/create-train.component';
+import { UpdatetrainComponent } from './trainCRUD/updatetrain/updatetrain.component';
 
 const routes: Routes = [
   {
@@ -62,9 +64,15 @@ const routes: Routes = [
   {
     path:'CreateSchdual',
     component:CreateSchdualComponent
-  }
-
-
+  },
+  {
+    path:'createtrain',
+    component:CreateTrainComponent
+  },
+  {
+    path:'updatetrain',
+    component:UpdatetrainComponent
+  },
 
 ];
 
