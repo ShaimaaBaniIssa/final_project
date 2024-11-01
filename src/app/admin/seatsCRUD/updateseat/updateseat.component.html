@@ -1,1 +1,26 @@
-<p>updateseat works!</p>
+<h2 mat-dialog-title>Update Seat</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="updateSeat">
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Seat Number</mat-label>
+                <input type="text" matInput formControlName="seatnumber">
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Train id</mat-label>
+                <input type="number" matInput formControlName="trainid">
+            </mat-form-field>
+        </div>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" class="btn-primary" cdkFocusInitial (click)="save()">Update</button>
+
+
+    <button mat-button mat-dialog-close>Cancel</button>
+
+
+</mat-dialog-actions>

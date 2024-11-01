@@ -8,10 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { StationPipe } from '../Pipes/station.pipe';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     GoogleMapsModule,
     MatDialogModule,
-    
+
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule
+
+
   ],
   exports: [
     NavbarComponent,
@@ -42,10 +47,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     GoogleMapsModule,
     StationPipe,
     MatDialogModule,
-   
+
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

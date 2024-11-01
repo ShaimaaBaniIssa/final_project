@@ -32,8 +32,8 @@
 
         <div class="container">
             <div class="col mb-4">
-                <h1 class="fw-bold  m-3">Manage Trains</h1>
-                <button mat-button class="btn-primary m-3" cdkFocusInitial (click)="create()">Create Train
+                <h1 class="fw-bold  m-3">Manage Seats</h1>
+                <button mat-button class="btn-primary m-3" cdkFocusInitial (click)="create()">Create Seat
                 </button>
                 <mat-form-field class="m-2">
                     <mat-label>Filter</mat-label>
@@ -45,21 +45,16 @@
 
                         <!-- ID Column -->
                         <ng-container matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                            <td mat-cell *matCellDef="let row"> {{row.trainid}} </td>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                            <td mat-cell *matCellDef="let row"> {{row.seatid}} </td>
                         </ng-container>
 
 
 
                         <!-- Name Column -->
-                        <ng-container matColumnDef="name">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                            <td mat-cell *matCellDef="let row"> {{row.trainname}} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="numofseats">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> num of seats </th>
-                            <td mat-cell *matCellDef="let row"> {{row.numofseats}} </td>
+                        <ng-container matColumnDef="seatnumber">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Seat number </th>
+                            <td mat-cell *matCellDef="let row"> {{row.seatnumber}} </td>
                         </ng-container>
 
                         <ng-container matColumnDef="update">
@@ -69,11 +64,9 @@
                                     (click)="update(row)">Update</button>
 
                                 <button mat-button class="btn-danger me-2" cdkFocusInitial
-                                    (click)="remove(row.trainid)">Delete
+                                    (click)="remove(row.seatid)">Delete
                                 </button>
-                                <button mat-button class="btn-success" cdkFocusInitial
-                                    (click)="seats(row.trainid)">Seats
-                                </button>
+
                             </td>
                         </ng-container>
 

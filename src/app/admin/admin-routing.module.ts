@@ -15,65 +15,74 @@ import { TripScheduleComponent } from './trip-schedule/trip-schedule.component';
 import { CreateSchdualComponent } from './create-schdual/create-schdual.component';
 import { CreateTrainComponent } from './trainCRUD/create-train/create-train.component';
 import { UpdatetrainComponent } from './trainCRUD/updatetrain/updatetrain.component';
+import { ManagetrainComponent } from './trainCRUD/managetrain/managetrain.component';
+import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.component';
 
 const routes: Routes = [
   {
-    path:'dashbord',
-    component:DashbordComponent
+    path: 'dashbord',
+    component: DashbordComponent
   },
   {
-    path:'form',
-    component:FormComponent
+    path: 'form',
+    component: FormComponent
   }
   ,
   {
-    path:'profile',
-    component:ProfileComponent
-  } ,
+    path: 'profile',
+    component: ProfileComponent
+  },
   {
-    path:'report',
-    component:ReportComponent
+    path: 'report',
+    component: ReportComponent
   }
-  
+
   ,
   {
-    path:'trip',
-    component:TripComponent
+    path: 'trip',
+    component: TripComponent
   },
   {
-    path:'tripdetails',
-    component:TripDetailsComponent
+    path: 'tripdetails',
+    component: TripDetailsComponent
   },
   {
-    path:'createtrip',
-    component:CreatetripComponent
-  },
-  
-  {
-    path:'updatetrip',
-    component:UpdatetripComponent
-  },
-  {
-    path:'tripsearch',
-    component:TripSearchComponent
-  },
-  {
-    path:'tripschedule',
-    component:TripScheduleComponent
-  },
-  {
-    path:'CreateSchdual',
-    component:CreateSchdualComponent
-  },
-  {
-    path:'createtrain',
-    component:CreateTrainComponent
-  },
-  {
-    path:'updatetrain',
-    component:UpdatetrainComponent
+    path: 'createtrip',
+    component: CreatetripComponent
   },
 
+  {
+    path: 'updatetrip',
+    component: UpdatetripComponent
+  },
+  {
+    path: 'tripsearch',
+    component: TripSearchComponent
+  },
+  {
+    path: 'tripschedule',
+    component: TripScheduleComponent
+  },
+  {
+    path: 'CreateSchdual',
+    component: CreateSchdualComponent
+  },
+  {
+    path: 'createtrain',
+    component: CreateTrainComponent
+  },
+  {
+    path: 'updatetrain',
+    component: UpdatetrainComponent
+  },
+  {
+    path: 'managetrain',
+    component: ManagetrainComponent
+  }
+  , {
+    path: 'manageseats/:id',
+    component: ManageseatsComponent
+  }
 ];
 
 @NgModule({

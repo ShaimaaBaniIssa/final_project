@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ManagestationService } from '../../services/managestation.service';
 import { ManageTrainService } from '../../services/manage-train.service';
 import { StationService } from 'src/app/Services/station.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-updatetrain',
@@ -10,66 +11,19 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./updatetrain.component.css']
 })
 export class UpdatetrainComponent {
-  station:any={}
-  latitude:any;
-  longitude:any;
-  stationid:any;
-  constructor(public managestation: ManagestationService,public managetrainServices:ManageTrainService,public stationService: StationService){
-
+  constructor(
+    public managetrainServices: ManageTrainService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
   }
-  ngOnInit(): void {
-    this.station=this.stationService.selectedStation
-   
-   console.log(this.managetrainServices.selectedTrain)
-   this.stationid= this.stationService.selectedStation.stationid
+  updateTrain: FormGroup = new FormGroup({
+    trainid: new FormControl(this.data.trainid),
+    trainname: new FormControl(this.data.trainname),
+    availability: new FormControl(this.data.availability),
+    numofseats: new FormControl(this.data.numofseats),
+  });
+
+
+  save() {
+    this.managetrainServices.updateTrain(this.updateTrain.value)
   }
- 
-
-  stationName: FormControl = new FormControl('');
-  center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
-  zoom = 10;
-  
- // Single marker position
- markerPosition: google.maps.LatLngLiteral | null = null;
-
-  
-
-
-
-
-updateTrain: FormGroup = new FormGroup({
-  trainid:new FormControl (this.managetrainServices.selectedTrain.trainid),
-  destlatitude: new FormControl(this.stationService.selectedStationLocation.lat),
-  destlongitude: new FormControl(this.stationService.selectedStationLocation.lng),
-  trainName: new FormControl(this.managetrainServices.selectedTrain.trainname), 
-  availavility: new FormControl(this.managetrainServices.selectedTrain.availavility),
-  numOfSeats: new FormControl(this.managetrainServices.selectedTrain.numofseats),
-  
-  stationid: new FormControl(this.stationService.selectedStation.stationid), 
-  destaddress: new FormControl(this.managetrainServices.selectedTrain.destaddress)
-});
-
-  
-save() {
-
-  this.managetrainServices.updateTrain(this.updateTrain.value)
-}
-
-onMarkerDragEnd( event: any) {
-console.log(this.station.latitude)
-  if (event.latLng) {
-    this.station.latitude = event.latLng.lat();
-    this.station.longitude = event.latLng.lng();
-    this.managestation.updateStation(this.station);
-  }
-  console.log(this.station.latitude)
-}
-
-
-  
- // Method to remove the marker
- removeMarker() {
-  this.markerPosition = null;
-}
-
 }

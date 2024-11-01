@@ -8,39 +8,45 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManageTrainService {
 
-  selectedTrain: any = {};
+  trains: any = [];
 
-  constructor(private toastr: ToastrService, private httpClient: HttpClient,private rout:Router) { }
+  constructor(private toastr: ToastrService, private httpClient: HttpClient, private rout: Router) { }
 
-  createTrain(body:any){
+  createTrain(body: any) {
     console.log(body)
-this.httpClient.post('https://localhost:7019/api/Train/CreateTrain',body).subscribe((res)=>{
-  this.toastr.success("Train Created successfully.");
-  this.rout.navigate(['/admin/trip'])
+    this.httpClient.post('https://localhost:7019/api/Train/CreateTrain', body).subscribe((res) => {
+      this.toastr.success("Train Created successfully.");
+      window.location.reload();
 
-},err=>{
-  console.log(err)
- 
-})
+      // this.rout.navigate(['/admin/trip'])
+
+    }, err => {
+      this.toastr.error(err.error)
+
+    })
   }
-  updateTrain(body:any){
+  updateTrain(body: any) {
     console.log(body)
-    this.httpClient.put('https://localhost:7019/api/Train/UpdateTrain',body).subscribe((res)=>{
+    this.httpClient.put('https://localhost:7019/api/Train/UpdateTrain', body).subscribe((res) => {
       this.toastr.success("Train updated successfully.");
-      this.rout.navigate(['/admin/trip'])
-    
-    },err=>{
-      console.log(err)
-     
+      window.location.reload();
+
+    }, err => {
+      this.toastr.error(err.error)
+
     })
   }
   DeleteTrain(id: number) {
     this.httpClient.delete("https://localhost:7019/api/Train/DeleteTrain/" + id).subscribe(resp => {
-      this.toastr.success("The Train Deleted")
+      this.toastr.success("The Train Deleted");
+      window.location.reload();
+
     }, err => {
-      this.toastr.error("can't Train this station")
+      this.toastr.error(err.error)
 
     })
-}
-
+  }
+  getAllTrains() {
+    return this.httpClient.get('https://localhost:7019/api/Train');
+  }
 }

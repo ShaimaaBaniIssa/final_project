@@ -1,1 +1,21 @@
-<p>createseat works!</p>
+<h2 mat-dialog-title>Create Train</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="createSeat">
+
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Seat Number</mat-label>
+                <input type="text" matInput formControlName="seatnumber">
+                <mat-error *ngIf="createSeat.controls['seatnumber'].hasError('required')">seat number is
+                    required</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button class="btn-success" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="save()">Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>

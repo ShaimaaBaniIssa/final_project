@@ -8,36 +8,40 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManageSeatsService {
 
-  constructor(private toastr: ToastrService, private httpClient: HttpClient,private rout:Router) { }
-  createSeat(body:any){
-    console.log(body)
-this.httpClient.post('https://localhost:7019/api/Seat/CreateSeat',body).subscribe((res)=>{
-  this.toastr.success("Seat Created successfully.");
-  this.rout.navigate(['/admin/trip'])
+  constructor(private toastr: ToastrService, private httpClient: HttpClient, private rout: Router) { }
+  createSeat(body: any) {
+    this.httpClient.post('https://localhost:7019/api/Seat/CreateSeat', body).subscribe((res) => {
+      this.toastr.success("Seat Created successfully.");
+      window.location.reload();
 
-},err=>{
-  console.log(err)
- 
-})
-  }
 
-  updateSeat(body:any){
-    console.log(body)
-    this.httpClient.put('https://localhost:7019/api/Seat/UpdateSeat',body).subscribe((res)=>{
-      this.toastr.success("Seat updated successfully.");
-      this.rout.navigate(['/admin/trip'])
-    
-    },err=>{
-      console.log(err)
-     
-    })
-  }
-  DeleteSeat(id: number) {
-    this.httpClient.delete("https://localhost:7019/api/Train/DeleteSeat/" + id).subscribe(resp => {
-      this.toastr.success("The Seat Deleted")
     }, err => {
-      this.toastr.error("can't Seat this station")
+      this.toastr.error(err.error)
 
     })
-}
+  }
+
+  updateSeat(body: any) {
+    this.httpClient.put('https://localhost:7019/api/Seat/UpdateSeat', body).subscribe((res) => {
+      this.toastr.success("Seat updated successfully.");
+      window.location.reload();
+
+    }, err => {
+      this.toastr.error(err.error)
+
+    })
+  }
+  deleteSeat(id: number) {
+    this.httpClient.delete("https://localhost:7019/api/Seat/DeleteSeat/" + id).subscribe(resp => {
+      this.toastr.success("The Seat Deleted")
+      window.location.reload();
+
+    }, err => {
+      this.toastr.error(err.error)
+
+    })
+  }
+  getAllSeats(trainid: number) {
+    return this.httpClient.get('https://localhost:7019/api/Seat/GetSeatByTrainId/' + trainid);
+  }
 }

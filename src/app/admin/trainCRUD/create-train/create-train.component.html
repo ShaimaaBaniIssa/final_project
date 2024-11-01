@@ -1,123 +1,30 @@
+<h2 mat-dialog-title>Create Train</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="createTrain">
 
-<div class="wrapper">
-    <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
-    <!-- End Sidebar -->
-
-    <div class="main-panel">
-      <div class="main-header">
-
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="../index.html" class="logo">
-              <img
-                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-           
-          </div>
-          <!-- End Logo Header -->
-        </div>
-        <!-- Navbar Header -->
-         <app-navbar></app-navbar>
-        <!-- End Navbar -->
-      </div>
-
-   
-<div class="container">
-    <h2 class="form-title m-3">Train Details</h2>
-    <div class="container mt-4 p-4 custom-form-container">
-     <div class="row">
-        <div class="col mb-4">
-          <form [formGroup]="createTrain">
-            <div class="col-12 col-md-6 form-group">
-                <label for="tripPrice" class="custom-label">Train Name</label>
-                <input type="text" class="form-control custom-input" formControlName="trainName"  />
-                <mat-error *ngIf="createTrain.controls['trainName'].hasError('required')">Train Name is required</mat-error>
-
-            </div>
-    
-            <div class="col-12 col-md-6 form-group">
-                <label for="tripPrice" class="custom-label">Number Of Seats</label>
-                <input type="text" class="form-control custom-input" formControlName="numOfSeats"  />
-                <mat-error *ngIf="createTrain.controls['numOfSeats'].hasError('required')">Number Of Seats is required</mat-error>
-
-            </div>
-              <!-- station -->
-               <!-- update this to read only when come from press on station pin -->
-              <div class="col-12 col-md-6 form-group">
-                <label for="destinationStation" class="custom-label">Station</label>
-                <select class="form-select custom-select" id="destinationStation" formControlName="stationid">
-                    <option value=""  selected>Select Station</option>
-                    <option *ngFor="let obj of this.managestation.stations" [value]="obj.stationid">{{ obj.stationname }}</option>
-                </select>
-            </div>
-            
-          
-            <div class="form-group mb-4">
-                <label class="custom-label">Trip Days</label>
-                <div class="selectgroup selectgroup-pills flex-wrap">
-                    <label class="selectgroup-item">
-                        <input type="checkbox" name="trainavailavility" formControlName="availavility" class="selectgroup-input" />
-                        <span class="selectgroup-button">Yes</span>
-                    </label>
-                    <label class="selectgroup-item">
-                      <input type="checkbox" name="trainavailavility" formControlName="availavility" class="selectgroup-input" />
-                      <span class="selectgroup-button">No</span>
-                  </label>
-                </div>
-    
-          </div>
-          <button class="btn btn-success m-1" [disabled]="!createTrain.valid" (click)="save()">Save</button>
-
-
-
-          </form>
-
-
-
-          
-        </div>
-         
-          <!-- map -->
-          <div class="col mb-4">
-            <label for="destinationStation" class="custom-label mb-2">Select Destination</label>
-          <google-map width="100%" height="500px" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)">
-    
-    
-       
-        <map-marker
-        *ngIf="markerPosition"
-        [position]="markerPosition"
-       
-        (mapClick)="removeMarker()"
-      >
-    </map-marker>
-          </google-map>
-    
-    
-          </div>
-      
-     </div>
-   
-  </div>
-  
-  
-  
-  </div>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Train Name</mat-label>
+        <input type="text" matInput formControlName="trainname">
+        <mat-error *ngIf="createTrain.controls['trainname'].hasError('required')">Train name is required</mat-error>
+      </mat-form-field>
     </div>
 
-   
-  </div>
- 
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Number of seats</mat-label>
+        <input type="number" matInput formControlName="numofseats">
+        <mat-error *ngIf="createTrain.controls['numofseats'].hasError('required')">Number of seats is
+          required</mat-error>
+
+      </mat-form-field>
+    </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn-success" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="save()">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>

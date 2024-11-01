@@ -27,6 +27,9 @@ import { ManagetrainComponent } from './trainCRUD/managetrain/managetrain.compon
 import { UpdatetrainComponent } from './trainCRUD/updatetrain/updatetrain.component';
 import { CreateseatComponent } from './seatsCRUD/createseat/createseat.component';
 import { UpdateseatComponent } from './seatsCRUD/updateseat/updateseat.component';
+import { DeleteTrainComponent } from './trainCRUD/delete-train/delete-train.component';
+import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.component';
+import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ CreateTrainComponent,
 ManagetrainComponent,
 UpdatetrainComponent,
 CreateseatComponent,
-UpdateseatComponent   
+UpdateseatComponent,
+DeleteTrainComponent,
+ManageseatsComponent,
+DeleteseatComponent   
   ],
   imports: [
     CommonModule,
