@@ -109,7 +109,7 @@ export class ReservationComponent implements OnInit {
       tickets: this.reservationForm.controls['tickets'].value,
       bankcard: paymentFormValues
     };
-
+    this.reservationService.storeReservationData(body);
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();

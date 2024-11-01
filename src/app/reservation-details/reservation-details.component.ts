@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../Services/reservation.service';
 
 @Component({
@@ -6,8 +6,12 @@ import { ReservationService } from '../Services/reservation.service';
   templateUrl: './reservation-details.component.html',
   styleUrls: ['./reservation-details.component.css']
 })
-export class ReservationDetailsComponent {
+export class ReservationDetailsComponent implements OnInit {
+  reservationData: any = {};
   constructor(public reservationService: ReservationService) { }
+  ngOnInit(): void {
+    this.reservationData = this.reservationService.getReservationData();
+  }
   downloadInvoices() {
     this.reservationService.getInvoices();
   }

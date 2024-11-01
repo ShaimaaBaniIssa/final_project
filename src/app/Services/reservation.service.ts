@@ -10,6 +10,7 @@ export class ReservationService {
 
   constructor(private httpClient: HttpClient,
     private toastr: ToastrService,) { }
+    private reservationData: any = {};
 
   reservationId: any;
   createReservation(body: any) {
@@ -50,6 +51,13 @@ export class ReservationService {
       console.log(this.reportData)
 
     })
+  }
+  storeReservationData(data: any) {
+    this.reservationData = data;
+  }
+
+  getReservationData() {
+    return this.reservationData;
   }
 
 }
