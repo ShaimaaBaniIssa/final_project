@@ -43,28 +43,28 @@ import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component
     ManagestationsComponent,
     CreatestationComponent,
     UpdatestationComponent,
-ManagetripComponent,
-TripComponent,
-CreatetripComponent,
-TripDetailsComponent,
-UpdatetripComponent,
-TripScheduleComponent,
-CreateSchdualComponent,
-CreateTrainComponent,
-ManagetrainComponent,
-UpdatetrainComponent,
-CreateseatComponent,
-UpdateseatComponent,
-DeleteTrainComponent,
-ManageseatsComponent,
-DeleteseatComponent   
+    ManagetripComponent,
+    TripComponent,
+    CreatetripComponent,
+    TripDetailsComponent,
+    UpdatetripComponent,
+    TripScheduleComponent,
+    CreateSchdualComponent,
+    CreateTrainComponent,
+    ManagetrainComponent,
+    UpdatetrainComponent,
+    CreateseatComponent,
+    UpdateseatComponent,
+    DeleteTrainComponent,
+    ManageseatsComponent,
+    DeleteseatComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule
-   
-   
+
+
   ]
 })
 export class AdminModule { }

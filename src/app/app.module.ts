@@ -21,6 +21,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DatePipe } from '@angular/common';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './Interceptor/token.inteceptor';
 
 
 
@@ -51,7 +53,7 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
 
 
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

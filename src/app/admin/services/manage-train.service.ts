@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -20,9 +20,13 @@ export class ManageTrainService {
 
       // this.rout.navigate(['/admin/trip'])
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
   updateTrain(body: any) {
@@ -31,9 +35,13 @@ export class ManageTrainService {
       this.toastr.success("Train updated successfully.");
       window.location.reload();
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
   DeleteTrain(id: number) {
@@ -41,9 +49,13 @@ export class ManageTrainService {
       this.toastr.success("The Train Deleted");
       window.location.reload();
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
   getAllTrains() {

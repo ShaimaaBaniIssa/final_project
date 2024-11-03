@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -15,9 +15,9 @@ export class ManagestationService {
   dis_image: any;
   trips: any = [];
   selectedStationLocation: any;
-sataionId:any
+  sataionId: any
   getStationTrips() {
-    this.sataionId=localStorage.getItem("stationid")
+    this.sataionId = localStorage.getItem("stationid")
     this.httpClient.get('https://localhost:7019/api/Trip/GetTripsByStationId/' + this.sataionId)
       .subscribe(
         result => {
@@ -33,7 +33,6 @@ sataionId:any
       .subscribe(
         (result: any) => {
           this.stations = result;
-          console.log(result);
 
         },
         error => {
@@ -46,9 +45,13 @@ sataionId:any
       .subscribe(
         (result: any) => {
           this.totalStations = result;
-        },
-        error => {
-          this.toastr.error("error");
+        }, (error: HttpErrorResponse) => {
+          if (error.status === 403) {
+            this.toastr.error("Not Authorize");
+
+          }
+          else
+            this.toastr.error("error");
         }
       );
   }
@@ -70,8 +73,13 @@ sataionId:any
     this.httpClient.post('https://localhost:7019/api/Station/UploadImage', file).subscribe((resp: any) => {
       // object from course 
       this.dis_image = resp.imagepath;
-    }, err => {
-      console.log("error");
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
+
+      }
+      else
+        this.toastr.error("error");
     })
   }
   createStation(body: any) {
@@ -80,8 +88,13 @@ sataionId:any
       this.toastr.success('Station created successfuly')
       window.location.reload();
 
-    }, err => {
-      this.toastr.error("Error");
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
+
+      }
+      else
+        this.toastr.error("error");
     });
   }
 
@@ -94,8 +107,13 @@ sataionId:any
       // window.location.reload();
 
 
-    }, err => {
-      this.toastr.error("erorr")
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
+
+      }
+      else
+        this.toastr.error("error");
     })
   }
 
@@ -103,9 +121,13 @@ sataionId:any
     this.httpClient.delete("https://localhost:7019/api/Station/DeleteStation/" + id).subscribe(resp => {
       this.toastr.success("The Station Deleted")
       window.location.reload();
-    }, err => {
-      this.toastr.error("can't delete this station")
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error("error");
     })
   }
 }

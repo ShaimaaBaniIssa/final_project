@@ -40,7 +40,7 @@ export class AuthService {
 
 
 
-        if (data.role == "21") {
+        if (data.roleid == "21") {
 
           this.toastr.success('Welcome On Admin Dashbaord');
 
@@ -48,7 +48,7 @@ export class AuthService {
 
         }
 
-        else if (data.role == "1") {
+        else if (data.roleid == "1") {
 
           this.toastr.success('Welcome On Home Page');
           this.router.navigate(['']);
@@ -88,8 +88,8 @@ export class AuthService {
     this.httpClient.get('https://localhost:7019/api/Login/CountUser')
       .subscribe(
         (result: any) => {
-          this.totalUsers=result;
-          console.log("Total Users from API:", result); 
+          this.totalUsers = result;
+          console.log("Total Users from API:", result);
         },
         error => {
           this.toastr.error("error");

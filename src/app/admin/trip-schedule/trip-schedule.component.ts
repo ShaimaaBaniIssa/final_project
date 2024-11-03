@@ -16,7 +16,7 @@ export class TripScheduleComponent implements OnInit {
   @ViewChild('callUpdateDialog') updateDailog !: TemplateRef<any>;
   constructor(public tripSc: ManageSchdualService, private fb: FormBuilder,
     private rout: Router, private trip: ManageTripService, public dialog: MatDialog,
-     public manageSchdualService: ManageSchdualService) { }
+    public manageSchdualService: ManageSchdualService) { }
   tripId: any
   ngOnInit(): void {
     this.tripId = this.trip.selectedTrip.tripid
@@ -45,7 +45,7 @@ export class TripScheduleComponent implements OnInit {
   pData: any = {}
   openUpdateDailog(obj: any) {
     this.pData = obj
-    console.log(this.pData);
+    this.pData.tdate = new Date(obj.tdate).toISOString().split('T')[0];
     this.updateSchedule.controls['tripscheduleid'].setValue(this.pData.tripscheduleid)
     this.updateSchedule.controls['tripId'].setValue(this.pData.tripId)
     this.dialog.open(this.updateDailog, {
@@ -71,7 +71,7 @@ export class TripScheduleComponent implements OnInit {
 
   selectDate() {
 
-    this.trip.checkTripScheduleAvailability(4,
+    this.trip.checkTripScheduleAvailability(this.pData.tripId,
       this.updateSchedule.controls['tdate'].value
     );
     this.updateSchedule.get('hour')?.enable();

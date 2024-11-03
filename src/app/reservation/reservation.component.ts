@@ -113,7 +113,7 @@ export class ReservationComponent implements OnInit {
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();
-    this.router.navigate(['reservationDetails'])
+
   }
 
 }

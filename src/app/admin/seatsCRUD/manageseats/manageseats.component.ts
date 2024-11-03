@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { UpdateseatComponent } from '../updateseat/updateseat.component';
 import { CreateseatComponent } from '../createseat/createseat.component';
 import { DeleteseatComponent } from '../deleteseat/deleteseat.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-manageseats',
@@ -28,10 +29,13 @@ export class ManageseatsComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(result);
-      },
-      error => {
-        console.error(error);
-        // this.toastr.error("Failed to load train data.");
+      }, (error: HttpErrorResponse) => {
+        if (error.status === 403) {
+          console.log("Not Authorize");
+
+        }
+        else
+          console.log("error");
       }
     );
   }

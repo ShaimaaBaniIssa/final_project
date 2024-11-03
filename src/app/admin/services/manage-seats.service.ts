@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -15,9 +15,13 @@ export class ManageSeatsService {
       window.location.reload();
 
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
 
@@ -26,9 +30,13 @@ export class ManageSeatsService {
       this.toastr.success("Seat updated successfully.");
       window.location.reload();
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
   deleteSeat(id: number) {
@@ -36,9 +44,13 @@ export class ManageSeatsService {
       this.toastr.success("The Seat Deleted")
       window.location.reload();
 
-    }, err => {
-      this.toastr.error(err.error)
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
 
+      }
+      else
+        this.toastr.error(error.error)
     })
   }
   getAllSeats(trainid: number) {
