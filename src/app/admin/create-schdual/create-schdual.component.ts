@@ -47,13 +47,13 @@ tripId:any;
     this.trip.checkTripScheduleAvailability(this.tripId, selectedDate).subscribe(
       (isAvailable:any) => {
         if (isAvailable) {
-          console.log('Trip is available for the selected date.');
-          this.toastr.error('Trip is not available on the selected date.', 'Unavailable');
-       
-        this.scheduleForm.controls['tdate'].setErrors({ unavailable: true });
-        } else {
-          console.error('Trip is not available for the selected date.');
          
+          console.log('Trip is available for the selected date.');
+    
+        } else {
+         
+          this.toastr.error('Trip is not available on the selected date.', 'Unavailable');
+          this.scheduleForm.controls['tdate'].setErrors({ unavailable: true });
         }
       },
       (error:any) => {

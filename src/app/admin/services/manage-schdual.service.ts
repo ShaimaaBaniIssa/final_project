@@ -48,8 +48,10 @@ export class ManageSchdualService {
   CreateTripSchedule(body: any) {
     console.log(body)
     this.httpClient.post('https://localhost:7019/api/TripSchedule/CreateTripSchedule', body).subscribe(resp => {
+      
       this.toastr.success('TripSchedule created successfuly')
       this.rout.navigate(['/admin/tripschedule']);
+      window.location.reload()
     }, err => {
       if (err.error) {
         this.toastr.error(err.error);

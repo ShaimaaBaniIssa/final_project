@@ -36,6 +36,8 @@ markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
  
   onStationClick(station: any) {
     this.stationService.selectedStation = { ...station };
+    localStorage.setItem('stationName', JSON.stringify(this.stationService.selectedStation));
+    localStorage.setItem('stationid',station.stationid)
     this.stationService.selectedStationLocation = {
       lat: station.latitude,
       lng: station.longitude

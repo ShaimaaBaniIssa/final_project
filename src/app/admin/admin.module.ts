@@ -10,7 +10,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TripSearchComponent } from './trip-search/trip-search.component';
 import { ReportComponent } from './report/report.component';
-import { CreateTripComponent } from './create-trip/create-trip.component';
 import { SharedModule } from '../shared/shared.module';
 import { ManagestationsComponent } from './Stations/managestations/managestations.component';
 import { CreatestationComponent } from './Stations/createstation/createstation.component';
@@ -41,7 +40,6 @@ import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component
     ProfileComponent,
     TripSearchComponent,
     ReportComponent,
-    CreateTripComponent,
     ManagestationsComponent,
     CreatestationComponent,
     UpdatestationComponent,

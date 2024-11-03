@@ -12,14 +12,37 @@ import { ManageTripService } from '../../services/manage-trip.service';
 })
 
 export class CreatetripComponent implements OnInit {
-  constructor(public managestation: ManagestationService,private ManageTripService:ManageTripService){
+  constructor(public managestation: ManagestationService,
+    private ManageTripService:ManageTripService){
   
   }
+
+  stName:any={}
+  station:any;
+  isStationSelected:any
   ngOnInit(): void {
-    this.managestation.getAllStation();
-    console.log(this.managestation.stations)
+  
+    // Retrieve the stationName from localStorage
+    const storedStation = localStorage.getItem('stationName');
+    
+    // Check if there is a stored station in localStorage
+    if (storedStation) {
+      // Parse the stored station
+      this.stName = JSON.parse(storedStation);
+      this.isStationSelected = false; // Set to true if a station is selected
+      this.station = this.stName; // Set the station to the parsed station object
+  
+      console.log("Retrieved Station: ", this.stName);
+    } else {
+      // If no station is selected, fetch all stations
+      this.isStationSelected = true;
+      this.managestation.getAllStation();
+      this.station = this.managestation.stations;
+  
+      console.log("No station found. Fetching all stations: ", this.station);
+    }
   }
- 
+  
 
   stationName: FormControl = new FormControl('');
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
@@ -69,7 +92,11 @@ createTrip: FormGroup = new FormGroup({
 
   
 save() {
+  if(!this.isStationSelected){
+    this.createTrip.controls['stationid'].setValue( this.station.stationid)
+  }
   this.ManageTripService.createTrip(this.createTrip.value)
+  localStorage.removeItem('stationName');
 }
  
   

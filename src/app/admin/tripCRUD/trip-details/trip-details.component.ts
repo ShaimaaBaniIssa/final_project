@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StationService } from 'src/app/Services/station.service';
 import { TripService } from 'src/app/Services/trip.service';
 import { ManageTripService } from '../../services/manage-trip.service';
+import { ManagestationService } from '../../services/managestation.service';
 
 @Component({
   selector: 'app-trip-details',
@@ -11,9 +12,15 @@ import { ManageTripService } from '../../services/manage-trip.service';
   encapsulation: ViewEncapsulation.None
 })
 export class TripDetailsComponent implements OnInit{
-constructor(public stationService: StationService ,private rout:Router ,private ManageTripService:ManageTripService){}
+constructor(public stationService: StationService ,
+  private rout:Router ,public ManageTripService:ManageTripService,
+  public ManagestationService:ManagestationService
+
+){}
 ngOnInit(): void {
-  this.stationService.getStationTrips();
+ 
+  this.ManagestationService.getStationTrips()
+  console.log( this.ManagestationService.trips)
 }
 
 
@@ -57,12 +64,12 @@ this.rout.navigate(['/admin/updatetrip'])
 }
 
 
-deleteTrip(){
-  console.log("deeee");
-  this.ManageTripService.DeleteTrip(this.ManageTripService.selectedTrip.tripid);
+deleteTrip(tripid:any){
+  console.log(tripid);
+  this.ManageTripService.DeleteTrip(tripid);
 }
 
-crete(){
+create(){
 this.rout.navigate(['/admin/createtrip'])
 }
 Showschedule(trip:any){

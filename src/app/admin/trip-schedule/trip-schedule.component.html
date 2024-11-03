@@ -57,7 +57,7 @@
                   <td class="text-end">{{ obj.arrivaltime }}</td>
                   <td class="text-end">{{ obj.tripid }}</td>
                   <td class="text-end">{{ obj.trainid }}</td>
-                  <td class="text-end">{{ obj.tdate }}</td>
+                  <td class="text-end">{{ obj.tdate | date:'shortDate'}}</td>
                   <td class="text-end">
                     <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
                     <button class="btn btn-sm btn-danger"
@@ -79,12 +79,12 @@
         <form [formGroup]="updateSchedule">
           <div class="mb-3">
             <label for="firstName" class="form-label">Departure Time</label>
-            <input type="text" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime"
+            <input type="time" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime"
               name="departuretime" required>
           </div>
           <div class="mb-3">
             <label for="lastName" class="form-label">Arrival Time</label>
-            <input type="text" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime"
+            <input type="time" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime"
               name="arrivaltime" required>
           </div>
           <div class="col-12 col-md-6 form-group">

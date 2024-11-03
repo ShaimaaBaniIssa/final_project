@@ -15,7 +15,8 @@ export class TripScheduleComponent implements OnInit {
   tripSchedules: any[] = [];
   @ViewChild('callUpdateDialog') updateDailog !: TemplateRef<any>;
   constructor(public tripSc: ManageSchdualService, private fb: FormBuilder,
-    private rout: Router, private trip: ManageTripService, public dialog: MatDialog, public manageSchdualService: ManageSchdualService) { }
+    private rout: Router, private trip: ManageTripService, public dialog: MatDialog,
+     public manageSchdualService: ManageSchdualService) { }
   tripId: any
   ngOnInit(): void {
     this.tripId = this.trip.selectedTrip.tripid

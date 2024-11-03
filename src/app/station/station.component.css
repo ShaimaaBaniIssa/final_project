@@ -45,3 +45,11 @@
 .rating>label:active {
     position: relative;
 }
+
+.pr{
+    color: #f70;
+
+}
+.traddes{
+    font-weight: 600;
+}

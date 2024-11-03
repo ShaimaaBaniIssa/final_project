@@ -12,7 +12,6 @@ export class ManageTripService {
 
   
   selectedTrip: any = {};
-
   tripSchedules: any = [];
   availableSeats: any = [];
 
@@ -34,7 +33,7 @@ this.httpClient.post('https://localhost:7019/api/Trip/CreateTrip',body).subscrib
     console.log(body)
     this.httpClient.put('https://localhost:7019/api/Trip/UpdateTrip',body).subscribe((res)=>{
       this.toastr.success("Trip updated successfully.");
-      this.rout.navigate(['/admin/trip'])
+      this.rout.navigate(['/admin/tripdetails'])
     
     },err=>{
       console.log(err)
@@ -43,6 +42,8 @@ this.httpClient.post('https://localhost:7019/api/Trip/CreateTrip',body).subscrib
   }
   DeleteTrip(id: number) {
     this.httpClient.delete("https://localhost:7019/api/Trip/DeleteTrip/" + id).subscribe(resp => {
+     
+      window.location.reload()
       this.toastr.success("The Trip Deleted")
     }, err => {
       this.toastr.error("can't Trip this station")

@@ -13,7 +13,21 @@ export class ManagestationService {
   totalStations: number = 0;
   selectedStation: any;
   dis_image: any;
-
+  trips: any = [];
+  selectedStationLocation: any;
+sataionId:any
+  getStationTrips() {
+    this.sataionId=localStorage.getItem("stationid")
+    this.httpClient.get('https://localhost:7019/api/Trip/GetTripsByStationId/' + this.sataionId)
+      .subscribe(
+        result => {
+          this.trips = result;
+        },
+        error => {
+          this.toastr.error("error");
+        }
+      );
+  }
   getAllStation() {
     this.httpClient.get('https://localhost:7019/api/Station')
       .subscribe(

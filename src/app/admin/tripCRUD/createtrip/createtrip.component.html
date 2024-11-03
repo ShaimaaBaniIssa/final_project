@@ -56,14 +56,21 @@
             </div>
               <!-- station -->
                <!-- update this to read only when come from press on station pin -->
-              <div class="col-12 col-md-6 form-group">
+               <div class="col-12 col-md-6 form-group">
                 <label for="destinationStation" class="custom-label">Station</label>
-                <select class="form-select custom-select" id="destinationStation" formControlName="stationid">
-                    <option value=""  selected>Select Station</option>
-                    <option *ngFor="let obj of this.managestation.stations" [value]="obj.stationid">{{ obj.stationname }}</option>
+                <select *ngIf="isStationSelected" class="form-select custom-select" id="destinationStation" formControlName="stationid">
+                    <option value="" selected>Select Station</option>
+                    <option *ngFor="let obj of managestation.stations" [value]="obj.stationid">{{ obj.stationname }}</option>
                 </select>
-            </div>
             
+                <input *ngIf="!isStationSelected"
+                       type="text" 
+                       class="form-control" 
+                       id="destinationStationReadOnly" 
+                       [value]="station.stationname" 
+                       readonly
+                />
+            </div>
           
             <div class="form-group mb-4">
                 <label class="custom-label">Trip Days</label>

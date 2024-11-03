@@ -13,6 +13,9 @@ export class SidebarComponent {
   constructor(private rout:Router){
 
   }
+  removevalue(){
+    localStorage.removeItem('stationName');
+  }
   logout(){
     localStorage.clear();
     console.log('Local storage cleared'); 
