@@ -37,6 +37,30 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item">
+          <a>
+            <i class="fas fa-file "></i>
+            <p>pages</p>
+          </a>
+          <ul>
+            <li class="gray-text">
+              <a routerLink="/admin/managehomepage" class="text-section">
+                <i class="fas fa-file gray-text ms-2"></i>
+               Home Page
+              </a>
+            </li>
+            <li class="gray-text">
+              <a routerLink="/admin/admincontact" class="text-section">
+                <i class="fas fa-file gray-text ms-2"></i>
+               ContactUs Page
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
         <li class="nav-item">
           <a routerLink="/admin/managetrain">
             <i class="fas fa-file"></i>
@@ -85,13 +109,7 @@
 
           </a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/admin/managehomepage">
-            <i class="fas fa-file"></i>
-            <p>Home Page</p>
-
-          </a>
-        </li>
+       
         <li class="nav-item">
           <a href="" (click)="logout()">
             <i class="fas fa-sign-out-alt"></i> <!-- Logout icon -->

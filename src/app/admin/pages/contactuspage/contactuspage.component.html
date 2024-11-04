@@ -1,0 +1,200 @@
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="main-header">
+
+        <div class="main-header-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="../index.html" class="logo">
+              <img
+                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+           
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <!-- Navbar Header -->
+         <app-navbar></app-navbar>
+        <!-- End Navbar -->
+      </div>
+
+      <div class="container">
+
+
+
+
+
+  <div class="contact-section-space-y">
+        <div class="contact-container">
+        <div class="contact-row g-4 justify-content-xxl-between">
+            <div class="contact-col-lg-6">
+             <div class="d-flex justify-content-xxl-between">
+              <span class="contact-subtitle fs-6  fw-medium text-primary fw-medium ">Contact Us Page</span>
+
+              <button class="btn btn-primary" (click)="openUpdateDailog(contact.contactPage)">Update</button>
+            
+             </div>
+                <h2>{{contact.contactPage.heading }}</h2>
+                <p class="mb-8">{{contact.contactPage.subheading }}</p>
+                <div class="contact-quote-box px-8 py-6 bg-success-subtle">
+                    <span class="contact-quote-text d-block mb-0 h5 max-text-10">{{contact.contactPage.quotebox }}</span>
+                </div>
+                <div class="contact-icon-list my-8">
+                    <ul class="contact-list gap-4">
+                        <li class="contact-item d-flex gap-2 align-items-center">
+                            <div class="contact-icon-container flex-shrink-0">
+                                <img [src]="contact.contactPage.icon" alt="icon" class="contact-icon img-fluid">
+                            </div>
+                            <div class="contact-icon-text flex-grow-1 fs-18 fw-medium">{{contact.contactPage.icontext1 }}</div>
+                        </li>
+                        <li class="contact-item d-flex gap-2 align-items-center">
+                            <div class="contact-icon-container flex-shrink-0">
+                                <img [src]="contact.contactPage.icon" alt="icon" class="contact-icon img-fluid">
+                            </div>
+                            <div class="contact-icon-text flex-grow-1 fs-18 fw-medium">{{ contact.contactPage.icontext2}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-col-lg-6 contact-col-xxl-5">
+              <div class="contact-image-container position-relative z-1">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img [src]="contact.contactPage.headingimage" alt="image" class="img-fluid carousel-image">
+                    </div>
+                    <div class="carousel-item">
+                      <img [src]="contact.contactPage.contactformimage" alt="image" class="img-fluid carousel-image">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="phoneEmailSection">
+  <div class="container m-5">
+    <div class="row justify-content-center text-center"> 
+      <h5 class="w-100 fs-4 fw-bold">Contact Us</h5> 
+      <div class="col-md-6 col-lg-3 p-0"> 
+        <ul class="list-unstyled mb-0"> 
+          <li class="d-flex flex-column align-items-center">
+            <i class="bi bi-telephone-fill" style="font-size: 2rem;"></i>
+            <span>+{{contact.contactPage.phonenumber}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-3 p-0">
+        <ul class="list-unstyled mb-0"> 
+          <li class="d-flex flex-column align-items-center">
+            <i class="bi bi-envelope-fill" style="font-size: 2rem;"></i> 
+            <span>{{contact.contactPage.email}}</span> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #callUpdateDialog>
+  <h5 mat-dialog-title class="dialog-title">Update Trip Schedule Details</h5>
+  <mat-dialog-content class="dialog-content">
+    <form [formGroup]="updateContactP">
+      <div class="mb-3">
+        <label  class="form-label">heading</label>
+        <input type="text" class="form-control" formControlName="heading" [(ngModel)]="pData.heading"
+          name="heading" required>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">subheading</label>
+        <input type="text" class="form-control" formControlName="subheading" [(ngModel)]="pData.subheading"
+          name="subheading" required>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">quotebox</label>
+        <input type="text" class="form-control" formControlName="quotebox" [(ngModel)]="pData.quotebox"
+          name="quotebox" required>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">icontext1</label>
+        <input type="text" class="form-control" formControlName="icontext1" [(ngModel)]="pData.icontext1"
+          name="icontext1" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">icontext2</label>
+        <input type="text" class="form-control" formControlName="icontext2" [(ngModel)]="pData.icontext2"
+          name="icontext2" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">email</label>
+        <input type="email" class="form-control" formControlName="email" [(ngModel)]="pData.email"
+          name="email" required>
+      </div>
+     <!-- File inputs for uploading images -->
+<div class="mb-3">
+  <label for="headingImage">Upload Heading Image:</label>
+  <input type="file" id="headingImage" (change)="onFileChange($event, 'headingimage')" />
+</div>
+
+<div class="mb-3">
+  <label for="contactFormImage">Upload Contact Form Image:</label>
+  <input type="file" id="contactFormImage" (change)="onFileChange($event, 'contactformimage')" />
+</div>
+
+<div class="mb-3">
+  <label for="iconImage">Upload Icon Image:</label>
+  <input type="file" id="iconImage" (change)="onFileChange($event, 'icon')" />
+</div>
+
+    </form>
+  </mat-dialog-content>
+  <div class="modal-footer mb-5">
+    <button type="button" class="btn btn-primary m-1" mat-dialog-close
+      (click)="updateContact()">Update</button>
+    <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+   
+  </div>
+ 

@@ -1,0 +1,80 @@
+.contact-section-space-y {
+    padding: 40px 0;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-col-lg-6 {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-subtitle {
+    font-size: 14px;
+    color: #FF5722;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.contact-subheading {
+    font-size: 16px;
+    color: #555;
+}
+
+.contact-quote-box {
+    background-color: #e0f7fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.contact-quote-text {
+    color: #004d40;
+    font-size: 18px;
+    font-style: italic;
+    text-align: left;
+}
+
+.contact-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.carousel-image {
+    height: 400px; 
+    object-fit: cover; 
+    width: 100%; 
+  }
+  .phoneEmailSection{
+    background-color: gainsboro;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 25px;
+  }
