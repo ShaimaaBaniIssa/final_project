@@ -6,7 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UpdatehomepageComponent } from '../updatehomepage/updatehomepage.component';
-import { CreatehomepageComponent } from '../createhomepage/createhomepage.component';
 
 @Component({
   selector: 'app-managepages',
@@ -14,10 +13,8 @@ import { CreatehomepageComponent } from '../createhomepage/createhomepage.compon
   styleUrls: ['./managepages.component.css']
 })
 export class ManagepagesComponent implements OnInit {
-  dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['homepageid', 'logoimage', 'websitetitle', 'toptext','formimage','titileabouttext','abouttext1','abouttext2','trainlogo','pointabouttext1','pointabouttext2','desttitle','desttext','update'];
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  
+  homedata:any ={};
   constructor(public homeservice: HomeServiceService, public dialog: MatDialog, private router: Router) {
 
 }
@@ -25,12 +22,11 @@ ngOnInit(): void {
   this.homeservice.getAllHomepages().subscribe(
     (result: any) => {
       // If `result` is not an array, wrap it in an array.
-      const data = Array.isArray(result) ? result : [result];
-      
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      console.log(data);
+      // const data = Array.isArray(result) ? result : [result];
+      console.log(result);
+      this.homedata=result;
+     
+      console.log(this.homedata);
     },
     error => {
       console.error(error);
@@ -41,23 +37,14 @@ ngOnInit(): void {
 
 
 
-applyFilter(event: Event) {
-  const filterValue = (event.target as HTMLInputElement).value;
-  this.dataSource.filter = filterValue.trim().toLowerCase();
 
-  if (this.dataSource.paginator) {
-    this.dataSource.paginator.firstPage();
-  }
-}
-update(train: any) {
-  console.log(train);
+update() {
+ 
   const dialogRef = this.dialog.open(UpdatehomepageComponent, {
-    data: train
+   data:this.homedata
   });
 }
-create() {
-  const dialogRef = this.dialog.open(CreatehomepageComponent);
-}
+
 
 
 

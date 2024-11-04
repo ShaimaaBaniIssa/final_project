@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -68,7 +68,8 @@ homepages :any ={};
   //   })
   // }
 
-  uploadAtachment(formData: FormData): Observable<any> { // تأكد من أن هذه الدالة ترجع Observable
+  uploadAtachment(formData: FormData): Observable<any> { 
+    
     return this.httpClient.post("https://localhost:7019/api/HomePage/UploadImage",formData)
 }
 
