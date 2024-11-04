@@ -1,22 +1,77 @@
 <h2 mat-dialog-title>Update Home Page</h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="updateHomepage">
+    
+    <input type="file" #file formControlName="logoimage" (change)="uploadimage(file.files,'logoimage')">
+
     <div class="example-container">
       <mat-form-field>
-        <mat-label>Station Name</mat-label>
+        <mat-label>Web Site Title</mat-label>
         <input type="text" matInput formControlName="websitetitle">
       </mat-form-field>
     </div>
+    
     <div class="example-container">
       <mat-form-field>
-        <mat-label>Station Address</mat-label>
+        <mat-label>Top Text</mat-label>
         <input type="text" matInput formControlName="toptext">
       </mat-form-field>
     </div>
-
-    <input type="file" #file formControlName="logoimage" (change)="uploadimage(file.files,'logoimage')">
+   
     <input type="file" #file1 formControlName="formimage" (change)="uploadimage(file1.files,'formimage')">
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Titile About Text</mat-label>
+        <input type="text" matInput formControlName="titileabouttext">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>About Text 1</mat-label>
+        <input type="text" matInput formControlName="abouttext1">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>About Text 2</mat-label>
+        <input type="text" matInput formControlName="abouttext2">
+      </mat-form-field>
+    </div>
+
     <input type="file" #file2 formControlName="trainlogo" (change)="uploadimage(file2.files,'trainlogo')">
+
+  <div class="example-container">
+      <mat-form-field>
+        <mat-label>Point About Text 1</mat-label>
+        <input type="text" matInput formControlName="pointabouttext1">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Point About Text 2</mat-label>
+        <input type="text" matInput formControlName="pointabouttext2">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Dest Title</mat-label>
+        <input type="text" matInput formControlName="desttitle">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Dest Text</mat-label>
+        <input type="text" matInput formControlName="desttext">
+      </mat-form-field>
+    </div>
+
+    <ngx-spinner type="ball-scale-multiple"><p style="color: white" >Uploading...</p></ngx-spinner>
 
   </form>
 </mat-dialog-content>

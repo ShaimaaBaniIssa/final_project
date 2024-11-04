@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     GoogleMapsModule,
     MatDialogModule,
-
+    NgxSpinnerModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -47,7 +48,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     GoogleMapsModule,
     StationPipe,
     MatDialogModule,
-
+    NgxSpinnerModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,

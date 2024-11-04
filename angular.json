@@ -34,7 +34,8 @@
               "src/assets/Home/css/ff-2.css",
               "src/assets/Home/css/style.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
           "scripts": [
    

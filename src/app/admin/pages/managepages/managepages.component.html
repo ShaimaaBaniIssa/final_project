@@ -40,46 +40,55 @@
             <table class="table table-bordered align-items-center mb-0">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Trip Schedule ID</th>
-                  <th scope="col" class="text-end">Departure Time</th>
-                  <th scope="col" class="text-end">Arrival Time</th>
-                  <th scope="col" class="text-end">Trip ID</th>
-                  <th scope="col" class="text-end">Train ID</th>
-                  <th scope="col" class="text-end">Date</th>
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
+                  
+                  <th scope="col" class="text-end">Home Page Id</th>
+                  <th scope="col" class="text-end">Logo Image</th>
+                  <th scope="col" class="text-end">Web Site Title</th>
+                  <th scope="col" class="text-end">Top Text</th>
+                  <th scope="col" class="text-end">Form Image</th>
+                  <th scope="col" class="text-end">Titile About Text</th>
+                  <th scope="col" class="text-end">About Text 1</th>
 
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
-                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">About Text 2</th>
+                  <th scope="col" class="text-end">Train Logo</th>
+                  <th scope="col" class="text-end">Point About Text 1</th>
+                  <th scope="col" class="text-end">Point About Text 2</th>
+                  <th scope="col" class="text-end">Dest Title</th>
+                  <th scope="col" class="text-end">Dest Text</th>
+                  <th scope="col" class="text-end">Update</th>
+
 
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th>{{ homedata.homepageid }}</th>
-                  <td class="text-end">{{ homedata.logoimage }}</td>
+                  <td class="text-end">
+                    <img [src]="'../../../../../../assets/Images/' + homedata.logoimage" alt="Logo Image" style="max-width: 100px; height: auto;">
+                  </td>
                   <td class="text-end">{{ homedata.websitetitle }}</td>
                   <td class="text-end">{{ homedata.toptext }}</td>
-                  <td class="text-end">{{ homedata.formimage }}</td>
-                  <td class="text-end">{{ homedata.titileabouttext}}</td>
-                  <td class="text-end">{{ homedata.abouttext1}}</td>
-                  <td class="text-end">{{ homedata.abouttext2}}</td>
-                  <td class="text-end">{{ homedata.trainlogo}}</td>
-                  <td class="text-end">{{ homedata.pointabouttext1}}</td>
-                  <td class="text-end">{{ homedata.pointabouttext2}}</td>
-                  <td class="text-end">{{ homedata.desttitle}}</td>
-                  <td class="text-end">{{ homedata.desttext}}</td>
+                  <td class="text-end">
+                    <img [src]="'../../../../../../assets/Images/' + homedata.formimage" alt="Form Image" style="max-width: 100px; height: auto;">
+                  </td>
+                  <td class="text-end">{{ homedata.titileabouttext }}</td>
+                  <td class="text-end">{{ homedata.abouttext1 }}</td>
+                  <td class="text-end">{{ homedata.abouttext2 }}</td>
+                
+                  <td class="text-end">
+                    <img [src]="'../../../../../../assets/Images/' + homedata.trainlogo" alt="Logo Image" style="max-width: 100px; height: auto;">
+                  </td>
+                  
+                  <td class="text-end">{{ homedata.pointabouttext1 }}</td>
+                  <td class="text-end">{{ homedata.pointabouttext2 }}</td>
+                  <td class="text-end">{{ homedata.desttitle }}</td>
+                  <td class="text-end">{{ homedata.desttext }}</td>
                   <td class="text-end">
                     <button class="btn btn-sm btn-primary me-2" (click)="update()">Update</button>
-
-
                   </td>
                 </tr>
               </tbody>
+              
             </table>
           </div>
         </div>
