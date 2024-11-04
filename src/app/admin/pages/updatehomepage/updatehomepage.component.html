@@ -15,16 +15,16 @@
     </div>
 
     <input type="file" #file formControlName="logoimage" (change)="uploadimage(file.files,'logoimage')">
-    <input type="file" #file formControlName="formimage" (change)="uploadimage(file.files,'formimage')">
-    <input type="file" #file formControlName="trainlogo" (change)="uploadimage(file.files,'trainlogo')">
+    <input type="file" #file1 formControlName="formimage" (change)="uploadimage(file1.files,'formimage')">
+    <input type="file" #file2 formControlName="trainlogo" (change)="uploadimage(file2.files,'trainlogo')">
 
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <div class="col-12">
-    <button mat-button  class="btn-info" cdkFocusInitial (click)="save()">Update</button>
+    <button mat-button class="btn-info" cdkFocusInitial (click)="save()">Update</button>
 
-     
+
   </div>
   <div class="col-12">
     <button mat-button mat-dialog-close>Cancel</button>

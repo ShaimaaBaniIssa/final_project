@@ -13,37 +13,37 @@ import { UpdatehomepageComponent } from '../updatehomepage/updatehomepage.compon
   styleUrls: ['./managepages.component.css']
 })
 export class ManagepagesComponent implements OnInit {
-  
-  homedata:any ={};
+
+  homedata: any = {};
   constructor(public homeservice: HomeServiceService, public dialog: MatDialog, private router: Router) {
 
-}
-ngOnInit(): void {
-  this.homeservice.getAllHomepages().subscribe(
-    (result: any) => {
-      // If `result` is not an array, wrap it in an array.
-      // const data = Array.isArray(result) ? result : [result];
-      console.log(result);
-      this.homedata=result;
-     
-      console.log(this.homedata);
-    },
-    error => {
-      console.error(error);
-      // this.toastr.error("Failed to load train data.");
-    }
-  );
-}
+  }
+  ngOnInit(): void {
+    this.homeservice.getAllHomepages().subscribe(
+      (result: any) => {
+        // If `result` is not an array, wrap it in an array.
+        // const data = Array.isArray(result) ? result : [result];
+        console.log(result);
+        this.homedata = result;
+
+        console.log(this.homedata);
+      },
+      error => {
+        console.error(error);
+        // this.toastr.error("Failed to load train data.");
+      }
+    );
+  }
 
 
 
 
-update() {
- 
-  const dialogRef = this.dialog.open(UpdatehomepageComponent, {
-   data:this.homedata
-  });
-}
+  update() {
+
+    const dialogRef = this.dialog.open(UpdatehomepageComponent, {
+      data: this.homedata
+    });
+  }
 
 
 

@@ -1,93 +1,93 @@
 <div class="wrapper">
-    <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
-    <!-- End Sidebar -->
-  
-    <div class="main-panel">
-      <div class="main-header">
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="../index.html" class="logo">
-              <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-          </div>
-          <!-- End Logo Header -->
-        </div>
-        <!-- Navbar Header -->
-        <app-navbar></app-navbar>
-        <!-- End Navbar -->
-      </div>
-  
-      <div class="container">
-        <div class="section-space-md-bottom">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
-          </div>
-        </div>
-  
-        <div class="card shadow mb-4">
-          <div class="card-body p-0">
-            <div class="table-responsive">
-              <table class="table table-bordered align-items-center mb-0">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Trip Schedule ID</th>
-                    <th scope="col" class="text-end">Departure Time</th>
-                    <th scope="col" class="text-end">Arrival Time</th>
-                    <th scope="col" class="text-end">Trip ID</th>
-                    <th scope="col" class="text-end">Train ID</th>
-                    <th scope="col" class="text-end">Date</th>
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End Sidebar -->
 
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
-                    <th scope="col" class="text-end">Actions</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr >
-                    <th >{{ homedata.homepageid }}</th>
-                    <td class="text-end">{{ homedata.logoimage }}</td>
-                    <td class="text-end">{{ homedata.websitetitle }}</td>
-                    <td class="text-end">{{ homedata.toptext }}</td>
-                    <td class="text-end">{{ homedata.formimage }}</td>
-                    <td class="text-end">{{ homedata.titileabouttext}}</td>
-                    <td class="text-end">{{ homedata.abouttext1}}</td>
-                    <td class="text-end">{{ homedata.abouttext2}}</td>
-                    <td class="text-end">{{ homedata.trainlogo}}</td>
-                    <td class="text-end">{{ homedata.pointabouttext1}}</td>
-                    <td class="text-end">{{ homedata.pointabouttext2}}</td>
-                    <td class="text-end">{{ homedata.desttitle}}</td>
-                    <td class="text-end">{{ homedata.desttext}}</td>
-                    <td class="text-end">
-                      <button class="btn btn-sm btn-primary me-2" (click)="update()">Update</button>
-                      
-                       
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+  <div class="main-panel">
+    <div class="main-header">
+      <div class="main-header-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+          <a href="../index.html" class="logo">
+            <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
+          </a>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="gg-menu-right"></i>
+            </button>
+            <button class="btn btn-toggle sidenav-toggler">
+              <i class="gg-menu-left"></i>
+            </button>
           </div>
         </div>
+        <!-- End Logo Header -->
       </div>
-  
-  
-  
-  
+      <!-- Navbar Header -->
+      <app-navbar></app-navbar>
+      <!-- End Navbar -->
     </div>
+
+    <div class="container">
+      <div class="section-space-md-bottom">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
+        </div>
+      </div>
+
+      <div class="card shadow mb-4">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-bordered align-items-center mb-0">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Trip Schedule ID</th>
+                  <th scope="col" class="text-end">Departure Time</th>
+                  <th scope="col" class="text-end">Arrival Time</th>
+                  <th scope="col" class="text-end">Trip ID</th>
+                  <th scope="col" class="text-end">Train ID</th>
+                  <th scope="col" class="text-end">Date</th>
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-end">Actions</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>{{ homedata.homepageid }}</th>
+                  <td class="text-end">{{ homedata.logoimage }}</td>
+                  <td class="text-end">{{ homedata.websitetitle }}</td>
+                  <td class="text-end">{{ homedata.toptext }}</td>
+                  <td class="text-end">{{ homedata.formimage }}</td>
+                  <td class="text-end">{{ homedata.titileabouttext}}</td>
+                  <td class="text-end">{{ homedata.abouttext1}}</td>
+                  <td class="text-end">{{ homedata.abouttext2}}</td>
+                  <td class="text-end">{{ homedata.trainlogo}}</td>
+                  <td class="text-end">{{ homedata.pointabouttext1}}</td>
+                  <td class="text-end">{{ homedata.pointabouttext2}}</td>
+                  <td class="text-end">{{ homedata.desttitle}}</td>
+                  <td class="text-end">{{ homedata.desttext}}</td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-primary me-2" (click)="update()">Update</button>
+
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
+</div>
