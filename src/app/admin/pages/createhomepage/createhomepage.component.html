@@ -1,0 +1,107 @@
+<h2 mat-dialog-title>Create Home Page</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="createHomepage">
+
+    <div class="example-container">
+      <label for="logoimage">Logo Image</label>
+      <input type="file" #file id="logoimage" formControlName="logoimage" (change)="uploadimage(file.files)" class="form-control" />
+      <div *ngIf="createHomepage.controls['logoimage'].hasError('required')" class="text-danger">
+        Logo Image is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="websitetitle">Web Site Title</label>
+      <input type="text" id="websitetitle" formControlName="websitetitle" class="form-control" />
+      <div *ngIf="createHomepage.controls['websitetitle'].hasError('required')" class="text-danger">
+        Web Site Title is required
+      </div>
+    </div>
+    
+    <div class="example-container">
+      <label for="toptext">Top Text</label>
+      <input type="text" id="toptext" formControlName="toptext" class="form-control" />
+      <div *ngIf="createHomepage.controls['toptext'].hasError('required')" class="text-danger">
+        Top Text is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="formimage">Form Image</label>
+      <input type="file" #file1 id="formimage" formControlName="formimage" (change)="uploadimage(file1.files)" class="form-control" />
+      <div *ngIf="createHomepage.controls['formimage'].hasError('required')" class="text-danger">
+        Form Image is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="titileabouttext">Title About Text</label>
+      <input type="text" id="titileabouttext" formControlName="titileabouttext" class="form-control" />
+      <div *ngIf="createHomepage.controls['titileabouttext'].hasError('required')" class="text-danger">
+        Title About Text is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="abouttext1">About Text 1</label>
+      <input type="text" id="abouttext1" formControlName="abouttext1" class="form-control" />
+      <div *ngIf="createHomepage.controls['abouttext1'].hasError('required')" class="text-danger">
+        About Text 1 is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="abouttext2">About Text 2</label>
+      <input type="text" id="abouttext2" formControlName="abouttext2" class="form-control" />
+      <div *ngIf="createHomepage.controls['abouttext2'].hasError('required')" class="text-danger">
+        About Text 2 is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="trainlogo">Train Logo</label>
+      <input type="file" #file2 id="trainlogo" formControlName="trainlogo" (change)="uploadimage(file2.files)" class="form-control" />
+      <div *ngIf="createHomepage.controls['trainlogo'].hasError('required')" class="text-danger">
+        Train Logo is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="pointabouttext1">Point About Text 1</label>
+      <input type="text" id="pointabouttext1" formControlName="pointabouttext1" class="form-control" />
+      <div *ngIf="createHomepage.controls['pointabouttext1'].hasError('required')" class="text-danger">
+        Point About Text 1 is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="pointabouttext2">Point About Text 2</label>
+      <input type="text" id="pointabouttext2" formControlName="pointabouttext2" class="form-control" />
+      <div *ngIf="createHomepage.controls['pointabouttext2'].hasError('required')" class="text-danger">
+        Point About Text 2 is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="desttitle">Dest Title</label>
+      <input type="text" id="desttitle" formControlName="desttitle" class="form-control" />
+      <div *ngIf="createHomepage.controls['desttitle'].hasError('required')" class="text-danger">
+        Dest Title is required
+      </div>
+    </div>
+
+    <div class="example-container">
+      <label for="desttext">Dest Text</label>
+      <input type="text" id="desttext" formControlName="desttext" class="form-control" />
+      <div *ngIf="createHomepage.controls['desttext'].hasError('required')" class="text-danger">
+        Dest Text is required
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button class="btn-success" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="save()">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

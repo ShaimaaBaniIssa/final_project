@@ -1,0 +1,6 @@
+.mat-elevation-z8 {
+    overflow-y: auto; /* يسمح بالتمرير العمودي */
+    overflow-x: auto; /* يسمح بالتمرير الأفقي */
+    max-height: auto; /* الحد الأقصى للارتفاع */
+    width: auto; /* عرض محدد */
+}

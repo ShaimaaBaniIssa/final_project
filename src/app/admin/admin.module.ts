@@ -29,6 +29,9 @@ import { UpdateseatComponent } from './seatsCRUD/updateseat/updateseat.component
 import { DeleteTrainComponent } from './trainCRUD/delete-train/delete-train.component';
 import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.component';
 import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component';
+import { ManagepagesComponent } from './pages/managepages/managepages.component';
+import { CreatehomepageComponent } from './pages/createhomepage/createhomepage.component';
+import { UpdatehomepageComponent } from './pages/updatehomepage/updatehomepage.component';
 
 
 @NgModule({
@@ -57,7 +60,10 @@ import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component
     UpdateseatComponent,
     DeleteTrainComponent,
     ManageseatsComponent,
-    DeleteseatComponent
+    DeleteseatComponent,
+    ManagepagesComponent,
+    CreatehomepageComponent,
+    UpdatehomepageComponent
   ],
   imports: [
     CommonModule,

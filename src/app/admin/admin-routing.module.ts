@@ -16,6 +16,7 @@ import { CreateTrainComponent } from './trainCRUD/create-train/create-train.comp
 import { UpdatetrainComponent } from './trainCRUD/updatetrain/updatetrain.component';
 import { ManagetrainComponent } from './trainCRUD/managetrain/managetrain.component';
 import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.component';
+import { ManagepagesComponent } from './pages/managepages/managepages.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   , {
     path: 'manageseats/:id',
     component: ManageseatsComponent
+  },
+  {
+    path: 'managehomepage',
+    component: ManagepagesComponent
   }
 ];
 
