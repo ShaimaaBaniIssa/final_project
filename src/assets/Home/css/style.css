@@ -2073,15 +2073,18 @@ small {
 
 .logo {
     --logo-height: 2.25rem;
-    height: var(--logo-height)
+    height: var(--logo-height);
+    margin-left: -70px; 
+
 }
 
 .logo__img {
-    max-width: 100%;
-    max-height: 100%;
-    -o-object-fit: contain;
-    object-fit: contain
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    margin-left: 50px; 
 }
+
 
 .logo__img-dark {
     display: none

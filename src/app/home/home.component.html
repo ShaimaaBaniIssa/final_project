@@ -162,12 +162,12 @@
                     <div class="my-8">
                         <ul class="list gap-4">
                             <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
+                                <div class="flex-shrink-0"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo" alt="image" class="mg-fluid w-15">
                                 </div>
                                 <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext1}}</div>
                             </li>
                             <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img src="{{trainlogo}}" alt="image" class="mg-fluid w-15">
+                                <div class="flex-shrink-0"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo" alt="image" class="mg-fluid w-15">
                                 </div>
                                 <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext2}}</div>
                             </li>
@@ -175,9 +175,10 @@
                     </div><a href="about.html" class="btn btn-primary text-light">Discover More</a>
                 </div>
                 <div class="col-lg-6 col-xxl-5">
-                    <div class="position-relative z-1"><img src="../../assets/Home/img/about-img-1.png" alt="image"
-                            class="img-fluid"> <img src="../../assets/Home/img/about-img-2.png" alt="image"
-                            class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x">
+                    <div class="position-relative z-1"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.formimage" alt="image"
+                            class="img-fluid"> 
+                            <!-- <img src="../../assets/Home/img/about-img-2.png" alt="image"
+                            class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x"> -->
                     </div>
                 </div>
             </div>

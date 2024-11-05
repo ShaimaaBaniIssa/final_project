@@ -28,75 +28,82 @@
     </div>
 
     <div class="container">
-      <div class="section-space-md-bottom">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <h1 class="mb-0 fw-bold m-3 "> Trip Schedule</h1>
-        </div>
-      </div>
+      <!-- Homepage Section -->
+      <div class="contact-section-space-y">
+        <div class="contact-container">
+          <div class="contact-row g-4 justify-content-xxl-between">
+            <div class="contact-col-lg-6">
+              <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start">
+                <span class="contact-subtitle fs-6 fw-medium text-primary">Homepage Content</span>
+                <button class="btn btn-primary mt-2 mt-sm-0" (click)="update()">Update</button>
+              </div>
 
-      <div class="card shadow mb-4">
-        <div class="card-body p-0">
-          <div class="table-responsive">
-            <table class="table table-bordered align-items-center mb-0">
-              <thead class="thead-light">
-                <tr>
-                  
-                  <th scope="col" class="text-end">Home Page Id</th>
-                  <th scope="col" class="text-end">Logo Image</th>
-                  <th scope="col" class="text-end">Web Site Title</th>
-                  <th scope="col" class="text-end">Top Text</th>
-                  <th scope="col" class="text-end">Form Image</th>
-                  <th scope="col" class="text-end">Titile About Text</th>
-                  <th scope="col" class="text-end">About Text 1</th>
-
-                  <th scope="col" class="text-end">About Text 2</th>
-                  <th scope="col" class="text-end">Train Logo</th>
-                  <th scope="col" class="text-end">Point About Text 1</th>
-                  <th scope="col" class="text-end">Point About Text 2</th>
-                  <th scope="col" class="text-end">Dest Title</th>
-                  <th scope="col" class="text-end">Dest Text</th>
-                  <th scope="col" class="text-end">Update</th>
-
-
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>{{ homedata.homepageid }}</th>
-                  <td class="text-end">
-                    <img [src]="'../../../../../../assets/Images/' + homedata.logoimage" alt="Logo Image" style="max-width: 100px; height: auto;">
-                  </td>
-                  <td class="text-end">{{ homedata.websitetitle }}</td>
-                  <td class="text-end">{{ homedata.toptext }}</td>
-                  <td class="text-end">
-                    <img [src]="'../../../../../../assets/Images/' + homedata.formimage" alt="Form Image" style="max-width: 100px; height: auto;">
-                  </td>
-                  <td class="text-end">{{ homedata.titileabouttext }}</td>
-                  <td class="text-end">{{ homedata.abouttext1 }}</td>
-                  <td class="text-end">{{ homedata.abouttext2 }}</td>
-                
-                  <td class="text-end">
-                    <img [src]="'../../../../../../assets/Images/' + homedata.trainlogo" alt="Logo Image" style="max-width: 100px; height: auto;">
-                  </td>
-                  
-                  <td class="text-end">{{ homedata.pointabouttext1 }}</td>
-                  <td class="text-end">{{ homedata.pointabouttext2 }}</td>
-                  <td class="text-end">{{ homedata.desttitle }}</td>
-                  <td class="text-end">{{ homedata.desttext }}</td>
-                  <td class="text-end">
-                    <button class="btn btn-sm btn-primary me-2" (click)="update()">Update</button>
-                  </td>
-                </tr>
-              </tbody>
-              
-            </table>
+              <h2>{{ homedata.websitetitle }}</h2>
+              <p class="mb-8">{{ homedata.toptext }}</p>
+              <div class="contact-quote-box px-8 py-6 bg-success-subtle">
+                <span class="contact-quote-text d-block mb-0 h5 max-text-10">{{ homedata.abouttext1 }}</span>
+              </div>
+              <div class="contact-icon-list my-8">
+                <ul class="contact-list gap-4">
+                  <li class="contact-item d-flex gap-2 align-items-center">
+                    <div class="contact-icon-container flex-shrink-0">
+                      <img [src]="'../../../../../../assets/Images/' + homedata.trainlogo" alt="Train Logo" class="contact-icon img-fluid">
+                    </div>
+                    <div class="contact-icon-text flex-grow-1 fs-18 fw-medium">{{ homedata.pointabouttext1 }}</div>
+                  </li>
+                  <li class="contact-item d-flex gap-2 align-items-center">
+                    <div class="contact-icon-container flex-shrink-0">
+                      <img [src]="'../../../../../../assets/Images/' + homedata.trainlogo" alt="Train Logo" class="contact-icon img-fluid">
+                    </div>
+                    <div class="contact-icon-text flex-grow-1 fs-18 fw-medium">{{ homedata.pointabouttext2 }}</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="contact-col-lg-6 contact-col-xxl-5">
+              <div class="contact-image-container position-relative z-1">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img [src]="'../../../../../../assets/Images/' + homedata.logoimage" alt="Logo Image" class="img-fluid carousel-image">
+                    </div>
+                    <div class="carousel-item">
+                      <img [src]="'../../../../../../assets/Images/' + homedata.formimage" alt="Form Image" class="img-fluid carousel-image">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-
-
-  </div>
-</div>
+      <div class="phoneEmailSection">
+        <div class="container m-5">
+          <div class="row justify-content-center text-center">
+            <h5 class="w-100 fs-4 fw-bold mb-4">Destinations</h5>
+            <div class="col-md-6 col-lg-3 p-3">
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex flex-column align-items-center">
+                  <span class="fs-5 fw-semibold text-primary">{{ homedata.desttitle }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 p-3">
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex flex-column align-items-center">
+                  <span class="fs-5 text-secondary">{{ homedata.desttext }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      

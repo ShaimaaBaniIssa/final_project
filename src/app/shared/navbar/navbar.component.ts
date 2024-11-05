@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from 'src/app/Services/home.service';
 
 @Component({
   selector: 'home-navbar',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  constructor(public home:HomeService){}
   userData = JSON.parse(localStorage.getItem('user') ?? '{}');
   userName: string = this.userData.name ;
   userProfileImage:string='../../assets/Images/user.png'
