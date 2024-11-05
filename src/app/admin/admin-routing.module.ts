@@ -18,6 +18,7 @@ import { ManagetrainComponent } from './trainCRUD/managetrain/managetrain.compon
 import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.component';
 import { ManagepagesComponent } from './pages/managepages/managepages.component';
 import { ContactuspageComponent } from './pages/contactuspage/contactuspage.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'admincontact',
     component: ContactuspageComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
   }
 ];
 
