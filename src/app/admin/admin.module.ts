@@ -33,6 +33,7 @@ import { ManagepagesComponent } from './pages/managepages/managepages.component'
 import { UpdatehomepageComponent } from './pages/updatehomepage/updatehomepage.component';
 import { ContactuspageComponent } from './pages/contactuspage/contactuspage.component';
 import { UserComponent } from './user/user.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { UserComponent } from './user/user.component';
     ManagepagesComponent,
     UpdatehomepageComponent,
     ContactuspageComponent,
-    UserComponent
+    UserComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,
