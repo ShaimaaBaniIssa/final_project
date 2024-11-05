@@ -40,13 +40,13 @@
             <ul class="list gap-4">
               <li class="d-flex gap-2 align-items-center">
                 <div class="flex-shrink-0">
-                  <img [src]="contact.contactPage.icon" alt="image" class="img-fluid">
+                  <img [src]="'../../../../../../assets/Images/'+contact.contactPage.icon" alt="image" class="img-fluid">
                 </div>
                 <div class="flex-grow-1 fs-18 fw-medium">{{contact.contactPage.icontext1 }}</div>
               </li>
               <li class="d-flex gap-2 align-items-center">
                 <div class="flex-shrink-0">
-                  <img [src]="contact.contactPage.icon" alt="image" class="img-fluid">
+                  <img [src]="'../../../../../../assets/Images/'+contact.contactPage.icon" alt="image" class="img-fluid">
                 </div>
                 <div class="flex-grow-1 fs-18 fw-medium">{{ contact.contactPage.icontext2}}</div>
               </li>
@@ -55,7 +55,7 @@
         </div>
         <div class="col-lg-6 col-xxl-5">
           <div class="position-relative z-1">
-            <img [src]=" contact.contactPage.headingimage" alt="image" class="img-fluid">
+            <img [src]="'../../../../../../assets/Images/'+contact.contactPage.headingimage" alt="image" class="img-fluid">
           </div>
         </div>
       </div>
@@ -65,12 +65,12 @@
   <div class="section-space-y bg-secondary">
     <div class="container">
       <div class="row justify-content-center text-center"> <!-- Centering the row and text -->
-        <h5 class="w-100">Contact Us</h5> <!-- Full-width for the heading to ensure it's centered -->
+        <h5 class="w-100 fs-5">Contact Us</h5> <!-- Full-width for the heading to ensure it's centered -->
         <div class="col-md-6 col-lg-3 p-0"> <!-- First column with no padding -->
           <ul class="list-unstyled mb-0"> <!-- Remove bottom margin from the list -->
             <li class="d-flex flex-column align-items-center">
               <i class="bi bi-telephone-fill" style="font-size: 2rem;"></i> <!-- Adjust icon size -->
-              <span>+012 345 67890</span>
+              <span>+{{ contact.contactPage.phonenumber}}</span>
             </li>
           </ul>
         </div>
@@ -78,7 +78,7 @@
           <ul class="list-unstyled mb-0"> <!-- Remove bottom margin from the list -->
             <li class="d-flex flex-column align-items-center">
               <i class="bi bi-envelope-fill" style="font-size: 2rem;"></i> <!-- Adjust icon size -->
-              <span>example.com</span> <!-- Corrected email format -->
+              <span>{{contact.contactPage.email}}</span> <!-- Corrected email format -->
             </li>
           </ul>
         </div>
@@ -145,7 +145,7 @@
                  </form>
                 </div>
                 <div class="col-lg-6">
-                  <img [src]="contact.contactPage.contactformimage" alt="image" class="img-fluid">
+                  <img [src]="'../../../../../../assets/Images/'+contact.contactPage.contactformimage" alt="image" class="img-fluid">
                 </div>
               </div>
             </div>

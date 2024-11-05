@@ -2,7 +2,7 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ContactService } from 'src/app/Services/contact.service';
+import { ContactServiceService } from '../../services/contact-service.service';
 
 @Component({
   selector: 'app-contactuspage',
@@ -11,7 +11,7 @@ import { ContactService } from 'src/app/Services/contact.service';
 })
 export class ContactuspageComponent {
   @ViewChild('callUpdateDialog') updateDailog !: TemplateRef<any>;
-  constructor(public contact:ContactService,public dialog: MatDialog,public spinner :NgxSpinnerService ){}
+  constructor(public contact:ContactServiceService,public dialog: MatDialog,public spinner :NgxSpinnerService ){}
   ngOnInit(): void {
     this.contact.getContactPage();
   }
@@ -29,10 +29,14 @@ export class ContactuspageComponent {
     phonenumber: new FormControl()
   });
 
+  
   pData: any = {}
   openUpdateDailog(obj: any) {
     this.pData = obj
+    this.updateContactP.patchValue(this.pData);
+
     this.updateContactP.controls['id'].setValue(this.pData.id)
+
     this.dialog.open(this.updateDailog, {
       width: '600px'
     })
@@ -48,17 +52,17 @@ export class ContactuspageComponent {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    // this.contact.uploadAttachment(formData).subscribe(
-    //   (resp: any) => {
-    //     console.log(resp.logoimage);
-    //     this.updateContactP.controls[imageName].patchValue(resp.logoimage); 
-    //     this.spinner.hide();
-    //   },
-    //   (error) => {
-    //     console.error('Upload failed:', error);
-    //     this.spinner.hide(); 
-    //   }
-    // );
+    this.contact.uploadAtachment(formData).subscribe(
+      (resp: any) => {
+        console.log(resp.logoimage);
+        this.updateContactP.controls[imageName].patchValue(resp.logoimage); 
+        this.spinner.hide();
+      },
+      (error) => {
+        console.error('Upload failed:', error);
+        this.spinner.hide(); 
+      }
+    );
 
     console.log(this.updateContactP.value);
   }
@@ -70,6 +74,7 @@ export class ContactuspageComponent {
 
   updateContact() {
   
+    this.contact.updateContact(this.updateContactP.value)
     console.log('Updated Contact:', this.updateContactP.value);
     
   }

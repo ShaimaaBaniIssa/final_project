@@ -1,0 +1,26 @@
+.topbar-nav {
+    background-color: #f8f9fa; /* Light background for top bar */
+    padding: 10px 15px; /* Padding for the navigation bar */
+  }
+  
+ 
+  
+  .avatar-sm {
+    width: 40px; /* Set fixed width for avatar */
+    height: 40px; /* Set fixed height for avatar */
+    overflow: hidden; /* Ensure any overflow is hidden */
+  }
+  
+  .avatar-img {
+    width: 100%; /* Ensure image takes full width of container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .profile-username {
+    color: #212529; /* Dark text color */
+  }
+  
+  .op-7 {
+    color: rgba(0, 0, 0, 0.7); /* Slightly lighter color for greeting */
+  }
+  
