@@ -23,6 +23,8 @@ import { DatePipe } from '@angular/common';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Interceptor/token.inteceptor';
+import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
+import { TicketsComponent } from './UserReservations/tickets/tickets.component';
 
 
 
@@ -40,7 +42,9 @@ import { TokenInterceptor } from './Interceptor/token.inteceptor';
     ReservationComponent,
     PaymentComponent,
     UserProfileComponent,
-    ReservationDetailsComponent
+    ReservationDetailsComponent,
+    UserReservationsComponent,
+    TicketsComponent
 
 
   ],

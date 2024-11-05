@@ -1,83 +1,84 @@
-<body>
-    <home-navbar></home-navbar>
-    <!-- Banner -->
-    <div class="banner section-space-y mt-16">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="section-space-md-y text-center">
-                        <h1 class="h2 text-light">About</h1>
-                        <ul class="list list-row list-dot list-dot-md justify-content-center">
-                            <li>
-                                <a href="index.html" class="link text-light hover:text-primary">Home</a>
-                            </li>
-                            <li>
-                                <a routerLink="/about" class="link text-primary hover:text-primary">About</a>
-                            </li>
-                        </ul>
-                    </div>
+<home-navbar></home-navbar>
+<!-- Banner -->
+<div class="banner section-space-y mt-16">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="section-space-md-y text-center">
+                    <h1 class="h2 text-light">About</h1>
+                    <ul class="list list-row list-dot list-dot-md justify-content-center">
+                        <li>
+                            <a href="index.html" class="link text-light hover:text-primary">Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/about" class="link text-primary hover:text-primary">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About Us -->
-    <div class="section-space-y">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <img [src]='About.Aboutuspage.about_Image' alt="image" class="img-fluid">
-                </div>
-                <div class="col-lg-6">
-                    <div class="ps-xl-12">
-                        <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
-                        <h2>{{About.Aboutuspage.about_Title}}</h2>
-                        <p class="mb-8">{{About.Aboutuspage.about_Text}}</p>
-                        <ul class="list gap-8">
-                            <li>
-                                <div class="d-flex align-items-start gap-4">
-                                    <div class="flex-shrink-0">
-                                        <img [src]='About.Aboutuspage.img_1' alt="image" class="img-fluid">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_1}}</h6>
-                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
-                                    </div>
+</div>
+<!-- About Us -->
+<div class="section-space-y">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <img [src]='About.Aboutuspage.about_Image' alt="image" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-xl-12">
+                    <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
+                    <h2>{{About.Aboutuspage.about_Title}}</h2>
+                    <p class="mb-8">{{About.Aboutuspage.about_Text}}</p>
+                    <ul class="list gap-8">
+                        <li>
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <img [src]='About.Aboutuspage.img_1' alt="image" class="img-fluid">
                                 </div>
-                            </li>
-                            <li>
-                                <div class="d-flex align-items-start gap-4">
-                                    <div class="flex-shrink-0">
-                                        <img [src]='About.Aboutuspage.img_2' alt="image" class="img-fluid">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_2}}</h6>
-                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
-                                    </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_1}}</h6>
+                                    <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                        to live in the moment and enjoy your vacation.</p>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="d-flex align-items-start gap-4">
-                                    <div class="flex-shrink-0">
-                                        <img [src]='About.Aboutuspage.img_3' alt="image" class="img-fluid">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_3}}</h6>
-                                        <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free to live in the moment and enjoy your vacation.</p>
-                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <img [src]='About.Aboutuspage.img_2' alt="image" class="img-fluid">
                                 </div>
-                            </li>
-                        </ul>
-                        <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
-                    </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_2}}</h6>
+                                    <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                        to live in the moment and enjoy your vacation.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <img [src]='About.Aboutuspage.img_3' alt="image" class="img-fluid">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_3}}</h6>
+                                    <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                        to live in the moment and enjoy your vacation.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /About Us -->
+</div>
+<!-- /About Us -->
 
-    <!-- Feedback -->
-    <testimonial></testimonial>
-    <!-- /Feedback -->
+<!-- Feedback -->
+<testimonial></testimonial>
+<!-- /Feedback -->
 
-    <app-footer></app-footer>
-</body>
+<app-footer></app-footer>

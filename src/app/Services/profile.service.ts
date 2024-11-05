@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { subscribeOn } from 'rxjs';
+import { Observable, subscribeOn } from 'rxjs';
 
 import { ToastrService } from 'ngx-toastr';
 @Injectable({
@@ -8,13 +8,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileService {
 
-  constructor(private http:HttpClient,private toastr: ToastrService) { }
-  userData:any=[]
-  users:any=[]
-  getUser(userId:any){
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  userData: any = []
+  users: any = []
+  getUser(userId: any) {
 
-    this.http.get('https://localhost:7019/api/Customer/GetCustomerById/'+userId).subscribe((result)=>{
-      this.userData=result
+    this.http.get('https://localhost:7019/api/Customer/GetCustomerById/' + userId).subscribe((result) => {
+      this.userData = result
       console.log(result);
     }, error => {
       console.log(error.message);
@@ -22,24 +22,30 @@ export class ProfileService {
     })
   }
 
-  updateUser(body:any){
+  updateUser(body: any) {
     console.log(body);
-    this.http.put('https://localhost:7019/api/Customer/UpdateCustomer',body).subscribe((result)=>{
+    this.http.put('https://localhost:7019/api/Customer/UpdateCustomer', body).subscribe((result) => {
       console.log(result);
       this.toastr.success("User updated successfully.");
-      
+
     }, error => {
       console.log(error.message);
       this.toastr.error("error");
     })
   }
-  getCustomers(){
-    this.http.get('https://localhost:7019/api/Customer').subscribe(result=>{
-      this.users=result
+  getCustomers() {
+    this.http.get('https://localhost:7019/api/Customer').subscribe(result => {
+      this.users = result
       console.log('get Customer page susseccfuly');
-    },err=>{
+    }, err => {
       console.log(err.message);
     }
-  )
+    )
+  }
+  getUserReservations(): Observable<any> {
+    return this.http.get('https://localhost:7019/api/Reservation/GetReservationByCustId');
+  }
+  getUserTickets(reservationId: any): Observable<any> {
+    return this.http.get('https://localhost:7019/api/Reservation/GetReservationTickets/' + reservationId);
   }
 }

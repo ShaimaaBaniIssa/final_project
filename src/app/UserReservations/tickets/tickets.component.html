@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Tickets</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="table-responsive">
+        <table class="table table-bordered align-items-center mb-0">
+            <thead class="thead-primary">
+                <tr>
+                    <th scope="col" class="text-center text-success">Full Name</th>
+                    <th scope="col" class="text-center text-success">Seat Number</th>
+                    <th scope="col" class="text-center text-success">Ticket Price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of tickets">
+                    <td class="text-center">{{ obj.fullname }}</td>
+                    <td class="text-center">{{ obj.seatnumber }}</td>
+                    <td class="text-center">{{ obj.price }} JOD</td>
+
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+
+</mat-dialog-actions>

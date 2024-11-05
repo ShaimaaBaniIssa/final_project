@@ -1,0 +1,53 @@
+<home-navbar></home-navbar>
+<div class="section-space-y bg-secondary">
+    <div class="container">
+        <div class="section-space-md-bottom">
+
+            <h1 class="mb-0 fw-bold m-3 text-primary text-center"> Reservations</h1>
+
+
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center text-primary">Station Name</th>
+                                <th scope="col" class="text-center text-primary">Destenation Address</th>
+                                <th scope="col" class="text-center text-primary">Total Price</th>
+                                <th scope="col" class="text-center text-primary">Reservation Date</th>
+                                <th scope="col" class="text-center text-primary">Trip Date</th>
+                                <th scope="col" class="text-center text-primary">Departure Time</th>
+                                <th scope="col" class="text-center text-primary">Arrival time</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let obj of reservations">
+                                <td class="text-center">{{ obj.stationname }}</td>
+                                <td class="text-center">{{ obj.destaddress }}</td>
+                                <td class="text-center">{{ obj.totalprice }} JOD</td>
+                                <td class="text-center">{{ obj.reservationdate | date:'longDate'}}</td>
+                                <td class="text-center">{{ obj.rDate | date:'longDate'}}</td>
+                                <td class="text-center">{{ obj.departuretime }}</td>
+                                <td class="text-center">{{ obj.arrivaltime }}</td>
+                                <td style="cursor: pointer;" (click)="showTickets(obj.reservationid)"
+                                    class="text-center text-success fw-bold">
+                                    Tickets</td>
+
+                                <!-- <td>
+                                    <button class="btn btn-info">Tickets</button>
+                                </td> -->
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
