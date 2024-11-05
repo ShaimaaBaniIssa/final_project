@@ -32,6 +32,7 @@ import { DeleteseatComponent } from './seatsCRUD/deleteseat/deleteseat.component
 import { ManagepagesComponent } from './pages/managepages/managepages.component';
 import { UpdatehomepageComponent } from './pages/updatehomepage/updatehomepage.component';
 import { ContactuspageComponent } from './pages/contactuspage/contactuspage.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ContactuspageComponent } from './pages/contactuspage/contactuspage.comp
     DeleteseatComponent,
     ManagepagesComponent,
     UpdatehomepageComponent,
-    ContactuspageComponent
+    ContactuspageComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,

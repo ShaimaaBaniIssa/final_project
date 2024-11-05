@@ -19,8 +19,8 @@ export class TripSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.tripScheduleForm = this.fb.group({
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
+      startDate: [''],
+      endDate: ['']
     });
   }
 

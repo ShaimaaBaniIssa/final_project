@@ -1,0 +1,66 @@
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="main-header">
+
+        <div class="main-header-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="../index.html" class="logo">
+              <img
+                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+           
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <!-- Navbar Header -->
+         <app-navbar></app-navbar>
+        <!-- End Navbar -->
+      </div>
+
+      <div class="container">
+ 
+ <div class="card-body">
+    <div *ngIf="user.users && user.users.length > 0" class="row">
+      <ng-container *ngFor="let obj of user.users; let i = index">
+        <div *ngIf="i < 4" class="col-md-6 mb-3">
+          <div class="card border shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ obj.fname }} {{ obj.lname }}</h5>
+              <p class="mb-1"><strong>Customer ID:</strong> {{ obj.customerid }}</p>
+              <p class="mb-1"><strong>Email:</strong> {{ obj.email }}</p>
+              <p class="mb-1"><strong>Phone Number:</strong> {{ obj.phonenumber }}</p>
+              <p class="mb-1"><strong>Address:</strong> {{ obj.address }}</p>
+              <p class="mb-1"><strong>Latitude:</strong> {{ obj.latitude }}</p>
+              <p class="mb-1"><strong>Longitude:</strong> {{ obj.longitude }}</p>
+            </div> <!-- End of card-body for each user card -->
+          </div> <!-- End of card for each user card -->
+        </div> <!-- End of col-md-6 for each user card -->
+      </ng-container> <!-- End of ng-container for user iteration -->
+    </div> <!-- End of row if there are users -->
+  </div> <!-- End of main card-body -->
+
+       
+      </div>
+
+    </div>
+
+   
+  </div>
+ 
