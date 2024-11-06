@@ -19,6 +19,8 @@ import { ManageseatsComponent } from './seatsCRUD/manageseats/manageseats.compon
 import { ManagepagesComponent } from './pages/managepages/managepages.component';
 import { ContactuspageComponent } from './pages/contactuspage/contactuspage.component';
 import { UserComponent } from './user/user.component';
+import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial/approved-testimonial.component';
+import { UnapprovedTestimonialComponent } from './Testimonial/unapproved-testimonial/unapproved-testimonial.component';
 
 const routes: Routes = [
   {
@@ -96,6 +98,15 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent
+  }
+  ,
+  {
+    path: 'approveTest',
+    component: ApprovedTestimonialComponent
+  },
+  {
+    path: 'unapproveTest',
+    component: UnapprovedTestimonialComponent
   }
 ];
 

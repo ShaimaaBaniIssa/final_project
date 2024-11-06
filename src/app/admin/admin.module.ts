@@ -34,6 +34,8 @@ import { UpdatehomepageComponent } from './pages/updatehomepage/updatehomepage.c
 import { ContactuspageComponent } from './pages/contactuspage/contactuspage.component';
 import { UserComponent } from './user/user.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
+import { UnapprovedTestimonialComponent } from './Testimonial/unapproved-testimonial/unapproved-testimonial.component';
+import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial/approved-testimonial.component';
 
 
 @NgModule({
@@ -67,7 +69,9 @@ import { FeedbackComponent } from './pages/feedback/feedback.component';
     UpdatehomepageComponent,
     ContactuspageComponent,
     UserComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    UnapprovedTestimonialComponent,
+    ApprovedTestimonialComponent
   ],
   imports: [
     CommonModule,

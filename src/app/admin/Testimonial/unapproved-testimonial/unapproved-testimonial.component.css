@@ -1,0 +1,83 @@
+/* Grid layout for the testimonials */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+    gap: 15px;
+  }
+  
+  /* Styling each testimonial card */
+  .testimonial-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Header style with rating and station name */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    color: #FFD700;
+    font-size: 1.2em;
+  }
+  
+  .station-name {
+    font-weight: bold;
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+  
+  /* Comment and user info styling */
+  .comment {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  .user-info {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+  }
+  
+  /* Button styling with flex layout */
+  .buttons {
+    display: flex;
+    gap: 10px; /* Spacing between buttons */
+    margin-top: 15px;
+  }
+  
+  .button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .approve-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  .section-space-md-bottom {
+    background-color: #f0f4ff; 
+    padding: 40px 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: block;
+}  
+.titeltext{
+    font-weight: 500;
+}

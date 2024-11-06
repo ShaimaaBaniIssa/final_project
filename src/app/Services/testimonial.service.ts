@@ -12,7 +12,7 @@ export class TestimonialService {
   testimonials: any = [];
   getTestimonials() {
 
-    this.httpClient.get('https://localhost:7019/api/Testimonial')
+    this.httpClient.get('https://localhost:7019/api/Testimonial/GetApprovedTestimonials')
       .subscribe(
         result => {
           this.testimonials = result;

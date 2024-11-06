@@ -27,7 +27,8 @@ export class StationComponent implements OnInit {
         customerid: new FormControl(this.customerid),
         stationid: new FormControl(this.stationService.selectedStation.stationid),
         rating: new FormControl('', Validators.required),
-        commenttext: new FormControl('', Validators.required)
+        commenttext: new FormControl('', Validators.required),
+        isapprove:new FormControl(false)
 
       }
     )
