@@ -35,10 +35,46 @@
       </div>
 
       <div class="container">
-
-
-       
-      </div>
+        <!-- Feedback Section -->
+        <div class="section-space-md-bottom">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="mb-0 fw-bold m-3">Feedback</h1>
+            </div>
+        </div>
+    
+        <!-- Card Section for Feedback -->
+        <div class="card shadow mb-4">
+            <div class="card-body p-0">
+                <!-- Check if there is feedback -->
+                <div *ngIf="feedbackService.Feedback && feedbackService.Feedback.length > 0" class="table-responsive">
+                    <table class="table table-bordered align-items-center mb-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Feedback ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Message</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <tr *ngFor="let obj of feedbackService.Feedback">
+                                <td>{{ obj.feedbackid }}</td>
+                                <td>{{ obj.name }}</td>
+                                <td>{{ obj.email }}</td>
+                                <td>{{ obj.message }}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- If no feedback is found -->
+                
+            </div>
+        </div>
+    </div>
+    
+    
 
     </div>
 

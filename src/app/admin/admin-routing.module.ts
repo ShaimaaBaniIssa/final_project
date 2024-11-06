@@ -21,6 +21,7 @@ import { ContactuspageComponent } from './pages/contactuspage/contactuspage.comp
 import { UserComponent } from './user/user.component';
 import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial/approved-testimonial.component';
 import { UnapprovedTestimonialComponent } from './Testimonial/unapproved-testimonial/unapproved-testimonial.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -107,6 +108,10 @@ const routes: Routes = [
   {
     path: 'unapproveTest',
     component: UnapprovedTestimonialComponent
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent
   }
 ];
 
