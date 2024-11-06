@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'contactus', component: ContactUsComponent },
   { path: 'allstation', component: AllStationComponent },
 
-  { path: 'station', component: StationComponent },
+  { path: 'station/:id', component: StationComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'reservationDetails', component: ReservationDetailsComponent },
 

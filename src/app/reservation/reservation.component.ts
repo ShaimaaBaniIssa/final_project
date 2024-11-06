@@ -25,7 +25,7 @@ export class ReservationComponent implements OnInit {
     this.tripService.getTripScheduleById(this.tripService.selectedTrip.tripid)
   }
   tripdata: any = {};
-  numOfTickets: number[] = [1, 2, 3];
+  numOfTickets: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   genders: any = ["male", "female"];
   @ViewChild(PaymentComponent) paymentComponent!: PaymentComponent;
 

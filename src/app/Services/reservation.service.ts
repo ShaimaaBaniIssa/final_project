@@ -39,7 +39,7 @@ export class ReservationService {
         saveAs(response, 'Invoices.zip');
       }, (error: HttpErrorResponse) => {
         if (error.status === 403) {
-          this.toastr.error("Login first, or register");
+          this.router.navigate(['/auth/register']);
 
         }
         else

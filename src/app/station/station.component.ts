@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/station.service';
 import { TripService } from '../Services/trip.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TestimonialService } from '../Services/testimonial.service';
+import { interval, map, Observable, Subscription } from 'rxjs';
+import { MapDirectionsService } from '@angular/google-maps';
+import { ProfileService } from '../Services/profile.service';
 
 @Component({
   selector: 'app-station',
@@ -12,28 +15,59 @@ import { TestimonialService } from '../Services/testimonial.service';
 })
 export class StationComponent implements OnInit {
   constructor(public stationService: StationService, private tripService: TripService, private router: Router
-    , private testimonialService: TestimonialService
-  ) { }
+    , private testimonialService: TestimonialService,
+    private mapDirectionsService: MapDirectionsService,
+    private route: ActivatedRoute,
+    private profileService: ProfileService
+  ) {
+
+
+  }
   customerid: any = '';
   testimonialForm?: FormGroup;
-
+  directionsResults$: Observable<google.maps.DirectionsResult | undefined> | undefined;
+  station: any = {};
+  stationId: any;
+  userLocation: any;
   ngOnInit(): void {
-    this.stationService.getStationTrips();
-
+    this.stationId = this.route.snapshot.paramMap.get('id');
     this.customerid = JSON.parse(localStorage.getItem('user') ?? '{}').customerid;
 
-    this.testimonialForm = new FormGroup(
-      {
-        customerid: new FormControl(this.customerid),
-        stationid: new FormControl(this.stationService.selectedStation.stationid),
-        rating: new FormControl('', Validators.required),
-        commenttext: new FormControl('', Validators.required),
-        isapprove:new FormControl(false)
+    this.testimonialForm = new FormGroup({
+      customerid: new FormControl(this.customerid),
+      stationid: new FormControl(''),
+      rating: new FormControl('', Validators.required),
+      commenttext: new FormControl('', Validators.required),
+      isapprove: new FormControl(false)
+    });
 
-      }
-    )
+    if (this.stationId) {
+      this.stationService.getStationById(this.stationId).subscribe(station => {
+        this.station = station;
+        console.log(this.station)
+        this.testimonialForm?.patchValue({ stationid: this.station.stationid });
+      });
+      this.stationService.getStationTrips(this.stationId);
+    }
+
+    this.userLocation = this.profileService.getUserLocation();
+    console.log(this.userLocation);
+    const request = {
+      destination: { lat: this.station.latitude, lng: this.station.longitude },
+      origin: { lat: this.userLocation.lat ?? 0, lng: this.userLocation.lng ?? 0 },
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    this.directionsResults$ = this.mapDirectionsService.route(request).pipe(map(response => response.result));
+    console.log(this.directionsResults$);
   }
 
+
+
+  openGoogleMaps() {
+    const url = `https://www.google.com/maps/dir/?api=1&origin=&destination=${this.station.latitude},${this.station.longitude}&travelmode=driving`;
+    window.open(url, '_blank');
+
+  }
 
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 8; // مستوى التكبير

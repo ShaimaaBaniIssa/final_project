@@ -3,7 +3,7 @@ import { ManagestationService } from '../services/managestation.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { StationService } from 'src/app/Services/station.service';
+
 
 @Component({
   selector: 'app-trip',
@@ -13,9 +13,9 @@ import { StationService } from 'src/app/Services/station.service';
 
 })
 export class TripComponent implements OnInit {
-  constructor(public managestation: ManagestationService,public stationService: StationService,
-    private router: Router){}
-  
+  constructor(public managestation: ManagestationService,
+    private router: Router) { }
+
 
   ngOnInit(): void {
     this.managestation.getAllStation();
@@ -23,26 +23,26 @@ export class TripComponent implements OnInit {
   stationName: FormControl = new FormControl('');
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 10;
-  
-markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
 
-  
+  markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
+
+
   searchStation() {
     this.managestation.searchStations(this.stationName.value);
 
   }
 
- 
- 
+
+
   onStationClick(station: any) {
-    this.stationService.selectedStation = { ...station };
-    localStorage.setItem('stationName', JSON.stringify(this.stationService.selectedStation));
-    localStorage.setItem('stationid',station.stationid)
-    this.stationService.selectedStationLocation = {
+    this.managestation.selectedStation = { ...station };
+    localStorage.setItem('stationName', JSON.stringify(this.managestation.selectedStation));
+    localStorage.setItem('stationid', station.stationid)
+    this.managestation.selectedStationLocation = {
       lat: station.latitude,
       lng: station.longitude
     }
-    console.log(this.stationService.selectedStation);
+    console.log(this.managestation.selectedStation);
     this.router.navigate(['/admin/tripdetails']);
   }
 

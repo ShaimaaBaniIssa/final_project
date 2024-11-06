@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TestimonialService {
 
-  constructor(private toastr: ToastrService, private httpClient: HttpClient) { }
+  constructor(private toastr: ToastrService, private httpClient: HttpClient, private router: Router) { }
 
   testimonials: any = [];
   getTestimonials() {
@@ -26,12 +27,12 @@ export class TestimonialService {
     this.httpClient.post('https://localhost:7019/api/Testimonial/CreateTestimonial', body).subscribe((result) => {
       this.toastr.success("testimonial added Succefully")
     }, (error: HttpErrorResponse) => {
-      if (error.status === 403) {
-        this.toastr.error("Login first, or register");
+      if (error.status === 403 || error.status == 401) {
+        this.router.navigate(['/auth/register']);
 
       }
       else
-        this.toastr.error(error.error)
+        this.router.navigate(['/auth/register']);
     })
   }
 }

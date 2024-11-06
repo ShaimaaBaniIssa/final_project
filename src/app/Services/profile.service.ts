@@ -48,4 +48,15 @@ export class ProfileService {
   getUserTickets(reservationId: any): Observable<any> {
     return this.http.get('https://localhost:7019/api/Reservation/GetReservationTickets/' + reservationId);
   }
+  private userLocation: { lat: number; lng: number } | null = null;
+
+  setUserLocation(location: { lat: number; lng: number }) {
+    this.userLocation = location;
+
+
+  }
+
+  getUserLocation(): { lat: number; lng: number } | null {
+    return this.userLocation;
+  }
 }

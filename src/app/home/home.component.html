@@ -94,13 +94,14 @@
         </div>
     </div>
     <!-- Popular Destination  -->
-    <div class="section-space-md-y">
+    <div class="section-space-md-y mt-0">
         <div class="section-space-md-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                        <div class="text-center"><span class="d-block mb-1 fs-14 text-primary fw-medium">Popular
-                                Tour</span>
+                        <div class="text-center">
+                            <h2 class="d-block mb-1 fs-20 text-primary fw-medium">Popular
+                                Tour</h2>
                             <h2 class="mb-0">{{homeService.homepage.desttitle}}</h2>
                         </div>
                     </div>
@@ -116,10 +117,7 @@
                                 Stations</button></li>
                         <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill" type="button"
                                 (click)="setActiveTab('Nearest Station')">Nearest Station</button></li>
-                        <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill"
-                                data-bs-target="#groupTabs" type="button">Group Tour</button></li>
-                        <li class="nav-item"><button class="nav-link rounded-pill" data-bs-toggle="pill"
-                                data-bs-target="#soloTabs" type="button">Solo tour</button></li>
+
                     </ul>
                 </div>
                 <div class="col-12">
@@ -162,12 +160,16 @@
                     <div class="my-8">
                         <ul class="list gap-4">
                             <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo" alt="image" class="mg-fluid w-15">
+                                <div class="flex-shrink-0"><img
+                                        [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo"
+                                        alt="image" class="mg-fluid w-15">
                                 </div>
                                 <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext1}}</div>
                             </li>
                             <li class="d-flex gap-2 align-items-center">
-                                <div class="flex-shrink-0"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo" alt="image" class="mg-fluid w-15">
+                                <div class="flex-shrink-0"><img
+                                        [src]="'../../../../../../assets/Images/' + homeService.homepage.trainlogo"
+                                        alt="image" class="mg-fluid w-15">
                                 </div>
                                 <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext2}}</div>
                             </li>
@@ -175,9 +177,10 @@
                     </div><a href="about.html" class="btn btn-primary text-light">Discover More</a>
                 </div>
                 <div class="col-lg-6 col-xxl-5">
-                    <div class="position-relative z-1"><img [src]="'../../../../../../assets/Images/' + homeService.homepage.formimage" alt="image"
-                            class="img-fluid"> 
-                            <!-- <img src="../../assets/Home/img/about-img-2.png" alt="image"
+                    <div class="position-relative z-1"><img
+                            [src]="'../../../../../../assets/Images/' + homeService.homepage.formimage" alt="image"
+                            class="img-fluid">
+                        <!-- <img src="../../assets/Home/img/about-img-2.png" alt="image"
                             class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x"> -->
                     </div>
                 </div>

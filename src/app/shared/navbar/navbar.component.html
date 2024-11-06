@@ -18,7 +18,7 @@
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link fs-14" routerLink="/contactus">Contact</a>
                 </li>
-                <li class="nav-item has-sub" routerLinkActive="active">
+                <li *ngIf="userName" class="nav-item has-sub" routerLinkActive="active">
                     <a class="nav-link fs-14">Profile</a>
                     <ul class="list sub-menu">
                         <li class="sub-menu__list" routerLinkActive="active">

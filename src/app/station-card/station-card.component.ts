@@ -8,13 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./station-card.component.css']
 })
 export class StationCardComponent {
-  constructor(public stationService: StationService, private router: Router){} 
-  
+  constructor(public stationService: StationService, private router: Router) { }
+
   @Input() station: any = [];
   showStationDetails(station: any) {
-    this.stationService.selectedStation = { ...station };
-    console.log(this.stationService.selectedStation);
-    this.router.navigate(['/station']);
+
+    this.router.navigate(['/station', station.stationid]);
   }
 }
 

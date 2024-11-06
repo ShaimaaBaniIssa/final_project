@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
 import { getDistanceFromLatLonInKm } from '../utility/location-utils';
+import { ProfileService } from '../Services/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,11 @@ import { getDistanceFromLatLonInKm } from '../utility/location-utils';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private cdr: ChangeDetectorRef, public stationService: StationService, public homeService: HomeService, private router: Router, private toster: ToastrService) {
+  constructor(public stationService: StationService,
+    public homeService: HomeService,
+    private router: Router,
+    private toster: ToastrService
+    , private profileService: ProfileService) {
 
   }
   stationName: FormControl = new FormControl('');
@@ -65,8 +70,8 @@ export class HomeComponent implements OnInit {
   zoom = 12; // مستوى التكبير
 
   onMarkerClick(station: any) {
-    this.stationService.selectedStation = station;
-    this.router.navigate(['station']);
+
+    this.router.navigate(['/station', station.stationid]);
   }
   userLocation: google.maps.LatLngLiteral | null = null; // The user's current location
 
@@ -81,6 +86,7 @@ export class HomeComponent implements OnInit {
           };
           this.center = this.userLocation; // Update the map center to the user's location
           console.log('User Location:', this.userLocation);
+          this.profileService.setUserLocation(this.userLocation);
         },
         (error) => {
           console.error('Error getting location', error);
