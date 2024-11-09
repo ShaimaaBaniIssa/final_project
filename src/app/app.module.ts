@@ -25,6 +25,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Interceptor/token.inteceptor';
 import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
 import { TicketsComponent } from './UserReservations/tickets/tickets.component';
+import { AuthInterceptor } from './Interceptor/auth.interceptor';
 
 
 
@@ -57,7 +58,7 @@ import { TicketsComponent } from './UserReservations/tickets/tickets.component';
 
 
   ],
-  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
