@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactService } from 'src/app/Services/contact.service';
 import { HomeService } from 'src/app/Services/home.service';
 
 @Component({
@@ -7,5 +8,5 @@ import { HomeService } from 'src/app/Services/home.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-constructor(public home:HomeService){}
+constructor(public home:HomeService, public contact :ContactService){contact.getContactPage()}
 }
