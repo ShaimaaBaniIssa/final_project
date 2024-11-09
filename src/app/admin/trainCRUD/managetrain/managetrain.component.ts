@@ -8,7 +8,8 @@ import { UpdatetrainComponent } from '../updatetrain/updatetrain.component';
 import { DeleteTrainComponent } from '../delete-train/delete-train.component';
 import { CreateTrainComponent } from '../create-train/create-train.component';
 import { Router } from '@angular/router';
-
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 @Component({
   selector: 'app-managetrain',
   templateUrl: './managetrain.component.html',
@@ -64,6 +65,26 @@ export class ManagetrainComponent implements OnInit {
   }
   seats(id: number) {
     this.router.navigate(['/admin/manageseats', id]);
+  }
+  downloadPDF() {
+    const doc = new jsPDF();
+    const tableData = this.dataSource.data.map((row) => [
+      row.trainid,
+      row.trainname,
+      row.numofseats,
+    ]);
+
+    const columns = ['ID', 'Name', 'Number of Seats'];
+    doc.text('Train Management Data', 10, 10);
+
+    (doc as any).autoTable({
+      head: [columns],
+      body: tableData,
+      startY: 20,
+      theme: 'striped',
+    });
+
+    doc.save('train-data.pdf');
   }
 }
 
