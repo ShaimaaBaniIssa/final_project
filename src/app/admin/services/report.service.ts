@@ -34,6 +34,8 @@ export class ReportService {
       );
   }
   
- 
+  GetMonthlyReservationCount() {
+  return  this.httpClient.get('https://localhost:7019/api/Reservation/GetMonthlyReservationCount');     
   
+}
 }
