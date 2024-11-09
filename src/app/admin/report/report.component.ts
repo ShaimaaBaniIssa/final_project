@@ -26,4 +26,20 @@ mAReport=new FormGroup({
 onSubmit(){
 this.report.MonthlyAnnualReports(this.mAReport.value.month,this.mAReport.value.year)
 }
+ // Function to print the report as PDF
+ printReport() {
+  const reportContent = document.getElementById('reportTable');
+  if (reportContent) {
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write('<html><head><title>Report PDF</title>');
+      printWindow.document.write('</head><body >');
+      printWindow.document.write(reportContent.outerHTML);
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      printWindow.print();
+    }
+  }
 }
+}
+

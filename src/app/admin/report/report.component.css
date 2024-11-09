@@ -25,6 +25,66 @@
     background-color: #0056b3;
     border-color: #0056b3;
 }
-/* your-component.css */
+.chart-container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
 
+.bar-chart {
+    display: flex;
+    flex-direction: column; /* ترتيب الأعمدة بشكل عمودي */
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 300px; /* ارتفاع المخطط */
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .bar-container {
+    display: flex;
+    flex-direction: row; /* ترتيب الأعمدة بشكل أفقي */
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px; /* مسافة بين كل عمود وآخر */
+  }
+  
+  .bar {
+    height: 40px; /* ارتفاع العمود */
+    background-color: #4caf50; /* اللون الأخضر */
+    position: relative;
+    border-radius: 5px;
+    margin-right: 10px; /* مسافة بين الأعمدة */
+    display: inline-block;
+  }
+  
+  .bar-label {
+    position: absolute;
+    right: 0; 
+    top: 50%;
+    transform: translatex(-50%); 
+    color: rgb(8, 8, 8);
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
 
+  .bar-chart:before {
+content: "Number of Users";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 14px;
+  }
+
+.bar-chart:after {
+  content: "Reservation Dates";
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%) rotate(-90deg); 
+  font-weight: bold;
+  font-size: 14px;
+}

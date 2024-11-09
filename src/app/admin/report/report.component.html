@@ -1,115 +1,131 @@
-
 <div class="wrapper">
-    <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
-    <!-- End Sidebar -->
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End Sidebar -->
 
-    <div class="main-panel">
-      <div class="main-header">
-
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="../index.html" class="logo">
-              <img
-                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-           
+  <div class="main-panel">
+    <div class="main-header">
+      <div class="main-header-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+          <a href="../index.html" class="logo">
+            <img
+              src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+              alt="navbar brand"
+              class="navbar-brand"
+            />
+          </a>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="gg-menu-right"></i>
+            </button>
+            <button class="btn btn-toggle sidenav-toggler">
+              <i class="gg-menu-left"></i>
+            </button>
           </div>
-          <!-- End Logo Header -->
         </div>
-        <!-- Navbar Header -->
-         <app-navbar></app-navbar>
-        <!-- End Navbar -->
+        <!-- End Logo Header -->
       </div>
-
-      <div class="container">
-
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title"> Monthly and Annual Reports</h4>
-                    <p>Showing the number of users who made reservations booked and the date of submitting this request.</p>
-                </div>
-                <div class="card-body">
-                    
-                    <form class="mb-4" [formGroup]="mAReport" (ngSubmit)="onSubmit()">
-                        <div class="row mb-3">
-                            <div class="col-md-4"> 
-                                <label for="monthSelect">Select Month:</label>
-                                <select id="monthSelect" formControlName="month" class="form-control " >  
-                                    <option value=""  selected>-- Select Month --</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">  
-                                <label for="yearSelect">Select Year:</label>
-                                <input type="number" id="yearSelect" formControlName="year" class="form-control " placeholder="Enter Year" min="2000" max="2100">
-                                <span *ngIf="mAReport.controls['year'].hasError('required') &&
-                                mAReport.controls['year'].touched  " style="color:red; font-size: small;">Year Required</span>
-                            
-                            </div>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary  mt-4" [disabled]="!mAReport.valid">Search</button> 
-                            </div>
-                        </div>
-                    </form>
-                    
-                    
-                    <div class="table-responsive">
-                        <table
-                            id="basic-datatables"
-                            class="display table table-striped table-hover"
-                        >
-                            <thead>
-                                <tr>
-                                    <th>Number of Users</th>
-                                    <th>Reservation Date
-                                    </th>
-                                    
-                                </tr>
-                            </thead>
-                           
-                            <tbody>
-                                <tr *ngFor="let obj of this.report.reportData">
-                                    <td>{{obj.numUsers}}</td>
-                                    <td>{{obj.reservationDate}}</td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </div>
-    
-    
+      <!-- Navbar Header -->
+      <app-navbar></app-navbar>
+      <!-- End Navbar -->
     </div>
 
-   
+    <div class="container">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Monthly and Annual Reports</h4>
+            <p>Showing the number of users who made reservations booked and the date of submitting this request.</p>
+          </div>
+          <div class="card-body">
+            <form class="mb-4" [formGroup]="mAReport" (ngSubmit)="onSubmit()">
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="monthSelect">Select Month:</label>
+                  <select id="monthSelect" formControlName="month" class="form-control">
+                    <option value="" selected>-- Select Month --</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="yearSelect">Select Year:</label>
+                  <input
+                    type="number"
+                    id="yearSelect"
+                    formControlName="year"
+                    class="form-control"
+                    placeholder="Enter Year"
+                    min="2000"
+                    max="2100"
+                  />
+                  <span
+                    *ngIf="mAReport.controls['year'].hasError('required') && mAReport.controls['year'].touched"
+                    style="color:red; font-size: small;"
+                    >Year Required</span
+                  >
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-primary mt-4" [disabled]="!mAReport.valid">Search</button>
+                </div>
+              </div>
+            </form>
+
+          <!-- Button to download the report as PDF -->
+<button (click)="printReport()" class="btn btn-secondary mb-4">Download as PDF</button>
+
+<div class="chart-container">
+  <h5>User Reservations Chart</h5>
+  <div class="bar-chart">
+    <div *ngFor="let obj of report.reportData" class="bar-container">
+    
+      <div class="bar" [style.width.%]="obj.numUsers * 2">
+        <span class="bar-label">{{ obj.numUsers }} Users</span>
+      </div>
+     
+      <div class="date-label">
+        {{ obj.reservationDate }}
+      </div>
+    </div>
   </div>
- 
+</div>
+
+            
+            
+            
+            
+
+            <!-- Report Table -->
+            <div class="table-responsive mt-4" id="reportTable">
+              <table id="basic-datatables" class="display table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Number of Users</th>
+                    <th>Reservation Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of report.reportData">
+                    <td>{{ obj.numUsers }}</td>
+                    <td>{{ obj.reservationDate }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
