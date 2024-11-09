@@ -28,7 +28,7 @@ export class TestimonialService {
       this.toastr.success("testimonial added Succefully")
     }, (error: HttpErrorResponse) => {
       if (error.status === 403 || error.status == 401) {
-        this.router.navigate(['/auth/register']);
+        this.router.navigate(['/auth/login']);
 
       }
       else

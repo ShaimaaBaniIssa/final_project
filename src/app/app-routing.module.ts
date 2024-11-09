@@ -12,6 +12,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
 
 
   { path: 'auth', loadChildren: () => AuthModule },
-  { path: 'admin', loadChildren: () => AdminModule },
+  { path: 'admin', loadChildren: () => AdminModule ,canActivate:[authGuard]},
 ];
 
 @NgModule({
