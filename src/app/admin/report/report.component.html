@@ -106,7 +106,7 @@
             
 
             <!-- Report Table -->
-            <div class="table-responsive mt-4" id="reportTable">
+            <!-- <div class="table-responsive mt-4" id="reportTable">
               <table id="basic-datatables" class="display table table-striped table-hover">
                 <thead>
                   <tr>
@@ -121,7 +121,42 @@
                   </tr>
                 </tbody>
               </table>
+            </div> -->
+            <div class="table-responsive" >
+              <table class="table table-bordered table-striped table-hover align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center text-primary">Station Name</th>
+                    <th scope="col" class="text-center text-primary">Destenation Address</th>
+                    <th scope="col" class="text-center text-primary">Total Price</th>
+                    <th scope="col" class="text-center text-primary">Reservation Date</th>
+                    <th scope="col" class="text-center text-primary">Trip Date</th>
+                    <th scope="col" class="text-center text-primary">Departure Time</th>
+                    <th scope="col" class="text-center text-primary">Arrival time</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of report.reportData">
+                    <td class="text-center">{{ obj.stationname }}</td>
+                    <td class="text-center">{{ obj.destaddress }}</td>
+                    <td class="text-center">{{ obj.totalprice }} JOD</td>
+                    <td class="text-center">{{ obj.reservationdate '}}</td>
+                    <td class="text-center">{{ obj.rDate }}</td>
+                    <td class="text-center">{{ obj.departuretime }}</td>
+                    <td class="text-center">{{ obj.arrivaltime }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
             </div>
+            
+            
+            
+            
+            
+            
+            
             <div style="display: block; width: 100%; height: 400px;">
               <canvas baseChart
                       [data]="chartData"

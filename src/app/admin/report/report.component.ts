@@ -14,12 +14,16 @@ export class ReportComponent implements OnInit{
   monthnumber: any = [];
 number: any = [];
 chartLabels: string[] = [];
-  
+reservations: any = [];
   constructor(public report:ReservationService,public reportService:ReportService){}
   ngOnInit() {
+    const { month, year } = this.mAReport.value;
     // Set the current year as the default value for the year control
     const currentYear = new Date().getFullYear();
-    this.mAReport.patchValue({ year: currentYear.toString() }); // Set the year
+    this.mAReport.patchValue({ year: currentYear.toString() });
+     // Set the year
+    //  this.report.MonthlyAnnualReports(month, year).subscribe(result => {
+    //   this.reservations = result;});
   
     // Automatically call onSubmit to fetch data for the current year
     this.onSubmit(); // Call to fetch data
@@ -34,6 +38,7 @@ chartLabels: string[] = [];
       // Update chart data after arrays are populated
       this.updateChartData();
     });
+     
   }
 
 mAReport=new FormGroup({
