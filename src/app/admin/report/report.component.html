@@ -9,11 +9,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
           <a href="../index.html" class="logo">
-            <img
-              src="../../assets/Admin/img/kaiadmin/logo_light.svg"
-              alt="navbar brand"
-              class="navbar-brand"
-            />
+            <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
           </a>
           <div class="nav-toggle">
             <button class="btn btn-toggle toggle-sidebar">
@@ -35,7 +31,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Monthly and Annual Reports</h4>
+            <h2 class="card-title">Monthly and Annual Reports</h2>
             <p>Showing the number of users who made reservations booked and the date of submitting this request.</p>
           </div>
           <div class="card-body">
@@ -61,20 +57,10 @@
                 </div>
                 <div class="col-md-4">
                   <label for="yearSelect">Select Year:</label>
-                  <input
-                    type="number"
-                    id="yearSelect"
-                    formControlName="year"
-                    class="form-control"
-                    placeholder="Enter Year"
-                    min="2000"
-                    max="2100"
-                  />
-                  <span
-                    *ngIf="mAReport.controls['year'].hasError('required') && mAReport.controls['year'].touched"
-                    style="color:red; font-size: small;"
-                    >Year Required</span
-                  >
+                  <input type="number" id="yearSelect" formControlName="year" class="form-control"
+                    placeholder="Enter Year" min="2000" max="2100" />
+                  <span *ngIf="mAReport.controls['year'].hasError('required') && mAReport.controls['year'].touched"
+                    style="color:red; font-size: small;">Year Required</span>
                 </div>
                 <div class="col-md-4">
                   <button type="submit" class="btn btn-primary mt-4" [disabled]="!mAReport.valid">Search</button>
@@ -82,50 +68,13 @@
               </div>
             </form>
 
-          <!-- Button to download the report as PDF -->
-
-<!-- <div class="chart-container">
-  <h5>User Reservations Chart</h5>
-  <div class="bar-chart">
-    <div *ngFor="let obj of report.reportData" class="bar-container">
-    
-      <div class="bar" [style.width.%]="obj.numUsers * 2">
-        <span class="bar-label">{{ obj.numUsers }} Users</span>
-      </div>
-     
-      <div class="date-label">
-        {{ obj.reservationDate }}
-      </div>
-    </div>
-  </div>
-</div> -->
-
-            
-            
-            
-            
-
-            <!-- Report Table -->
-            <!-- <div class="table-responsive mt-4" id="reportTable">
-              <table id="basic-datatables" class="display table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Number of Users</th>
-                    <th>Reservation Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let obj of report.reportData">
-                    <td>{{ obj.numUsers }}</td>
-                    <td>{{ obj.reservationDate }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
-            <div class="table-responsive" >
+            <div class="table-responsive">
               <table class="table table-bordered table-striped table-hover align-items-center mb-0">
                 <thead>
                   <tr>
+                    <th scope="col" class="text-center text-primary">User Name</th>
+                    <th scope="col" class="text-center text-primary">User Email</th>
+
                     <th scope="col" class="text-center text-primary">Station Name</th>
                     <th scope="col" class="text-center text-primary">Destenation Address</th>
                     <th scope="col" class="text-center text-primary">Total Price</th>
@@ -133,38 +82,42 @@
                     <th scope="col" class="text-center text-primary">Trip Date</th>
                     <th scope="col" class="text-center text-primary">Departure Time</th>
                     <th scope="col" class="text-center text-primary">Arrival time</th>
-                    <th></th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let obj of reservations">
+                    <td class="text-center">{{ obj.fname }}</td>
+                    <td class="text-center">{{ obj.email }}</td>
+
                     <td class="text-center">{{ obj.stationname }}</td>
                     <td class="text-center">{{ obj.destaddress }}</td>
                     <td class="text-center">{{ obj.totalprice }} JOD</td>
-                    <td class="text-center">{{ obj.reservationdate '}}</td>
-                    <td class="text-center">{{ obj.rDate }}</td>
+                    <td class="text-center">{{ obj.reservationdate | date:'shortDate'}}</td>
+                    <td class="text-center">{{ obj.rDate | date:'shortDate'}}</td>
                     <td class="text-center">{{ obj.departuretime }}</td>
                     <td class="text-center">{{ obj.arrivaltime }}</td>
 
                   </tr>
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td>
+                      <span class="text-primary fw-bold">Number Of Reservations: </span>
+                      {{reservations.length}}
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
-            
-            
-            
-            
-            
-            
-            
-            <div style="display: block; width: 100%; height: 400px;">
-              <canvas baseChart
-                      [data]="chartData"
-                      [options]="chartOptions"
-                      [type]="chartType"
-                      [labels]="chartLabels">
+
+
+            <div class="col-6" style="display: block; width: 100%; height: 400px;">
+              <canvas baseChart [data]="chartData" [options]="chartOptions" [type]="chartType" [labels]="chartLabels">
               </canvas>
             </div>
+
+
           </div>
         </div>
       </div>
