@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
-import { ReservationService } from 'src/app/Services/reservation.service';
 import { ReportService } from '../services/report.service';
 
 @Component({
@@ -15,15 +14,16 @@ export class ReportComponent implements OnInit{
 number: any = [];
 chartLabels: string[] = [];
 reservations: any = [];
-  constructor(public report:ReservationService,public reportService:ReportService){}
+  constructor(public reportService:ReportService){}
   ngOnInit() {
-    const { month, year } = this.mAReport.value;
+    
     // Set the current year as the default value for the year control
     const currentYear = new Date().getFullYear();
     this.mAReport.patchValue({ year: currentYear.toString() });
-     // Set the year
-    //  this.report.MonthlyAnnualReports(month, year).subscribe(result => {
-    //   this.reservations = result;});
+    const { month, year } = this.mAReport.value;
+     this.reportService.MonthlyAnnualReports(month, year).subscribe(result => {
+      this.reservations = result;
+    console.log(result)});
   
     // Automatically call onSubmit to fetch data for the current year
     this.onSubmit(); // Call to fetch data
@@ -46,7 +46,7 @@ mAReport=new FormGroup({
   year:new FormControl('',Validators.required)
 })
 onSubmit(){
-this.report.MonthlyAnnualReports(this.mAReport.value.month,this.mAReport.value.year)
+this.reportService.MonthlyAnnualReports(this.mAReport.value.month,this.mAReport.value.year)
 }
 
 

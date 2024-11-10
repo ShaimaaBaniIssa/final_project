@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -38,4 +39,15 @@ export class ReportService {
   return  this.httpClient.get('https://localhost:7019/api/Reservation/GetMonthlyReservationCount');     
   
 }
+
+  MonthlyAnnualReports(month: any, year: any): Observable<any> {
+    let params = new HttpParams();
+    if (month) {
+      params = params.set('month', month.toString());
+    }
+    params = params.set('year', year.toString());
+
+    return this.httpClient.get<any>('https://localhost:7019/api/Reservation/MonthlyAnnualReports', { params })
+      
+  }
 }
