@@ -39,7 +39,6 @@ export class CreateSchdualComponent implements OnInit {
   save() {
     this.scheduleForm.controls['tripId'].setValue(this.tripId)
     this.tripSc.CreateTripSchedule(this.scheduleForm.value)
-    this.rout.navigate(['/admin/tripschedule'])
   }
   selectDate() {
     const selectedDate = this.scheduleForm.controls['tdate'].value;
