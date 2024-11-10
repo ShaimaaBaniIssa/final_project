@@ -54,14 +54,13 @@ export class ManageSchdualService {
 
       this.toastr.success('TripSchedule created successfuly')
       this.rout.navigate(['/admin/tripschedule']);
-      window.location.reload()
     }, (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.toastr.error("Not Authorize");
 
       }
       else
-        this.toastr.error("error");
+        this.toastr.error(error.error);
     });
   }
 
