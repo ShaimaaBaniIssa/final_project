@@ -13,6 +13,7 @@ export class HomeService {
         .subscribe(
           result => {
             this.homepage = result;
+            const logoimage=localStorage.setItem("logoimage",this.homepage.logoimage);
           },
           error => {
             this.toastr.error("error");

@@ -11,6 +11,8 @@ export class NavbarComponent {
   userData = JSON.parse(localStorage.getItem('user') ?? '{}');
   userName: string = this.userData.name ;
   userProfileImage:string='../../assets/Images/user.png'
+  logoimage =localStorage.getItem("logoimage")
+  
   logout(){
     localStorage.clear();
     console.log('Local storage cleared'); 

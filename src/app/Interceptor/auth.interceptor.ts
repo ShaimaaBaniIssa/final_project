@@ -19,7 +19,8 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // Token is likely expired
-         localStorage.clear();
+         localStorage.removeItem("token");
+         localStorage.removeItem("user");
         }
         return throwError(() => error);
       })
