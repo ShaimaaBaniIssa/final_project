@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'allstation', component: AllStationComponent },
 
   { path: 'station/:id', component: StationComponent },
-  { path: 'reservation', component: ReservationComponent },
+  { path: 'reservation/:id', component: ReservationComponent },
   { path: 'reservationDetails', component: ReservationDetailsComponent },
 
 
@@ -30,7 +30,7 @@ const routes: Routes = [
 
 
   { path: 'auth', loadChildren: () => AuthModule },
-  { path: 'admin', loadChildren: () => AdminModule ,canActivate:[authGuard]},
+  { path: 'admin', loadChildren: () => AdminModule, canActivate: [authGuard] },
 ];
 
 @NgModule({

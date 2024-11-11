@@ -14,15 +14,12 @@ import { ProfileService } from '../Services/profile.service';
   styleUrls: ['./station.component.css']
 })
 export class StationComponent implements OnInit {
-  constructor(public stationService: StationService, private tripService: TripService, private router: Router
+  constructor(public stationService: StationService, public tripService: TripService, private router: Router
     , private testimonialService: TestimonialService,
     private mapDirectionsService: MapDirectionsService,
     private route: ActivatedRoute,
-    private profileService: ProfileService
-  ) {
-
-
-  }
+    private profileService: ProfileService,
+  ) { }
   customerid: any = '';
   testimonialForm?: FormGroup;
   directionsResults$: Observable<google.maps.DirectionsResult | undefined> | undefined;
@@ -44,14 +41,15 @@ export class StationComponent implements OnInit {
     if (this.stationId) {
       this.stationService.getStationById(this.stationId).subscribe(station => {
         this.station = station;
-        console.log(this.station)
         this.testimonialForm?.patchValue({ stationid: this.station.stationid });
       });
-      this.stationService.getStationTrips(this.stationId);
+      this.tripService.getStationTrips(this.stationId);
     }
 
     this.userLocation = this.profileService.getUserLocation();
-    console.log(this.userLocation);
+    if (this.userLocation == null) {
+      this.getUserLocation();
+    }
     const request = {
       destination: { lat: this.station.latitude, lng: this.station.longitude },
       origin: { lat: this.userLocation.lat ?? 0, lng: this.userLocation.lng ?? 0 },
@@ -101,11 +99,37 @@ export class StationComponent implements OnInit {
 
   }
   bookTrip(trip: any) {
-    this.tripService.selectedTrip = { ...trip };
-    this.router.navigate(['reservation']);
+    // this.tripService.selectedTrip = { ...trip };
+    this.router.navigate(['/reservation', trip.tripid]);
   }
   addTestimonial() {
     this.testimonialService.addTestimonial(this.testimonialForm!.value)
     this.testimonialForm?.reset();
+  }
+
+  getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          this.center = this.userLocation;
+          console.log('User Location:', this.userLocation);
+        },
+        (error) => {
+          console.error('Error getting location', error);
+
+        },
+        {
+          enableHighAccuracy: true, //Option for higher resolution
+          timeout: 10000, //Waiting time to get the location (in milliseconds)
+          maximumAge: 0, // Always get the new location
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
   }
 }

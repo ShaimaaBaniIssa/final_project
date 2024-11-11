@@ -9,20 +9,8 @@ import { catchError, Observable, of } from 'rxjs';
 export class StationService {
 
   constructor(private toastr: ToastrService, private httpClient: HttpClient) { }
-  trips: any = [];
   stations: any = [];
-  getStationTrips(stationId: any) {
 
-    this.httpClient.get('https://localhost:7019/api/Trip/GetTripsByStationId/' + stationId)
-      .subscribe(
-        result => {
-          this.trips = result;
-        },
-        error => {
-          this.toastr.error("error");
-        }
-      );
-  }
   getAllStation() {
     this.httpClient.get('https://localhost:7019/api/Station')
       .subscribe(

@@ -5,7 +5,7 @@ import { ReservationService } from '../Services/reservation.service';
 import { PaymentComponent } from '../payment/payment.component';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -17,14 +17,21 @@ export class ReservationComponent implements OnInit {
     private reservationService: ReservationService,
     private toastr: ToastrService,
     private datePipe: DatePipe,
-    private router: Router
+    private route: ActivatedRoute,
   ) { }
   ngOnInit(): void {
     this.setTicketForms(1);
-
-    this.tripService.getTripScheduleById(this.tripService.selectedTrip.tripid)
+    this.tripId = this.route.snapshot.paramMap.get('id');
+    if (this.tripId) {
+      this.tripService.getTripById(this.tripId).subscribe((trip: any) => {
+        this.trip = trip;
+        console.log(trip)
+      });
+    }
+    this.tripService.getTripScheduleById(this.tripId);
   }
-
+  trip: any = {};
+  tripId: any;
   numOfTickets: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   genders: any = ["male", "female"];
   @ViewChild(PaymentComponent) paymentComponent!: PaymentComponent;
@@ -32,11 +39,11 @@ export class ReservationComponent implements OnInit {
 
   reservationForm: FormGroup = new FormGroup({
     date: new FormControl('', Validators.required),
-    numberOfTickets: new FormControl(1, Validators.required),
+    numberOfTickets: new FormControl({ value: null, disabled: true }, Validators.required),
     hour: new FormControl({ value: '', disabled: true }, Validators.required),
     tickets: this.fb.array([])
   });
-
+  availableSeats: any = [];
 
   tripSchedulesForThisDate: any = [];
   selectDate() {
@@ -57,11 +64,35 @@ export class ReservationComponent implements OnInit {
     this.selectedSchedule = this.tripService.tripSchedules.find(
       (item: any) => item.departuretime === selectedDepartureTime
     );
-    this.tripService.getAvailableSeats(this.selectedSchedule.tripscheduleid)
+    this.tripService.getAvailableSeats(this.selectedSchedule.tripscheduleid).subscribe(
+      result => {
+        this.availableSeats = result;
+        if (this.availableSeats.length == 0) {
+          this.reservationForm.reset();
+
+          this.toastr.warning("no available seats in this trip");
+          return;
+        }
+      },
+      error => {
+        console.log(error.message);
+        this.toastr.error("error");
+      }
+    );
+    this.reservationForm.get('numberOfTickets')?.enable();
+
   }
 
   changeNumOfTickets() {
     const num = this.reservationForm.controls['numberOfTickets'].value;
+    if (num > this.availableSeats.length) {
+      this.toastr.warning('Only ' + this.availableSeats.length + ' seats available in this trip');
+      this.setTicketForms(this.availableSeats.length);
+      this.reservationForm.patchValue({ numberOfTickets: this.availableSeats.length });
+
+      return;
+    }
+
     this.setTicketForms(num);
   }
 
@@ -102,14 +133,14 @@ export class ReservationComponent implements OnInit {
     user = JSON.parse(user);
     const paymentFormValues = this.paymentComponent.paymentForm.value;
     const body: any = {
-      tripId: this.tripService.selectedTrip.tripid,
+      tripId: this.tripId,
       tripScheduleId: this.selectedSchedule.tripscheduleid,
       customerId: user.customerid,
       reservationDate: this.reservationForm.controls['date'].value,
       tickets: this.reservationForm.controls['tickets'].value,
       bankcard: paymentFormValues
     };
-    this.reservationService.reservationData = { reservationData: body, price: this.tripService.selectedTrip.price };
+    this.reservationService.reservationData = { reservationData: body, price: this.trip.price };
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();

@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="section-space-md-y text-center">
-                    <h1 class="h2 text-light">CHECKOUT</h1>
+                    <h1 class="h2 text-light">Reservation</h1>
                     <ul class="list list-row list-dot list-dot-md justify-content-center">
                         <li><a href="index.html" class="link text-light hover:text-primary">Home</a></li>
                         <li><a href="#" class="link text-primary hover:text-primary">Reservation</a></li>
@@ -21,16 +21,18 @@
                 <ul class="list gap-6 p-md-4 p-xl-6">
                     <li>
                         <div class="d-flex align-items-center justify-content-between gap-2">
-                            <h4 class="mb-0">
-                                {{tripService.selectedTrip.destaddress}}
+                            <h4 class="mb-0 ">
+                                Destenation Address: <span class="text-primary fw-medium">{{trip.destaddress}}</span>
 
                             </h4>
                         </div>
                     </li>
                     <li>
-                        <div class="d-flex align-items-center justify-content-between gap-2">
-                            <h4 class="mb-0">{{tripService.selectedTrip.price}}
-                                <span class="d-inline-block fs-16 fw-normal">JOD</span>
+                        <div class=" d-flex align-items-center justify-content-between gap-2">
+                            <h4 class="mb-0">
+                                Price: <span class="text-primary fw-medium"> {{trip.price}}</span>
+
+                                <span class="d-inline-block fs-12 fw-normal"> JOD</span>
                             </h4>
                         </div>
                     </li>
@@ -59,7 +61,8 @@
                                     <label class="form-label fw-medium">Guest</label>
                                     <select formControlName="numberOfTickets"
                                         class="form-select bg-secondary rounded border border-secondary"
-                                        (change)="changeNumOfTickets()">
+                                        (change)="changeNumOfTickets()"
+                                        [disabled]=" reservationForm.controls['date'].invalid || reservationForm.controls['hour'].invalid ">
                                         <option *ngFor="let item of numOfTickets" [value]="item">
                                             {{item}}</option>
 
@@ -79,7 +82,7 @@
                                                 class="d-inline-block flex-grow-1 text-dark fw-medium">TotalPrice
                                             </span>
                                             <span
-                                                class="d-inline-block flex-shrink-0 text-dark fw-medium">{{(reservationForm.controls['numberOfTickets'].value||1)*(tripService.selectedTrip.price||1)}}
+                                                class="d-inline-block flex-shrink-0 text-dark fw-medium">{{(reservationForm.controls['numberOfTickets'].value||1)*(trip.price||1)}}
                                                 JOD</span>
                                         </span>
                                     </li>
@@ -130,8 +133,7 @@
                                     <label class="form-label fw-medium">Seat Number</label>
                                     <select formControlName="seatid"
                                         class="form-select bg-secondary rounded border border-secondary">
-                                        <option [value]="seat.seatid"
-                                            *ngFor="let seat of tripService.availableSeats let i=index"
+                                        <option [value]="seat.seatid" *ngFor="let seat of availableSeats let i=index"
                                             [disabled]="seat.availability === 0">
                                             {{seat.seatnumber}}</option>
 
