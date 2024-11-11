@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
 import { authGuard } from './auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +32,8 @@ const routes: Routes = [
 
   { path: 'auth', loadChildren: () => AuthModule },
   { path: 'admin', loadChildren: () => AdminModule, canActivate: [authGuard] },
+  { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({

@@ -26,6 +26,7 @@ import { TokenInterceptor } from './Interceptor/token.inteceptor';
 import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
 import { TicketsComponent } from './UserReservations/tickets/tickets.component';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -45,7 +46,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     UserProfileComponent,
     ReservationDetailsComponent,
     UserReservationsComponent,
-    TicketsComponent
+    TicketsComponent,
+    NotFoundComponent
 
 
   ],
