@@ -21,10 +21,10 @@ export class ReservationComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.setTicketForms(1);
-    this.tripdata = this.tripService.selectedTrip;
+
     this.tripService.getTripScheduleById(this.tripService.selectedTrip.tripid)
   }
-  tripdata: any = {};
+
   numOfTickets: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   genders: any = ["male", "female"];
   @ViewChild(PaymentComponent) paymentComponent!: PaymentComponent;
@@ -109,7 +109,7 @@ export class ReservationComponent implements OnInit {
       tickets: this.reservationForm.controls['tickets'].value,
       bankcard: paymentFormValues
     };
-    this.reservationService.storeReservationData(body);
+    this.reservationService.reservationData = { reservationData: body, price: this.tripService.selectedTrip.price };
     this.reservationService.createReservation(body);
     this.reservationForm.reset();
     this.paymentComponent.paymentForm.reset();

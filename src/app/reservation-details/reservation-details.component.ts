@@ -7,10 +7,15 @@ import { ReservationService } from '../Services/reservation.service';
   styleUrls: ['./reservation-details.component.css']
 })
 export class ReservationDetailsComponent implements OnInit {
-  reservationData: any = {};
-  constructor(public reservationService: ReservationService) { }
+  data: any = {};
+  currentDateTime: Date;
+  constructor(public reservationService: ReservationService) {
+    this.currentDateTime = new Date();
+
+  }
   ngOnInit(): void {
-    this.reservationData = this.reservationService.getReservationData();
+    this.data = this.reservationService.reservationData;
+    console.log(this.data);
   }
   downloadInvoices() {
     this.reservationService.getInvoices();

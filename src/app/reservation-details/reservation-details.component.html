@@ -5,8 +5,8 @@
                 <div class="section-space-md-y text-center">
                     <h1 class="h2 text-light">CHECKOUT</h1>
                     <ul class="list list-row list-dot list-dot-md justify-content-center">
-                        <li><a href="index.html" class="link text-light hover:text-primary">Home</a></li>
-                        <li><a href="#" class="link text-primary hover:text-primary">CHECKOUT</a></li>
+                        <li><a routerLink="/" class="link text-light hover:text-primary">Home</a></li>
+                        <li><a class="link text-primary hover:text-primary">CHECKOUT</a></li>
                     </ul>
                 </div>
             </div>
@@ -16,107 +16,105 @@
 <div class="section-space-y">
     <div class="container">
         <div class="row g-4 align-items-center">
-            <div class="col-md-6"><img src="assets/img/checkout-img.png" alt="image" class="img-fluid"></div>
+            <div class="col-md-6"><img src="../../assets/Home/img/checkout-img.png" alt="image" class="img-fluid"></div>
             <div class="col-md-6">
                 <h2>Completed 🎉</h2>
-                <div class="d-flex align-items-center gap-4">
-                    <div class="w-10 h-10 rounded overflow-hidden d-grid place-content-center flex-shrink-0"><img
-                            src="assets/img/gallery-img-1.png" alt="image" class="img-fluid"></div>
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0 fs-16"><a href="#" class="link text-dark hover:text-primary">Warsaw Day
-                                Tour</a></h6>
-                        <ul class="list list-row gap-1 align-items-center">
-                            <li><span class="text-warning fs-14 d-block"><i class="bi bi-star-fill"></i></span></li>
-                            <li><span class="text-dark fs-12 d-block">5.0 <span
-                                        class="d-inline-block text-dark text-opacity-60">(234 reviews)</span></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <h5>An email with your reservation details has been sent to your inbox</h5>
+
                 <div class="my-12">
                     <div class="card checkout-card">
                         <div class="card-body">
-                            <h6 class="mb-6">Booking Details</h6>
+                            <h4 class="mb-6">Booking Details</h4>
                             <ul class="list gap-3">
                                 <!-- Departure Day -->
                                 <li>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-calendar-date"></i></span>
-                                            <span class="d-inline-block flex-grow-1 ff-1">Departure day</span>
+                                        <div
+                                            class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
+                                            <span class="d-inline-block flex-shrink-0"><i
+                                                    class="bi bi-calendar-date"></i></span>
+                                            <span class="d-inline-block flex-grow-1 ff-1">Trip date</span>
                                         </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">{{ reservationData.reservationDate }}</div>
+                                        <div class="text-dark fs-14 flex-shrink-0">{{
+                                            data.reservationData.reservationDate }}
+                                        </div>
                                     </div>
                                 </li>
-                                
+
                                 <!-- Guests -->
                                 <li>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-people"></i></span>
+                                        <div
+                                            class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
+                                            <span class="d-inline-block flex-shrink-0"><i
+                                                    class="bi bi-people"></i></span>
                                             <span class="d-inline-block flex-grow-1 ff-1">Guests</span>
                                         </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">{{ reservationData.tickets.length }} guest(s)</div>
+                                        <div class="text-dark fs-14 flex-shrink-0">{{
+                                            data.reservationData.tickets.length }}
+                                            guest(s)</div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                
+
                         <div class="card-footer">
                             <ul class="list gap-3">
-                                <!-- Booking Code -->
-                                <li>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-box-seam"></i></span>
-                                            <span class="d-inline-block flex-grow-1 ff-1">Booking code</span>
-                                        </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">KU_H8SDM</div> <!-- Replace with dynamic code if available -->
-                                    </div>
-                                </li>
-                                
+
+
                                 <!-- Booking Day -->
                                 <li>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-calendar-date"></i></span>
-                                            <span class="d-inline-block flex-grow-1 ff-1">Booking day</span>
+                                        <div
+                                            class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
+                                            <span class="d-inline-block flex-shrink-0"><i
+                                                    class="bi bi-calendar-date"></i></span>
+                                            <span class="d-inline-block flex-grow-1 ff-1">Booking date</span>
                                         </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">{{ reservationData.reservationDate }}</div>
+                                        <div class="text-dark fs-14 flex-shrink-0">{{ currentDateTime| date:'short' }}
+                                        </div>
                                     </div>
                                 </li>
-                                
+
                                 <!-- Total Price -->
                                 <li>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-receipt"></i></span>
+                                        <div
+                                            class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
+                                            <span class="d-inline-block flex-shrink-0"><i
+                                                    class="bi bi-receipt"></i></span>
                                             <span class="d-inline-block flex-grow-1 ff-1">Total</span>
                                         </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">{{ reservationData.totalPrice }} JOD</div>
+                                        <div class="text-dark fs-14 flex-shrink-0">{{
+                                            (data.price)*(data.reservationData.tickets.length ) }} JOD
+                                        </div>
                                     </div>
                                 </li>
-                                
+
                                 <!-- Payment Method -->
                                 <li>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
-                                            <span class="d-inline-block flex-shrink-0"><i class="bi bi-wallet2"></i></span>
+                                        <div
+                                            class="d-flex align-items-center gap-2 text-dark text-opacity-60 flex-grow-1 fs-14">
+                                            <span class="d-inline-block flex-shrink-0"><i
+                                                    class="bi bi-wallet2"></i></span>
                                             <span class="d-inline-block flex-grow-1 ff-1">Payment method</span>
                                         </div>
-                                        <div class="text-dark fs-14 flex-shrink-0">{{ reservationData.paymentMethod || 'Visa' }}</div>
+                                        <div class="text-dark fs-14 flex-shrink-0">{{ data.reservationData.paymentMethod
+                                            ||
+                                            'Visa' }}</div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
-                <div class="d-flex align-items-center justify-content-center gap-4 flex-wrap"><a
+
+                <div class="d-flex align-items-center justify-content-center gap-4 flex-wrap"><a routerLink="/"
                         class="btn btn-light">Back Home </a><a (click)="downloadInvoices()"
                         class="btn btn-primary text-light">Download
                         Invoice</a></div>
             </div>
         </div>
     </div>
-</div><!-- Footer CTA  -->
+</div>
