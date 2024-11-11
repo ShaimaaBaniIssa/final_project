@@ -9,4 +9,5 @@ import { HomeService } from 'src/app/Services/home.service';
 })
 export class FooterComponent {
 constructor(public home:HomeService, public contact :ContactService){contact.getContactPage()}
+logoimage =localStorage.getItem("logoimage");
 }
