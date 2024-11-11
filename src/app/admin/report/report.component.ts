@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { ReportService } from '../services/report.service';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-report',
@@ -106,5 +107,51 @@ export class ReportComponent implements OnInit {
       }
     }
   };
+  downloadPDF() {
+    const doc = new jsPDF();
+  
+    // Title for the PDF
+    doc.text('Reservation Management Report', 10, 10);
+  
+    // Extract table data
+    const tableData = this.reservations.map((reservation: { fname: any; email: any; stationname: any; destaddress: any; totalprice: any; reservationdate: string | number | Date; rDate: string | number | Date; departuretime: any; arrivaltime: any; }) => [
+      reservation.fname,
+      reservation.email,
+      reservation.stationname,
+      reservation.destaddress,
+      reservation.totalprice,
+      new Date(reservation.reservationdate).toLocaleDateString(),
+      new Date(reservation.rDate).toLocaleDateString(),
+      reservation.departuretime,
+      reservation.arrivaltime
+    ]);
+  
+    const columns = [
+      'User Name', 'User Email', 'Station Name', 'Destination Address',
+      'Total Price (JOD)', 'Reservation Date', 'Trip Date',
+      'Departure Time', 'Arrival Time'
+    ];
+  
+    // Add table to the PDF
+    (doc as any).autoTable({
+      head: [columns],
+      body: tableData,
+      startY: 20,
+      theme: 'striped'
+    });
+  
+    // Add chart to the PDF
+    const chartCanvas = document.querySelector('canvas') as HTMLCanvasElement;
+    if (chartCanvas) {
+      const chartImage = chartCanvas.toDataURL('image/png', 1.0);
+      doc.addPage();
+      doc.text('Monthly Reservations Chart', 10, 10);
+      doc.addImage(chartImage, 'PNG', 10, 20, 180, 100);
+    }
+  
+    // Save PDF
+    doc.save('reservation-report.pdf');
+  }
+  
 }
 
