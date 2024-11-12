@@ -17,7 +17,8 @@ export class SidebarComponent {
     localStorage.removeItem('stationName');
   }
   logout(){
-    localStorage.clear();
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     console.log('Local storage cleared'); 
 
   }

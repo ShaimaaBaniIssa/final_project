@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from "jwt-decode";
@@ -56,7 +56,7 @@ export class AuthService {
         }
 
       }, err => {
-        this.toastr.error("invalid username or password");
+        this.toastr.error("invalid username/password");
       })
 
   }
@@ -72,10 +72,10 @@ export class AuthService {
           this.localStorageService.saveCredentials(body.username, body.password);
         }
         this.router.navigate(['auth/login']);
-      }, err => {
-        // toastr
-        this.toastr.error("Invalid register");
-      })
+      },  (error: HttpErrorResponse) => {
+        
+          this.toastr.error(error.error)
+      });
 
 
   }
@@ -89,7 +89,7 @@ export class AuthService {
       .subscribe(
         (result: any) => {
           this.totalUsers = result;
-          console.log("Total Users from API:", result);
+         
         },
         error => {
           this.toastr.error("error");

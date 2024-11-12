@@ -1,66 +1,64 @@
-    <!-- Footer CTA  -->
-    <!-- <div class="footer-cta">
+<footer class="footer-1">
+    <div class="section-space-md-y border-bottom">
+        <div class="container">
+            <div class="row g-4 justify-content-between">
+                <!-- قسم الشعار والوصف -->
+                <div class="col-md-6 col-lg-3">
+                    <a routerLink="" class="logo d-block mb-4">
+                        <img [src]="'../../../../../../assets/Images/' + logoimage" alt="logo" class="logo__img">
+                    </a>
+                    <p class="mb-6">Hello, we are Train Tracker. Our goal is to streamline your journey by providing reliable, real-time train information and a seamless travel experience.</p>
+                    <ul class="list list-row gap-3 flex-wrap">
+                        <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-pinterest"></i></a></li>
+                        <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-twitter"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- قسم About في المنتصف -->
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center">
+                    <div>
+                        <h2>About</h2>
+                        <ul class="list gap-2">
+                            <li><a routerLink="/about" class="link d-inline-block text-dark hover:text-primary">About Us</a></li>
+                            <li><a routerLink="/contactus" class="link d-inline-block text-dark hover:text-primary">Contact Us</a></li>
+                            <li><a routerLink="/allstation" class="link d-inline-block text-dark hover:text-primary">Station</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- قسم Contact في اليمين -->
+                <div class="col-md-6 col-lg-3 d-flex justify-content-end">
+                    <div>
+                        <h2>Contact</h2>
+                        <ul class="list gap-2">
+                            <li>
+                                <a href="#" class="link d-inline-flex align-items-center gap-2 text-dark hover:text-primary">
+                                    <span class="d-inline-block flex-shrink-0"><i class="bi bi-telephone-fill"></i> </span>
+                                    <span class="d-inline-block flex-grow-1">{{contact.contactPage.phonenumber}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="link d-inline-flex align-items-center gap-2 text-dark hover:text-primary">
+                                    <span class="d-inline-block flex-shrink-0"><i class="bi bi-envelope-fill"></i> </span>
+                                    <span class="d-inline-block flex-grow-1">{{contact.contactPage.email}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-6">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="footer-cta__content section-space-md-y bg-success rounded-4 px-4 px-md-8 px-xl-15 px-xxl-26">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-6">
-                                <h2 class="text-light">Get our pro offers</h2>
-                                <p class="mb-0 text-light max-text-12">Create a visual identity for your company, and an overall branding that stands out.</p>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="d-flex py-2 px-3 bg-white rounded-1"><input type="text" class="form-control flex-grow-1 border-0 rounded-0" placeholder="Enter your email"> <button type="submit" class="btn btn-dark rounded-1 flex-shrink-0 rounded-0">Subscribe</button></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mb-0 text-center">&copy; 2024 Train Tracker. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- /Footer CTA  -->
-    <!-- Footer  -->
-    <footer class="footer-1">
-        <div class="section-space-md-y border-bottom">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3"><a href="index.html" class="logo d-block mb-4"><img [src]="'../../../../../../assets/Images/' + logoimage" alt="logo" class="logo__img"></a>
-                        <p class="mb-6">Hello, we are Lift Media. Our goal is to translate the positive effects from revolutionizing</p>
-                        <ul class="list list-row gap-3 flex-wrap">
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-facebook"></i></a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-pinterest"></i></a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-instagram"></i></a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary"><i class="bi bi-twitter"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5>About</h5>
-                        <ul class="list gap-2">
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary">About Us</a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary">Our Services</a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary">Privacy Policy</a></li>
-                            <li><a href="#" class="link d-inline-block text-dark hover:text-primary">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5>Contact</h5>
-                        <ul class="list gap-2">
-                            <li><a href="#" class="link d-inline-flex align-items-center gap-2 text-dark hover:text-primary"><span class="d-inline-block flex-shrink-0"><i class="bi bi-telephone-fill"></i> </span><span class="d-inline-block flex-grow-1">{{contact.contactPage.phonenumber}}</span></a></li>
-                            <li><a href="#" class="link d-inline-flex align-items-center gap-2 text-dark hover:text-primary"><span class="d-inline-block flex-shrink-0"><i class="bi bi-envelope-fill"></i> </span><span class="d-inline-block flex-grow-1">{{contact.contactPage.email}}</span></a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="py-6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p class="mb-0 text-center">&copy; 2024 Triptopia. All rights reserved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
+    </div>
+</footer>

@@ -1,31 +1,20 @@
-<nav
-class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
->
-<div class="container-fluid">
-  <nav
-    class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
-  >
-  
-  </nav>
+<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+  <div class="container-fluid">
+    <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+    </nav>
 
-  <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-    <li class="nav-item topbar-user  d-flex align-items-center">
-      <div class="avatar-sm me-2">
-       <a routerLink="/admin/profile"  >
-        <img
-          src="../../assets/Images/user.png"
-          alt="User Avatar"
-          class="avatar-img rounded-circle"
-        />
-      </a>
-      </div>
-      <div class="profile-username text-center">
-        <span class="op-7 ">Hi,</span>
-        <span class="fw-bold">{{userName}}</span>
-      </div>
-    </li>
-  </ul>
-  
-</div>
+    <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+      <li class="nav-item topbar-user d-flex align-items-center">
+        <div class="profile-username text-center">
+          <a routerLink="/admin/profile" class="btn btn-link text-decoration-none">
+            <span class="fw-bold">Profile</span>
+          </a>
+        </div>
+        <div class="profile-username text-center ms-2">
+          <span class="op-7">Hi,</span>
+          <span class="fw-bold">{{ userName }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>
-<!-- End Navbar -->

@@ -14,8 +14,9 @@ export class NavbarComponent {
   logoimage =localStorage.getItem("logoimage")
   
   logout(){
-    localStorage.clear();
-    console.log('Local storage cleared'); 
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+        console.log('Local storage cleared'); 
 
   }
 }

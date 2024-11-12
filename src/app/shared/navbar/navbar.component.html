@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-overlay z-3">
-    <div class="container"><a href="index.html" class="logo d-block"><img
+    <div class="container"><a routerLink="" class="logo d-block"><img
                 [src]="'../../../../../../assets/Images/' + logoimage" alt="logo" class="logo__img">
         </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryMenu"
             aria-controls="primaryMenu" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -37,8 +37,8 @@
                                 routerLinkActive="active">Login</a>
                         </li>
                         <li *ngIf="userName" class="d-flex align-items-center">
-                            <a routerLink="/userprofile"><img *ngIf="userProfileImage" [src]="userProfileImage"
-                                    alt="Profile" class="profile-image me-2"></a>
+                            <!-- <a routerLink="/userprofile"><img *ngIf="userProfileImage" [src]="userProfileImage"
+                                    alt="Profile" class="profile-image me-2"></a> -->
                             <a routerLink="/auth/login" class="btn btn-success text-white fs-14" (click)="logout()"
                                 routerLinkActive="active">Logout</a>
                         </li>

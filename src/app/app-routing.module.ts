@@ -19,13 +19,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contactus', component: ContactUsComponent },
   { path: 'allstation', component: AllStationComponent },
+  { path: 'about', component: AboutComponent },
 
   { path: 'station/:id', component: StationComponent },
   { path: 'reservation/:id', component: ReservationComponent },
   { path: 'reservationDetails', component: ReservationDetailsComponent },
 
 
-  { path: 'about', component: AboutComponent },
   { path: 'userprofile', component: UserProfileComponent },
   { path: 'userReservation', component: UserReservationsComponent },
 
