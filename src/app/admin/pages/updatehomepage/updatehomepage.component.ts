@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HomeServiceService } from '../../services/home-service.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NgxSpinnerService  } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-updatehomepage',
@@ -10,7 +10,7 @@ import { NgxSpinnerService  } from 'ngx-spinner';
   styleUrls: ['./updatehomepage.component.css']
 })
 export class UpdatehomepageComponent {
-  constructor(public homepageservice: HomeServiceService, @Inject(MAT_DIALOG_DATA) public data: any,public spinner :NgxSpinnerService ) {
+  constructor(public homepageservice: HomeServiceService, @Inject(MAT_DIALOG_DATA) public data: any, public spinner: NgxSpinnerService) {
   }
   updateHomepage: FormGroup = new FormGroup({
     homepageid: new FormControl(this.data.homepageid, Validators.required),
@@ -42,16 +42,16 @@ export class UpdatehomepageComponent {
     formdata.append('file', filetoupload, filetoupload.name);
     this.homepageservice.uploadAtachment(formdata).subscribe((resp: any) => {
       console.log(resp.logoimage)
-       
+
 
       this.updateHomepage.controls[imagename].patchValue(resp.logoimage);
       setTimeout(() => {
         /** spinner ends after 5 seconds */
-       this.spinner.hide();
+        this.spinner.hide();
       }, 5000);
 
     })
-    
+
     console.log(this.updateHomepage.value)
   }
 

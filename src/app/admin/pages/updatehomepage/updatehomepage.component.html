@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>Update Home Page</h2>
+<!-- <h2 mat-dialog-title>Update Home Page</h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="updateHomepage">
-    
+
     <input type="file" #file formControlName="logoimage" (change)="uploadimage(file.files,'logoimage')">
 
     <div class="example-container">
@@ -10,14 +10,14 @@
         <input type="text" matInput formControlName="websitetitle">
       </mat-form-field>
     </div>
-    
+
     <div class="example-container">
       <mat-form-field>
         <mat-label>Top Text</mat-label>
         <input type="text" matInput formControlName="toptext">
       </mat-form-field>
     </div>
-   
+
     <input type="file" #file1 formControlName="formimage" (change)="uploadimage(file1.files,'formimage')">
 
     <div class="example-container">
@@ -43,7 +43,7 @@
 
     <input type="file" #file2 formControlName="trainlogo" (change)="uploadimage(file2.files,'trainlogo')">
 
-  <div class="example-container">
+    <div class="example-container">
       <mat-form-field>
         <mat-label>Point About Text 1</mat-label>
         <input type="text" matInput formControlName="pointabouttext1">
@@ -71,7 +71,9 @@
       </mat-form-field>
     </div>
 
-    <ngx-spinner type="ball-scale-multiple"><p style="color: white" >Uploading...</p></ngx-spinner>
+    <ngx-spinner type="ball-scale-multiple">
+      <p style="color: white">Uploading...</p>
+    </ngx-spinner>
 
   </form>
 </mat-dialog-content>
@@ -85,4 +87,70 @@
     <button mat-button mat-dialog-close>Cancel</button>
 
   </div>
-</mat-dialog-actions>
+</mat-dialog-actions> -->
+
+
+<!-- 
+ -->
+
+<h5 mat-dialog-title class="dialog-title">Update Trip Schedule Details</h5>
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="updateHomepage">
+    <div class="mb-3">
+      <label class="form-label">websitetitle</label>
+      <input type="text" class="form-control" formControlName="websitetitle" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">toptext</label>
+      <input type="text" class="form-control" formControlName="toptext" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">titileabouttext</label>
+      <input type="text" class="form-control" formControlName="titileabouttext" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">abouttext1</label>
+      <input type="text" class="form-control" formControlName="abouttext1" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">abouttext2</label>
+      <input type="text" class="form-control" formControlName="abouttext2" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">pointabouttext1</label>
+      <input type="text" class="form-control" formControlName="pointabouttext1" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">pointabouttext2</label>
+      <input type="text" class="form-control" formControlName="pointabouttext2" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">desttitle</label>
+      <input type="text" class="form-control" formControlName="desttitle" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">desttext</label>
+      <input type="text" class="form-control" formControlName="desttext" required>
+    </div>
+    <!-- File inputs for uploading images -->
+    <div class="mb-3">
+      <label>Upload logoimage:</label>
+      <input type="file" #file formControlName="logoimage" (change)="uploadimage(file.files,'logoimage')" />
+    </div>
+
+    <div class="mb-3">
+      <label>Upload Form Image:</label>
+      <input type="file" #file1 formControlName="formimage" (change)="uploadimage(file1.files,'formimage')">
+    </div>
+
+    <div class="mb-3">
+      <label>Upload Train logo:</label>
+      <input type="file" #file2 formControlName="trainlogo" (change)="uploadimage(file2.files,'trainlogo')">
+    </div>
+
+  </form>
+</mat-dialog-content>
+<div class="modal-footer mb-5">
+  <button type="button" class="btn btn-primary m-1" mat-dialog-close (click)="save()">Update</button>
+  <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
+</div>
