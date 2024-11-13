@@ -22,8 +22,9 @@ export class ReservationService {
         this.router.navigate(['reservationDetails'])
       }, (error: HttpErrorResponse) => {
         if (error.status === 403) {
-          this.toastr.error("Login first, or register");
 
+          this.toastr.error("Login first, or register");
+          this.router.navigate(['/auth/register']);
         }
         else
           this.toastr.error(error.error)

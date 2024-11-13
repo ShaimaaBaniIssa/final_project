@@ -18,6 +18,7 @@ export class ReservationComponent implements OnInit {
     private toastr: ToastrService,
     private datePipe: DatePipe,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
   ngOnInit(): void {
     this.setTicketForms(1);
@@ -131,6 +132,10 @@ export class ReservationComponent implements OnInit {
 
     let user: any = localStorage.getItem('user');
     user = JSON.parse(user);
+    if (user == null) {
+      this.toastr.error("Login first, or register");
+      this.router.navigate(['/auth/register']);
+    }
     const paymentFormValues = this.paymentComponent.paymentForm.value;
     const body: any = {
       tripId: this.tripId,

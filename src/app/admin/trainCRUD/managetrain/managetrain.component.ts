@@ -66,26 +66,7 @@ export class ManagetrainComponent implements OnInit {
   seats(id: number) {
     this.router.navigate(['/admin/manageseats', id]);
   }
-  downloadPDF() {
-    const doc = new jsPDF();
-    const tableData = this.dataSource.data.map((row) => [
-      row.trainid,
-      row.trainname,
-      row.numofseats,
-    ]);
 
-    const columns = ['ID', 'Name', 'Number of Seats'];
-    doc.text('Train Management Data', 10, 10);
-
-    (doc as any).autoTable({
-      head: [columns],
-      body: tableData,
-      startY: 20,
-      theme: 'striped',
-    });
-
-    doc.save('train-data.pdf');
-  }
 }
 
 

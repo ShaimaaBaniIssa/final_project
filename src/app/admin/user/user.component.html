@@ -1,85 +1,79 @@
-
 <div class="wrapper">
-    <!-- Sidebar -->
-    <app-sidebar></app-sidebar>
-    <!-- End Sidebar -->
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+  <!-- End Sidebar -->
 
-    <div class="main-panel">
-      <div class="main-header">
+  <div class="main-panel">
+    <div class="main-header">
 
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="../index.html" class="logo">
-              <img
-                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-           
+      <div class="main-header-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+          <a href="../index.html" class="logo">
+            <img src="../../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" />
+          </a>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="gg-menu-right"></i>
+            </button>
+            <button class="btn btn-toggle sidenav-toggler">
+              <i class="gg-menu-left"></i>
+            </button>
           </div>
-          <!-- End Logo Header -->
+
         </div>
-        <!-- Navbar Header -->
-         <app-navbar></app-navbar>
-        <!-- End Navbar -->
+        <!-- End Logo Header -->
       </div>
+      <!-- Navbar Header -->
+      <app-navbar></app-navbar>
+      <!-- End Navbar -->
+    </div>
+
+    <div class="container">
 
       <div class="container">
- 
-        <div class="container">
-            <!-- User Section -->
-            <div class="section-space-md-bottom">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <h1 class="mb-0 fw-bold m-3">Users</h1>
-              </div>
-            </div>
-          
-            <div class="card shadow mb-4">
-              <div class="card-body p-0">
-                <div *ngIf="user.users && user.users.length > 0" class="table-responsive">
-                  <table class="table table-bordered align-items-center mb-0">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Customer ID</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Latitude</th>
-                        <th scope="col">Longitude</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let obj of user.users">
-                        <td>{{ obj.fname }} {{ obj.lname }}</td>
-                        <td>{{ obj.customerid }}</td>
-                        <td>{{ obj.email }}</td>
-                        <td>{{ obj.phonenumber }}</td>
-                        <td>{{ obj.address }}</td>
-                        <td>{{ obj.latitude }}</td>
-                        <td>{{ obj.longitude }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+        <!-- User Section -->
+        <div class="section-space-md-bottom">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="mb-0 fw-bold m-3">Users</h1>
+          </div>
+        </div>
 
-       
+        <div class="card shadow mb-4">
+          <div class="card-body p-0">
+            <div *ngIf="user.users && user.users.length > 0" class="table-responsive">
+              <table class="table table-bordered align-items-center mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Customer ID</th>
+
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Address</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of user.users">
+                    <td>{{ obj.customerid }}</td>
+
+                    <td>{{ obj.fname }} {{ obj.lname }}</td>
+                    <td>{{ obj.email }}</td>
+                    <td>{{ obj.phonenumber }}</td>
+                    <td>{{ obj.address }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
     </div>
 
-   
+
   </div>
- 

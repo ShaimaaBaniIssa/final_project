@@ -3,7 +3,7 @@
   <div class="sidebar-logo">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="dark">
-    
+
       <h2 class="text-white">Train Tracker Admin</h2>
 
       <button class="topbar-toggler more">
@@ -38,30 +38,11 @@
         </li>
 
         <li class="nav-item">
-          <a>
-            <!-- <i class="fas fa-file "></i> -->
-            <p>pages</p>
+          <a routerLink="/admin/managetrain">
+            <!-- <i class="fas fa-file"></i> -->
+            <p>Trains</p>
+
           </a>
-          <ul>
-            <li class="gray-tex nav-itemt">
-              <a routerLink="/admin/managehomepage" class="text-section">
-                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
-               Home Page
-              </a>
-            </li>
-            <li class="gray-text nav-item">
-              <a routerLink="/admin/admincontact" class="text-section">
-                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
-               ContactUs Page
-              </a>
-            </li>
-            <li class="gray-text nav-item">
-              <a routerLink="/admin/feedback" class="text-section">
-                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
-                Feedback Page
-              </a>
-            </li>
-          </ul>
         </li>
 
 
@@ -75,68 +56,65 @@
             <li class="gray-tex nav-itemt">
               <a routerLink="/admin/approveTest" class="text-section">
                 <!-- <i class="fas fa-file gray-text ms-2"></i> -->
-               Approved Testimonial
+                Approved Testimonial
               </a>
             </li>
             <li class="gray-text nav-item">
               <a routerLink="/admin/unapproveTest" class="text-section">
                 <!-- <i class="fas fa-file gray-text ms-2"></i> -->
-               Unapproved Testimonial
+                Unapproved Testimonial
               </a>
             </li>
           </ul>
         </li>
 
 
-        <li class="nav-item">
-          <a routerLink="/admin/managetrain">
-            <!-- <i class="fas fa-file"></i> -->
-            <p>Trains</p>
-
-          </a>
-        </li>
-
-
-        <!-- <li class="nav-section">
-            <span class="sidebar-mini-icon">
-              <i class="fa fa-ellipsis-h"></i>
-            </span>
-            <h4 class="text-section">Components</h4>
-          </li>
-          -->
-
-
-
-
-
-
 
 
         <li class="nav-item">
           <a routerLink="/admin/user">
-            <!-- <i class="fas fa-desktop"></i> -->
-            <p>User</p>
-
+            <p>Users</p>
           </a>
-        
-
-
 
         <li class="nav-item">
           <a routerLink="/admin/report">
-            <!-- <i class="fas fa-file"></i> -->
             <p>Reports</p>
-
           </a>
         </li>
         <li class="nav-item">
           <a routerLink="/admin/tripsearch">
-            <!-- <i class="fas fa-file"></i> -->
             <p>TripSearch</p>
 
           </a>
         </li>
-       
+
+        <li class="nav-item">
+          <a>
+            <!-- <i class="fas fa-file "></i> -->
+            <p>pages</p>
+          </a>
+          <ul>
+            <li class="gray-tex nav-itemt">
+              <a routerLink="/admin/managehomepage" class="text-section">
+                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
+                Home Page
+              </a>
+            </li>
+            <li class="gray-text nav-item">
+              <a routerLink="/admin/admincontact" class="text-section">
+                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
+                ContactUs Page
+              </a>
+            </li>
+            <li class="gray-text nav-item">
+              <a routerLink="/admin/feedback" class="text-section">
+                <!-- <i class="fas fa-file gray-text ms-2"></i> -->
+                Feedback Page
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a href="" (click)="logout()">
             <!-- <i class="fas fa-sign-out-alt"></i>  -->

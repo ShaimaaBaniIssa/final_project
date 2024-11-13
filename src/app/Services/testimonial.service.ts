@@ -29,10 +29,13 @@ export class TestimonialService {
     }, (error: HttpErrorResponse) => {
       if (error.status === 403 || error.status == 401) {
         this.router.navigate(['/auth/login']);
+        this.toastr.warning("login/register first");
+
 
       }
       else
-        this.router.navigate(['/auth/register']);
+        this.toastr.error("error");
+
     })
   }
 }

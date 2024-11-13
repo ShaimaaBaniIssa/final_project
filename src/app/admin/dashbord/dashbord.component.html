@@ -11,12 +11,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
           <a href="index.html" class="logo">
-            <img
-              src="../assets/Admin/img/kaiadmin/logo_light.svg"
-              alt="navbar brand"
-              class="navbar-brand"
-              height="20"
-            />
+            <img src="../assets/Admin/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
+              height="20" />
           </a>
           <div class="nav-toggle">
             <button class="btn btn-toggle toggle-sidebar">
@@ -36,16 +32,31 @@
 
     <div class="container">
       <div class="page-inner">
-        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <!-- <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
           <div>
             <h3 class="fw-bold fs-5 mb-3">Train Tracker</h3>
             <h6 class="op-7 mb-2 fs-6">Welcome to the admin page of Train Tracker!</h6>
           </div>
-        </div>
+        </div> -->
 
         <!-- Instructions Section -->
-       
 
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-info">
+              <h5 class="fw-bold">Instructions:</h5>
+              <ul>
+                <li><strong>To add a station:</strong> Click on the location where you want to add the station.</li>
+                <li><strong>To change a station location:</strong> Drag the marker to the new location where you want
+                  the
+                  station.
+                </li>
+                <li><strong>To edit the station's name or image:</strong> Click on the marker for the station to edit
+                  its details.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <!-- Manage Stations Section -->
         <managestations></managestations>
 
@@ -88,19 +99,8 @@
             </div>
           </div>
         </div>
-        
-        <div class="row mb-4">
-          <div class="col-12">
-            <div class="alert alert-info">
-              <h5 class="fw-bold">Instructions:</h5>
-              <ul>
-                <li><strong>To add a station:</strong> Click on the location where you want to add the station.</li>
-                <li><strong>To move a station:</strong> Drag the marker to the new location where you want the station.</li>
-                <li><strong>To edit the station's name or image:</strong> Click on the marker for the station to edit its details.</li>
-              </ul>
-            </div>
-          </div>
-        </div>  
+
+
       </div>
     </div>
   </div>

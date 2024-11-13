@@ -12,8 +12,9 @@ import { AdminModule } from './admin/admin.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { UserReservationsComponent } from './UserReservations/user-reservations/user-reservations.component';
-import { authGuard } from './auth.guard';
+import { authGuard } from './Guards/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { reservationGuard } from './Guards/reservation.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,12 +23,12 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   { path: 'station/:id', component: StationComponent },
-  { path: 'reservation/:id', component: ReservationComponent },
-  { path: 'reservationDetails', component: ReservationDetailsComponent },
+  { path: 'reservation/:id', component: ReservationComponent, canActivate: [reservationGuard] },
+  { path: 'reservationDetails', component: ReservationDetailsComponent, canActivate: [reservationGuard] },
 
 
-  { path: 'userprofile', component: UserProfileComponent },
-  { path: 'userReservation', component: UserReservationsComponent },
+  { path: 'userprofile', component: UserProfileComponent, canActivate: [reservationGuard] },
+  { path: 'userReservation', component: UserReservationsComponent, canActivate: [reservationGuard] },
 
 
   { path: 'auth', loadChildren: () => AuthModule },

@@ -147,7 +147,9 @@
       <label>Upload Train logo:</label>
       <input type="file" #file2 formControlName="trainlogo" (change)="uploadimage(file2.files,'trainlogo')">
     </div>
-
+    <ngx-spinner type="ball-scale-multiple">
+      <p style="color: white">Uploading...</p>
+    </ngx-spinner>
   </form>
 </mat-dialog-content>
 <div class="modal-footer mb-5">

@@ -25,7 +25,6 @@ export class RegisterComponent {
     private router: Router
   ) { }
   onSubmit() {
-    console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value);
 
 
