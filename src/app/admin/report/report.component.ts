@@ -46,19 +46,27 @@ export class ReportComponent implements OnInit {
   }
 
   onSubmit() {
-
-    this.reportService.MonthlyAnnualReports(this.mAReport.value.month, this.mAReport.value.year).subscribe(result => {
-      this.reservations = result;
-      this.chartLabels.length = 0;
-      this.number.length = 0;
-      this.chartLabels.push(this.mAReport.value.month.toString());
-      this.number.push(result.length);
-      this.updateChartData();
-
-    });
-
+    if (this.mAReport.valid && this.mAReport.value.year !== null) {
+      // Set month to null if you want the entire year
+      const month = this.mAReport.value.month ? this.mAReport.value.month : null;
+  
+      this.reportService.MonthlyAnnualReports(month, this.mAReport.value.year).subscribe(result => {
+        this.reservations = result;
+        this.chartLabels.length = 0;
+        this.number.length = 0;
+  
+        // Safely convert month to string or use a default label
+        const monthLabel = month !== null ? month.toString() : 'Whole Year';
+        this.chartLabels.push(monthLabel);
+        this.number.push(result.length);
+  
+        this.updateChartData();
+      });
+    } else {
+      console.error('Form is invalid or missing required values');
+    }
   }
-
+  
 
 
   updateChartData() {
