@@ -1,0 +1,166 @@
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="main-header">
+
+        <div class="main-header-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="../index.html" class="logo">
+              <img
+                src="../../assets/Admin/img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+           
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <!-- Navbar Header -->
+         <app-navbar></app-navbar>
+        <!-- End Navbar -->
+      </div>
+
+      <div class="container">
+        <div class="section-space-y">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <img [src]='About.Aboutuspage.about_Image' alt="image" class="img-fluid">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ps-xl-12">
+                            <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
+                            <h2>{{About.Aboutuspage.about_Title}}</h2>
+                            <p class="mb-8">{{About.Aboutuspage.about_Text}}</p>
+                            <ul class="list gap-8">
+                                <li>
+                                    <div class="d-flex align-items-start gap-4">
+                                        <div class="flex-shrink-0">
+                                            <img [src]='About.Aboutuspage.img_1' alt="image" class="img-fluid">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_1}}</h6>
+                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                                to live in the moment and enjoy your vacation.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-start gap-4">
+                                        <div class="flex-shrink-0">
+                                            <img [src]='About.Aboutuspage.img_2' alt="image" class="img-fluid">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_2}}</h6>
+                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                                to live in the moment and enjoy your vacation.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-start gap-4">
+                                        <div class="flex-shrink-0">
+                                            <img [src]='About.Aboutuspage.img_3' alt="image" class="img-fluid">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_3}}</h6>
+                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
+                                                to live in the moment and enjoy your vacation.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+      </div>
+      <ng-template #callUpdateDialog>
+        <h5 mat-dialog-title class="dialog-title">Update About Section</h5>
+        <mat-dialog-content class="dialog-content">
+          <form [formGroup]="updateAboutP">
+      
+            
+            <div class="mb-3">
+              <label class="form-label">About Title</label>
+              <input type="text" class="form-control" formControlName="about_Title" [(ngModel)]="pData.about_Title"
+                name="about_Title" required>
+            </div>
+      
+           
+            <div class="mb-3">
+              <label class="form-label">About Text</label>
+              <textarea class="form-control" formControlName="about_Text" [(ngModel)]="pData.about_Text"
+                name="about_Text" required></textarea>
+            </div>
+      
+          
+            <div class="mb-3">
+              <label class="form-label">Point Image 1</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_1')" />
+            </div>
+      
+            
+            <div class="mb-3">
+              <label class="form-label">Image 1</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'img_1')" />
+            </div>
+      
+          
+            <div class="mb-3">
+              <label class="form-label">Point Image 2</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_2')" />
+            </div>
+      
+           
+            <div class="mb-3">
+              <label class="form-label">Image 2</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'img_2')" />
+            </div>
+      
+           
+            <div class="mb-3">
+              <label class="form-label">Point Image 3</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_3')" />
+            </div>
+      
+           
+            <div class="mb-3">
+              <label class="form-label">Image 3</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'img_3')" />
+            </div>
+      
+          </form>
+        </mat-dialog-content>
+      
+        <div class="modal-footer mb-5">
+          <button type="button" class="btn btn-primary m-1" mat-dialog-close (click)="updateAbout()">Update</button>
+          <button type="button" class="btn btn-secondary m-1 me-3" mat-dialog-close>Cancel</button>
+        </div>
+      </ng-template>
+      
+
+    </div>
+
+   
+  </div>
+ 

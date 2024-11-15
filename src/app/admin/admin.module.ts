@@ -36,6 +36,7 @@ import { UserComponent } from './user/user.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { UnapprovedTestimonialComponent } from './Testimonial/unapproved-testimonial/unapproved-testimonial.component';
 import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial/approved-testimonial.component';
+import { AboutuspageComponent } from './pages/aboutuspage/aboutuspage.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial
     UserComponent,
     FeedbackComponent,
     UnapprovedTestimonialComponent,
-    ApprovedTestimonialComponent
+    ApprovedTestimonialComponent,
+    AboutuspageComponent
   ],
   imports: [
     CommonModule,
