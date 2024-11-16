@@ -24,17 +24,17 @@ export class ManagestationsComponent implements OnInit {
   ngOnInit(): void {
     this.managestation.getAllStation();
   }
-stationName: FormControl = new FormControl('');
+  stationName: FormControl = new FormControl('');
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
   zoom = 10;
-  
-markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
 
-  
-  searchStation() {
-    this.managestation.searchStations(this.stationName.value);
+  markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
 
-  }
+
+  // searchStation() {
+  //   this.managestation.searchStations(this.stationName.value);
+
+  // }
 
   // create 
   onMapClick(event: google.maps.MapMouseEvent) {
@@ -55,14 +55,13 @@ markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
     });
 
   }
- // for update
+  // for update
   onStationClick(station: any) {
     console.log(station);
     this.openUpdateDialog(station);
-    // this.openDeleteDailog(station.stationid)
   }
 
- 
+
   openUpdateDialog(station: any) {
 
     console.log(station);
@@ -71,7 +70,7 @@ markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
     });
   }
 
-  
+
   onMarkerDragEnd(station: any, event: any) {
 
     if (event.latLng) {
@@ -81,6 +80,6 @@ markerPosition: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
     }
   }
 
-  
+
 
 }

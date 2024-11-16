@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
         nearestStation = station;
       }
     });
-    console.log(nearestStation);
+
     this.filterStation = nearestStation;
   }
 

@@ -15,44 +15,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="hero-1__content">
-                        <div class="hero-1__filter mt-auto">
-                            <div
-                                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 g-xl-4 align-items-end justify-content-center">
-                                <div class="col"><label class="d-block text-light mb-1">Destination</label> <select
-                                        class="form-select">
-                                        <option selected="selected">Instanbul</option>
-                                        <option value="1">Bangladesh</option>
-                                        <option value="2">India</option>
-                                        <option value="3">China</option>
-                                    </select></div>
-                                <div class="col"><label class="d-block text-light mb-1">Duration</label> <select
-                                        class="form-select">
-                                        <option selected="selected">4 Days</option>
-                                        <option value="1">2 Days</option>
-                                        <option value="2">6 Days</option>
-                                        <option value="3">8 Days</option>
-                                    </select></div>
-                                <div class="col"><label class="d-block text-light mb-1">Travel Type</label> <select
-                                        class="form-select">
-                                        <option selected="selected">Adventure</option>
-                                        <option value="1">Luxury</option>
-                                        <option value="2">Family</option>
-                                        <option value="3">Adventure</option>
-                                    </select></div>
-                                <div class="col"><label class="d-block text-light mb-1">Travellers</label> <select
-                                        class="form-select">
-                                        <option selected="selected">04</option>
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                    </select></div>
-                                <div class="col"><button
-                                        class="btn btn-primary text-light w-100 text-center justify-content-center">Find
-                                        Availability</button></div>
-                            </div>
-                        </div>
-                    </div> -->
+
                 </div>
             </div>
         </div>
@@ -72,8 +35,6 @@
         <div class="section-space-md-bottom">
             <div class="container">
                 <google-map width="100%" height="500px" [center]="center" [zoom]="zoom">
-
-
                     <map-marker *ngFor="let station of stationService.stations | station:stationName.value"
                         [position]="{lat:station.latitude,lng:station.longitude}" (mapClick)="onMarkerClick(station)"
                         [label]="{ 

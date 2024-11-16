@@ -42,21 +42,21 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Trip Schedule ID</th>
-                  <th scope="col" class="text-end">Departure Time</th>
-                  <th scope="col" class="text-end">Arrival Time</th>
-                  <th scope="col" class="text-end">Train ID</th>
-                  <th scope="col" class="text-end">Date</th>
-                  <th scope="col" class="text-end">Actions</th>
+                  <th scope="col" class="text-center">Departure Time</th>
+                  <th scope="col" class="text-center">Arrival Time</th>
+                  <th scope="col" class="text-center">Train Name</th>
+                  <th scope="col" class="text-center">Date</th>
+                  <th scope="col" class="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let obj of tripSc.tripschedule">
-                  <th scope="row">{{ obj.tripscheduleid }}</th>
-                  <td class="text-end">{{ obj.departuretime }}</td>
-                  <td class="text-end">{{ obj.arrivaltime }}</td>
-                  <td class="text-end">{{ obj.trainid }}</td>
-                  <td class="text-end">{{ obj.tdate | date:'shortDate'}}</td>
-                  <td class="text-end">
+                  <th scope="row">{{ obj.tripScheduleId }}</th>
+                  <td class="text-center">{{ obj.departureTime }}</td>
+                  <td class="text-center">{{ obj.arrivalTime }}</td>
+                  <td class="text-center">{{ obj.trainname }}</td>
+                  <td class="text-center">{{ obj.tDate | date:'shortDate'}}</td>
+                  <td class="text-center">
                     <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
                     <button class="btn btn-sm btn-danger"
                       (click)="deleteTripSchedule(obj.tripscheduleid)">Delete</button>

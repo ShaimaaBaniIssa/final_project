@@ -50,6 +50,8 @@ export class StationComponent implements OnInit {
     if (this.userLocation == null) {
       this.getUserLocation();
     }
+
+    // to draw line between user location and station location
     const request = {
       destination: { lat: this.station.latitude, lng: this.station.longitude },
       origin: { lat: this.userLocation.lat ?? 0, lng: this.userLocation.lng ?? 0 },
@@ -61,6 +63,7 @@ export class StationComponent implements OnInit {
 
 
 
+  // open google map to track station road
   openGoogleMaps() {
     const url = `https://www.google.com/maps/dir/?api=1&origin=&destination=${this.station.latitude},${this.station.longitude}&travelmode=driving`;
     window.open(url, '_blank');

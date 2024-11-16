@@ -41,8 +41,9 @@ export class ManageSchdualService {
 
   getTripScheduleById(tripId: number) {
     console.log("tripId" + tripId)
-    this.httpClient.get("https://localhost:7019/api/TripSchedule/GetTripScheduleByTripId/" + tripId).subscribe(resp => {
+    this.httpClient.get("https://localhost:7019/api/TripSchedule/GetTripScheduleDTOByTripId/" + tripId).subscribe(resp => {
       this.tripschedule = resp;
+      console.log(resp);
     }, err => {
       this.toastr.error("err")
 

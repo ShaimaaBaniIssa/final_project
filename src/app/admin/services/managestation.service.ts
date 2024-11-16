@@ -104,8 +104,6 @@ export class ManagestationService {
     }
     this.httpClient.put('https://localhost:7019/api/Station/UpdateStation', body).subscribe((resp) => {
       this.toastr.success('Station updated successfuly')
-      // window.location.reload();
-
 
     }, (error: HttpErrorResponse) => {
       if (error.status === 403) {
