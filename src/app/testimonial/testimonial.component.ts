@@ -8,7 +8,15 @@ import { TestimonialService } from '../Services/testimonial.service';
 })
 export class TestimonialComponent implements OnInit {
   constructor(public testimonialService: TestimonialService) { }
+  testimonials: any = [];
   ngOnInit(): void {
-    this.testimonialService.getTestimonials();
+    this.testimonialService.getTestimonials().subscribe(
+      result => {
+        this.testimonials = result;
+      },
+      error => {
+        console.log("error");
+      }
+    );;
   }
 }

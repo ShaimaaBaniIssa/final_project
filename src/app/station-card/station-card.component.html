@@ -3,8 +3,8 @@
     <div class="card-body popular-card__body"><span class="d-flex align-items-center gap-1 fs-14 mb-2"><span
                 class="flex-shrink-0 d-block text-primary"><i class="bi bi-geo-alt-fill"></i> </span><span
                 class="d-block flex-grow-1">{{station.address}}</span></span>
-        <h6 class="card-title"><a href="#"
-                class="link d-inline-block text-dark hover:text-primary">{{station.stationname}}</a></h6>
+        <h3 class="card-title"><a class="link d-inline-block text-dark hover:text-primary">{{station.stationname}}</a>
+        </h3>
         <ul class="list list-row gap-1 align-items-center">
             <li *ngFor="let item of [].constructor(station.averageRating);"><span class="text-warning fs-14 d-block"><i
                         class="bi bi-star-fill"></i></span></li>

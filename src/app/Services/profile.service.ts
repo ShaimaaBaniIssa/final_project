@@ -11,9 +11,9 @@ export class ProfileService {
   constructor(private http: HttpClient, private toastr: ToastrService) { }
   userData: any = []
   users: any = []
-  getUser(userId: any) {
+  getUser() {
 
-    this.http.get('https://localhost:7019/api/Customer/GetCustomerById/' + userId).subscribe((result) => {
+    this.http.get('https://localhost:7019/api/Customer/GetCustomerById').subscribe((result) => {
       this.userData = result
       console.log(result);
     }, error => {

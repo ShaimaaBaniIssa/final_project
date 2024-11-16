@@ -4,7 +4,13 @@
 
     <map-marker *ngFor="let station of managestation.stations | station:stationName.value" [options]="{draggable: true}"
       (mapDragend)="onMarkerDragEnd(station, $event)" [position]="{lat:station.latitude,lng:station.longitude}"
-      (mapClick)="onStationClick(station)">
+      (mapClick)="onStationClick(station)" [label]="{ 
+        text: station.stationname, 
+        color: 'blue', 
+        fontFamily: 'Arial', 
+        fontSize: '10px', 
+        fontWeight: 'bold' 
+    }">
     </map-marker>
     <!-- <map-marker
       [position]="markerPosition"

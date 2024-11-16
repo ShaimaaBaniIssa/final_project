@@ -11,14 +11,14 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" *ngIf="testimonials.length>0">
         <div class="row justify-content-center">
             <div class="col-xl-10">
                 <div class="feedback-slider-1-container position-relative">
                     <div class="swiper feedback-slider-1">
                         <div class="swiper-wrapper">
                             <!-- Loop through testimonials -->
-                            <div *ngFor="let testimonial of testimonialService.testimonials" class="swiper-slide">
+                            <div *ngFor="let testimonial of testimonials" class="swiper-slide">
                                 <div
                                     class="feedback-1 text-center border border-success rounded px-4 py-6 px-sm-15 py-sm-15 px-md-20">
                                     <div

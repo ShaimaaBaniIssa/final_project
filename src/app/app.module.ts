@@ -27,10 +27,6 @@ import { UserReservationsComponent } from './UserReservations/user-reservations/
 import { TicketsComponent } from './UserReservations/tickets/tickets.component';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +54,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ToastNoAnimationModule.forRoot(),
     NoopAnimationsModule
 
-
   ],
-  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

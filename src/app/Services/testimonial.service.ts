@@ -10,18 +10,10 @@ export class TestimonialService {
 
   constructor(private toastr: ToastrService, private httpClient: HttpClient, private router: Router) { }
 
-  testimonials: any = [];
   getTestimonials() {
 
-    this.httpClient.get('https://localhost:7019/api/Testimonial/GetApprovedTestimonials')
-      .subscribe(
-        result => {
-          this.testimonials = result;
-        },
-        error => {
-          this.toastr.error("error");
-        }
-      );
+    return this.httpClient.get('https://localhost:7019/api/Testimonial/GetApprovedTestimonials');
+
   }
   addTestimonial(body: any) {
     this.httpClient.post('https://localhost:7019/api/Testimonial/CreateTestimonial', body).subscribe((result) => {

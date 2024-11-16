@@ -11,7 +11,7 @@
                                 <h1>{{homeService.homepage.websitetitle}}</h1>
                                 <p class="mb-12 max-text-14 mx-auto">{{homeService.homepage.toptext}}</p>
                                 <div class="d-flex align-items-center justify-content-center flex-wrap gap-4"><a
-                                       routerLink="/contactus" class="btn btn-dark">Contact Us </a></div>
+                                        routerLink="/contactus" class="btn btn-dark">Contact Us </a></div>
                             </div>
                         </div>
                     </div>
@@ -143,11 +143,8 @@
                 </div>
             </div>
         </div>
-    </div><!-- /Popular Destination  -->
+    </div>
 
-
-
-    <!-- About -->
     <div class="section-space-md-top section-space-bottom">
         <div class="container">
             <div class="row g-4 justify-content-xxl-between">
@@ -173,19 +170,17 @@
                                 <div class="flex-grow-1 fs-18 fw-medium">{{homeService.homepage.pointabouttext2}}</div>
                             </li>
                         </ul>
-                    </div><a href="about.html" class="btn btn-primary text-light">Discover More</a>
+                    </div><a routerLink="/about" class="btn btn-primary text-light">Discover More</a>
                 </div>
                 <div class="col-lg-6 col-xxl-5">
                     <div class="position-relative z-1"><img
                             [src]="'../../../../../../assets/Images/' + homeService.homepage.formimage" alt="image"
                             class="img-fluid">
-                        <!-- <img src="../../assets/Home/img/about-img-2.png" alt="image"
-                            class="img-fluid d-none d-xxl-block position-absolute bottom-30 left-0 translate-middle-x"> -->
                     </div>
                 </div>
             </div>
         </div>
-    </div><!-- /About -->
+    </div>
 
 
     <!-- Feedback -->
