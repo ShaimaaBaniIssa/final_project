@@ -14,10 +14,10 @@ export class AboutuspageComponent {
   @ViewChild('callUpdateDialog') updateDailog !: TemplateRef<any>;
   constructor(public About:AboutService,public dialog: MatDialog,public spinner :NgxSpinnerService ){}
   ngOnInit(): void {
-    this.About.getaboutPage;
+    this.About.getaboutPage();
   }
   updateAboutP: FormGroup = new FormGroup({
-    about_Id: new FormControl(0),
+    about_Id: new FormControl(),
     about_Image: new FormControl(''),
     about_Title: new FormControl(''),
     about_Text: new FormControl(''),
@@ -32,14 +32,17 @@ export class AboutuspageComponent {
   pData: any = {}
   openUpdateDailog(obj: any) {
     this.pData = obj
+    console.log(this.pData)
+    console.log(obj)
     this.updateAboutP.patchValue(this.pData);
 
-    this.updateAboutP.controls['id'].setValue(this.pData.id)
+    this.updateAboutP.controls['about_Id'].setValue(this.pData.about_Id)
 
     this.dialog.open(this.updateDailog, {
       width: '600px'
     })
   }
+  
   uploadImage(file: FileList, imageName: string) {
     if (!file || file.length === 0) return;
 

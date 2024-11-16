@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AboutService {
-  uploadAtachment(formData: FormData) {
-    throw new Error('Method not implemented.');
-  }
+  uploadAtachment(formData: FormData): Observable<any> { 
+    
+    return this.http.post("https://localhost:7019/api/HomePage/UploadImage",formData)
+}
   httpClient: any;
 
   constructor(private http:HttpClient,private toastr: ToastrService) { }

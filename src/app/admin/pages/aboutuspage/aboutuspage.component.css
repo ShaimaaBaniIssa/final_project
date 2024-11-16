@@ -1,0 +1,9 @@
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.carousel-img {
+    height: 400px; 
+    object-fit: cover; 
+    width: 100%; 
+  }

@@ -22,6 +22,8 @@ import { UserComponent } from './user/user.component';
 import { ApprovedTestimonialComponent } from './Testimonial/approved-testimonial/approved-testimonial.component';
 import { UnapprovedTestimonialComponent } from './Testimonial/unapproved-testimonial/unapproved-testimonial.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
+import { AboutComponent } from '../about/about.component';
+import { AboutuspageComponent } from './pages/aboutuspage/aboutuspage.component';
 
 const routes: Routes = [
   {
@@ -112,6 +114,10 @@ const routes: Routes = [
   {
     path: 'feedback',
     component: FeedbackComponent
+  },
+  {
+    path: 'aboutpage',
+    component: AboutuspageComponent
   }
 ];
 

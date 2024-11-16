@@ -35,65 +35,66 @@
       </div>
 
       <div class="container">
-        <div class="section-space-y">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-6">
-                        <img [src]='About.Aboutuspage.about_Image' alt="image" class="img-fluid">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="ps-xl-12">
-                            <span class="d-block fs-14 text-primary mb-2">ABOUT US</span>
-                            <h2>{{About.Aboutuspage.about_Title}}</h2>
-                            <p class="mb-8">{{About.Aboutuspage.about_Text}}</p>
-                            <ul class="list gap-8">
-                                <li>
-                                    <div class="d-flex align-items-start gap-4">
-                                        <div class="flex-shrink-0">
-                                            <img [src]='About.Aboutuspage.img_1' alt="image" class="img-fluid">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_1}}</h6>
-                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
-                                                to live in the moment and enjoy your vacation.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-start gap-4">
-                                        <div class="flex-shrink-0">
-                                            <img [src]='About.Aboutuspage.img_2' alt="image" class="img-fluid">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_2}}</h6>
-                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
-                                                to live in the moment and enjoy your vacation.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="d-flex align-items-start gap-4">
-                                        <div class="flex-shrink-0">
-                                            <img [src]='About.Aboutuspage.img_3' alt="image" class="img-fluid">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mb-2 fs-18">{{About.Aboutuspage.point_Img_3}}</h6>
-                                            <p class="mb-0">Each trip is carefully crafted to leave you free to leave you free
-                                                to live in the moment and enjoy your vacation.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="pricing.html" class="link btn btn-success text-light mt-8">Book Now</a>
-                        </div>
-                    </div>
+        <div class="row align-items-center mt-5">
+          <!-- Left Column: Carousel -->
+          <div class="col-lg-6 col-md-12">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_1" alt="image" class="img-fluid carousel-img">
                 </div>
+                <div class="carousel-item">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_2" alt="image" class="img-fluid carousel-img">
+                </div>
+                <div class="carousel-item">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_3" alt="image" class="img-fluid carousel-img">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
             </div>
+          </div>
+      
+          <!-- Right Column: About Us Content -->
+          <div class="col-lg-6 col-md-12">
+            <div class="content">
+              <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start">
+                <span class="contact-subtitle fs-6 fw-medium">
+                  <h2>ABOUT US</h2>
+                </span>
+                <button class="btn btn-primary mt-2 mt-sm-0 me-2" (click)="openUpdateDailog(About.Aboutuspage)">Update</button>
+              </div>
+              <p>{{ About.Aboutuspage.about_Text }}</p>
+              <ul class="list-unstyled">
+                <li class="d-flex align-items-start gap-3 mb-3">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.point_Img_1" alt="Image 1" style="width: 50px; height: auto;">
+                  <div>
+                    <p>Each trip is carefully crafted to leave you free to live in the moment and enjoy your vacation.</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-start gap-3 mb-3">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.point_Img_2" alt="Image 2" style="width: 50px; height: auto;">
+                  <div>
+                    <p>Each trip is carefully crafted to leave you free to live in the moment and enjoy your vacation.</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-start gap-3">
+                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.point_Img_3" alt="Image 3" style="width: 50px; height: auto;">
+                  <div>
+                    <p>Each trip is carefully crafted to leave you free to live in the moment and enjoy your vacation.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-
-       
       </div>
+      
+      
       <ng-template #callUpdateDialog>
         <h5 mat-dialog-title class="dialog-title">Update About Section</h5>
         <mat-dialog-content class="dialog-content">
@@ -115,22 +116,25 @@
       
           
             <div class="mb-3">
-              <label class="form-label">Point Image 1</label>
+              <label class="form-label">Icon 1 </label>
               <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_1')" />
             </div>
+            <div class="mb-3">
+              <label class="form-label">Icon 2 </label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_2')" />
+            </div>
       
-            
+            <div class="mb-3">
+              <label class="form-label">Icon 3 </label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_3')" />
+            </div>
             <div class="mb-3">
               <label class="form-label">Image 1</label>
               <input type="file" class="form-control" (change)="onFileChange($event, 'img_1')" />
             </div>
       
           
-            <div class="mb-3">
-              <label class="form-label">Point Image 2</label>
-              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_2')" />
-            </div>
-      
+           
            
             <div class="mb-3">
               <label class="form-label">Image 2</label>
@@ -138,10 +142,7 @@
             </div>
       
            
-            <div class="mb-3">
-              <label class="form-label">Point Image 3</label>
-              <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_3')" />
-            </div>
+          
       
            
             <div class="mb-3">
