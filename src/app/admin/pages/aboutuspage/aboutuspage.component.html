@@ -38,25 +38,8 @@
         <div class="row align-items-center mt-5">
           <!-- Left Column: Carousel -->
           <div class="col-lg-6 col-md-12">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_1" alt="image" class="img-fluid carousel-img">
-                </div>
-                <div class="carousel-item">
-                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_2" alt="image" class="img-fluid carousel-img">
-                </div>
-                <div class="carousel-item">
-                  <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.img_3" alt="image" class="img-fluid carousel-img">
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-              </button>
-            </div>
+            <img [src]="'../../../../../../assets/Images/' + About.Aboutuspage.about_Image" alt="image" class="img-fluid carousel-img">
+
           </div>
       
           <!-- Right Column: About Us Content -->
@@ -129,26 +112,14 @@
               <input type="file" class="form-control" (change)="onFileChange($event, 'point_Img_3')" />
             </div>
             <div class="mb-3">
-              <label class="form-label">Image 1</label>
-              <input type="file" class="form-control" (change)="onFileChange($event, 'img_1')" />
+              <label class="form-label">about</label>
+              <input type="file" class="form-control" (change)="onFileChange($event, 'about_Image')" />
             </div>
       
           
            
            
-            <div class="mb-3">
-              <label class="form-label">Image 2</label>
-              <input type="file" class="form-control" (change)="onFileChange($event, 'img_2')" />
-            </div>
-      
            
-          
-      
-           
-            <div class="mb-3">
-              <label class="form-label">Image 3</label>
-              <input type="file" class="form-control" (change)="onFileChange($event, 'img_3')" />
-            </div>
       
           </form>
         </mat-dialog-content>
