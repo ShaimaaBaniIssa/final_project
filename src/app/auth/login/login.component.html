@@ -28,8 +28,7 @@
 
                         <div class="col-12">
                             <input type="text" class="form-control border-secondary bg-secondary"
-                                placeholder="user name" formControlName="username" list="savedUsers"
-                                (change)="onUsernameSelected($event)">
+                                placeholder="user name" formControlName="username" list="savedUsers">
 
                             <datalist id="savedUsers">
                                 <option *ngFor="let user of savedUsers" [value]="user"></option>
@@ -47,12 +46,7 @@
                                 loginForm.controls['password'].touched  " style="color:red; font-size: small;">
                                 password is <strong>Required</strong></span>
                         </div>
-                        <div class="col-12">
-                            <input id="remember" type="checkbox" name="remember-me" formControlName="rememberMe">
-                            <label for="remember">
-                                Remember me
-                            </label>
-                        </div>
+
                         <div class="col-12"><button type="submit"
                                 class="btn btn-primary text-light justify-content-center w-100">
                                 Login </button></div>

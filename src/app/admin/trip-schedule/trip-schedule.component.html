@@ -58,8 +58,10 @@
                   <td class="text-center">{{ obj.tDate | date:'shortDate'}}</td>
                   <td class="text-center">
                     <button class="btn btn-sm btn-primary me-2" (click)="openUpdateDailog(obj)">Update</button>
-                    <button class="btn btn-sm btn-danger"
-                      (click)="deleteTripSchedule(obj.tripscheduleid)">Delete</button>
+                    <button class="btn btn-sm btn-danger me-2"
+                      (click)="deleteTripSchedule(obj.tripScheduleId)">Delete</button>
+                    <button class="btn btn-sm btn-warning" (click)="endTripSchedule(obj.tripScheduleId)">End the
+                      trip</button>
                   </td>
                 </tr>
               </tbody>
@@ -77,12 +79,12 @@
         <form [formGroup]="updateSchedule">
           <div class="mb-3">
             <label for="firstName" class="form-label">Departure Time</label>
-            <input type="time" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departuretime"
+            <input type="time" class="form-control" formControlName="departureTime" [(ngModel)]="pData.departureTime"
               name="departuretime" required>
           </div>
           <div class="mb-3">
             <label for="lastName" class="form-label">Arrival Time</label>
-            <input type="time" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivaltime"
+            <input type="time" class="form-control" formControlName="arrivalTime" [(ngModel)]="pData.arrivalTime"
               name="arrivaltime" required>
           </div>
           <div class="col-12 col-md-6 form-group">
@@ -98,7 +100,7 @@
 
           <div class="form-group">
             <label for="date">Date</label>
-            <input type="date" class="form-control" id="tdate" formControlName="tdate" [(ngModel)]="pData.tdate"
+            <input type="date" class="form-control" id="tdate" formControlName="tdate" [(ngModel)]="pData.tDate"
               (change)="selectDate()">
           </div>
         </form>

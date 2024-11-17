@@ -75,7 +75,7 @@ export class ManageSchdualService {
 
       }
       else
-        this.toastr.error("error");
+        this.toastr.error(error.error);
     })
 
   }
@@ -91,7 +91,21 @@ export class ManageSchdualService {
 
       }
       else
-        this.toastr.error("error");
+        this.toastr.error("error updating");
     });
+  }
+  endTripSchedule(id: number) {
+    this.httpClient.delete("https://localhost:7019/api/Seat/RemoveReservedSeat/" + id).subscribe(resp => {
+      this.toastr.success("Remove Reserved Seat")
+      window.location.reload();
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.toastr.error("Not Authorize");
+
+      }
+      else
+        this.toastr.error(error.error);
+    })
+
   }
 }

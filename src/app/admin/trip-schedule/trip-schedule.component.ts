@@ -45,8 +45,9 @@ export class TripScheduleComponent implements OnInit {
   pData: any = {}
   openUpdateDailog(obj: any) {
     this.pData = obj
-    this.pData.tdate = new Date(obj.tdate).toISOString().split('T')[0];
-    this.updateSchedule.controls['tripscheduleid'].setValue(this.pData.tripscheduleid)
+    console.log(this.pData);
+    this.pData.tDate = new Date(obj.tDate).toISOString().split('T')[0];
+    this.updateSchedule.controls['tripscheduleid'].setValue(this.pData.tripScheduleId)
     this.updateSchedule.controls['tripId'].setValue(this.pData.tripId)
     this.dialog.open(this.updateDailog, {
       width: '600px'
@@ -76,5 +77,8 @@ export class TripScheduleComponent implements OnInit {
     );
     this.updateSchedule.get('hour')?.enable();
 
+  }
+  endTripSchedule(tripScheduleId: number) {
+    this.tripSc.endTripSchedule(tripScheduleId);
   }
 }

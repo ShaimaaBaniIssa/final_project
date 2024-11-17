@@ -33,8 +33,7 @@ export class ReservationService {
   getInvoices() {
     let user: any = localStorage.getItem('user');
     user = JSON.parse(user);
-    const customerId = user.customerid;
-    return this.httpClient.get('https://localhost:7019/api/Reservation/GetInvoices/' + this.reservationId + '/' + customerId, { responseType: 'blob' })
+    return this.httpClient.get('https://localhost:7019/api/Reservation/GetInvoices/' + this.reservationId, { responseType: 'blob' })
       .subscribe((response: Blob) => {
         // Create a download link for the user
         saveAs(response, 'Invoices.zip');

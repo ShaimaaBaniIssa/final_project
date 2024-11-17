@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from './local-storage.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,8 +12,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient,
     private router: Router,
-    private toastr: ToastrService,
-    private localStorageService: LocalStorageService
+    private toastr: ToastrService
   ) { }
 
   login(body: any) {
@@ -65,16 +63,10 @@ export class AuthService {
 
     this.httpClient.post('https://localhost:7019/api/Login/Registration', body)
       .subscribe((resp) => {
-        if (body.rememberMe) {
-
-          // if the login is successfull
-          // save username and password
-          this.localStorageService.saveCredentials(body.username, body.password);
-        }
         this.router.navigate(['auth/login']);
-      },  (error: HttpErrorResponse) => {
-        
-          this.toastr.error(error.error)
+      }, (error: HttpErrorResponse) => {
+
+        this.toastr.error(error.error)
       });
 
 
@@ -89,7 +81,7 @@ export class AuthService {
       .subscribe(
         (result: any) => {
           this.totalUsers = result;
-         
+
         },
         error => {
           this.toastr.error("error");

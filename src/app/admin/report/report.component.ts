@@ -49,24 +49,24 @@ export class ReportComponent implements OnInit {
     if (this.mAReport.valid && this.mAReport.value.year !== null) {
       // Set month to null if you want the entire year
       const month = this.mAReport.value.month ? this.mAReport.value.month : null;
-  
+
       this.reportService.MonthlyAnnualReports(month, this.mAReport.value.year).subscribe(result => {
         this.reservations = result;
         this.chartLabels.length = 0;
         this.number.length = 0;
-  
+
         // Safely convert month to string or use a default label
         const monthLabel = month !== null ? month.toString() : 'Whole Year';
         this.chartLabels.push(monthLabel);
         this.number.push(result.length);
-  
+
         this.updateChartData();
       });
     } else {
       console.error('Form is invalid or missing required values');
     }
   }
-  
+
 
 
   updateChartData() {
@@ -117,10 +117,10 @@ export class ReportComponent implements OnInit {
   };
   downloadPDF() {
     const doc = new jsPDF();
-  
+
     // Title for the PDF
     doc.text('Reservation Management Report', 10, 10);
-  
+
     // Extract table data
     const tableData = this.reservations.map((reservation: { fname: any; email: any; stationname: any; destaddress: any; totalprice: any; reservationdate: string | number | Date; rDate: string | number | Date; departuretime: any; arrivaltime: any; }) => [
       reservation.fname,
@@ -133,13 +133,13 @@ export class ReportComponent implements OnInit {
       reservation.departuretime,
       reservation.arrivaltime
     ]);
-  
+
     const columns = [
       'User Name', 'User Email', 'Station Name', 'Destination Address',
       'Total Price (JOD)', 'Reservation Date', 'Trip Date',
       'Departure Time', 'Arrival Time'
     ];
-  
+
     // Add table to the PDF
     (doc as any).autoTable({
       head: [columns],
@@ -147,7 +147,7 @@ export class ReportComponent implements OnInit {
       startY: 20,
       theme: 'striped'
     });
-  
+
     // Add chart to the PDF
     const chartCanvas = document.querySelector('canvas') as HTMLCanvasElement;
     if (chartCanvas) {
@@ -156,10 +156,13 @@ export class ReportComponent implements OnInit {
       doc.text('Monthly Reservations Chart', 10, 10);
       doc.addImage(chartImage, 'PNG', 10, 20, 180, 100);
     }
-  
+
     // Save PDF
     doc.save('reservation-report.pdf');
   }
-  
+  downloadInvoices(reservationId: number) {
+    this.reportService.getInvoices(reservationId);
+  }
+
 }
 

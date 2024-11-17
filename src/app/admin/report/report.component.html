@@ -78,10 +78,12 @@
                     <th scope="col" class="text-center text-primary">Station Name</th>
                     <th scope="col" class="text-center text-primary">Destenation Address</th>
                     <th scope="col" class="text-center text-primary">Total Price</th>
-                    <th scope="col" class="text-center text-primary">Reservation Date</th>
                     <th scope="col" class="text-center text-primary">Trip Date</th>
+                    <th scope="col" class="text-center text-primary">Reservation Date</th>
+
                     <th scope="col" class="text-center text-primary">Departure Time</th>
                     <th scope="col" class="text-center text-primary">Arrival time</th>
+                    <th></th>
 
                   </tr>
                 </thead>
@@ -97,6 +99,10 @@
                     <td class="text-center">{{ obj.rDate | date:'shortDate'}}</td>
                     <td class="text-center">{{ obj.departuretime }}</td>
                     <td class="text-center">{{ obj.arrivaltime }}</td>
+                    <td>
+
+                      <button class="btn btn-secondary" (click)="downloadInvoices(obj.reservationid)"> Tickets</button>
+                    </td>
 
                   </tr>
                 </tbody>
