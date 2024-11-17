@@ -6,17 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AboutService {
 
-  constructor(private http:HttpClient) { }
-  Aboutuspage:any=[]
+  constructor(private http: HttpClient) { }
+  Aboutuspage: any = []
   message: string = '';
   isSuccess: boolean = false;
-  GetAllAboutPages(){
-    this.http.get('https://localhost:7019/api/Aboutuspage').subscribe(result=>{
-      this.Aboutuspage=result
-      console.log('get About page susseccfuly');
-    },err=>{
+  GetAllAboutPages() {
+    this.http.get('https://localhost:7019/api/Aboutuspage').subscribe(result => {
+      this.Aboutuspage = result
+    }, err => {
       console.log(err.message);
     }
-  )
+    )
   }
 }
