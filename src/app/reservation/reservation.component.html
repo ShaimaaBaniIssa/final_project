@@ -51,7 +51,8 @@
                                         (change)="onHourChange($event)">
                                         <option *ngFor="let item of tripSchedulesForThisDate "
                                             [value]="item.departuretime">
-                                            {{item.departuretime}}
+                                            {{item.departuretime}} -
+                                            {{item.arrivaltime}}
                                         </option>
 
                                     </select>
