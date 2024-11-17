@@ -82,26 +82,22 @@
     </div>
     <div class="container my-4">
         <div class="row g-4">
-            <div *ngFor="let trip of tripService.trips" class="col-md-6 col-xl-4">
-                <div
-                    class="d-flex flex-wrap flex-md-nowrap align-items-center gap-4 p-4 rounded-3 bg-white custom-card">
-                    <a href="destination-details.html" class="d-inline-block flex-shrink-0 link">
-                        <img src="../../assets/Home/img/train_logo.png" width="200" height="200" alt="image"
-                            class="img-fluid rounded-3">
-                    </a>
-                    <div class="flex-grow-1">
-                        <h6 class="fs-5 traddes">{{ trip.destaddress }}</h6>
-                        <ul class="list list-row gap-1 align-items-center mb-1">
-                            <li><span class="text-dark fs-6">Days: </span></li>
-                            <li><span class="text-dark fs-6">{{ showDays(trip) }}</span></li>
-                        </ul>
-                        <span class="mb-4  fw-normal pr">{{ trip.price }} <span class="fs-7  pr">JOD</span></span>
-                        <a (click)="bookTrip(trip)" class="link btn btn-lg btn-success text-light ">Book Now</a>
-                    </div>
-                </div>
+          <div *ngFor="let trip of tripService.trips" class="col-md-6 col-xl-4">
+            <div class="d-flex flex-column align-items-center gap-3 p-4 rounded-3 bg-white shadow custom-card">
+              <a href="destination-details.html" class="d-inline-block">
+                <img src="../../assets/Home/img/train_logo.png" width="150" height="150" alt="Train logo" class="img-fluid rounded-3">
+              </a>
+              <div class="text-center">
+                <h6 class="fs-5 fw-bold mb-2 text-dark">{{ trip.destaddress }}</h6>
+                <p class="text-muted mb-1">Days: <span class="text-dark">{{ showDays(trip) }}</span></p>
+                <p class="fw-bold pr mb-3">{{ trip.price }} JOD</p>
+                <button (click)="bookTrip(trip)" class="btn btn-success text-light px-4">Book Now</button>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
 
 </div>
 <div class="mb-3">
