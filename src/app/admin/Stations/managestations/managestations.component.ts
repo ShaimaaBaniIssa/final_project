@@ -19,10 +19,12 @@ export class ManagestationsComponent implements OnInit {
   }
   pData: any = {};
   Data: any = {};
-
+  userData = JSON.parse(localStorage.getItem('user') ?? '{}');
+  userId: string = this.userData.roleid ;
 
   ngOnInit(): void {
     this.managestation.getAllStation();
+    console.log(this.userId)
   }
   stationName: FormControl = new FormControl('');
   center: google.maps.LatLngLiteral = { lat: 32.556212, lng: 35.847239 };
